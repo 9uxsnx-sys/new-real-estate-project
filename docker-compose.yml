@@ -1,0 +1,84 @@
+# VistaHaven Docker Setup
+# PostgreSQL + Payload CMS Backend + Admin UI + Frontend
+
+services:
+  
+  # ============================================
+  # PostgreSQL Database
+  # ============================================
+  postgres:
+    image: postgres:16-alpine
+    container_name: vistahaven-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: payload_user
+      POSTGRES_PASSWORD: payload_pass123
+      POSTGRES_DB: payload_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U payload_user -d payload_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ============================================
+  # Payload CMS Backend
+  # ============================================
+  payload:
+    build:
+      context: ./real-estate-backend
+      dockerfile: Dockerfile
+    container_name: vistahaven-payload
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://payload_user:payload_pass123@postgres:5432/payload_db
+      PAYLOAD_SECRET: vistahaven-secret-key-32-chars-minimum-for-security
+      SERVER_URL: http://localhost:3010
+      NEXT_PUBLIC_API_URL: http://localhost:3010
+      FRONTEND_URL: http://localhost:5173
+      ADMIN_UI_URL: http://localhost:3001
+      NODE_ENV: development
+    ports:
+      - "3010:3000"
+    volumes:
+      - ./real-estate-backend/media:/app/media
+      - ./real-estate-backend/public:/app/public
+    healthcheck:
+      test: ["CMD-SHELL", "wget -O- --timeout=5 -q http://localhost:3000/api/projects || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 90s
+
+  # ============================================
+  # Frontend (Vite React)
+  # ============================================
+  frontend:
+    build:
+      context: ./real estate frontend
+      dockerfile: Dockerfile
+    container_name: vistahaven-frontend
+    restart: unless-stopped
+    depends_on:
+      - payload
+    environment:
+      VITE_API_URL: http://localhost:3010
+      NODE_ENV: development
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./real estate frontend/src:/app/src
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  default:
+    name: vistahaven-network
