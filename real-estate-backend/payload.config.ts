@@ -7,6 +7,10 @@ import { Media } from './src/collections/Media.ts'
 import { Projects } from './src/collections/Projects.ts'
 import { Properties } from './src/collections/Properties.ts'
 import { Users } from './src/collections/Users.ts'
+<<<<<<< HEAD
+=======
+import { Contact } from './src/collections/Contact.ts'
+>>>>>>> 6bfa6aa (feat: VistaHaven real estate platform updates)
 import { Features } from './src/collections/Features.ts'
 
 export default buildConfig({
@@ -27,6 +31,10 @@ export default buildConfig({
     Features,
     Projects,
     Properties,
+<<<<<<< HEAD
+=======
+    Contact,
+>>>>>>> 6bfa6aa (feat: VistaHaven real estate platform updates)
   ],
 
   upload: {

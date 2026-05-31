@@ -32,7 +32,13 @@ export const PropertyFeatures: React.FC<PropertyFeaturesProps> = ({ features }) 
               className="text-[14px] md:text-[16px] text-[rgb(44,44,44)] font-light"
               style={{ fontFamily: 'Geist, sans-serif' }}
             >
+<<<<<<< HEAD
               {feature.name}
+=======
+              {typeof feature === 'string' 
+                ? feature 
+                : (feature?.name ?? feature?.id ?? 'Feature')}
+>>>>>>> 6bfa6aa (feat: VistaHaven real estate platform updates)
             </span>
           </div>
         ))}

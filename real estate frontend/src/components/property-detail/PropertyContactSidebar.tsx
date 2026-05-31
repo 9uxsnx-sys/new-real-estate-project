@@ -2,21 +2,40 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { MessageCircle, Phone } from 'lucide-react';
 import { Property } from '../../types';
+<<<<<<< HEAD
+=======
+import { useContact } from '../../hooks';
+>>>>>>> 6bfa6aa (feat: VistaHaven real estate platform updates)
 
 interface PropertyContactSidebarProps {
   property: Property;
   propertyCode?: string;
+<<<<<<< HEAD
   whatsappNumber?: string;
+=======
+>>>>>>> 6bfa6aa (feat: VistaHaven real estate platform updates)
 }
 
 export const PropertyContactSidebar: React.FC<PropertyContactSidebarProps> = ({ 
   property, 
+<<<<<<< HEAD
   propertyCode,
   whatsappNumber = "1234567890"
 }) => {
   const { t } = useTranslation();
   const phoneNumber = "+971 4 123 4567";
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=I'm interested in property ${propertyCode || property.id}`;
+=======
+  propertyCode
+}) => {
+  const { t } = useTranslation();
+  const { contact, loading } = useContact();
+  
+  const phoneNumber = contact?.phone || '+971 4 123 4567';
+  const whatsappURL = contact?.whatsappURL || 'https://wa.me/971501234567';
+  
+  const whatsappLink = `${whatsappURL}?text=I'm interested in property ${propertyCode || property.id}`;
+>>>>>>> 6bfa6aa (feat: VistaHaven real estate platform updates)
   const telLink = `tel:${phoneNumber.replace(/\s/g, '')}`;
 
   return (
@@ -85,9 +104,17 @@ export const PropertyContactSidebar: React.FC<PropertyContactSidebarProps> = ({
           style={{ fontFamily: 'Geist, sans-serif' }}
         >
           <Phone size={18} strokeWidth={1.5} />
+<<<<<<< HEAD
           {phoneNumber}
+=======
+          {loading ? '...' : phoneNumber}
+>>>>>>> 6bfa6aa (feat: VistaHaven real estate platform updates)
         </a>
       </div>
     </div>
   );
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> 6bfa6aa (feat: VistaHaven real estate platform updates)

@@ -1,6 +1,9 @@
 # Dependencies
 node_modules/
+<<<<<<< HEAD
+=======
 .npm
+>>>>>>> 6bfa6aa (feat: VistaHaven real estate platform updates)
 
 # Build outputs
 .next/
@@ -20,6 +23,8 @@ build/
 # real-estate-backend/media/
 # real-estate-backend/public/media/
 
+<<<<<<< HEAD
+=======
 # IDE
 .vscode/
 .idea/
@@ -28,5 +33,30 @@ build/
 .DS_Store
 Thumbs.db
 
+>>>>>>> 6bfa6aa (feat: VistaHaven real estate platform updates)
 # Logs
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Cache
+.cache/
+*.tsbuildinfo
+
+# Payload DB
+*.db
+*.db-journal
+
+# Temporary files
+*.tmp
+*.temp

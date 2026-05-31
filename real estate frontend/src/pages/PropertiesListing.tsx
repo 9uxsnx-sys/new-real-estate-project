@@ -131,7 +131,11 @@ export const PropertiesListing: React.FC<PropertiesListingProps> = ({ onProperty
                 <PropertyCard
                   imageUrl={getImageUrl(property.image)}
                   price={formatPrice(property.price)}
+<<<<<<< HEAD
                   title={property.name}
+=======
+                  title={property.property_code}
+>>>>>>> 6bfa6aa (feat: VistaHaven real estate platform updates)
                   location={property.project ? `${property.project.name}, ${property.area}` : `${property.area}, ${property.city}`}
                   beds={property.beds}
                   baths={property.baths}
