@@ -1,11 +1,7 @@
 import type { Property } from '../types';
 
 export const formatPrice = (price: number): string => {
-  return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    maximumFractionDigits: 0,
-  }).format(price);
+  return price.toLocaleString('en-US') + ' DA';
 };
 
 export const getPropertyTypeLabel = (type: Property['property_type']): string => {
