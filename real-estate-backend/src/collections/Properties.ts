@@ -9,18 +9,11 @@ export const Properties: CollectionConfig = {
     delete: ({ req }) => Boolean(req.user),
   },
   admin: {
-    useAsTitle: 'name',
-    defaultColumns: ['name', 'project', 'price', 'property_type', 'status'],
+    useAsTitle: 'property_code',
+    defaultColumns: ['property_code', 'project', 'price', 'property_type', 'status'],
   },
   fields: [
     // Core fields
-    {
-      name: 'name',
-      type: 'text',
-      required: true,
-      localized: true,
-      label: 'Property Name',
-    },
     {
       name: 'property_code',
       type: 'text',
@@ -145,6 +138,7 @@ export const Properties: CollectionConfig = {
           name: 'name',
           type: 'text',
           required: true,
+          localized: true,
           label: 'Feature Name',
         },
       ],
