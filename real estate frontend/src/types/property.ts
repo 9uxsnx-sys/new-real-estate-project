@@ -6,10 +6,7 @@ import type { Media } from './common';
  */
 export interface Property {
   id: string;
-<<<<<<< HEAD
-  name: string;
-=======
->>>>>>> 6bfa6aa (feat: VistaHaven real estate platform updates)
+  name?: string;
   property_code: string;
   project: string | ProjectRelation; // Populated with depth=1
   area: string;

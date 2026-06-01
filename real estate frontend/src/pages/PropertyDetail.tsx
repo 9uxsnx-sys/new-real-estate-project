@@ -125,15 +125,11 @@ export const PropertyDetail: React.FC = () => {
   const galleryImages = property.image ? [getImageUrl(property.image, 'full')] : [];
 
   const features: PropertyFeatureType[] = property.features && property.features.length > 0
-<<<<<<< HEAD
-    ? property.features.map((f: any) => ({ id: f.id, name: f.name || f }))
-=======
     ? property.features.map((f: any, idx: number) => {
         const featureName = typeof f === 'object' && f.name ? f.name : 
                            (typeof f === 'string' ? f : `Feature ${idx + 1}`);
         return { id: f.id || String(idx), name: featureName };
       })
->>>>>>> 6bfa6aa (feat: VistaHaven real estate platform updates)
     : [
         { id: '1', name: `${property.beds} Bedrooms & ${property.baths} Bathrooms` },
         { id: '2', name: `${property.space_sqm} m² Living Space` },
@@ -164,11 +160,7 @@ export const PropertyDetail: React.FC = () => {
 
         <PropertyGallery
           images={galleryImages}
-<<<<<<< HEAD
           propertyName={property.name}
-=======
-          propertyName={property.property_code}
->>>>>>> 6bfa6aa (feat: VistaHaven real estate platform updates)
         />
 
         <div className="mt-6 mb-4">
@@ -185,11 +177,7 @@ export const PropertyDetail: React.FC = () => {
               className="text-[14px] md:text-[16px] text-[rgb(136,136,136)] font-light"
               style={{ fontFamily: 'Geist, sans-serif' }}
             >
-<<<<<<< HEAD
-              {property.project ? `${property.project.name}, ${property.area}` : `${property.area}, ${property.city}`}
-=======
-              {property.city && property.area ? `${property.city}, ${property.area}` : property.area || `${property.city}, hydra`}
->>>>>>> 6bfa6aa (feat: VistaHaven real estate platform updates)
+{property.project ? `${property.project.name}, ${property.area}` : `${property.area}, ${property.city}`}
             </span>
           </div>
         </div>
@@ -209,11 +197,7 @@ export const PropertyDetail: React.FC = () => {
                 className="text-[14px] md:text-[16px] text-[rgb(44,44,44)] font-light leading-relaxed"
                 style={{ fontFamily: 'Geist, sans-serif' }}
               >
-<<<<<<< HEAD
-                {property.description || `Introducing ${property.name}, a stunning ${property.beds}-bedroom residence featuring ${property.space_sqm} m² of modern living space. Located in the prestigious area of ${property.area}, this property offers exceptional value and comfort.`}
-=======
-                {property.description || `This stunning ${property.beds}-bedroom residence featuring ${property.space_sqm} m² of modern living space. Located in the prestigious area of ${property.area}, this property offers exceptional value and comfort.`}
->>>>>>> 6bfa6aa (feat: VistaHaven real estate platform updates)
+{property.description || `Introducing ${property.name || property.property_code}, a stunning ${property.beds}-bedroom residence featuring ${property.space_sqm} m² of modern living space. Located in the prestigious area of ${property.area}, this property offers exceptional value and comfort.`}
               </p>
             </div>
 

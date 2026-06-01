@@ -249,11 +249,7 @@ export const ProjectDetail: React.FC = () => {
                     <PropertyCard
                       imageUrl={getImageUrl(property.image)}
                       price={formatPrice(property.price)}
-<<<<<<< HEAD
-                      title={property.name}
-=======
-                      title={property.property_code}
->>>>>>> 6bfa6aa (feat: VistaHaven real estate platform updates)
+                      title={property.name || property.property_code}
                       location={`${property.area}, ${property.city}`}
                       beds={property.beds}
                       baths={property.baths}

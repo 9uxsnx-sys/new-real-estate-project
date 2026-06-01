@@ -24,13 +24,8 @@ COPY . .
 # Expose port
 EXPOSE 3000
 
-<<<<<<< HEAD
-# Start command
-CMD ["npm", "run", "dev"]
-=======
 # Environment variable to auto-accept schema changes
 ENV PAYLOAD_ACCEPT_DATA_LOSS=true
 
 # Start command - auto-accept schema migration prompts
 CMD ["sh", "-c", "yes | npm run dev"]
->>>>>>> 6bfa6aa (feat: VistaHaven real estate platform updates)
