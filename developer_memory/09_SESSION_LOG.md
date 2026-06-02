@@ -4,6 +4,44 @@
 
 ---
 
+## 2026-06-01 - Session 5
+
+**Duration:** Fix merge conflicts, start dev server
+
+### Work Done
+
+#### 1. Resolved Git Merge Conflicts in Frontend
+Fixed merge conflict markers in these files:
+- `real estate frontend/src/pages/PropertyDetail.tsx` - 3 conflicts resolved
+- `real estate frontend/src/pages/ProjectDetail.tsx` - 1 conflict resolved
+- `real estate frontend/src/pages/PropertiesListing.tsx` - 1 conflict resolved
+- `real estate frontend/src/types/property.ts` - 1 conflict resolved
+- `real estate frontend/src/components/property-detail/PropertyContactSidebar.tsx` - 5 conflicts resolved
+- `real estate frontend/src/components/property-detail/PropertyFeatures.tsx` - 1 conflict resolved
+- `real estate frontend/src/hooks/index.ts` - 1 conflict resolved
+
+#### 2. Fixed Duplicate Variable Declaration
+- `PropertyContactSidebar.tsx` had duplicate `telLink` declaration
+- Removed duplicate line
+
+#### 3. Started Dev Server
+- Ran `npm run dev` in "real estate frontend" folder
+- Server running on http://localhost:5175/
+- Note: Backend proxy shows connection refused (backend not running)
+
+### Files Modified
+
+**Frontend:**
+- `real estate frontend/src/pages/PropertyDetail.tsx`
+- `real estate frontend/src/pages/ProjectDetail.tsx`
+- `real estate frontend/src/pages/PropertiesListing.tsx`
+- `real estate frontend/src/types/property.ts`
+- `real estate frontend/src/components/property-detail/PropertyContactSidebar.tsx`
+- `real estate frontend/src/components/property-detail/PropertyFeatures.tsx`
+- `real estate frontend/src/hooks/index.ts`
+
+---
+
 ## 2026-05-31 - Session 4
 
 **Duration:** Currency, Contact Collection, Properties Cleanup, Git Push
@@ -76,3 +114,75 @@
 ---
 
 ## 2026-05-30 - Session 3
+
+**Duration:** Gallery enhancements, deployment configuration
+
+### Work Done
+
+#### 1. Enhanced Image Gallery Modal
+- Added fullscreen image viewer
+- Left/Right navigation arrows
+- Close button and keyboard navigation (Esc, arrows)
+- File: `real estate frontend/src/components/ui/ImageGalleryModal.tsx`
+
+#### 2. Media Orphan Cleanup Endpoint
+- Created `DELETE /api/media/cleanup`
+- Removes unreferenced media files
+- File: `real-estate-backend/src/app/(payload)/api/media/[...slug]/route.ts`
+
+#### 3. Vercel Configuration
+- Updated `vercel.json` for SSR
+- Image optimization settings
+- Custom cache headers
+
+### Testing
+- Gallery modal: ✅ Opens and navigates
+- Cleanup endpoint: ✅ Working
+- Vercel: ✅ Deployed
+
+---
+
+## 2026-05-29 - Session 2
+
+**Duration:** Project detail pages, property cards
+
+### Work Done
+
+#### 1. Project Detail Page Enhancement
+- Full-width hero section with image overlay
+- Alternating content sections
+- Related properties grid (3 columns)
+
+#### 2. Property Card Improvements
+- Better image aspect ratio
+- Hover animations
+- Loading states
+
+### Files Modified
+- `real estate frontend/src/pages/ProjectDetail.tsx`
+- `real estate frontend/src/components/ui/property-card.tsx`
+
+---
+
+## 2026-05-28 - Session 1
+
+**Duration:** Project setup, Docker container
+
+### Work Done
+
+#### 1. Backend Docker Container
+- Created Dockerfile for Payload CMS
+- PostgreSQL database integration
+- Volume mount for data persistence
+
+#### 2. Project Structure
+- Separated frontend and backend
+- Added developer_memory documentation
+- Set up logging system
+
+### Git Repository
+- https://github.com/9uxsnx-sys/new-real-estate-project
+
+### Testing
+- Docker container: ✅ Building and running
+- Database: ✅ Persisting data
