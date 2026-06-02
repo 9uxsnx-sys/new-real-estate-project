@@ -75,7 +75,7 @@ const LanguageDropdown: React.FC = () => {
               onClick={() => setIsOpen(false)}
             />
             <motion.div 
-              className="absolute top-full mt-[21px] py-[6px] bg-white border border-gray-200 rounded-xl shadow-lg z-[10000] min-w-max mb-[21px] pl-[4px] pr-[4px] -ml-[15px] -mr-[15px] scale-95 origin-top-left"
+              className="absolute top-full mt-[21px] py-[6px] bg-white border border-gray-200 rounded-xl shadow-lg z-[10000] min-w-max mb-[21px] pl-[4px] pr-[4px] -ml-[20px] -mr-[20px] scale-95 origin-top-left"
               initial={{ opacity: 0, y: -8, scale: 0.96 }}
               animate={{ opacity: 1, y: 0, scale: 0.95, transition: { duration: 0.2, ease: "easeOut" } }}
               exit={{ opacity: 0, y: -8, scale: 0.96, transition: { duration: 0.15 } }}
@@ -131,7 +131,7 @@ const ThemeDropdown: React.FC = () => {
               onClick={() => setIsOpen(false)}
             />
             <motion.div 
-              className="absolute top-full mt-[21px] py-[6px] bg-white border border-gray-200 rounded-xl shadow-lg z-[10000] min-w-max mb-[21px] pl-[4px] pr-[4px] -ml-[15px] -mr-[15px] scale-95 origin-top-left"
+              className="absolute top-full mt-[21px] py-[6px] bg-white border border-gray-200 rounded-xl shadow-lg z-[10000] min-w-max mb-[21px] pl-[4px] pr-[4px] -ml-[20px] -mr-[20px] scale-95 origin-top-left"
               initial={{ opacity: 0, y: -8, scale: 0.96 }}
               animate={{ opacity: 1, y: 0, scale: 0.95, transition: { duration: 0.2, ease: "easeOut" } }}
               exit={{ opacity: 0, y: -8, scale: 0.96, transition: { duration: 0.15 } }}
