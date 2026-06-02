@@ -1,5 +1,6 @@
 import React from 'react';
 import NavbarContainer from '@/components/ui/navbar-container';
+import ContactUsButton from '@/components/ui/contact-us-button';
 
 export const Test: React.FC = () => {
   return (
@@ -26,7 +27,10 @@ export const Test: React.FC = () => {
       {/* Button Development Section */}
       <div className="p-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Button Development</h2>
-        <p className="text-gray-600">Work in progress...</p>
+        <div className="flex flex-col items-center justify-center gap-4 py-8">
+          <ContactUsButton />
+          <ContactUsButton />
+        </div>
       </div>
     </div>
   );

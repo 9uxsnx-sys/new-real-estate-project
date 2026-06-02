@@ -4,6 +4,82 @@
 
 ---
 
+## 2026-06-02 - Session 6
+
+**Duration:** Navbar Development, Button Components, Git Branching
+
+### Work Done
+
+#### 1. Created Dev Branch
+- Created and switched to `dev` branch
+- Pushed latest updates to both `master` and `dev` branches
+- Repository: https://github.com/9uxsnx-sys/new-real-estate-project
+
+#### 2. Created Test Page
+- New file: `real estate frontend/src/pages/Test.tsx`
+- Route: `/en/test`
+- Used for developing new UI components
+
+#### 3. Created Navbar Container Component
+- **New file:** `real estate frontend/src/components/ui/navbar-container.tsx`
+- Menu items: Home, Projects, Properties, Language, Theme
+- Language dropdown: EN, FR, AR (with language switching functionality)
+- Theme dropdown: Light, Dark (with icons - Sun/Moon from lucide-react)
+- Dropdown styling: rounded-xl, scale-95, smooth animations
+- All dropdowns aligned exactly under their trigger buttons
+
+#### 4. Created Menubar Base Component
+- **New file:** `real estate frontend/src/components/ui/menubar.tsx`
+- Using Radix UI menubar primitives
+- Styled with Tailwind CSS
+- Base component for navbar structure
+
+#### 5. Created Button Component
+- **New file:** `real estate frontend/src/components/ui/button.tsx`
+- Shadcn-style button component
+- Using Radix UI Slot and class-variance-authority
+- Variants: default, destructive, outline, secondary, ghost, link
+- Sizes: default, sm, lg, icon
+
+#### 6. Created Contact Us Button
+- **New file:** `real estate frontend/src/components/ui/contact-us-button.tsx`
+- Phone icon from react-icons (Material Design - filled, not outline)
+- Black background with white text
+- Icon on left side
+- Text: "Contact Us"
+- **Dependencies:** @radix-ui/react-slot, class-variance-authority, react-icons, lucide-react
+
+### Files Created/Modified
+
+**New Components:**
+- `real estate frontend/src/components/ui/menubar.tsx`
+- `real estate frontend/src/components/ui/navbar-container.tsx`
+- `real estate frontend/src/components/ui/button.tsx`
+- `real estate frontend/src/components/ui/contact-us-button.tsx`
+- `real estate frontend/src/components/layout/LanguageSwitcherV2.tsx`
+
+**Updated:**
+- `real estate frontend/src/pages/Test.tsx`
+- `real estate frontend/src/App.tsx`
+
+**Deleted:**
+- `real estate frontend/src/components/ui/button-with-icon.tsx` (renamed to contact-us-button.tsx)
+
+### Git Status
+- **Branch:** dev
+- **Status:** All changes committed and pushed to `dev` branch
+- **Repository:** https://github.com/9uxsnx-sys/new-real-estate-project
+
+### Testing
+- Dev server: http://localhost:5174/en/test
+- Navbar container: ✅ Working
+- Language dropdown: ✅ Working
+- Theme dropdown: ✅ Working with Sun/Moon icons
+- Contact Us button: ✅ Displaying with phone icon
+- Button styling: ✅ Black background, white circle, phone icon
+
+---
+
 ## 2026-06-01 - Session 5
 
 **Duration:** Fix merge conflicts, start dev server
