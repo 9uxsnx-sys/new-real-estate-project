@@ -1,17 +1,21 @@
-import { Button } from "@/components/ui/button"; 
-import { MdPhone } from "react-icons/md"; 
- 
-const ContactUsButton = () => { 
-  return ( 
-    <Button className="relative text-sm font-medium rounded-full h-12 p-1 ps-14 pe-6 group transition-all w-fit overflow-hidden cursor-pointer bg-black text-white"> 
-      <span className="relative z-10 transition-all duration-500 pr-0"> 
-        Contact Us 
-      </span> 
-      <div className="absolute left-1 w-10 h-10 bg-white rounded-full flex items-center justify-center transition-all duration-500"> 
-        <MdPhone size={18} className="text-black" /> 
-      </div> 
-    </Button> 
-  ); 
-}; 
- 
+import React from 'react';
+import { Button } from '@/components/ui/button';
+import { Phone } from 'lucide-react';
+import { cn } from '@/lib/utils';
+
+const ContactUsButton = () => {
+  return (
+    <Button
+      className={cn(
+        "bg-black text-white rounded-full pl-[clamp(12px,1.5vw,18px)] pr-[clamp(18px,2vw,28px)] py-[clamp(8px,1vw,12px)] h-[clamp(32px,4vh,40px)]",
+        "hover:bg-black/90 transition-colors",
+        "flex items-center gap-[clamp(4px,0.5vw,8px)] font-medium text-[clamp(11px,1vw,14px)]"
+      )}
+    >
+      <Phone className="w-[clamp(14px,1.5vw,18px)] h-[clamp(14px,1.5vw,18px)] fill-white text-white" strokeWidth={0} />
+      <span>Contact Us</span>
+    </Button>
+  );
+};
+
 export default ContactUsButton;

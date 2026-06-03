@@ -3,7 +3,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Moon } from 'lucide-react';
-import ButtonWithIcon from '@/components/ui/button-with-icon';
+import ContactUsButton from '@/components/ui/contact-us-button';
+
 
 const languages = [
   { code: 'en', label: 'EN', name: 'English' },
@@ -52,42 +53,47 @@ export const NavigationNew: React.FC = () => {
 
   return (
     <nav className="sticky top-0 z-[10000] bg-white/90 backdrop-blur border-b border-white">
-      <div className="max-w-[1360px] mx-auto px-4 md:px-8 lg:px-20">
-        <div className="flex items-center justify-between h-20">
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              {mobileMenuOpen ? (
-                <path d="M18 6L6 18M6 6l12 12" />
-              ) : (
-                <path d="M3 12h18M3 6h18M3 18h18" />
-              )}
-            </svg>
-          </button>
+      <div className="relative h-[clamp(60px,8vh,80px)] flex items-center">
+        
+        {/* Logo - Left side with responsive padding */}
+        <div className="absolute left-[clamp(16px,3.2vw,64px)] top-1/2 -translate-y-1/2">
+          <span className="text-[clamp(14px,1.5vw,20px)] font-bold">Logo</span>
+        </div>
 
-          {/* Desktop Navigation Links - Centered */}
-          <div className="hidden md:flex items-center justify-center gap-2 flex-1">
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="md:hidden p-2"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            {mobileMenuOpen ? (
+              <path d="M18 6L6 18M6 6l12 12" />
+            ) : (
+              <path d="M3 12h18M3 6h18M3 18h18" />
+            )}
+          </svg>
+        </button>
+
+        {/* Desktop Navigation Links - Centered */}
+        <div className="hidden md:flex items-center justify-center gap-2 flex-1">
+          <a
+            href={`/${currentLang}`}
+            onClick={(e) => {
+              e.preventDefault();
+              navigate(`/${currentLang}`);
+            }}
+            className="text-[clamp(12px,1vw,14px)] font-medium text-[rgb(44,44,44)] hover:text-black transition-colors px-4 py-2 rounded-full hover:bg-gray-100"
+            style={{ fontFamily: 'Geist, sans-serif' }}
+          >
+            Home
+          </a>
             <a
               href={`/${currentLang}`}
               onClick={(e) => {
                 e.preventDefault();
                 navigate(`/${currentLang}`);
               }}
-              className="text-[14px] font-medium text-[rgb(44,44,44)] hover:text-black transition-colors px-4 py-2 rounded-full hover:bg-gray-100"
-              style={{ fontFamily: 'Geist, sans-serif' }}
-            >
-              Home
-            </a>
-            <a
-              href={`/${currentLang}`}
-              onClick={(e) => {
-                e.preventDefault();
-                navigate(`/${currentLang}`);
-              }}
-              className="text-[14px] font-medium text-[rgb(44,44,44)] hover:text-black transition-colors px-4 py-2 rounded-full hover:bg-gray-100"
+              className="text-[clamp(12px,1vw,14px)] font-medium text-[rgb(44,44,44)] hover:text-black transition-colors px-4 py-2 rounded-full hover:bg-gray-100"
               style={{ fontFamily: 'Geist, sans-serif' }}
             >
               {t('nav.properties')}
@@ -98,7 +104,7 @@ export const NavigationNew: React.FC = () => {
                 e.preventDefault();
                 navigate(`/${currentLang}/projects`);
               }}
-              className="text-[14px] font-medium text-[rgb(44,44,44)] hover:text-black transition-colors px-4 py-2 rounded-full hover:bg-gray-100"
+              className="text-[clamp(12px,1vw,14px)] font-medium text-[rgb(44,44,44)] hover:text-black transition-colors px-4 py-2 rounded-full hover:bg-gray-100"
               style={{ fontFamily: 'Geist, sans-serif' }}
             >
               {t('nav.projects')}
@@ -208,9 +214,9 @@ export const NavigationNew: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Side - Button */}
-          <div className="hidden md:flex items-center scale-90">
-            <ButtonWithIcon />
+          {/* Contact Us Button - Right side with responsive padding */}
+          <div className="absolute right-[clamp(16px,3.2vw,64px)] top-1/2 -translate-y-1/2">
+            <ContactUsButton />
           </div>
 
           {/* Mobile Menu */}
@@ -261,7 +267,6 @@ export const NavigationNew: React.FC = () => {
               </motion.div>
             )}
           </AnimatePresence>
-        </div>
       </div>
     </nav>
   );
