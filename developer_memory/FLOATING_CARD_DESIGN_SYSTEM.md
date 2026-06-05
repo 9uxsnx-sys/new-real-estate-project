@@ -14,12 +14,84 @@ This design uses a "floating card" layout where the hero section appears as a ba
 - Components adapt automatically to any screen size (small, medium, or large)
 
 ### 2. Floating Card Hero Section
-- Hero image/container has **rounded corners** (using Tailwind's `rounded-3xl` or similar)
-- Has **equal padding** on all four sides (left, right, top, bottom)
-- The padding is the space between the card edges and the surrounding elements
-- Creates a "floating" effect - the card doesn't touch any screen edges
 
-### 3. Responsive Padding Formula
+- Hero image/container has **rounded corners** (using Tailwind's `rounded-3xl` or similar)
+- Has **equal padding** on left, right, and bottom sides
+- **Half-height card design** (50% of available viewport height on tablet/PC)
+- Creates a "floating" effect - the card doesn't touch any screen edges
+- **Empty space above the card** for hero title placement
+
+### 3. Half-Height Card Layout
+
+The floating card occupies only the **lower half** of the available space, leaving room for the hero title above it.
+
+```
+┌──────────────────────────────────────────────────────────────┐
+│  NAVBAR                                                     │
+│─────────────────────────────────────────────────────────────│
+│                                                              │
+│         HERO TITLE (positioned above card)                  │
+│                                                              │
+│  ┌──────────────────────────────────────────────────────┐   │
+│  │                                                      │   │
+│  │              HERO CARD (50% height)                   │   │
+│  │                                                      │   │
+│  └──────────────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────┘
+```
+
+**Design Benefits:**
+- Creates visual hierarchy with title above and image below
+- Allows for better content organization
+- Maintains the floating card aesthetic
+- Leaves breathing room for typography
+
+### 4. Hero Title Section
+
+The hero title consists of **two separate text containers** positioned in the empty space above the floating card.
+
+**Structure:**
+```jsx
+<div className="absolute top-[clamp(60px,8vh,80px)] [left or right]-[clamp(16px,3.2vw,64px)] py-8">
+  <div className="[text-left or text-right]">
+    <h1 className="text-[clamp(28px,4vw,56px)] font-bold">First Line (Short)</h1>
+    <h1 className="text-[clamp(22px,3vw,40px)] font-light">Second Line (Longer)</h1>
+  </div>
+</div>
+```
+
+**Title Typography:**
+| Line | Font Weight | Formula | Min | Max |
+|------|-------------|---------|-----|-----|
+| First (Top) | Bold | `clamp(28px,4vw,56px)` | 28px | 56px |
+| Second (Bottom) | Light | `clamp(22px,3vw,40px)` | 22px | 40px |
+
+**Positioning:**
+- Same horizontal padding as Logo/Contact Us button (3.2%)
+- Vertically positioned below navbar with `py-8`
+- LTR languages: text aligned left, positioned on left side
+- RTL languages (Arabic): text aligned right, positioned on right side
+
+### 5. RTL Support
+
+The design fully supports **Right-to-Left (RTL)** languages:
+
+| Language | Text Direction | Title Position | Text Alignment |
+|----------|----------------|----------------|----------------|
+| English | LTR | Left side | text-left |
+| French | LTR | Left side | text-left |
+| Arabic | RTL | Right side | text-right |
+
+**Implementation:**
+```jsx
+const isRTL = i18n.language === 'ar';
+
+<div className={isRTL ? 'text-left' : 'text-right'}>
+  {/* Title content */}
+</div>
+```
+
+### 6. Responsive Padding Formula
 The padding uses a responsive calculation that adapts to screen size:
 
 ```
@@ -134,21 +206,29 @@ clamp(16px, 4vw, 64px)
 - Center: Shortcuts block with `justify-center`
 - Right side: Contact Us with `right-[clamp(16px,3.2vw,64px)]`
 
-### 3. Hero Card Structure
+### 3. Hero Card Structure (Half-Height)
 ```jsx
-<div className="h-[calc(100vh-80px)] pl-[clamp(16px,2.54vw,64px)] pr-[clamp(16px,2.54vw,64px)]">
+<div className="h-[50vh] md:h-[50vh] w-full px-[clamp(16px,2.54vw,64px)] pb-[clamp(20px,3vw,50px)]">
   <div className="h-full rounded-3xl overflow-hidden">
     {/* Hero image/content */}
   </div>
 </div>
 ```
 
+**Key Points:**
+- Card height: `50vh` (half of viewport height) on tablet/PC
+- Mobile: Full square card (`h-[50vh]`)
+- Bottom padding: `clamp(20px,3vw,50px)` - slightly larger than sides for balance
+- Left/Right padding: `clamp(16px,2.54vw,64px)` - matches floating card design
+
 ### 4. Key CSS Classes
-- Responsive padding: `p-[clamp(16px,2.54vw,64px)]`
+- Hero Card Height: `h-[50vh]` (50% of viewport height)
 - Rounded corners: `rounded-3xl`
-- Full height: `h-[calc(100vh-clamp(60px,8vh,80px))]`
+- Left/Right padding: `px-[clamp(16px,2.54vw,64px)]`
+- Bottom padding: `pb-[clamp(20px,3vw,50px)]`
 - Left margin (logo): `left-[clamp(16px,3.2vw,64px)]`
 - Right margin (button): `right-[clamp(16px,3.2vw,64px)]`
+- Hero Title position: `top-[clamp(60px,8vh,80px)]` + `py-8`
 
 ---
 
@@ -256,7 +336,8 @@ className={cn(
 
 - `NavigationNew.tsx` - Navbar with logo, shortcuts, and Contact Us button
 - `contact-us-button.tsx` - Reusable contact button component
-- Hero Section component - Where the floating card is implemented
+- `Test2.tsx` - Hero section with half-height floating card and title
+- `FLOATING_CARD_DESIGN_SYSTEM.md` - This documentation file
 
 ---
 
@@ -265,8 +346,11 @@ className={cn(
 - The `clamp()` function is CSS-native and doesn't require JavaScript
 - All measurements are in pixels (px) for precision
 - The navbar height is responsive: `clamp(60px,8vh,80px)`
-- Hero section takes remaining viewport height
-- Logo and Contact Us button share the same padding percentage (3.2%)
+- Hero card is now **half-height** (50vh) on tablet/PC screens
 - Hero card uses a different padding percentage (2.54%)
+- Logo and Contact Us button share the same padding percentage (3.2%)
 - Shortcuts block is completely independent from logo/button positioning
 - Button internal padding: Left uses 1.5% vw, Right uses 2% vw for balanced look
+- Hero title has two separate containers for independent styling control
+- RTL support: Title positioned left for LTR languages, right for RTL (Arabic)
+- Text alignment switches based on `i18n.language === 'ar'`
