@@ -5,7 +5,7 @@ import gsap from 'gsap';
 import { Navigation } from './components/layout';
 import { ScrollToTop } from './components/ScrollToTop';
 import { Preloader, PageTransition } from './components/animations';
-import { PropertiesListing, PropertyDetail, Projects, ProjectDetail, Test, Test2 } from './pages';
+import { PropertiesListing, PropertyDetail, Projects, ProjectDetail, Test, Test2, Test4 } from './pages';
 import './i18n';
 
 const supportedLangs = ['en', 'fr', 'ar'];
@@ -86,6 +86,14 @@ const LocalizedApp: React.FC = () => {
             </PageTransition>
           } 
         />
+        <Route 
+          path="test4" 
+          element={
+            <PageTransition>
+              <LocalizedTest4 />
+            </PageTransition>
+          } 
+        />
       </Routes>
     </div>
   );
@@ -121,6 +129,10 @@ const LocalizedTest: React.FC = () => {
 
 const LocalizedTest2: React.FC = () => {
   return <Test2 />;
+};
+
+const LocalizedTest4: React.FC = () => {
+  return <Test4 />;
 };
 
 // Root redirect component
