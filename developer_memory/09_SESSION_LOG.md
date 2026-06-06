@@ -4,6 +4,50 @@
 
 ---
 
+## 2026-06-06 - Session 7
+
+**Duration:** Company Manifesto Section, About Us Section, Component Architecture
+
+### Work Done
+
+#### 1. Created AboutUsSection Component
+- **File:** `real estate frontend/src/components/sections/AboutUsSection.tsx`
+- **Export:** `real estate frontend/src/components/sections/index.ts`
+- Responsive layout: Title → Paragraph → Image (mobile), Grid 60%/40% (desktop)
+- Multi-language content: EN, FR, AR
+- Inline pill image after word "we/nous/نحن" in paragraph
+- RTL support for Arabic with flex-row-reverse
+- Grid: text-[55%_45%] with gap-12 items-stretch
+- Typography: Geist for EN/FR, Cairo for AR
+- Image: w-full h-[300px] lg:h-[500px] object-cover rounded-2xl
+
+#### 2. Created CompanyManifesto Component
+- **File:** `real estate frontend/src/components/sections/CompanyManifesto.tsx`
+- **Export:** `real estate frontend/src/components/sections/index.ts`
+- GSAP ScrollTrigger word-by-word reveal animation
+- 4 clean centered lines with opacity animation on scroll
+- Responsive typography: text-[4.8vw] sm:text-[4vw] md:text-[3.5vw] lg:text-[42px]
+- Multi-language: EN, FR, AR
+- Key fix: `w-[120%]` on line containers prevents word wrapping
+- Scroll animation: opacity 0.15 → 1, scrub: true
+- Cleanup on unmount: ctx.revert()
+- RTL support with dir="rtl" for Arabic
+
+#### 3. Test4 Page Development
+- **File:** `real estate frontend/src/pages/Test4.tsx`
+- Route: `/test4/en`, `/test4/fr`, `/test4/ar`
+- Added to App.tsx routes
+- Added to pages/index.ts exports
+- Used for testing new sections before integrating into main app
+
+#### 4. Design Decisions
+- French line centering issue resolved with `w-[120%]` width on line containers
+- Word-by-word opacity animation for premium scroll effect
+- `whitespace-nowrap` prevents unwanted line breaks
+- `mx-auto` and `text-center` for centering
+
+---
+
 ## 2026-06-02 - Session 6
 
 **Duration:** Navbar Development, Button Components, Git Branching
