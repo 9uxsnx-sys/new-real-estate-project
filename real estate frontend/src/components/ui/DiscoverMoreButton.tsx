@@ -5,18 +5,20 @@ interface DiscoverMoreButtonProps {
   href?: string;
   onClick?: () => void;
   isRTL?: boolean;
+  customText?: string;
 }
 
 export const DiscoverMoreButton: React.FC<DiscoverMoreButtonProps> = ({
   href,
   onClick,
   isRTL = false,
+  customText = 'Discover more',
 }) => {
   const content = (
     <>
       {/* Text content */}
       <p className="text-white leading-5 p-0 mx-[5px] whitespace-nowrap" style={{ fontSize: '14px' }}>
-        Discover more
+        {customText}
       </p>
       
       {/* Arrow button */}
@@ -31,7 +33,7 @@ export const DiscoverMoreButton: React.FC<DiscoverMoreButtonProps> = ({
       <a
         href={href}
         className="w-[160px] h-[48px] bg-black rounded-[999px] flex items-center justify-between no-underline cursor-pointer"
-        style={{ padding: '8px 8px 8px 16px' }}
+        style={{ padding: isRTL ? '8px 16px 8px 8px' : '8px 8px 8px 16px' }}
       >
         {content}
       </a>
@@ -42,7 +44,7 @@ export const DiscoverMoreButton: React.FC<DiscoverMoreButtonProps> = ({
     <button
       onClick={onClick}
       className="w-[160px] h-[48px] bg-black rounded-[999px] flex items-center justify-between cursor-pointer"
-      style={{ padding: '8px 8px 8px 16px' }}
+      style={{ padding: isRTL ? '8px 16px 8px 8px' : '8px 8px 8px 16px' }}
     >
       {content}
     </button>

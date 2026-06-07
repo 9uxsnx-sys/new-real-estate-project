@@ -1,33 +1,38 @@
 import React, { useEffect, useState } from 'react';
 import { DiscoverMoreButton } from './DiscoverMoreButton';
 
-interface GatewayCardFixedProps {
-  title: string;
+interface GatewayCardRTLProps {
   imageSrc: string;
   imageAlt: string;
   onCardClick?: () => void;
-  isRTL?: boolean;
   buttonHref?: string;
+  titleLine1?: string;
+  titleLine2?: string;
+  titleLine1Size?: string;
+  titleLine2Size?: string;
+  buttonText?: string;
 }
 
-export const GatewayCardFixed: React.FC<GatewayCardFixedProps> = ({
-  title,
+export const GatewayCardRTL: React.FC<GatewayCardRTLProps> = ({
   imageSrc,
   imageAlt,
   onCardClick,
-  isRTL = false,
   buttonHref,
+  titleLine1 = 'اكتشف مشاريعنا',
+  titleLine2 = 'العقارية',
+  titleLine1Size = '32px',
+  titleLine2Size = '32px',
+  buttonText = 'اكتشف المزيد',
 }) => {
   const [scale, setScale] = useState(1);
-  const baseWidth = 1000; // Base card width for desktop
+  const baseWidth = 650;
 
   useEffect(() => {
     const calculateScale = () => {
       const containerWidth = window.innerWidth;
-      // Leave 48px padding on each side
       const availableWidth = containerWidth - 96;
       const newScale = availableWidth / baseWidth;
-      setScale(Math.min(newScale, 1)); // Don't scale up, only scale down
+      setScale(Math.min(newScale, 1));
     };
 
     calculateScale();
@@ -40,10 +45,10 @@ export const GatewayCardFixed: React.FC<GatewayCardFixedProps> = ({
       <div style={{ transform: `scale(${scale})`, transformOrigin: 'top center' }}>
         <div 
           onClick={onCardClick}
-          className="w-[1000px] h-[480px] bg-[#F5F5F5] rounded-[32px] overflow-hidden flex flex-row cursor-pointer select-none"
-          dir={isRTL ? 'rtl' : 'ltr'}
+          className="w-[650px] h-[420px] bg-[#F5F5F5] rounded-[32px] overflow-hidden flex flex-row cursor-pointer select-none"
+          dir="rtl"
         >
-          {/* Left Half: Image */}
+          {/* First: Image (will appear on RIGHT with RTL) */}
           <div className="w-1/2 h-full rounded-[32px] overflow-hidden bg-gray-200 flex-shrink-0">
             <img 
               src={imageSrc}
@@ -52,30 +57,27 @@ export const GatewayCardFixed: React.FC<GatewayCardFixedProps> = ({
             />
           </div>
 
-          {/* Right Half: Content */}
-          <div className="w-1/2 flex flex-col justify-between h-full py-[30px] pl-10 pr-2 pb-[50px]">
-            
-            {/* Title Section - Split into two lines */}
+          {/* Second: Content (will appear on LEFT with RTL) */}
+          <div className="w-1/2 flex flex-col justify-between h-full py-[30px] pr-[55px] pl-2 pb-[65px]">
             <div className="flex flex-col gap-0">
-              <h2 className="text-[50px] font-semibold tracking-[-0.01em] leading-tight text-[#111111] uppercase whitespace-nowrap">
-                DISCOVER OUR
+              <h2 className="font-semibold tracking-[-0.01em] leading-tight text-[#111111] uppercase whitespace-nowrap text-right" style={{ fontSize: titleLine1Size }}>
+                {titleLine1}
               </h2>
-              <h2 className="text-[50px] font-semibold tracking-[-0.01em] leading-tight text-[#111111] uppercase whitespace-nowrap">
-                PROJECTS
+              <h2 className="font-semibold tracking-[-0.01em] leading-tight text-[#111111] uppercase whitespace-nowrap text-right" style={{ fontSize: titleLine2Size }}>
+                {titleLine2}
               </h2>
             </div>
 
-            {/* DiscoverMoreButton Section pinned to the bottom left */}
-            <div className="w-full flex justify-start mt-8">
-              <div className="origin-left scale-[1.2]">
+            <div className="w-full flex justify-start mt-6">
+              <div className="origin-right">
                 <DiscoverMoreButton
                   href={buttonHref}
                   onClick={onCardClick}
-                  isRTL={isRTL}
+                  isRTL={true}
+                  customText={buttonText}
                 />
               </div>
             </div>
-
           </div>
         </div>
       </div>
