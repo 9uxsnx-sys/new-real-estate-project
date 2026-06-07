@@ -80,7 +80,7 @@ export const CompanyManifesto: React.FC<CompanyManifestoProps> = ({ className = 
   return (
     <section 
       ref={sectionRef}
-      className={`w-full py-32 lg:py-40 bg-white select-none ${className}`}
+      className={`hidden xl:block w-full py-32 lg:py-40 bg-white select-none ${className}`}
       dir={isRTL ? 'rtl' : 'ltr'}
     >
       <div 
