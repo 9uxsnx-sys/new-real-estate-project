@@ -62,7 +62,7 @@ export const DualGatewaySection: React.FC<DualGatewaySectionProps> = ({
         </h2>
       </div>
 
-      <div className="w-full px-6 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
+      <div className="w-full px-6 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
         {isRTL ? (
           <>
             <GatewayCardRTL
