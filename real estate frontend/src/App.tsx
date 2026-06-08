@@ -5,7 +5,7 @@ import gsap from 'gsap';
 import { Navigation } from './components/layout';
 import { ScrollToTop } from './components/ScrollToTop';
 import { Preloader, PageTransition } from './components/animations';
-import { PropertiesListing, PropertyDetail, Projects, ProjectDetail, Test, Test2, Test4 } from './pages';
+import { PropertiesListing, PropertyDetail, Projects, ProjectDetail, Test, Test2, Test3, Test4 } from './pages';
 import './i18n';
 
 const supportedLangs = ['en', 'fr', 'ar'];
@@ -87,6 +87,14 @@ const LocalizedApp: React.FC = () => {
           } 
         />
         <Route 
+          path="test3" 
+          element={
+            <PageTransition>
+              <LocalizedTest3 />
+            </PageTransition>
+          } 
+        />
+        <Route 
           path="test4" 
           element={
             <PageTransition>
@@ -129,6 +137,10 @@ const LocalizedTest: React.FC = () => {
 
 const LocalizedTest2: React.FC = () => {
   return <Test2 />;
+};
+
+const LocalizedTest3: React.FC = () => {
+  return <Test3 />;
 };
 
 const LocalizedTest4: React.FC = () => {

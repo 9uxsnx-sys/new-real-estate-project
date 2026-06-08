@@ -1,35 +1,26 @@
 import React from 'react';
 import { NavigationNew } from '@/components/layout';
-import { DualGatewaySection, ActionPill, DiscoverMoreButton } from '@/components/ui';
+import { GatewayCard, DiscoverPropertiesCard } from '@/components/ui';
 
 export const Test4: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       <NavigationNew />
       
-      {/* Button Section */}
-      <div className="flex flex-col items-center justify-center p-8 gap-4">
-        <ActionPill
-          text="WhatsApp"
-          href="./#contact"
-          onClick={() => console.log('Button clicked')}
-          isRTL={false}
+      <div className="flex flex-col items-center justify-center p-8 gap-8">
+        <GatewayCard
+          imageSrc="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80"
+          imageAlt="Our Projects"
+          onCardClick={() => console.log('Projects card clicked')}
+          buttonHref="/projects"
         />
-        <DiscoverMoreButton
-          href="./#discover"
-          onClick={() => console.log('Button clicked')}
-          isRTL={false}
+        <DiscoverPropertiesCard
+          imageSrc="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80"
+          imageAlt="Our Properties"
+          onCardClick={() => console.log('Properties card clicked')}
+          buttonHref="/properties"
         />
       </div>
-
-      {/* Divider */}
-      <div className="w-full border-t border-gray-200 my-8" />
-
-      {/* DualGateway Section */}
-      <DualGatewaySection />
-
-      {/* Divider */}
-      <div className="w-full border-t border-gray-200 my-8" />
     </div>
   );
 };

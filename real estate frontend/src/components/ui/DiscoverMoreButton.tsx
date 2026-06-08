@@ -17,13 +17,13 @@ export const DiscoverMoreButton: React.FC<DiscoverMoreButtonProps> = ({
   const content = (
     <>
       {/* Text content */}
-      <p className="text-white leading-5 p-0 mx-[5px] whitespace-nowrap" style={{ fontSize: '14px' }}>
+      <p className="text-white leading-5 p-0 ml-[8px] whitespace-nowrap" style={{ fontSize: '12px' }}>
         {customText}
       </p>
       
       {/* Arrow button */}
-      <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center flex-shrink-0">
-        <ArrowRight className={`w-4 h-4 text-black ${isRTL ? 'rotate-180' : ''}`} />
+      <div className="w-5 h-5 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+        <ArrowRight className={`w-2.5 h-2.5 text-black ${isRTL ? 'rotate-180' : ''}`} />
       </div>
     </>
   );
@@ -32,8 +32,8 @@ export const DiscoverMoreButton: React.FC<DiscoverMoreButtonProps> = ({
     return (
       <a
         href={href}
-        className="w-[160px] h-[48px] bg-black rounded-[999px] flex items-center justify-between no-underline cursor-pointer"
-        style={{ padding: isRTL ? '8px 16px 8px 8px' : '8px 8px 8px 16px' }}
+        className="w-[130px] h-[40px] bg-black rounded-[999px] flex items-center justify-between no-underline cursor-pointer"
+        style={{ padding: isRTL ? '6px 10px 6px 6px' : '6px 6px 6px 10px' }}
       >
         {content}
       </a>
@@ -43,8 +43,8 @@ export const DiscoverMoreButton: React.FC<DiscoverMoreButtonProps> = ({
   return (
     <button
       onClick={onClick}
-      className="w-[160px] h-[48px] bg-black rounded-[999px] flex items-center justify-between cursor-pointer"
-      style={{ padding: isRTL ? '8px 16px 8px 8px' : '8px 8px 8px 16px' }}
+      className="w-[130px] h-[40px] bg-black rounded-[999px] flex items-center justify-between cursor-pointer"
+      style={{ padding: isRTL ? '6px 10px 6px 6px' : '6px 6px 6px 10px' }}
     >
       {content}
     </button>
