@@ -4,6 +4,89 @@
 
 ---
 
+## 2026-06-08 - GatewayCard Redesign & ProjectAndPropertySection
+
+### Work Done
+
+#### 1. New GatewayCard Components (Redesigned)
+Created fresh GatewayCard components with clean vertical stack layout:
+
+**GatewayCard (DiscoverProjectsCard.tsx)**
+- **File:** `real estate frontend/src/components/ui/DiscoverProjectsCard.tsx`
+- Vertical stack: Image → Title → Button
+- Single-line title with `whitespace-nowrap`
+- Black circle button with white arrow icon
+- Auto-detects language from i18n (EN/FR/AR)
+- JavaScript scale transform for responsive sizing
+- Base width: 448px (later adjusted to 380px)
+- Title: 25px font-semibold
+- Button: 36x36px black circle with 16px arrow icon
+- Hover effect: arrow rotates -45deg
+- RTL support: arrow flips with rotate-180
+
+**DiscoverPropertiesCard.tsx**
+- **File:** `real estate frontend/src/components/ui/DiscoverPropertiesCard.tsx`
+- Same design as GatewayCard
+- Different default content for Properties
+
+#### 2. DiscoverMoreButton Updates
+- **File:** `real estate frontend/src/components/ui/DiscoverMoreButton.tsx`
+- Reduced size: 160x48 → 130x40
+- Text: 14px → 12px
+- Arrow circle: 8x8 → 6x6
+- Later further reduced internal content for uniform scaling
+
+#### 3. ProjectAndPropertySection
+- **File:** `real estate frontend/src/components/sections/ProjectAndPropertySection.tsx`
+- Alternating layout section:
+  - Row 1: Card (left) + Text (right) on desktop
+  - Row 2: Text (left) + Card (right) on desktop
+- Mobile: Both rows stack with text above card
+- Multi-language content (EN/FR/AR)
+- Responsive padding: px-4 md:px-8 lg:px-16
+- Detailed descriptions for both projects and properties
+
+#### 4. Test3 Page
+- **File:** `real estate frontend/src/pages/Test3.tsx`
+- Route: `/test3/en`, `/test3/fr`, `/test3/ar`
+- Uses ProjectAndPropertySection component
+- Added to App.tsx routes
+
+#### 5. DiscoverSection (Legacy)
+- **File:** `real estate frontend/src/components/ui/DiscoverSection.tsx`
+- Initial section attempt (later superseded by ProjectAndPropertySection)
+- Kept for reference
+
+### Files Created
+- `real estate frontend/src/components/ui/DiscoverProjectsCard.tsx`
+- `real estate frontend/src/components/ui/DiscoverPropertiesCard.tsx`
+- `real estate frontend/src/components/ui/DiscoverSection.tsx`
+- `real estate frontend/src/components/sections/ProjectAndPropertySection.tsx`
+- `real estate frontend/src/pages/Test3.tsx`
+
+### Files Modified
+- `real estate frontend/src/App.tsx` - Added Test3 route
+- `real estate frontend/src/components/sections/index.ts` - Added exports
+- `real estate frontend/src/components/ui/index.ts` - Added exports
+- `real estate frontend/src/components/ui/DiscoverMoreButton.tsx` - Size adjustments
+- `real estate frontend/src/pages/Test4.tsx` - Testing new components
+- `real estate frontend/src/pages/index.ts` - Added Test3 export
+
+### Git Status
+- **Branch:** dev
+- **Status:** Committed and pushed to `dev` branch
+- **Commit:** "feat: Add new GatewayCard components and ProjectAndPropertySection"
+
+### Design Decisions
+- Card scale transform uses JavaScript (not Tailwind-only) for uniform scaling
+- Card structure: outer div with scale transform → inner div with fixed width
+- Removed unnecessary wrapper divs to prevent empty space
+- Text centered with card using `items-center justify-center`
+- Mobile uses `flex-col-reverse` to show text above card
+- Desktop uses `flex-row` with alternating order
+
+---
+
 ## 2026-06-07 - Gateway Card System Development
 
 ### Work Done
