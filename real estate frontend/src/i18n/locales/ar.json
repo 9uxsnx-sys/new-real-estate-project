@@ -1,9 +1,14 @@
 {
   "nav": {
+    "home": "الرئيسية",
     "properties": "عقارات",
     "projects": "مشاريع",
     "contact": "اتصل بنا",
-    "contactMobile": "اتصل بنا"
+    "contactMobile": "اتصل بنا",
+    "language": "اللغة",
+    "theme": "المظهر",
+    "light": "فاتح",
+    "dark": "داكن"
   },
   "hero": {
     "ourProperties": "عقاراتنا",

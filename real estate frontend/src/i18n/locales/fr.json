@@ -1,9 +1,14 @@
 {
   "nav": {
+    "home": "Accueil",
     "properties": "Propriétés",
     "projects": "Projets",
     "contact": "Contactez-nous",
-    "contactMobile": "Contactez-nous"
+    "contactMobile": "Contactez-nous",
+    "language": "Langue",
+    "theme": "Thème",
+    "light": "Clair",
+    "dark": "Sombre"
   },
   "hero": {
     "ourProperties": "Nos Propriétés",
