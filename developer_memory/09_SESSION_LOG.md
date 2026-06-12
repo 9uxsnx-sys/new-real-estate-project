@@ -563,3 +563,120 @@ Fixed merge conflict markers in these files:
 ### Testing
 - Docker container: ✅ Building and running
 - Database: ✅ Persisting data
+
+---
+
+## 2026-06-12 - Hero Section Redesign, Footer, Home Page
+
+### Work Done
+
+#### 1. HeroSection Component
+- **File:** `real estate frontend/src/components/sections/HeroSection.tsx`
+- Full-height hero with image and gradient overlay
+- Responsive layouts:
+  - **Desktop (md+):** Side-by-side layout (title 50% + paragraph 25%)
+  - **Tablet (sm-md):** Stacked layout, centered
+  - **Mobile (below sm):** Stacked layout, smaller text
+- Black gradient overlay: `from-black/70 via-black/30 to-black/5`
+- Title: "Building Your / Dreams Into Reality" (EN)
+- Paragraph: Longer description with call-to-action
+- Rounded corners: `rounded-[2rem]`
+- 3 languages: EN, FR, AR with RTL support
+
+#### 2. CompanyManifestoMobileVersion Component
+- **File:** `real estate frontend/src/components/sections/CompanyManifestoMobileVersion.tsx`
+- Paragraph version for tablet/mobile (replaces 4-line desktop version)
+- Same word-by-word animation (GSAP ScrollTrigger)
+- Left-aligned text (right-aligned for AR)
+- Font: `clamp(24px,4.5vw,48px)`
+- Shows on screens below xl breakpoint
+
+#### 3. Footer Component
+- **File:** `real estate frontend/src/components/sections/Footer.tsx`
+- White/off-white background
+- Sections:
+  - Logo + tagline (left)
+  - Navigation links (center)
+  - Social icons (right) - Instagram, Facebook, LinkedIn, X
+  - Contact info: Address, Phone, Email
+  - Copyright + Language switcher (EN | FR | AR)
+- RTL support for Arabic
+- Responsive: stacks on mobile
+
+#### 4. Home Page
+- **File:** `real estate frontend/src/pages/Home.tsx`
+- Root route (`/`) now shows Home page
+- Contains all sections in order:
+  1. NavigationNew
+  2. HeroSection
+  3. AboutUsSection
+  4. CompanyManifesto (desktop) / CompanyManifestoMobileVersion (tablet/mobile)
+  5. ProjectAndPropertySection
+  6. FAQSection
+  7. Footer
+
+#### 5. ProjectAndPropertySection Updates
+- Wrapped text blocks in white containers
+- Same size as image cards: `w-[448px] aspect-[4/3]`
+- Background: `bg-gray-100` (off-white)
+- Rounded corners: `rounded-3xl`
+- Increased padding: `p-8 md:p-12`
+- Extended descriptions for both cards
+
+#### 6. Navigation Updates
+- All pages now use NavigationNew (new navbar)
+- Updated: PropertyDetail.tsx
+- Removed old Navigation from all pages
+
+#### 7. AboutUsSection Title Styling
+- Updated to match FAQ section style:
+  - Tag: `text-sm font-semibold uppercase tracking-[0.2em] text-gray-400`
+  - Title: `text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-[#111111] uppercase`
+
+#### 8. Deleted Test Pages
+- Removed: Test.tsx, Test2.tsx, Test3.tsx, Test4.tsx, Test5.tsx
+- Cleaned up App.tsx routes and imports
+- Cleaned up pages/index.ts exports
+
+### Files Created
+- `real estate frontend/src/components/sections/HeroSection.tsx`
+- `real estate frontend/src/components/sections/CompanyManifestoMobileVersion.tsx`
+- `real estate frontend/src/components/sections/Footer.tsx`
+- `real estate frontend/src/components/sections/FAQSection.tsx`
+- `real estate frontend/src/components/ui/FAQSection.tsx`
+- `real estate frontend/src/pages/Home.tsx`
+
+### Files Modified
+- `real estate frontend/src/App.tsx` - Updated routing, Home as root
+- `real estate frontend/src/components/sections/AboutUsSection.tsx` - Title styling
+- `real estate frontend/src/components/sections/ProjectAndPropertySection.tsx` - White containers
+- `real estate frontend/src/components/sections/index.ts` - Added new exports
+- `real estate frontend/src/pages/PropertyDetail.tsx` - NavigationNew
+- `real estate frontend/src/pages/Projects.tsx` - NavigationNew
+- `real estate frontend/src/pages/PropertiesListing.tsx` - NavigationNew, Footer
+- `real estate frontend/src/pages/ProjectDetail.tsx` - NavigationNew, Footer
+- `real estate frontend/src/pages/Test3.tsx` - Footer
+- `real estate frontend/src/pages/Test4.tsx` - Footer
+- `real estate frontend/src/pages/Test.tsx` - Footer
+- `real estate frontend/src/pages/Test5.tsx` - Footer
+- `real estate frontend/src/pages/index.ts` - Removed test pages
+
+### Files Deleted
+- `real estate frontend/src/pages/Test.tsx`
+- `real estate frontend/src/pages/Test2.tsx`
+- `real estate frontend/src/pages/Test3.tsx`
+- `real estate frontend/src/pages/Test4.tsx`
+- `real estate frontend/src/pages/Test5.tsx`
+
+### Git Status
+- **Branch:** dev
+- **Commit:** `6003fd6` - "feat: Complete hero section redesign with responsive layouts, new footer, and home page"
+- **Changes:** 27 files changed, 890 insertions, 176 deletions
+- **Pushed:** ✅
+
+### Testing
+- Home page: http://localhost:5173/en/home
+- Root route now shows Home: http://localhost:5173/en/
+- Footer: ✅ Displaying on all pages
+- Hero section: ✅ Responsive layouts working
+- Company manifesto: ✅ Shows paragraph on tablet/mobile
