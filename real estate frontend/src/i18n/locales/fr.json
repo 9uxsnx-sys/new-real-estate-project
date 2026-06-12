@@ -10,6 +10,10 @@
     "light": "Clair",
     "dark": "Sombre"
   },
+  "contact": {
+    "title": "Contactez-nous",
+    "subtitle": "Nous sommes là pour vous aider à trouver votre propriété de rêve. Contactez-nous à tout moment."
+  },
   "hero": {
     "ourProperties": "Nos Propriétés",
     "ourProjects": "Nos Projets",

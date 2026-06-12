@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import gsap from 'gsap';
 import { ArrowRight } from 'lucide-react';
 import { ProjectAlternatingSection } from '../components/project';
+import { Footer } from '../components/sections';
 import { useProjects } from '../hooks';
 import type { Project } from '../types';
 
@@ -128,6 +129,7 @@ export const Projects: React.FC = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };

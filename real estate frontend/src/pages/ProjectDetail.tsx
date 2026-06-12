@@ -11,6 +11,7 @@ import {
 } from '../components/property-detail';
 import { ProjectSection, ProjectSectionData, ProjectContactSidebar } from '../components/project-detail';
 import { PropertyCard } from '@/components/ui/property-card';
+import { Footer } from '../components/sections';
 import { useProject, useProperties } from '../hooks';
 import { formatPrice, getImageUrl } from '../utils';
 import type { PropertyFeature as PropertyFeatureType } from '../types';
@@ -271,6 +272,7 @@ export const ProjectDetail: React.FC = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

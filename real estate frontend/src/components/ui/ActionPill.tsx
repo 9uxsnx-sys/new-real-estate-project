@@ -35,7 +35,7 @@ export const ActionPill: React.FC<ActionPillProps> = ({
       <a
         href={href}
         className={`${width} bg-black rounded-[999px] flex items-center justify-between no-underline cursor-pointer`}
-        style={{ padding: '8px 8px 8px 16px' }}
+        style={{ padding: '8px 8px 8px 16px', transform: 'scale(0.8)' }}
       >
         {content}
       </a>
@@ -46,7 +46,7 @@ export const ActionPill: React.FC<ActionPillProps> = ({
     <button
       onClick={onClick}
       className={`${width} bg-black rounded-[999px] flex items-center justify-between cursor-pointer`}
-      style={{ padding: '8px 8px 8px 16px' }}
+      style={{ padding: '8px 8px 8px 16px', transform: 'scale(0.9)' }}
     >
       {content}
     </button>

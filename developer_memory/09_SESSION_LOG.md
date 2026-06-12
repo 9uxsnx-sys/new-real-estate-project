@@ -1,5 +1,124 @@
 # Session Log
 
+---
+
+## 2026-06-10 - Navigation Redesign & RTL Support
+
+### Work Done
+
+#### 1. MobileMenuCard Component
+- **File:** `real estate frontend/src/components/layout/MobileMenuCard.tsx`
+- New mobile menu component with animated card
+- Contains: Home, Properties, Projects links
+- Language selector (EN/FR/AR buttons)
+- Theme selector (Light/Dark buttons)
+- WhatsApp button at bottom
+- Off-white background (`#F5F5F5`)
+- Spring animation on open/close
+- RTL support with props
+
+#### 2. MenuButton Component
+- **File:** `real estate frontend/src/components/ui/MenuButton.tsx`
+- Animated hamburger icon (hamburger to X)
+- Uses `group-aria-expanded` CSS for smooth animation
+- Off-white background (`#F5F5F5`)
+- No border, shadow-none
+- Props: `isOpen`, `onClick`, `className`
+
+#### 3. ActionPillRTL Component
+- **File:** `real estate frontend/src/components/ui/ActionPillRTL.tsx`
+- RTL version of WhatsApp button
+- Default text: "واتساب" (Arabic)
+- Text on LEFT, white circle on RIGHT
+- Arrow points left (ArrowLeft)
+- Padding: 12px on both sides
+- Margins: text marginRight 11px, circle marginRight 10px
+- Width: 120px (smaller than LTR)
+
+#### 4. NavigationNew.tsx Updates
+- **File:** `real estate frontend/src/components/layout/NavigationNew.tsx`
+- Replaced inline mobile menu with MobileMenuCard component
+- Desktop language/theme dropdowns redesigned:
+  - Off-white background (`#F5F5F5`)
+  - Centered below trigger (`left-1/2 -translate-x-1/2`)
+  - Proper padding (`py-3 px-3`)
+  - Selected option: off-white background, no hover
+  - Non-selected options: no hover effect
+- RTL support for desktop:
+  - Logo moves to RIGHT in Arabic
+  - WhatsApp button moves to LEFT in Arabic
+- Theme labels now use translations (Light/Clair/فاتح, Dark/Sombre/داكن)
+
+#### 5. Translations Updated
+All three locale files updated with new nav labels:
+
+**en.json:**
+```json
+"nav": {
+  "home": "Home",
+  "language": "Language",
+  "theme": "Theme",
+  "light": "Light",
+  "dark": "Dark"
+}
+```
+
+**fr.json:**
+```json
+"nav": {
+  "home": "Accueil",
+  "language": "Langue",
+  "theme": "Thème",
+  "light": "Clair",
+  "dark": "Sombre"
+}
+```
+
+**ar.json:**
+```json
+"nav": {
+  "home": "الرئيسية",
+  "language": "اللغة",
+  "theme": "المظهر",
+  "light": "فاتح",
+  "dark": "داكن"
+}
+```
+
+### Files Created
+- `real estate frontend/src/components/layout/MobileMenuCard.tsx`
+- `real estate frontend/src/components/ui/MenuButton.tsx`
+- `real estate frontend/src/components/ui/ActionPillRTL.tsx`
+
+### Files Modified
+- `real estate frontend/src/components/layout/NavigationNew.tsx` - Full redesign
+- `real estate frontend/src/components/layout/index.ts` - Added MobileMenuCard export
+- `real estate frontend/src/components/ui/index.ts` - Added MenuButton, ActionPillRTL exports
+- `real estate frontend/src/i18n/locales/en.json` - Added nav translations
+- `real estate frontend/src/i18n/locales/fr.json` - Added nav translations
+- `real estate frontend/src/i18n/locales/ar.json` - Added nav translations
+
+### Git Status
+- **Branch:** dev
+- **Status:** Committed and pushed to `dev` branch
+- **Commit:** "feat: Complete navigation redesign with mobile menu card and RTL support"
+
+### Design Decisions
+- Mobile menu uses MenuButton with `aria-expanded` for CSS-only animation
+- Dropdowns centered with `left-1/2 -translate-x-1/2` for perfect alignment
+- Selected state uses off-white (`#E8E8E8`) instead of black for consistency
+- No hover effects on dropdown options for cleaner look
+- RTL swaps logo and WhatsApp button positions
+
+### Contact Page (Created then Removed)
+- Initially created Contact page with glass-morphism design
+- Removed as per user request - form not needed
+- Route would have been `/en/contact`, `/fr/contact`, `/ar/contact`
+
+---
+
+## 2026-06-08 - GatewayCard Redesign & ProjectAndPropertySection
+
 **Purpose:** Track development sessions and work done.
 
 ---

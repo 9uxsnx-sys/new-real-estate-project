@@ -128,7 +128,7 @@ export const MobileMenuCard: React.FC<MobileMenuCardProps> = ({
                         }}
                         className={`px-3 py-1.5 text-sm font-medium rounded-lg transition-colors ${
                           currentLang === lang.code
-                            ? 'bg-black text-white'
+                            ? 'bg-[#E8E8E8] text-black'
                             : 'bg-white border border-gray-200 text-gray-700 hover:bg-gray-50'
                         }`}
                       >
@@ -150,7 +150,7 @@ export const MobileMenuCard: React.FC<MobileMenuCardProps> = ({
                           onClick={() => onThemeChange(theme.code)}
                           className={`flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg transition-colors ${
                             currentTheme === theme.code
-                              ? 'bg-black text-white'
+                              ? 'bg-[#E8E8E8] text-black'
                               : 'bg-white border border-gray-200 text-gray-700 hover:bg-gray-50'
                           }`}
                         >

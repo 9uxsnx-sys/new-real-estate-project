@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { PropertyCard } from '@/components/ui/property-card';
 import { HeroSection } from '../components/filters';
+import { Footer } from '../components/sections';
 import { useProperties } from '../hooks';
 import { formatPrice, getImageUrl } from '../utils';
 
@@ -185,6 +186,7 @@ export const PropertiesListing: React.FC<PropertiesListingProps> = ({ onProperty
           )}
         </div>
       </section>
+      <Footer />
     </div>
   );
 };

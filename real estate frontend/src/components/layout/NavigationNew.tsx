@@ -51,7 +51,7 @@ export const NavigationNew: React.FC = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-[10000] bg-white/90 backdrop-blur border-b border-white">
+    <nav className="fixed top-0 left-0 right-0 z-[10000] bg-white/90 backdrop-blur border-b border-white">
       <div className="relative h-[clamp(60px,7vh,80px)] flex items-center pt-2">
         
         {/* Logo - Position changes based on language */}

@@ -10,6 +10,10 @@
     "light": "Light",
     "dark": "Dark"
   },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "We're here to help you find your dream property. Reach out to us anytime."
+  },
   "hero": {
     "ourProperties": "Our Properties",
     "ourProjects": "Our Projects",

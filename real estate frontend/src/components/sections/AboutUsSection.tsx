@@ -84,13 +84,13 @@ export const AboutUsSection: React.FC<AboutUsSectionProps> = ({ className = '' }
         {/* Header - Centered */}
         <div className="text-center mb-10 md:mb-12 lg:mb-16">
           <span 
-            className="inline-block text-xs md:text-sm font-semibold uppercase tracking-widest text-[#8B7355] mb-3 md:mb-4"
+            className="inline-block text-sm font-semibold uppercase tracking-[0.2em] text-gray-400 mb-3 md:mb-4"
             style={{ fontFamily }}
           >
             {currentContent.tag}
           </span>
           <h2 
-            className="text-2xl md:text-3xl lg:text-[48px] font-semibold text-[rgb(44,44,44)] leading-[1.2] max-w-3xl mx-auto"
+            className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-[#111111] uppercase max-w-3xl mx-auto"
             style={{ fontFamily }}
           >
             {currentContent.title}

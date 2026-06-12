@@ -5,7 +5,7 @@ import gsap from 'gsap';
 import { Navigation } from './components/layout';
 import { ScrollToTop } from './components/ScrollToTop';
 import { Preloader, PageTransition } from './components/animations';
-import { PropertiesListing, PropertyDetail, Projects, ProjectDetail, Test, Test2, Test3, Test4 } from './pages';
+import { PropertiesListing, PropertyDetail, Projects, ProjectDetail, Home } from './pages';
 import './i18n';
 
 const supportedLangs = ['en', 'fr', 'ar'];
@@ -39,8 +39,7 @@ const LocalizedApp: React.FC = () => {
           path="/"
           element={
             <PageTransition>
-              <Navigation />
-              <LocalizedPropertiesListing />
+              <LocalizedHome />
             </PageTransition>
           }
         />
@@ -67,38 +66,6 @@ const LocalizedApp: React.FC = () => {
             <PageTransition>
               <Navigation />
               <LocalizedProjectDetail />
-            </PageTransition>
-          } 
-        />
-        <Route 
-          path="test" 
-          element={
-            <PageTransition>
-              <LocalizedTest />
-            </PageTransition>
-          } 
-        />
-        <Route 
-          path="test2" 
-          element={
-            <PageTransition>
-              <LocalizedTest2 />
-            </PageTransition>
-          } 
-        />
-        <Route 
-          path="test3" 
-          element={
-            <PageTransition>
-              <LocalizedTest3 />
-            </PageTransition>
-          } 
-        />
-        <Route 
-          path="test4" 
-          element={
-            <PageTransition>
-              <LocalizedTest4 />
             </PageTransition>
           } 
         />
@@ -131,20 +98,8 @@ const LocalizedProjectDetail: React.FC = () => {
   return <ProjectDetail />;
 };
 
-const LocalizedTest: React.FC = () => {
-  return <Test />;
-};
-
-const LocalizedTest2: React.FC = () => {
-  return <Test2 />;
-};
-
-const LocalizedTest3: React.FC = () => {
-  return <Test3 />;
-};
-
-const LocalizedTest4: React.FC = () => {
-  return <Test4 />;
+const LocalizedHome: React.FC = () => {
+  return <Home />;
 };
 
 // Root redirect component
