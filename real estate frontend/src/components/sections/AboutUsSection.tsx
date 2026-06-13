@@ -78,6 +78,7 @@ export const AboutUsSection: React.FC<AboutUsSectionProps> = ({ className = '' }
 
   return (
     <section 
+      id="about-us"
       className={`py-16 md:py-20 lg:py-24 ${className}`}
       dir={isRTL ? 'rtl' : 'ltr'}
     >

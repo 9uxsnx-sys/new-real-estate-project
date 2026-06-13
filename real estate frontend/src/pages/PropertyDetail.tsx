@@ -3,7 +3,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import gsap from 'gsap';
 import { MapPin } from 'lucide-react';
-import { NavigationNew } from '../components/layout';
 import {
   PropertyGallery,
   PropertySpecs,
@@ -82,7 +81,6 @@ export const PropertyDetail: React.FC = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-white">
-        <NavigationNew />
         <div className="max-w-[1360px] mx-auto px-4 md:px-8 lg:px-20 py-12">
           <div className="animate-pulse">
             <div className="h-8 w-32 bg-gray-200 rounded mb-6"></div>
@@ -98,7 +96,6 @@ export const PropertyDetail: React.FC = () => {
   if (error || !property) {
     return (
       <div className="min-h-screen bg-white">
-        <NavigationNew />
         <div className="max-w-[1360px] mx-auto px-4 md:px-8 lg:px-20 py-12 text-center">
           <h1
             className="text-2xl font-semibold text-[rgb(44,44,44)] mb-4"
@@ -149,7 +146,6 @@ export const PropertyDetail: React.FC = () => {
         url={`property/${id}`}
         lang={currentLang}
       />
-      <NavigationNew />
       <div className="max-w-[1360px] mx-auto px-4 md:px-8 lg:px-20 py-6">
         <button
           ref={backBtnRef}

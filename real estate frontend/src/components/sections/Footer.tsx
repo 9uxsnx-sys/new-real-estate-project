@@ -1,10 +1,26 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useParams, useLocation } from 'react-router-dom';
 import { MapPin, Phone, Mail } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const { i18n } = useTranslation();
+  const { lang } = useParams<{ lang: string }>();
+  const location = useLocation();
+  const currentLang = lang || 'en';
   const isRTL = i18n.language === 'ar';
+
+  // Get current path without language prefix
+  const getCurrentPath = () => {
+    const pathParts = location.pathname.split('/').filter(Boolean);
+    const langCodes = ['en', 'fr', 'ar'];
+    if (langCodes.includes(pathParts[0])) {
+      return '/' + pathParts.slice(1).join('/');
+    }
+    return location.pathname;
+  };
+
+  const currentPath = getCurrentPath();
 
   const content = {
     en: {
@@ -28,11 +44,11 @@ export const Footer: React.FC = () => {
     ar: {
       tagline: 'نبني أحلامك إلى الواقع',
       contactTitle: 'تواصل معنا',
-      address: '١٢٣ مركز الأعمال، الجزائر، الجزائر',
-      phone: '٢١٣ ٥٥٥ ١٢٣ ٤٥٦',
+      address: '123 مركز الأعمال، الجزائر، الجزائر',
+      phone: '+213 555 123 456',
       email: 'info@theone.dz',
       followUs: 'تابعنا',
-      copyright: '© ٢٠٢٤ ذا ون. جميع الحقوق محفوظة.',
+      copyright: '© 2024 ذا ون. جميع الحقوق محفوظة.',
     }
   };
 
@@ -53,11 +69,10 @@ export const Footer: React.FC = () => {
           
           {/* Navigation Links */}
           <div className="flex flex-wrap gap-6 md:gap-8">
-            <a href="#" className="text-sm text-gray-600 hover:text-black transition-colors">Home</a>
-            <a href="#" className="text-sm text-gray-600 hover:text-black transition-colors">Projects</a>
-            <a href="#" className="text-sm text-gray-600 hover:text-black transition-colors">Properties</a>
-            <a href="#" className="text-sm text-gray-600 hover:text-black transition-colors">About Us</a>
-            <a href="#" className="text-sm text-gray-600 hover:text-black transition-colors">Contact</a>
+            <a href={`/${currentLang}`} className="text-sm text-gray-600 hover:text-black transition-colors">Home</a>
+            <a href={`/${currentLang}/projects`} className="text-sm text-gray-600 hover:text-black transition-colors">Projects</a>
+            <a href={`/${currentLang}`} className="text-sm text-gray-600 hover:text-black transition-colors">Properties</a>
+            <a href={`/${currentLang}#about-us`} className="text-sm text-gray-600 hover:text-black transition-colors">About Us</a>
           </div>
           
           {/* Social Icons */}
@@ -108,11 +123,11 @@ export const Footer: React.FC = () => {
           <div className={`flex flex-col gap-2 ${isRTL ? 'text-right' : 'text-left'}`}>
             <p className="text-xs text-gray-400">{activeContent.copyright}</p>
             <div className="flex gap-4 text-xs text-gray-500">
-              <a href="#" className="hover:text-black transition-colors">EN</a>
+              <a href={`/en${currentPath}`} className={`hover:text-black transition-colors ${currentLang === 'en' ? 'text-black font-medium' : ''}`}>EN</a>
               <span className="text-gray-300">|</span>
-              <a href="#" className="hover:text-black transition-colors">FR</a>
+              <a href={`/fr${currentPath}`} className={`hover:text-black transition-colors ${currentLang === 'fr' ? 'text-black font-medium' : ''}`}>FR</a>
               <span className="text-gray-300">|</span>
-              <a href="#" className="hover:text-black transition-colors">AR</a>
+              <a href={`/ar${currentPath}`} className={`hover:text-black transition-colors ${currentLang === 'ar' ? 'text-black font-medium' : ''}`}>AR</a>
             </div>
           </div>
         </div>

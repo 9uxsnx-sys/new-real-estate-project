@@ -28,7 +28,7 @@ export const HeroSection: React.FC = () => {
             {/* Gradient overlay - stronger at bottom, lighter at top */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/5" />
             
-            {/* Hero Title - Unified responsive h1 */}
+            {/* Hero Title - Single unified h1 */}
             <div className={`absolute bottom-0 left-0 right-0 px-[clamp(16px,2.54vw,64px)] pb-[65px] ${isRTL ? 'text-right' : 'text-left'}`}>
               
               {/* Desktop: Side by side layout - lg (1024px+) */}
@@ -58,10 +58,10 @@ export const HeroSection: React.FC = () => {
                 </div>
               </div>
               
-              {/* Tablet: Stacked layout - md (768px-1023px) */}
-              <div className="hidden md:block lg:hidden flex-col justify-end h-full px-[clamp(16px,2.54vw,64px)] pb-2">
-                {/* Title - Single responsive h1 */}
-                <h1 className="text-[clamp(36px,6vw,56px)] font-bold text-white leading-tight mb-2">
+              {/* Tablet/Mobile: Stacked layout - below lg */}
+              <div className="flex lg:hidden flex-col justify-end h-full px-[clamp(16px,2.54vw,64px)] pb-2">
+                {/* Single h1 with combined responsive text sizing */}
+                <h1 className="text-[clamp(28px,7vw,40px)] md:text-[clamp(36px,6vw,56px)] font-bold text-white leading-tight mb-2">
                   {isRTL 
                     ? <>نبني لك<br />أحلامك إلى الواقع</>
                     : (i18n.language === 'fr' 
@@ -71,30 +71,7 @@ export const HeroSection: React.FC = () => {
                 </h1>
                 
                 {/* Paragraph */}
-                <p className="text-white font-semibold text-[clamp(14px,2.5vw,20px)] leading-relaxed max-w-[90%]">
-                  {isRTL 
-                    ? 'اكتشف مساحات معيشة استثنائية مصممة لمن يقدرون الأناقة الراقية والجودة الخالدة. نحن نلتزم بتقديم أعلى معايير الجودة في كل مشروع، مع اهتمام مفصل بكل تفصيلة لضمان رضاك التام.'
-                    : (i18n.language === 'fr' 
-                      ? 'Découvrez des espaces de vie exceptionnels conçus pour ceux qui apprécient l\'élégance raffinée et la qualité intemporelle. Nous nous engageons à offrir les normes les plus élevées dans chaque projet.'
-                      : 'Discover exceptional living spaces designed for those who appreciate refined elegance and timeless quality. We are committed to delivering the highest standards of excellence in every project.')
-                    }
-                </p>
-              </div>
-              
-              {/* Mobile: Stacked layout - below md (below 768px) */}
-              <div className="flex md:hidden flex-col justify-end h-full px-[clamp(16px,2.54vw,64px)] pb-2">
-                {/* Title - Single responsive h1 */}
-                <h1 className="text-[clamp(28px,7vw,40px)] font-bold text-white leading-tight mb-2">
-                  {isRTL 
-                    ? <>نبني لك<br />أحلامك إلى الواقع</>
-                    : (i18n.language === 'fr' 
-                      ? <>Construisons Votre<br />Rêves En Réalité</>
-                      : <>Building Your<br />Dreams Into Reality</>)
-                    }
-                </h1>
-                
-                {/* Paragraph */}
-                <p className="text-white font-semibold text-[clamp(13px,3.5vw,16px)] leading-relaxed max-w-[90%]">
+                <p className="text-white font-semibold text-[clamp(13px,3.5vw,16px)] md:text-[clamp(14px,2.5vw,20px)] leading-relaxed max-w-[90%]">
                   {isRTL 
                     ? 'اكتشف مساحات معيشة استثنائية مصممة لمن يقدرون الأناقة الراقية والجودة الخالدة. نحن نلتزم بتقديم أعلى معايير الجودة في كل مشروع، مع اهتمام مفصل بكل تفصيلة لضمان رضاك التام.'
                     : (i18n.language === 'fr' 

@@ -3,7 +3,7 @@ import { Routes, Route, useNavigate, useParams, Navigate, useLocation } from 're
 import { useTranslation } from 'react-i18next';
 import { HelmetProvider } from 'react-helmet-async';
 import gsap from 'gsap';
-import { Navigation } from './components/layout';
+import { NavigationNew } from './components/layout';
 import { ScrollToTop } from './components/ScrollToTop';
 import { Preloader, PageTransition } from './components/animations';
 import { PropertiesListing, PropertyDetail, Projects, ProjectDetail, Home } from './pages';
@@ -48,6 +48,7 @@ const LocalizedApp: React.FC = () => {
           path="property/:id" 
           element={
             <PageTransition>
+              <NavigationNew />
               <LocalizedPropertyDetail />
             </PageTransition>
           } 
@@ -56,7 +57,7 @@ const LocalizedApp: React.FC = () => {
           path="projects" 
           element={
             <PageTransition>
-              <Navigation />
+              <NavigationNew />
               <LocalizedProjects />
             </PageTransition>
           } 
@@ -65,7 +66,7 @@ const LocalizedApp: React.FC = () => {
           path="projects/:projectId" 
           element={
             <PageTransition>
-              <Navigation />
+              <NavigationNew />
               <LocalizedProjectDetail />
             </PageTransition>
           } 
