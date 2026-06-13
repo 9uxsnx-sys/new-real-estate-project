@@ -107,18 +107,24 @@ export const Footer: React.FC = () => {
               {activeContent.contactTitle}
             </span>
             <div className="flex flex-col gap-1 text-sm text-gray-600">
-              <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4" />
-                <span>{contact?.address || activeContent.address}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4" />
-                <span>{contact?.phone || activeContent.phone}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4" />
-                <span>{contact?.email || activeContent.email}</span>
-              </div>
+              {contact?.address && (
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-4 h-4" />
+                  <span>{contact.address}</span>
+                </div>
+              )}
+              {contact?.phone && (
+                <div className="flex items-center gap-2">
+                  <Phone className="w-4 h-4" />
+                  <span>{contact.phone}</span>
+                </div>
+              )}
+              {contact?.email && (
+                <div className="flex items-center gap-2">
+                  <Mail className="w-4 h-4" />
+                  <span>{contact.email}</span>
+                </div>
+              )}
             </div>
           </div>
           
