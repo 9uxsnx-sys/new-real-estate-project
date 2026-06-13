@@ -6,7 +6,7 @@ import gsap from 'gsap';
 import { NavigationNew } from './components/layout';
 import { ScrollToTop } from './components/ScrollToTop';
 import { Preloader, PageTransition } from './components/animations';
-import { PropertiesListing, PropertyDetail, Projects, ProjectDetail, Home } from './pages';
+import { PropertiesListing, PropertyDetail, Projects, ProjectDetail, Home, TestPropertyNotFound } from './pages';
 import './i18n';
 
 const supportedLangs = ['en', 'fr', 'ar'];
@@ -77,6 +77,15 @@ const LocalizedApp: React.FC = () => {
             <PageTransition>
               <NavigationNew />
               <LocalizedProjectDetail />
+            </PageTransition>
+          } 
+        />
+        <Route 
+          path="test-property-not-found" 
+          element={
+            <PageTransition>
+              <NavigationNew />
+              <TestPropertyNotFound />
             </PageTransition>
           } 
         />
