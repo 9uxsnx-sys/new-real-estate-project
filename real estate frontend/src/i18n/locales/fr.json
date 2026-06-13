@@ -88,6 +88,7 @@
     "error": "Erreur",
     "notFound": "Non Trouvé",
     "tryAgain": "Réessayer",
+    "noPropertiesFound": "Aucune propriété trouvée correspondant à vos critères.",
     "viewAll": "Voir Tout",
     "showMore": "Afficher Plus",
     "showLess": "Afficher Moins",

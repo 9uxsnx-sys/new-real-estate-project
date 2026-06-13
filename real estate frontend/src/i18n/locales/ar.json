@@ -88,6 +88,7 @@
     "error": "خطأ",
     "notFound": "غير موجود",
     "tryAgain": "حاول مرة أخرى",
+    "noPropertiesFound": "لم يتم العثور على عقارات تطابق معاييرك.",
     "viewAll": "عرض الكل",
     "showMore": "عرض المزيد",
     "showLess": "عرض أقل",

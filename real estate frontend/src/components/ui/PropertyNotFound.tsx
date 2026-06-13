@@ -50,7 +50,7 @@ export const PropertyNotFound: React.FC<PropertyNotFoundProps> = ({
             className="text-[14px] text-[rgb(136,136,136)] font-light"
             style={{ fontFamily: 'Geist, sans-serif' }}
           >
-            {message || 'No properties found matching your criteria.'}
+            {message || t('common.noPropertiesFound')}
           </p>
 
           {/* Action Buttons */}
