@@ -39,7 +39,7 @@ export const PropertyNotFound: React.FC<PropertyNotFoundProps> = ({
 
           {/* Title */}
           <h1
-            className="text-[18px] font-light text-[rgb(44,44,44)] mb-2"
+            className="text-[18px] text-[rgb(44,44,44)] font-light mb-2"
             style={{ fontFamily: 'Geist, sans-serif' }}
           >
             {title || t('common.notFound')}
@@ -54,22 +54,22 @@ export const PropertyNotFound: React.FC<PropertyNotFoundProps> = ({
           </p>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+          <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto mt-6">
             <button
               onClick={() => navigate(`/${currentLang}`)}
-              className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-black text-white rounded-full font-medium text-[14px]"
+              className="w-full sm:w-auto flex items-center justify-center gap-1.5 px-5 py-2.5 bg-black text-white rounded-full text-[12px]"
               style={{ fontFamily: 'Geist, sans-serif' }}
             >
-              <Home className="w-4 h-4" />
+              <Home className="w-3.5 h-3.5" />
               {t('nav.home')}
             </button>
             <button
               onClick={() => navigate(`/${currentLang}/properties`)}
-              className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-white text-[rgb(44,44,44)] border-2 border-[rgb(230,230,230)] rounded-full font-medium text-[14px]"
+              className="w-full sm:w-auto flex items-center justify-center gap-1.5 px-5 py-2.5 bg-white text-[rgb(44,44,44)] border border-[rgb(230,230,230)] rounded-full text-[12px]"
               style={{ fontFamily: 'Geist, sans-serif' }}
             >
               {t('property.backToProperties')}
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>
