@@ -219,7 +219,6 @@ export const PropertyDetail: React.FC = () => {
             <PropertyContactSidebar
               property={property}
               propertyCode={property.property_code}
-              whatsappNumber="+971501234567"
             />
           </div>
         </div>

@@ -3,8 +3,8 @@ import type { CollectionConfig } from 'payload'
 export const Contact: CollectionConfig = {
   slug: 'contact',
   admin: {
-    useAsTitle: 'name',
-    defaultColumns: ['name', 'phone', 'whatsappURL'],
+    useAsTitle: 'phone',
+    defaultColumns: ['phone', 'whatsappURL'],
   },
   access: {
     read: () => true,
@@ -14,21 +14,12 @@ export const Contact: CollectionConfig = {
   },
   fields: [
     {
-      name: 'name',
-      type: 'text',
-      required: true,
-      label: 'Contact Name',
-      admin: {
-        description: 'Label for this contact (e.g., Main Office, Sales WhatsApp)',
-      },
-    },
-    {
       name: 'phone',
       type: 'text',
       required: true,
       label: 'Phone Number',
       admin: {
-        description: 'Phone number with country code (e.g., +971 4 123 4567)',
+        description: 'Enter mobile number starting with 0 (e.g., 0551 12 34 56)',
       },
     },
     {
@@ -37,7 +28,23 @@ export const Contact: CollectionConfig = {
       required: true,
       label: 'WhatsApp Link',
       admin: {
-        description: 'WhatsApp link (e.g., https://wa.me/971501234567)',
+        description: 'WhatsApp link (e.g., https://wa.me/213551234567)',
+      },
+    },
+    {
+      name: 'address',
+      type: 'text',
+      label: 'Address',
+      admin: {
+        description: 'Office or company address (e.g., 123 Business Center, Algiers, Algeria)',
+      },
+    },
+    {
+      name: 'email',
+      type: 'text',
+      label: 'Email',
+      admin: {
+        description: 'Contact email address (e.g., info@theone.dz)',
       },
     },
   ],

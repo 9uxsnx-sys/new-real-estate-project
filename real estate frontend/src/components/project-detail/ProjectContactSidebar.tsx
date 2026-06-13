@@ -1,20 +1,21 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { MessageCircle, Phone } from 'lucide-react';
+import { useContact } from '../../hooks';
 
 interface ProjectContactSidebarProps {
   projectName: string;
-  whatsappNumber?: string;
 }
 
 export const ProjectContactSidebar: React.FC<ProjectContactSidebarProps> = ({
   projectName,
-  whatsappNumber = "971501234567"
 }) => {
   const { t } = useTranslation();
-  const phoneNumber = "+971 4 123 4567";
-  const cleanWhatsapp = whatsappNumber.replace(/[^0-9]/g, '');
-  const whatsappLink = `https://wa.me/${cleanWhatsapp}?text=I'm interested in ${projectName}`;
+  const { contact, loading } = useContact();
+  
+  const phoneNumber = contact?.phone || '0551 12 34 56';
+  const whatsappURL = contact?.whatsappURL || 'https://wa.me/213551234567';
+  const whatsappLink = `${whatsappURL}?text=I'm interested in ${projectName}`;
   const telLink = `tel:${phoneNumber.replace(/\s/g, '')}`;
 
   return (
@@ -52,7 +53,7 @@ export const ProjectContactSidebar: React.FC<ProjectContactSidebarProps> = ({
           style={{ fontFamily: 'Geist, sans-serif' }}
         >
           <Phone size={18} strokeWidth={1.5} />
-          {phoneNumber}
+          {loading ? '...' : phoneNumber}
         </a>
       </div>
     </aside>

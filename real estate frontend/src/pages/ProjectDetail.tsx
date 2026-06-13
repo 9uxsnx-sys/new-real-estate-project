@@ -277,7 +277,6 @@ export const ProjectDetail: React.FC = () => {
           <div className="order-2 px-6 md:px-0">
             <ProjectContactSidebar
               projectName={project.name}
-              whatsappNumber="+971501234567"
             />
           </div>
         </div>

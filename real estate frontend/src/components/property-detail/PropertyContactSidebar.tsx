@@ -7,19 +7,17 @@ import { useContact } from '../../hooks';
 interface PropertyContactSidebarProps {
   property: Property;
   propertyCode?: string;
-  whatsappNumber?: string;
 }
 
 export const PropertyContactSidebar: React.FC<PropertyContactSidebarProps> = ({ 
   property, 
   propertyCode,
-  whatsappNumber = "1234567890"
 }) => {
   const { t } = useTranslation();
   const { contact, loading } = useContact();
   
-  const phoneNumber = contact?.phone || '+971 4 123 4567';
-  const whatsappURL = contact?.whatsappURL || 'https://wa.me/971501234567';
+  const phoneNumber = contact?.phone || '0551 12 34 56';
+  const whatsappURL = contact?.whatsappURL || 'https://wa.me/213551234567';
   
   const whatsappLink = `${whatsappURL}?text=I'm interested in property ${propertyCode || property.id}`;
   const telLink = `tel:${phoneNumber.replace(/\s/g, '')}`;

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Moon, Globe } from 'lucide-react';
 import { ActionPill, ActionPillRTL } from '@/components/ui';
 import { MenuButton } from '@/components/ui/MenuButton';
+import { useContact } from '@/hooks';
 
 const languages = [
   { code: 'en', label: 'EN', name: 'English' },
@@ -46,6 +47,8 @@ export const MobileMenuCard: React.FC<MobileMenuCardProps> = ({
   navDark,
 }) => {
   const navigate = useNavigate();
+  const { contact } = useContact();
+  const whatsappURL = contact?.whatsappURL || 'https://wa.me/213551234567';
 
   const themes = [
     { code: 'light', label: navLight, icon: Sun },
@@ -173,13 +176,13 @@ export const MobileMenuCard: React.FC<MobileMenuCardProps> = ({
                 {currentLang === 'ar' ? (
                   <ActionPillRTL
                     text="واتساب"
-                    href="./#contact"
+                    href={whatsappURL}
                     onClick={onClose}
                   />
                 ) : (
                   <ActionPill
                     text="WhatsApp"
-                    href="./#contact"
+                    href={whatsappURL}
                     onClick={onClose}
                     isRTL={false}
                   />

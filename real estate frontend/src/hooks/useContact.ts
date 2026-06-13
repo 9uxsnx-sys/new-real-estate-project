@@ -4,9 +4,10 @@ import { fetchApi } from '../services/api';
 
 interface Contact {
   id: string | number;
-  name: string;
   phone: string;
   whatsappURL: string;
+  address?: string;
+  email?: string;
 }
 
 interface UseContactReturn {
@@ -28,11 +29,15 @@ export const useContact = (locale = 'en'): UseContactReturn => {
         setError(null);
         
         const lang = locale || i18n.language || 'en';
-        const response = await fetchApi<{ docs: Contact[] }>(`/contact?locale=${lang}&limit=1`);
+        console.log('[useContact] Fetching contact for locale:', lang);
+        const response = await fetchApi<{ docs: Contact[] }>(`/api/contact?locale=${lang}&limit=1`);
+        console.log('[useContact] API response:', response);
         
         if (response.docs && response.docs.length > 0) {
+          console.log('[useContact] Contact data:', response.docs[0]);
           setContact(response.docs[0]);
         } else {
+          console.log('[useContact] No contact found');
           setContact(null);
         }
       } catch (err) {

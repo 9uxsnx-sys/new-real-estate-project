@@ -24,13 +24,21 @@ export class ApiError extends Error {
 
 async function handleResponse<T>(response: Response): Promise<T> {
   if (!response.ok) {
+    // Clone the response so we can read it twice (once for JSON, once for text fallback)
+    const clonedResponse = response.clone();
     let errorData;
     try {
       errorData = await response.json();
       console.error('[API Error] Response:', response.status, response.statusText, errorData);
     } catch {
-      errorData = await response.text();
-      console.error('[API Error] Response:', response.status, response.statusText, errorData);
+      try {
+        const text = await clonedResponse.text();
+        console.error('[API Error] Response:', response.status, response.statusText, text);
+        errorData = { message: text };
+      } catch {
+        console.error('[API Error] Response:', response.status, response.statusText);
+        errorData = { message: 'Failed to read error response' };
+      }
     }
     throw new ApiError(
       errorData?.error?.message || errorData?.message || `API Error: ${response.status}`,
@@ -62,12 +70,16 @@ export async function fetchApi<T>(
   }
 
   console.log('[API] Full URL:', urlString);
+  console.log('[API] Using proxy, should go to:', urlString.replace('/api', 'http://127.0.0.1:3010/api'));
   
   const response = await fetch(urlString, {
     headers: {
       'Content-Type': 'application/json',
     },
   });
+
+  console.log('[API] Response status:', response.status);
+  console.log('[API] Response ok:', response.ok);
 
   return handleResponse<T>(response);
 }
