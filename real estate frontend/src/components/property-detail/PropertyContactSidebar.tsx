@@ -70,13 +70,13 @@ export const PropertyContactSidebar: React.FC<PropertyContactSidebarProps> = ({
       </div>
 
       {/* Contact Buttons */}
-      <div className="space-y-3">
+      <div className="flex flex-row sm:flex-col gap-3">
         {/* WhatsApp Button */}
         <a
           href={whatsappLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 bg-black text-white rounded-full py-3.5 px-4 text-[14px] font-normal hover:bg-[rgb(44,44,44)] transition-colors w-full"
+          className="flex-1 flex items-center justify-center gap-2 bg-black text-white rounded-full py-3 px-3 sm:py-3.5 sm:px-4 text-[13px] sm:text-[14px] font-normal hover:bg-[rgb(44,44,44)] transition-colors"
           style={{ fontFamily: 'Geist, sans-serif' }}
         >
           <MessageCircle size={18} strokeWidth={1.5} />
@@ -86,7 +86,7 @@ export const PropertyContactSidebar: React.FC<PropertyContactSidebarProps> = ({
         {/* Phone Button */}
         <a
           href={telLink}
-          className="flex items-center justify-center gap-2 border border-[rgb(230,230,230)] text-[rgb(44,44,44)] rounded-full py-3.5 px-4 text-[14px] font-normal hover:bg-[rgb(250,250,250)] transition-colors w-full"
+          className="flex-1 flex items-center justify-center gap-2 border border-[rgb(230,230,230)] text-[rgb(44,44,44)] rounded-full py-3 px-3 sm:py-3.5 sm:px-4 text-[13px] sm:text-[14px] font-normal hover:bg-[rgb(250,250,250)] transition-colors"
           style={{ fontFamily: 'Geist, sans-serif' }}
         >
           <Phone size={18} strokeWidth={1.5} />
