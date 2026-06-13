@@ -6,6 +6,7 @@ import { ArrowRight } from 'lucide-react';
 import { ProjectAlternatingSection } from '../components/project';
 import { Footer } from '../components/sections';
 import { SEO } from '../components/seo';
+import { ProjectNotFound } from '../components/ui/ProjectNotFound';
 import { useProjects } from '../hooks';
 import type { Project } from '../types';
 
@@ -102,14 +103,18 @@ export const Projects: React.FC = () => {
         </div>
       </section>
 
-      {projects.slice(0, 4).map((project, index) => (
-        <ProjectAlternatingSection
-          key={project.id}
-          project={project as ProjectWithMeta}
-          index={index}
-          onExplore={() => handleProjectClick(project.slug)}
-        />
-      ))}
+      {projects.length === 0 ? (
+        <ProjectNotFound fullPage={false} showBackToProjects={false} />
+      ) : (
+        projects.slice(0, 4).map((project, index) => (
+          <ProjectAlternatingSection
+            key={project.id}
+            project={project as ProjectWithMeta}
+            index={index}
+            onExplore={() => handleProjectClick(project.slug)}
+          />
+        ))
+      )}
 
       <section className="py-16 md:py-20 bg-[rgb(248,248,248)]">
         <div className="max-w-[1360px] mx-auto px-6 sm:px-4 md:px-8 lg:px-20">

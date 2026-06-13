@@ -11,6 +11,7 @@ import {
 } from '../components/property-detail';
 import { ProjectSection, ProjectSectionData, ProjectContactSidebar } from '../components/project-detail';
 import { PropertyCard } from '@/components/ui/property-card';
+import { ProjectNotFound } from '../components/ui/ProjectNotFound';
 import { Footer } from '../components/sections';
 import { SEO } from '../components/seo';
 import { useProject, useProperties } from '../hooks';
@@ -108,24 +109,7 @@ export const ProjectDetail: React.FC = () => {
   }
 
   if (projectError || !project) {
-    return (
-      <div className="min-h-screen bg-white pt-[clamp(60px,7vh,80px)]">
-        <div className="max-w-[1360px] mx-auto px-4 md:px-8 lg:px-20 py-12 text-center">
-          <h1
-            className="text-2xl font-semibold text-[rgb(44,44,44)] mb-4"
-            style={{ fontFamily: 'Geist, sans-serif' }}
-          >
-            {t('common.notFound')}
-          </h1>
-          <button
-            onClick={() => navigate(`/${currentLang}/projects`)}
-            className="px-6 py-3 bg-black text-white rounded-full hover:bg-[rgb(44,44,44)] transition-colors"
-          >
-            {t('project.backToProjects')}
-          </button>
-        </div>
-      </div>
-    );
+    return <ProjectNotFound />;
   }
 
   const galleryImages = project.gallery && project.gallery.length > 0
