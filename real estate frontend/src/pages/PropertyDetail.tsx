@@ -12,6 +12,7 @@ import {
   PropertyContactSidebar
 } from '../components/property-detail';
 import { Footer } from '../components/sections';
+import { SEO } from '../components/seo';
 import { useProperty } from '../hooks';
 import { formatPrice, getImageUrl } from '../utils';
 import type { PropertyFeature as PropertyFeatureType } from '../types';
@@ -141,6 +142,13 @@ export const PropertyDetail: React.FC = () => {
 
   return (
     <div ref={pageRef} className="min-h-screen bg-white">
+      <SEO 
+        title={property.name}
+        description={property.description || `${property.beds} bedroom property in ${property.area}, ${property.city}. ${property.space_sqm} m² of modern living space.`}
+        image={getImageUrl(property.image)}
+        url={`property/${id}`}
+        lang={currentLang}
+      />
       <NavigationNew />
       <div className="max-w-[1360px] mx-auto px-4 md:px-8 lg:px-20 py-6">
         <button
@@ -165,13 +173,13 @@ export const PropertyDetail: React.FC = () => {
         />
 
         <div className="mt-6 mb-4">
-          <h1
+          <h2
             ref={priceRef}
             className="text-[28px] md:text-[36px] lg:text-[40px] font-semibold text-[rgb(44,44,44)]"
             style={{ fontFamily: 'Geist, sans-serif' }}
           >
             {formatPrice(property.price)}
-          </h1>
+          </h2>
           <div className="flex items-center gap-2 mt-2">
             <MapPin size={20} strokeWidth={1.5} className="text-[rgb(136,136,136)]" />
             <span

@@ -58,6 +58,7 @@ export const AboutUsSection: React.FC<AboutUsSectionProps> = ({ className = '' }
             <img 
               src={aboutImage}
               alt=""
+              role="presentation"
               style={{
                 display: 'inline-block',
                 verticalAlign: 'middle',

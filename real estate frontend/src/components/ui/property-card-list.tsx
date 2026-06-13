@@ -67,7 +67,7 @@ export const PropertyCardList = ({
   };
 
   return (
-    <motion.div
+    <motion.article
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
@@ -201,7 +201,7 @@ export const PropertyCardList = ({
           </div>
         </div>
       </div>
-    </motion.div>
+    </motion.article>
   );
 };
 

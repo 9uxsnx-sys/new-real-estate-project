@@ -51,19 +51,13 @@ export const NavigationNew: React.FC = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-[10000] bg-white/90 backdrop-blur border-b border-white">
-      <div className="relative h-[clamp(60px,7vh,80px)] flex items-center pt-2">
+    <header className="fixed top-0 left-0 right-0 z-[10000] bg-white/90 backdrop-blur border-b border-white">
+      <nav className="max-w-[1360px] mx-auto px-4 md:px-8 lg:px-20 h-[clamp(60px,7vh,80px)] flex items-center">
+        <div className="w-full flex items-center justify-between">
         
-        {/* Logo - Position changes based on language */}
-        <div 
-          className={`absolute top-1/2 -translate-y-1/2 ${
-            currentLang === 'ar' 
-              ? 'right-[clamp(16px,3.2vw,64px)] lg:right-[clamp(16px,3.2vw,64px)]' 
-              : 'left-[clamp(16px,3.2vw,64px)] lg:left-[clamp(16px,3.2vw,64px)]'
-          }`}
-          style={{ transform: 'translateY(-50%)' }}
-        >
-          <span className="text-[clamp(14px,1.5vw,20px)] md:text-base lg:text-[clamp(14px,1.5vw,20px)] font-bold">Logo</span>
+        {/* Logo */}
+        <div className="flex-shrink-0">
+          <span className="text-[clamp(14px,1.5vw,20px)] font-bold">Logo</span>
         </div>
 
         {/* Desktop Navigation Links - Centered */}
@@ -210,15 +204,8 @@ export const NavigationNew: React.FC = () => {
           </div>
         </div>
 
-        {/* Desktop WhatsApp Button - Position changes based on language */}
-        <div 
-          className={`absolute top-1/2 hidden lg:block ${
-            currentLang === 'ar' 
-              ? 'left-[clamp(16px,3.2vw,64px)] lg:left-[clamp(16px,3.2vw,64px)]' 
-              : 'right-[clamp(16px,3.2vw,64px)] lg:right-[clamp(16px,3.2vw,64px)]'
-          }`}
-          style={{ transform: 'translateY(-50%)' }}
-        >
+        {/* Desktop WhatsApp Button */}
+        <div className="flex-shrink-0 hidden lg:block">
           {currentLang === 'ar' ? (
             <ActionPillRTL
               text="واتساب"
@@ -253,6 +240,7 @@ export const NavigationNew: React.FC = () => {
           navDark={t('nav.dark')}
         />
       </div>
-    </nav>
+      </nav>
+    </header>
   );
 };

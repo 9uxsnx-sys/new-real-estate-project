@@ -12,6 +12,7 @@ import {
 import { ProjectSection, ProjectSectionData, ProjectContactSidebar } from '../components/project-detail';
 import { PropertyCard } from '@/components/ui/property-card';
 import { Footer } from '../components/sections';
+import { SEO } from '../components/seo';
 import { useProject, useProperties } from '../hooks';
 import { formatPrice, getImageUrl } from '../utils';
 import type { PropertyFeature as PropertyFeatureType } from '../types';
@@ -151,6 +152,13 @@ export const ProjectDetail: React.FC = () => {
 
   return (
     <div ref={pageRef} className="min-h-screen bg-white">
+      <SEO 
+        title={project.name}
+        description={project.description || project.short_description || `Discover ${project.name}, a premium real estate project featuring exceptional design and luxury living.`}
+        image={galleryImages[0]}
+        url={`projects/${projectId}`}
+        lang={currentLang}
+      />
       <div className="max-w-[1360px] mx-auto px-4 md:px-8 lg:px-20 py-6 md:py-10">
         <button
           ref={backBtnRef}
@@ -171,13 +179,13 @@ export const ProjectDetail: React.FC = () => {
         <PropertyGallery images={galleryImages} propertyName={project.name} />
 
         <div className="mt-6 mb-4">
-          <h1
+          <h2
             ref={titleRef}
             className="text-[28px] md:text-[36px] lg:text-[40px] font-semibold text-[rgb(44,44,44)]"
             style={{ fontFamily: 'Geist, sans-serif' }}
           >
             {project.name}
-          </h1>
+          </h2>
           <div className="flex items-center gap-2 mt-2">
             <MapPin size={20} strokeWidth={1.5} className="text-[rgb(136,136,136)]" />
             <p

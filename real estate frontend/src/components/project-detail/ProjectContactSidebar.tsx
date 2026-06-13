@@ -18,7 +18,7 @@ export const ProjectContactSidebar: React.FC<ProjectContactSidebarProps> = ({
   const telLink = `tel:${phoneNumber.replace(/\s/g, '')}`;
 
   return (
-    <div className="border border-[rgb(230,230,230)] rounded-3xl p-6 bg-white sticky top-24">
+    <aside className="border border-[rgb(230,230,230)] rounded-3xl p-6 bg-white sticky top-24">
       <div className="mb-4">
         <p
           className="text-[11px] text-[rgb(136,136,136)] font-normal uppercase tracking-wider mb-3"
@@ -55,7 +55,7 @@ export const ProjectContactSidebar: React.FC<ProjectContactSidebarProps> = ({
           {phoneNumber}
         </a>
       </div>
-    </div>
+    </aside>
   );
 };
 

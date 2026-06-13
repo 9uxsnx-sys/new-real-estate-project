@@ -67,8 +67,8 @@ export const Preloader: React.FC = () => {
         {/* Logo */}
         <div ref={textRef} className="mb-8">
           <img
-            src="https://storage.googleapis.com/download/storage/v1/b/prd-shared-services.firebasestorage.app/o/h2m-assets%2F8f47f6f46f13b18c94590c08695180a388e97844.png%3Fwidth=300&amp;height=209?generation=1775379090743841&amp;alt=media"
-            alt="VistaHaven"
+            src="https://storage.googleapis.com/download/storage/v1/b/prd-shared-services.firebasestorage.app/o/h2m-assets%2F8f47f6f46f13b18c94590c08695180a388e97844.png%3Fwidth=300&height=209?generation=1775379090743841&alt=media"
+            alt="Loading..."
             className="w-16 h-16 object-contain mx-auto mb-4"
           />
           <h2

@@ -1,11 +1,12 @@
 import React, { useEffect, useRef } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { PropertyCard } from '@/components/ui/property-card';
 import { HeroSection } from '../components/filters';
 import { Footer } from '../components/sections';
+import { SEO } from '../components/seo';
 import { useProperties } from '../hooks';
 import { formatPrice, getImageUrl } from '../utils';
 
@@ -108,6 +109,12 @@ export const PropertiesListing: React.FC<PropertiesListingProps> = ({ onProperty
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO 
+        title="Properties"
+        description="Browse our selection of premium properties in Algeria. Find apartments, villas, and commercial spaces in prime locations."
+        lang="en"
+        url=""
+      />
       <HeroSection
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}

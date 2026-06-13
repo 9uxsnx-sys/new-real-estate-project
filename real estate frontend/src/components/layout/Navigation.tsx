@@ -39,8 +39,8 @@ export const Navigation: React.FC = () => {
   }, []);
 
   return (
-    <nav ref={navRef} className="fixed top-0 left-0 right-0 z-[10000] bg-white/90 backdrop-blur border-b border-white">
-      <div className="max-w-[1360px] mx-auto px-4 md:px-8 lg:px-20">
+    <header className="fixed top-0 left-0 right-0 z-[10000] bg-white/90 backdrop-blur border-b border-white">
+      <nav ref={navRef} className="max-w-[1360px] mx-auto px-4 md:px-8 lg:px-20">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <a
@@ -151,7 +151,7 @@ export const Navigation: React.FC = () => {
           )}
           </AnimatePresence>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 };

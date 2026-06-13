@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Routes, Route, useNavigate, useParams, Navigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { HelmetProvider } from 'react-helmet-async';
 import gsap from 'gsap';
 import { Navigation } from './components/layout';
 import { ScrollToTop } from './components/ScrollToTop';
@@ -118,7 +119,7 @@ export default function App() {
   }, []);
 
   return (
-    <>
+    <HelmetProvider>
       {!isLoaded && <Preloader />}
       <Routes>
         {/* Language-prefixed routes */}
@@ -130,6 +131,6 @@ export default function App() {
         {/* Catch all - redirect to /en */}
         <Route path="*" element={<RootRedirect />} />
       </Routes>
-    </>
+    </HelmetProvider>
   );
 }

@@ -25,7 +25,7 @@ export const PropertyContactSidebar: React.FC<PropertyContactSidebarProps> = ({
   const telLink = `tel:${phoneNumber.replace(/\s/g, '')}`;
 
   return (
-    <div className="border border-[rgb(230,230,230)] rounded-3xl p-6 bg-white sticky top-24">
+    <aside className="border border-[rgb(230,230,230)] rounded-3xl p-6 bg-white sticky top-24">
       {/* REF Code */}
       {propertyCode && (
         <div className="mb-4">
@@ -93,6 +93,6 @@ export const PropertyContactSidebar: React.FC<PropertyContactSidebarProps> = ({
           {loading ? '...' : phoneNumber}
         </a>
       </div>
-    </div>
+    </aside>
   );
 };

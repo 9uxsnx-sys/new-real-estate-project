@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import { ArrowRight } from 'lucide-react';
 import { ProjectAlternatingSection } from '../components/project';
 import { Footer } from '../components/sections';
+import { SEO } from '../components/seo';
 import { useProjects } from '../hooks';
 import type { Project } from '../types';
 
@@ -82,6 +83,12 @@ export const Projects: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO 
+        title="Our Projects"
+        description="Explore our premium real estate projects in Algeria. Discover exceptional residential and commercial developments designed for modern living."
+        url="projects"
+        lang={currentLang}
+      />
       <section className="py-16 md:py-20 lg:py-24 border-b border-[rgb(230,230,230)]">
         <div className="max-w-[1360px] mx-auto px-6 sm:px-4 md:px-8 lg:px-20">
           <div ref={headerRef}>
