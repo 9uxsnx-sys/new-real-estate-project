@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams, useLocation } from 'react-router-dom';
 import { MapPin, Phone, Mail } from 'lucide-react';
+import { useContact } from '@/hooks';
 
 export const Footer: React.FC = () => {
   const { i18n } = useTranslation();
@@ -9,6 +10,8 @@ export const Footer: React.FC = () => {
   const location = useLocation();
   const currentLang = lang || 'en';
   const isRTL = i18n.language === 'ar';
+
+  const { contact } = useContact(currentLang);
 
   // Get current path without language prefix
   const getCurrentPath = () => {
@@ -106,15 +109,15 @@ export const Footer: React.FC = () => {
             <div className="flex flex-col gap-1 text-sm text-gray-600">
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4" />
-                <span>{activeContent.address}</span>
+                <span>{contact?.address || activeContent.address}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4" />
-                <span>{activeContent.phone}</span>
+                <span>{contact?.phone || activeContent.phone}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4" />
-                <span>{activeContent.email}</span>
+                <span>{contact?.email || activeContent.email}</span>
               </div>
             </div>
           </div>
