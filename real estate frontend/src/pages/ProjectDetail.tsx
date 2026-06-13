@@ -229,47 +229,49 @@ export const ProjectDetail: React.FC = () => {
               lng={55.2708}
             />
 
-            <div className="py-6 border-t border-b border-[rgb(230,230,230)]">
-              <div className="flex items-center justify-between mb-6">
-                <h3
-                  className="text-[20px] md:text-[24px] font-semibold text-[rgb(44,44,44)]"
-                  style={{ fontFamily: 'Geist, sans-serif' }}
-                >
-                  {t('project.propertiesInProject')}
-                </h3>
-
-                {projectProperties.length >= 1 && (
-                  <button
-                    onClick={() => navigate(`/${currentLang}/?project=${encodeURIComponent(project.name)}`)}
-                    className="flex items-center gap-1 text-[14px] font-light text-[rgb(44,44,44)] hover:text-black transition-colors"
+            {Array.isArray(projectProperties) && projectProperties.length > 0 && (
+              <div className="py-6 border-t border-b border-[rgb(230,230,230)]">
+                <div className="flex items-center justify-between mb-6">
+                  <h3
+                    className="text-[20px] md:text-[24px] font-semibold text-[rgb(44,44,44)]"
                     style={{ fontFamily: 'Geist, sans-serif' }}
                   >
-                    {t('project.seeMore')}
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
-                  </button>
-                )}
-              </div>
+                    {t('project.propertiesInProject')}
+                  </h3>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {projectProperties.slice(0, 3).map((property) => (
-                  <div key={property.id} className="property-card">
-                    <PropertyCard
-                      imageUrl={getImageUrl(property.image)}
-                      price={formatPrice(property.price)}
-                      title={property.name || property.property_code}
-                      location={`${property.area}, ${property.city}`}
-                      beds={property.beds}
-                      baths={property.baths}
-                      space={property.space_sqm}
-                      propertyType={property.property_type}
-                      onClick={() => navigate(`/${currentLang}/property/${property.id}`)}
-                    />
-                  </div>
-                ))}
+                  {projectProperties.length >= 1 && (
+                    <button
+                      onClick={() => navigate(`/${currentLang}/?project=${encodeURIComponent(project.name)}`)}
+                      className="flex items-center gap-1 text-[14px] font-light text-[rgb(44,44,44)] hover:text-black transition-colors"
+                      style={{ fontFamily: 'Geist, sans-serif' }}
+                    >
+                      {t('project.seeMore')}
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                  )}
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {projectProperties.slice(0, 3).map((property) => (
+                    <div key={property.id} className="property-card">
+                      <PropertyCard
+                        imageUrl={getImageUrl(property.image)}
+                        price={formatPrice(property.price)}
+                        title={property.name || property.property_code}
+                        location={`${property.area}, ${property.city}`}
+                        beds={property.beds}
+                        baths={property.baths}
+                        space={property.space_sqm}
+                        propertyType={property.property_type}
+                        onClick={() => navigate(`/${currentLang}/property/${property.id}`)}
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </div>
 
           <div className="order-2">

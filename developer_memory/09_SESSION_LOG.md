@@ -2,6 +2,147 @@
 
 ---
 
+## 2026-06-13 - HeroSection Layout Redesign & SEO Optimization
+
+### Work Done
+
+#### 1. HeroSection Layout Restructure
+- **File:** `real estate frontend/src/components/sections/HeroSection.tsx`
+
+##### Layout Evolution (Multiple Iterations):
+1. **Initial attempt:** Tried grid layout with `flex` base class - caused CSS conflicts and text invisibility
+2. **Second attempt:** Fixed by making `flex` and `grid` mutually exclusive (no base class conflict)
+3. **Third attempt:** Abandoned grid, reverted to original multi-tag structure
+4. **Final approach:** Restored original layout, added SEO optimization
+
+##### Final Structure:
+```
+Desktop (lg+):
+┌─────────────────────────────────────────────────────────────┐
+│                     HERO IMAGE                               │
+│  ┌──────────────────────┐                                   │
+│  │ Building Your       │                                   │
+│  │ Dreams Into Reality │                                   │
+│  └──────────────────────┘                                   │
+│  ┌──────────────────────┐                                   │
+│  │ Discover exceptional│                                   │
+│  │ living spaces...    │                                   │
+│  └──────────────────────┘                                   │
+└─────────────────────────────────────────────────────────────┘
+```
+
+#### 2. SEO Optimization (Single h1 for Google)
+- **Desktop h1 (line 38):** MASTER h1 - visible to Googlebot for SEO
+- **Mobile h1 (line 64):** Has `aria-hidden="true"` - hidden from SEO bots to prevent duplicate headers
+
+#### 3. Layout Changes Made Today
+- Changed desktop layout from **side-by-side** to **stacked** (title above paragraph)
+- Paragraph width: `w-[25%]` → `w-[40%]`
+- Added extra spacing for Arabic: `mt-6` (24px margin-top) on paragraph container
+
+#### 4. Key Decisions
+- Reverted complex grid experiments that broke rendering
+- Restored original `heroContent` object for text rendering (not `t()` keys)
+- Used original styling on paragraph block: `text-white font-semibold text-[clamp(14px,1.3vw,20px)] leading-relaxed`
+
+### Files Modified
+- `real estate frontend/src/components/sections/HeroSection.tsx` - Complete restructure
+
+### Current HeroSection Structure:
+```jsx
+// Desktop: Stacked layout
+<div className="hidden lg:flex flex-col justify-end">
+  <h1 className="text-[clamp(56px,7vw,80px)] font-bold text-white leading-tight">
+    {content}
+  </h1>
+  <div className={`w-[40%] ${isRTL ? 'mt-6' : ''}`}>
+    <p className="text-white font-semibold text-[clamp(14px,1.3vw,20px)] leading-relaxed">
+      {content}
+    </p>
+  </div>
+</div>
+
+// Mobile: Stacked layout (same structure)
+<div className="flex lg:hidden flex-col justify-end">
+  <h1 className="..." aria-hidden="true">
+    {content}
+  </h1>
+  <p className="...">
+    {content}
+  </p>
+</div>
+```
+
+### Build Status
+- ✓ All builds successful
+- ✓ h1 count: 2 (1 SEO, 1 aria-hidden)
+- ✓ All 3 languages working (EN/FR/AR)
+
+---
+
+## 2026-06-13 - SEO Implementation
+
+### SEO Component Created
+- **File:** `real estate frontend/src/components/seo/SEO.tsx`
+- Uses `react-helmet-async` for dynamic meta tags
+- Provides per-page SEO customization
+
+### SEO Features Implemented:
+
+#### 1. Dynamic Meta Tags
+- `<title>` - Page-specific or default "The One - Premium Real Estate in Algeria"
+- `<meta name="description">` - Custom descriptions per page
+- `<link rel="canonical">` - Prevents duplicate content issues
+
+#### 2. Open Graph Tags (Social Media)
+```tsx
+<meta property="og:type" content={type} />
+<meta property="og:url" content={fullUrl} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={image} />
+<meta property="og:site_name" content="The One" />
+<meta property="og:locale" content="en_US|ar_DZ|fr_FR" />
+```
+
+#### 3. Twitter Card Tags
+```tsx
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={image} />
+```
+
+#### 4. Hreflang for i18n
+```tsx
+<link rel="alternate" hreflang="en" href="https://theone.dz/en" />
+<link rel="alternate" hreflang="fr" href="https://theone.dz/fr" />
+<link rel="alternate" hreflang="ar" href="https://theone.dz/ar" />
+<link rel="alternate" hreflang="x-default" href="https://theone.dz/en" />
+```
+
+### Default SEO Configuration
+- **Base URL:** `https://theone.dz`
+- **Default Image:** Firebase-hosted logo
+- **Default Title:** "The One - Premium Real Estate in Algeria"
+- **Default Description:** "Discover exceptional living spaces designed for those who appreciate refined elegance and timeless quality..."
+
+### Files Created
+- `real estate frontend/src/components/seo/SEO.tsx`
+- `real estate frontend/src/components/seo/index.ts`
+
+### SEO Audit Report
+- **File:** `real estate frontend/SEO_AUDIT_REPORT.md`
+- Comprehensive audit of heading hierarchy, metadata, image accessibility, semantic HTML
+
+### Pending SEO Improvements (from audit):
+1. PropertyDetail.tsx - Consolidate multiple h1 tags
+2. ProjectDetail.tsx - Consolidate multiple h1 tags  
+3. Preloader.tsx - Add alt text to loading animation
+4. Add `<main>` semantic element to page wrappers
+
+---
+
 ## 2026-06-10 - Navigation Redesign & RTL Support
 
 ### Work Done
