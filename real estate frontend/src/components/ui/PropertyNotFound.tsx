@@ -54,10 +54,10 @@ export const PropertyNotFound: React.FC<PropertyNotFoundProps> = ({
           </p>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto mt-4">
+          <div className="flex flex-col sm:flex-row items-center gap-3 mt-4">
             <button
               onClick={() => navigate(`/${currentLang}`)}
-              className="w-full sm:w-auto flex items-center justify-center gap-1.5 px-6 py-3 bg-black text-white rounded-full text-[14px]"
+              className="flex items-center justify-center gap-1.5 px-6 py-3 bg-black text-white rounded-full text-[14px]"
               style={{ fontFamily: 'Geist, sans-serif' }}
             >
               <Home className="w-4 h-4" />
@@ -65,7 +65,7 @@ export const PropertyNotFound: React.FC<PropertyNotFoundProps> = ({
             </button>
             <button
               onClick={() => navigate(`/${currentLang}/properties`)}
-              className="w-full sm:w-auto flex items-center justify-center gap-1.5 px-6 py-3 bg-white text-[rgb(44,44,44)] border border-[rgb(230,230,230)] rounded-full text-[14px]"
+              className="flex items-center justify-center gap-1.5 px-6 py-3 bg-white text-[rgb(44,44,44)] border border-[rgb(230,230,230)] rounded-full text-[14px]"
               style={{ fontFamily: 'Geist, sans-serif' }}
             >
               {t('property.backToProperties')}
