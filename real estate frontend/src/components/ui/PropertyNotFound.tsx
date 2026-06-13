@@ -22,7 +22,7 @@ export const PropertyNotFound: React.FC<PropertyNotFoundProps> = ({
       <div className="max-w-[1360px] mx-auto px-4 md:px-8 lg:px-20 py-16 md:py-24">
         <div className="flex flex-col items-center justify-center text-center max-w-lg mx-auto">
           {/* Icon */}
-          <div className="w-16 h-16 rounded-full bg-[rgb(248,248,248)] flex items-center justify-center mb-6">
+          <div className="w-16 h-16 rounded-full bg-[rgb(248,248,248)] flex items-center justify-center mb-4">
             <svg
               width="64"
               height="64"
@@ -54,22 +54,22 @@ export const PropertyNotFound: React.FC<PropertyNotFoundProps> = ({
           </p>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto mt-6">
+          <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto mt-4">
             <button
               onClick={() => navigate(`/${currentLang}`)}
-              className="w-full sm:w-auto flex items-center justify-center gap-1.5 px-5 py-2.5 bg-black text-white rounded-full text-[12px]"
+              className="w-full sm:w-auto flex items-center justify-center gap-1.5 px-6 py-3 bg-black text-white rounded-full text-[14px]"
               style={{ fontFamily: 'Geist, sans-serif' }}
             >
-              <Home className="w-3.5 h-3.5" />
+              <Home className="w-4 h-4" />
               {t('nav.home')}
             </button>
             <button
               onClick={() => navigate(`/${currentLang}/properties`)}
-              className="w-full sm:w-auto flex items-center justify-center gap-1.5 px-5 py-2.5 bg-white text-[rgb(44,44,44)] border border-[rgb(230,230,230)] rounded-full text-[12px]"
+              className="w-full sm:w-auto flex items-center justify-center gap-1.5 px-6 py-3 bg-white text-[rgb(44,44,44)] border border-[rgb(230,230,230)] rounded-full text-[14px]"
               style={{ fontFamily: 'Geist, sans-serif' }}
             >
               {t('property.backToProperties')}
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         </div>
