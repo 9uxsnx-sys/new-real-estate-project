@@ -10,6 +10,7 @@ import {
   PropertyLocation,
   PropertyContactSidebar
 } from '../components/property-detail';
+import { PropertyNotFound } from '../components/ui/PropertyNotFound';
 import { Footer } from '../components/sections';
 import { SEO } from '../components/seo';
 import { useProperty } from '../hooks';
@@ -95,29 +96,7 @@ export const PropertyDetail: React.FC = () => {
 
   if (error || !property) {
     return (
-      <div className="min-h-screen bg-white pt-[clamp(60px,7vh,80px)]">
-        <div className="max-w-[1360px] mx-auto px-4 md:px-8 lg:px-20 py-12 text-center">
-          <h1
-            className="text-2xl font-semibold text-[rgb(44,44,44)] mb-4"
-            style={{ fontFamily: 'Geist, sans-serif' }}
-          >
-            {t('common.notFound')}
-          </h1>
-          <p
-            className="text-[rgb(136,136,136)] mb-6"
-            style={{ fontFamily: 'Geist, sans-serif' }}
-          >
-            The property you're looking for doesn't exist.
-          </p>
-          <button
-            onClick={() => navigate(`/${currentLang}`)}
-            className="px-6 py-3 bg-black text-white rounded-full"
-            style={{ fontFamily: 'Geist, sans-serif' }}
-          >
-            {t('property.backToProperties')}
-          </button>
-        </div>
-      </div>
+      <PropertyNotFound message={t('common.noPropertiesFoundShort')} />
     );
   }
 

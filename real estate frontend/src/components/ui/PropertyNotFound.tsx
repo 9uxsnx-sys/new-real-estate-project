@@ -6,20 +6,28 @@ import { Home, ArrowRight } from 'lucide-react';
 interface PropertyNotFoundProps {
   title?: string;
   message?: string;
+  showBackToProperties?: boolean;
+  fullPage?: boolean;
 }
 
 export const PropertyNotFound: React.FC<PropertyNotFoundProps> = ({
   title,
   message,
+  showBackToProperties = true,
+  fullPage = true,
 }) => {
   const navigate = useNavigate();
   const { lang } = useParams<{ lang: string }>();
   const { t } = useTranslation();
   const currentLang = lang || 'en';
 
+  const containerClass = fullPage
+    ? 'min-h-screen bg-white pt-[clamp(60px,7vh,80px)] flex items-center justify-center'
+    : 'py-16';
+
   return (
-    <div className="min-h-screen bg-white pt-[clamp(60px,7vh,80px)] flex items-center justify-center">
-      <div className="max-w-[1360px] mx-auto px-4 md:px-8 lg:px-20 py-16 md:py-24">
+    <div className={containerClass}>
+      <div className="max-w-[1360px] mx-auto px-4 md:px-8 lg:px-20">
         <div className="flex flex-col items-center justify-center text-center max-w-lg mx-auto">
           {/* Icon */}
           <div className="w-16 h-16 rounded-full bg-[rgb(248,248,248)] flex items-center justify-center mb-4">
@@ -63,14 +71,16 @@ export const PropertyNotFound: React.FC<PropertyNotFoundProps> = ({
               <Home className="w-4 h-4" />
               {t('nav.home')}
             </button>
-            <button
-              onClick={() => navigate(`/${currentLang}/properties`)}
-              className="flex items-center justify-center gap-1.5 px-6 py-3 bg-white text-[rgb(44,44,44)] border border-[rgb(230,230,230)] rounded-full text-[14px]"
-              style={{ fontFamily: 'Geist, sans-serif' }}
-            >
-              {t('property.backToProperties')}
-              <ArrowRight className="w-4 h-4" />
-            </button>
+            {showBackToProperties && (
+              <button
+                onClick={() => navigate(`/${currentLang}/properties`)}
+                className="flex items-center justify-center gap-1.5 px-6 py-3 bg-white text-[rgb(44,44,44)] border border-[rgb(230,230,230)] rounded-full text-[14px]"
+                style={{ fontFamily: 'Geist, sans-serif' }}
+              >
+                {t('property.backToProperties')}
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            )}
           </div>
         </div>
       </div>

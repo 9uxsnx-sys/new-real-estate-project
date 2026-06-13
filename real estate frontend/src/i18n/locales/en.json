@@ -89,6 +89,7 @@
     "notFound": "Not Found",
     "tryAgain": "Try Again",
     "noPropertiesFound": "No properties found matching your criteria.",
+    "noPropertiesFoundShort": "No properties found",
     "noProjectsFound": "No projects found here.",
     "viewAll": "View All",
     "showMore": "Show More",
