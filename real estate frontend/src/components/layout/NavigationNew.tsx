@@ -79,10 +79,10 @@ export const NavigationNew: React.FC = () => {
             {t('nav.home')}
           </a>
           <a
-            href={`/${currentLang}`}
+            href={`/${currentLang}/properties`}
             onClick={(e) => {
               e.preventDefault();
-              navigate(`/${currentLang}`);
+              navigate(`/${currentLang}/properties`);
             }}
             className="text-sm lg:text-[clamp(12px,1vw,14px)] font-medium text-[rgb(44,44,44)] hover:text-black transition-colors px-3 lg:px-4 py-2 rounded-full hover:bg-gray-100"
             style={{ fontFamily: 'Geist, sans-serif' }}

@@ -182,7 +182,7 @@ export const PropertyDetail: React.FC = () => {
               className="text-[14px] md:text-[16px] text-[rgb(136,136,136)] font-light"
               style={{ fontFamily: 'Geist, sans-serif' }}
             >
-{property.project ? `${property.project.name}, ${property.area}` : `${property.area}, ${property.city}`}
+{property.area}, {property.city}
             </span>
           </div>
         </div>

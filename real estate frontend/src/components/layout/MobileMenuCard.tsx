@@ -89,7 +89,7 @@ export const MobileMenuCard: React.FC<MobileMenuCardProps> = ({
               >
                 {[
                   { label: navHome, href: `/${currentLang}` },
-                  { label: navProperties, href: `/${currentLang}` },
+                  { label: navProperties, href: `/${currentLang}/properties` },
                   { label: navProjects, href: `/${currentLang}/projects` },
                 ].map((item) => (
                   <motion.a

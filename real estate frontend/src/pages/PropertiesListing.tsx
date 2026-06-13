@@ -40,6 +40,13 @@ export const PropertiesListing: React.FC<PropertiesListingProps> = ({ onProperty
     sortBy: sortBy as any,
   });
 
+  // Debug: Log first property data
+  useEffect(() => {
+    if (properties.length > 0) {
+      console.log('[DEBUG] First property:', JSON.stringify(properties[0], null, 2));
+    }
+  }, [properties]);
+
   const visibleProperties = properties.slice(0, visibleCount);
   const hasMore = visibleCount < properties.length;
 
@@ -140,7 +147,7 @@ export const PropertiesListing: React.FC<PropertiesListingProps> = ({ onProperty
                   imageUrl={getImageUrl(property.image)}
                   price={formatPrice(property.price)}
                   title={property.name || property.property_code}
-                  location={property.project ? `${property.project.name}, ${property.area}` : `${property.area}, ${property.city}`}
+                  location={`${property.area}, ${property.city}`}
                   beds={property.beds}
                   baths={property.baths}
                   space={property.space_sqm}

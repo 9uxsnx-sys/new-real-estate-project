@@ -71,7 +71,7 @@ export const Footer: React.FC = () => {
           <div className="flex flex-wrap gap-6 md:gap-8">
             <a href={`/${currentLang}`} className="text-sm text-gray-600 hover:text-black transition-colors">Home</a>
             <a href={`/${currentLang}/projects`} className="text-sm text-gray-600 hover:text-black transition-colors">Projects</a>
-            <a href={`/${currentLang}`} className="text-sm text-gray-600 hover:text-black transition-colors">Properties</a>
+            <a href={`/${currentLang}/properties`} className="text-sm text-gray-600 hover:text-black transition-colors">Properties</a>
             <a href={`/${currentLang}#about-us`} className="text-sm text-gray-600 hover:text-black transition-colors">About Us</a>
           </div>
           

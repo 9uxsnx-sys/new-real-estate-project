@@ -54,6 +54,15 @@ const LocalizedApp: React.FC = () => {
           } 
         />
         <Route 
+          path="properties" 
+          element={
+            <PageTransition>
+              <NavigationNew />
+              <LocalizedPropertiesListing />
+            </PageTransition>
+          } 
+        />
+        <Route 
           path="projects" 
           element={
             <PageTransition>
