@@ -22,15 +22,15 @@ export const PropertyNotFound: React.FC<PropertyNotFoundProps> = ({
       <div className="max-w-[1360px] mx-auto px-4 md:px-8 lg:px-20 py-16 md:py-24">
         <div className="flex flex-col items-center justify-center text-center max-w-lg mx-auto">
           {/* Icon */}
-          <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-[rgb(248,248,248)] flex items-center justify-center mb-8">
+          <div className="w-16 h-16 rounded-full bg-[rgb(248,248,248)] flex items-center justify-center mb-6">
             <svg
-              width="48"
-              height="48"
+              width="64"
+              height="64"
               viewBox="0 0 24 24"
               fill="none"
               stroke="rgb(136,136,136)"
               strokeWidth="1.5"
-              className="w-12 h-12 md:w-16 md:h-16"
+              className="w-10 h-10"
             >
               <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
               <polyline points="9 22 9 12 15 12 15 22" />
@@ -39,7 +39,7 @@ export const PropertyNotFound: React.FC<PropertyNotFoundProps> = ({
 
           {/* Title */}
           <h1
-            className="text-[32px] md:text-[40px] lg:text-[48px] font-semibold text-[rgb(44,44,44)] mb-4"
+            className="text-[18px] font-light text-[rgb(44,44,44)] mb-2"
             style={{ fontFamily: 'Geist, sans-serif' }}
           >
             {title || t('common.notFound')}
@@ -47,10 +47,10 @@ export const PropertyNotFound: React.FC<PropertyNotFoundProps> = ({
 
           {/* Message */}
           <p
-            className="text-[16px] md:text-[18px] text-[rgb(136,136,136)] font-light leading-relaxed mb-10"
+            className="text-[14px] text-[rgb(136,136,136)] font-light"
             style={{ fontFamily: 'Geist, sans-serif' }}
           >
-            {message || 'The property you\'re looking for doesn\'t exist or may have been removed.'}
+            {message || t('common.tryAgain')}
           </p>
 
           {/* Action Buttons */}
