@@ -46,7 +46,7 @@ export const PropertyNotFound: React.FC<PropertyNotFoundProps> = ({
           <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
             <button
               onClick={() => navigate(`/${currentLang}`)}
-              className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-black text-white rounded-full font-medium text-[14px] transition-all duration-300 hover:bg-[rgb(44,44,44)] hover:scale-105 group"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-black text-white rounded-full font-medium text-[14px]"
               style={{ fontFamily: 'Geist, sans-serif' }}
             >
               <Home className="w-4 h-4" />
@@ -54,11 +54,11 @@ export const PropertyNotFound: React.FC<PropertyNotFoundProps> = ({
             </button>
             <button
               onClick={() => navigate(`/${currentLang}/properties`)}
-              className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-white text-[rgb(44,44,44)] border-2 border-[rgb(230,230,230)] rounded-full font-medium text-[14px] transition-all duration-300 hover:border-black hover:scale-105 group"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 bg-white text-[rgb(44,44,44)] border-2 border-[rgb(230,230,230)] rounded-full font-medium text-[14px]"
               style={{ fontFamily: 'Geist, sans-serif' }}
             >
               {t('property.backToProperties')}
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         </div>
