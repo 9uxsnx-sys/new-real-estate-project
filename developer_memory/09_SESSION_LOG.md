@@ -80,6 +80,60 @@ Desktop (lg+):
 
 ---
 
+## 2026-06-13 - Mobile Sidebar Improvements
+
+### Work Done
+
+#### 1. Sidebar Mobile Padding
+- **Files:** `ProjectDetail.tsx`, `PropertyDetail.tsx`
+- Added `px-6 md:px-0` to sidebar containers
+- Gives 24px padding on mobile, no padding on desktop
+
+#### 2. Responsive Contact Buttons
+- **Files:** `ProjectContactSidebar.tsx`, `PropertyContactSidebar.tsx`
+
+##### Before:
+- Both buttons stacked vertically (stacked on ALL screen sizes)
+- Used `space-y-3`
+
+##### After:
+- **Mobile:** Buttons side-by-side on one row (`flex flex-row`)
+- **Tablet/Desktop (sm+):** Buttons stacked vertically (`sm:flex-col`)
+
+##### Button Classes:
+```tsx
+<div className="flex flex-row sm:flex-col gap-3">
+  {/* WhatsApp Button */}
+  <a className="flex-1 ... py-3 px-3 sm:py-3.5 sm:px-4 text-[13px] sm:text-[14px]">
+    ...
+  </a>
+  {/* Phone Button */}
+  <a className="flex-1 ... py-3 px-3 sm:py-3.5 sm:px-4 text-[13px] sm:text-[14px]">
+    ...
+  </a>
+</div>
+```
+
+#### 3. Key Design Decisions
+- Buttons use `flex-1` for equal width on both row and column layouts
+- Smaller padding on mobile (`py-3 px-3`) for tighter fit
+- Larger padding on desktop (`sm:py-3.5 sm:px-4`) for better visual
+- Smaller font on mobile (`text-[13px]`) to fit both buttons
+- Larger font on desktop (`sm:text-[14px]`)
+
+### Files Modified
+- `real estate frontend/src/components/project-detail/ProjectContactSidebar.tsx`
+- `real estate frontend/src/components/property-detail/PropertyContactSidebar.tsx`
+- `real estate frontend/src/pages/ProjectDetail.tsx`
+- `real estate frontend/src/pages/PropertyDetail.tsx`
+
+### Git Commit
+- **Hash:** 65af6d5
+- **Message:** "feat: Mobile sidebar improvements - responsive buttons and padding"
+- **Branch:** seo
+
+---
+
 ## 2026-06-13 - SEO Implementation
 
 ### SEO Component Created
