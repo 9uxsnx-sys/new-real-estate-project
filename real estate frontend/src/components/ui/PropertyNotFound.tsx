@@ -18,7 +18,7 @@ export const PropertyNotFound: React.FC<PropertyNotFoundProps> = ({
   const currentLang = lang || 'en';
 
   return (
-    <div className="min-h-screen bg-white pt-[clamp(60px,7vh,80px)]">
+    <div className="min-h-screen bg-white pt-[clamp(60px,7vh,80px)] flex items-center justify-center">
       <div className="max-w-[1360px] mx-auto px-4 md:px-8 lg:px-20 py-16 md:py-24">
         <div className="flex flex-col items-center justify-center text-center max-w-lg mx-auto">
           {/* Icon */}
