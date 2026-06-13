@@ -50,8 +50,8 @@ export const Projects: React.FC = () => {
     return () => ctx.revert();
   }, []);
 
-  const handleProjectClick = (projectId: string) => {
-    navigate(`/${currentLang}/projects/${projectId}`);
+  const handleProjectClick = (projectSlug: string) => {
+    navigate(`/${currentLang}/projects/${projectSlug}`);
   };
 
   if (loading) {
@@ -82,7 +82,7 @@ export const Projects: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white pt-[clamp(60px,7vh,80px)]">
       <SEO 
         title="Our Projects"
         description="Explore our premium real estate projects in Algeria. Discover exceptional residential and commercial developments designed for modern living."
@@ -107,7 +107,7 @@ export const Projects: React.FC = () => {
           key={project.id}
           project={project as ProjectWithMeta}
           index={index}
-          onExplore={() => handleProjectClick(project.id)}
+          onExplore={() => handleProjectClick(project.slug)}
         />
       ))}
 

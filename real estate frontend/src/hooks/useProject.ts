@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { fetchProjectByDocumentId } from '../services/projects';
+import { fetchProjectBySlug } from '../services/projects';
 import type { Project } from '../types';
 
 interface UseProjectResult {
@@ -9,7 +9,7 @@ interface UseProjectResult {
   refetch: () => void;
 }
 
-export function useProject(id: string | undefined, locale?: string): UseProjectResult {
+export function useProject(slug: string | undefined, locale?: string): UseProjectResult {
   const [project, setProject] = useState<Project | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
@@ -20,7 +20,7 @@ export function useProject(id: string | undefined, locale?: string): UseProjectR
   }, []);
 
   useEffect(() => {
-    if (!id) {
+    if (!slug) {
       setProject(null);
       setLoading(false);
       return;
@@ -33,7 +33,7 @@ export function useProject(id: string | undefined, locale?: string): UseProjectR
       setError(null);
 
       try {
-        const projectData = await fetchProjectByDocumentId(id, locale);
+        const projectData = await fetchProjectBySlug(slug, locale);
 
         if (isMounted) {
           setProject(projectData);
@@ -55,7 +55,7 @@ export function useProject(id: string | undefined, locale?: string): UseProjectR
     return () => {
       isMounted = false;
     };
-  }, [id, key, locale]);
+  }, [slug, key, locale]);
 
   return { project, loading, error, refetch };
 }

@@ -157,7 +157,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   const projectOptions = useMemo(() => {
     return [
       { value: '', label: t('hero.allProjects') },
-      ...projects.map((p) => ({ value: p.id, label: p.name })),
+      ...projects.map((p) => ({ value: p.slug, label: p.name })),
     ];
   }, [projects, t]);
 

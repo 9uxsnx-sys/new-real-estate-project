@@ -121,7 +121,13 @@ export const PropertyDetail: React.FC = () => {
     );
   }
 
-  const galleryImages = property.image ? [getImageUrl(property.image, 'full')] : [];
+  const galleryImages = property.image 
+    ? [getImageUrl(property.image, 'full')]
+    : (property.gallery && property.gallery.length > 0 
+        ? property.gallery.map((img: any) => getImageUrl(img, 'full'))
+        : []);
+
+  const propertyName = property.name || property.property_code;
 
   const features: PropertyFeatureType[] = property.features && property.features.length > 0
     ? property.features.map((f: any, idx: number) => {
@@ -140,7 +146,7 @@ export const PropertyDetail: React.FC = () => {
   return (
     <div ref={pageRef} className="min-h-screen bg-white">
       <SEO 
-        title={property.name}
+        title={propertyName}
         description={property.description || `${property.beds} bedroom property in ${property.area}, ${property.city}. ${property.space_sqm} m² of modern living space.`}
         image={getImageUrl(property.image)}
         url={`property/${id}`}
@@ -165,7 +171,7 @@ export const PropertyDetail: React.FC = () => {
 
         <PropertyGallery
           images={galleryImages}
-          propertyName={property.name}
+          propertyName={propertyName}
         />
 
         <div className="mt-6 mb-4">
@@ -202,7 +208,7 @@ export const PropertyDetail: React.FC = () => {
                 className="text-[14px] md:text-[16px] text-[rgb(44,44,44)] font-light leading-relaxed"
                 style={{ fontFamily: 'Geist, sans-serif' }}
               >
-{property.description || `Introducing ${property.name || property.property_code}, a stunning ${property.beds}-bedroom residence featuring ${property.space_sqm} m² of modern living space. Located in the prestigious area of ${property.area}, this property offers exceptional value and comfort.`}
+{property.description || `Introducing ${propertyName}, a stunning ${property.beds}-bedroom residence featuring ${property.space_sqm} m² of modern living space. Located in the prestigious area of ${property.area}, this property offers exceptional value and comfort.`}
               </p>
             </div>
 

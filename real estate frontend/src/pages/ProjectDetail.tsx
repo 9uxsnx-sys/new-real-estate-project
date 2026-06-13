@@ -29,7 +29,7 @@ export const ProjectDetail: React.FC = () => {
 
   const { project, loading: projectLoading, error: projectError } = useProject(projectId, currentLang);
   const { properties: projectProperties, loading: propertiesLoading } = useProperties(
-    projectId ? { projectId } : {},
+    projectId ? { projectSlug: projectId } : {},
     currentLang
   );
 
@@ -159,11 +159,11 @@ export const ProjectDetail: React.FC = () => {
         url={`projects/${projectId}`}
         lang={currentLang}
       />
-      <div className="max-w-[1360px] mx-auto px-4 md:px-8 lg:px-20 py-6 md:py-10">
+      <div className="max-w-[1360px] mx-auto px-4 md:px-8 lg:px-20 py-4 md:py-6">
         <button
           ref={backBtnRef}
           onClick={() => navigate(`/${currentLang}/projects`)}
-          className="flex items-center gap-2 text-[rgb(44,44,44)] hover:text-black transition-colors mb-6"
+          className="flex items-center gap-2 text-[rgb(44,44,44)] hover:text-black transition-colors mb-4"
           style={{ fontFamily: 'Geist, sans-serif' }}
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -178,7 +178,7 @@ export const ProjectDetail: React.FC = () => {
 
         <PropertyGallery images={galleryImages} propertyName={project.name} />
 
-        <div className="mt-6 mb-4">
+        <div className="mt-4 mb-2">
           <h2
             ref={titleRef}
             className="text-[28px] md:text-[36px] lg:text-[40px] font-semibold text-[rgb(44,44,44)]"
@@ -186,7 +186,7 @@ export const ProjectDetail: React.FC = () => {
           >
             {project.name}
           </h2>
-          <div className="flex items-center gap-2 mt-2">
+          <div className="flex items-center gap-2 mt-1">
             <MapPin size={20} strokeWidth={1.5} className="text-[rgb(136,136,136)]" />
             <p
               className="text-[rgb(136,136,136)]"
@@ -241,7 +241,7 @@ export const ProjectDetail: React.FC = () => {
 
                   {projectProperties.length >= 1 && (
                     <button
-                      onClick={() => navigate(`/${currentLang}/?project=${encodeURIComponent(project.name)}`)}
+                      onClick={() => navigate(`/${currentLang}/properties?project=${projectId}`)}
                       className="flex items-center gap-1 text-[14px] font-light text-[rgb(44,44,44)] hover:text-black transition-colors"
                       style={{ fontFamily: 'Geist, sans-serif' }}
                     >

@@ -23,7 +23,7 @@ export const PropertiesListing: React.FC<PropertiesListingProps> = ({ onProperty
 
   const [sortBy, setSortBy] = React.useState('newest');
   const [searchQuery, setSearchQuery] = React.useState('');
-  const [selectedProjectId, setSelectedProjectId] = React.useState(projectParam || '');
+  const [selectedProjectSlug, setSelectedProjectSlug] = React.useState(projectParam || '');
   const [propertyTypeFilter, setPropertyTypeFilter] = React.useState('');
   const [minSpace, setMinSpace] = React.useState('');
   const [maxSpace, setMaxSpace] = React.useState('');
@@ -34,7 +34,7 @@ export const PropertiesListing: React.FC<PropertiesListingProps> = ({ onProperty
   const { properties, loading, error } = useProperties({
     search: searchQuery,
     propertyType: propertyTypeFilter || undefined,
-    projectId: selectedProjectId || undefined,
+    projectSlug: selectedProjectSlug || undefined,
     minSpace: minSpace ? parseInt(minSpace) : undefined,
     maxSpace: maxSpace ? parseInt(maxSpace) : undefined,
     sortBy: sortBy as any,
@@ -115,7 +115,7 @@ export const PropertiesListing: React.FC<PropertiesListingProps> = ({ onProperty
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white pt-[clamp(60px,7vh,80px)]">
       <SEO 
         title="Properties"
         description="Browse our selection of premium properties in Algeria. Find apartments, villas, and commercial spaces in prime locations."
@@ -129,8 +129,8 @@ export const PropertiesListing: React.FC<PropertiesListingProps> = ({ onProperty
         onSortChange={setSortBy}
         propertyType={propertyTypeFilter}
         onPropertyTypeChange={setPropertyTypeFilter}
-        selectedProject={selectedProjectId}
-        onProjectChange={setSelectedProjectId}
+        selectedProject={selectedProjectSlug}
+        onProjectChange={setSelectedProjectSlug}
         minSpace={minSpace}
         onMinSpaceChange={setMinSpace}
         maxSpace={maxSpace}

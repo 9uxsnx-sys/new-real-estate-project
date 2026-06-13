@@ -6,8 +6,10 @@ export { getImageUrl } from '../utils/media';
 export interface PropertyFilters {
   search?: string;
   propertyType?: string;
-  /** Payload project document id */
+  /** Payload project document id (legacy) */
   projectId?: string;
+  /** Project slug for URL-friendly filtering */
+  projectSlug?: string;
   minSpace?: number;
   maxSpace?: number;
   sortBy?: 'price-low' | 'price-high' | 'newest';
@@ -34,7 +36,12 @@ function buildQueryParams(filters: PropertyFilters, locale = 'en'): string {
     params.append('where[property_type][equals]', filters.propertyType);
   }
 
-  if (filters.projectId) {
+  // Filter by project - support both ID and slug
+  if (filters.projectSlug) {
+    // Filter by project slug
+    params.append('where[project.slug][equals]', filters.projectSlug);
+  } else if (filters.projectId) {
+    // Filter by project document ID (legacy)
     params.append('where[project][equals]', filters.projectId);
   }
 
@@ -42,6 +49,7 @@ function buildQueryParams(filters: PropertyFilters, locale = 'en'): string {
   if (filters.minSpace) {
     params.append('where[space_sqm][greater_than_equal]', String(filters.minSpace));
   }
+
   if (filters.maxSpace) {
     params.append('where[space_sqm][less_than_equal]', String(filters.maxSpace));
   }
