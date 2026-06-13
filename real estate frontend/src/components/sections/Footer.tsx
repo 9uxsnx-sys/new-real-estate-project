@@ -81,13 +81,13 @@ export const Footer: React.FC = () => {
           
           {/* Social Icons */}
           <div className="flex gap-3">
-            <a href="#" className="w-10 h-10 bg-black rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors">
+            <a href={contact?.facebookURL || '#'} target={contact?.facebookURL ? '_blank' : undefined} rel="noopener noreferrer" className="w-10 h-10 bg-black rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors">
               <FaFacebookF className="w-5 h-5 text-white" />
             </a>
-            <a href="#" className="w-10 h-10 bg-black rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors">
+            <a href={contact?.instagramURL || '#'} target={contact?.instagramURL ? '_blank' : undefined} rel="noopener noreferrer" className="w-10 h-10 bg-black rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors">
               <FaInstagram className="w-5 h-5 text-white" />
             </a>
-            <a href="#" className="w-10 h-10 bg-black rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors">
+            <a href={contact?.tiktokURL || '#'} target={contact?.tiktokURL ? '_blank' : undefined} rel="noopener noreferrer" className="w-10 h-10 bg-black rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors">
               <FaTiktok className="w-5 h-5 text-white" />
             </a>
             {contact?.whatsappURL && (

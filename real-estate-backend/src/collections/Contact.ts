@@ -47,5 +47,29 @@ export const Contact: CollectionConfig = {
         description: 'Contact email address (e.g., info@theone.dz)',
       },
     },
+    {
+      name: 'facebookURL',
+      type: 'text',
+      label: 'Facebook URL',
+      admin: {
+        description: 'Facebook page link (e.g., https://facebook.com/yourpage)',
+      },
+    },
+    {
+      name: 'instagramURL',
+      type: 'text',
+      label: 'Instagram URL',
+      admin: {
+        description: 'Instagram profile link (e.g., https://instagram.com/yourprofile)',
+      },
+    },
+    {
+      name: 'tiktokURL',
+      type: 'text',
+      label: 'TikTok URL',
+      admin: {
+        description: 'TikTok profile link (e.g., https://tiktok.com/@yourprofile)',
+      },
+    },
   ],
 }

@@ -8,6 +8,9 @@ interface Contact {
   whatsappURL: string;
   address?: string;
   email?: string;
+  facebookURL?: string;
+  instagramURL?: string;
+  tiktokURL?: string;
 }
 
 interface UseContactReturn {
