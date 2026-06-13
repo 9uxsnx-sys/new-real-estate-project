@@ -54,7 +54,7 @@ export const PropertyNotFound: React.FC<PropertyNotFoundProps> = ({
           </p>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-center gap-3 mt-4">
+          <div className="flex flex-col-reverse sm:flex-row items-center gap-3 mt-4">
             <button
               onClick={() => navigate(`/${currentLang}`)}
               className="flex items-center justify-center gap-1.5 px-6 py-3 bg-black text-white rounded-full text-[14px]"
