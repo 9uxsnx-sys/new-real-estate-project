@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Home, ArrowRight, Search } from 'lucide-react';
+import { Home, ArrowRight } from 'lucide-react';
 
 interface PropertyNotFoundProps {
   title?: string;
@@ -23,7 +23,18 @@ export const PropertyNotFound: React.FC<PropertyNotFoundProps> = ({
         <div className="flex flex-col items-center justify-center text-center max-w-lg mx-auto">
           {/* Icon */}
           <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-[rgb(248,248,248)] flex items-center justify-center mb-8">
-            <Search className="w-12 h-12 md:w-16 md:h-16 text-[rgb(136,136,136)]" strokeWidth={1.5} />
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="rgb(136,136,136)"
+              strokeWidth="1.5"
+              className="w-12 h-12 md:w-16 md:h-16"
+            >
+              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+              <polyline points="9 22 9 12 15 12 15 22" />
+            </svg>
           </div>
 
           {/* Title */}
