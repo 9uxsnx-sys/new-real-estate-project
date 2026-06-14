@@ -70,7 +70,7 @@ const CustomDropdown: React.FC<{
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="absolute top-full left-0 mt-2 w-full min-w-[180px] bg-white rounded-2xl shadow-xl border border-[rgb(230,230,230)] overflow-visible z-[9999] max-h-[300px] overflow-y-auto"
+            className="absolute top-full left-0 mt-2 w-full min-w-[180px] bg-white rounded-2xl shadow-xl border border-[rgb(230,230,230)] overflow-visible z-[9999]"
             initial={{ opacity: 0, y: -8, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1, transition: { duration: 0.2, ease: "easeOut" } }}
             exit={{ opacity: 0, y: -8, scale: 0.98, transition: { duration: 0.15 } }}
