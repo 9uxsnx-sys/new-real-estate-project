@@ -41,7 +41,7 @@ export const NavigationNew: React.FC = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-[10000] bg-white/90 backdrop-blur border-b border-white">
-      <nav className="max-w-[1360px] mx-auto px-4 md:px-8 lg:px-20 h-[clamp(60px,7vh,80px)] flex items-center">
+      <nav className="w-full px-4 md:px-8 lg:px-16 xl:px-20 h-[clamp(60px,7vh,80px)] flex items-center">
         <div className="w-full flex items-center justify-between">
         
         {/* Logo */}
