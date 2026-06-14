@@ -2,6 +2,40 @@
 
 ---
 
+## 2026-06-14 - Test6 Hero Component (Removed)
+
+### Work Done
+- Created `Test6Hero` component with Apple DNA design
+- Created test page at `/test6` route
+- Added CSS variables from design DNA to globals.css
+- **ISSUE:** CSS variables not applying - page appeared unstyled
+- **FIXED:** Changed inline styles from CSS variables to hardcoded values
+- **FIXED:** Added design DNA tokens directly to globals.css
+- **ISSUE:** CSS @import couldn't reach outside project root
+- **RESOLVED:** Removed test page and all related files
+
+### Files Created (Then Deleted)
+- `src/components/test6/Test6Hero.tsx`
+- `src/components/test6/index.ts`
+- `src/pages/Test6.tsx`
+
+### Files Modified
+- `src/App.tsx` - Added/removed test6 route
+- `src/pages/index.ts` - Added/removed Test6 export
+- `src/styles/globals.css` - Added/removed DNA tokens
+
+### Lesson Learned
+- CSS variables from external folders can't be imported with @import
+- For design system tokens, either:
+  1. Copy tokens directly into project CSS
+  2. Use a build-time import (e.g., PostCSS plugin)
+  3. Keep design-dna folder inside project
+
+### Git Status
+- All test files removed, no commit needed
+
+---
+
 ## 2026-06-14 - Theme Toggle Removed
 
 ### Work Done
