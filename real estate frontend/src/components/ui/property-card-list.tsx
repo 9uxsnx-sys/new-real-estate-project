@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Bed, Bath, Maximize } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
@@ -36,11 +35,9 @@ export const PropertyCardList = ({
 }: PropertyCardListProps) => {
   const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(0);
 
   const changeImage = (newDirection: number, e: React.MouseEvent) => {
     e.stopPropagation();
-    setDirection(newDirection);
     setCurrentIndex((prevIndex) => {
       const nextIndex = prevIndex + newDirection;
       if (nextIndex < 0) return images.length - 1;
@@ -49,58 +46,22 @@ export const PropertyCardList = ({
     });
   };
 
-  const carouselVariants = {
-    enter: (direction: number) => ({
-      x: direction > 0 ? '100%' : '-100%',
-      opacity: 0,
-    }),
-    center: {
-      zIndex: 1,
-      x: 0,
-      opacity: 1,
-    },
-    exit: (direction: number) => ({
-      zIndex: 0,
-      x: direction < 0 ? '100%' : '-100%',
-      opacity: 0,
-    }),
-  };
-
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.4 }}
-      whileHover={{ 
-        scale: 1.01,
-        boxShadow: '0px 4px 20px -4px rgba(0, 0, 0, 0.1)',
-      }}
+    <article
       onClick={onClick}
       className={cn(
-        'w-full overflow-hidden rounded-2xl border border-[rgb(230,230,230)] bg-white cursor-pointer flex flex-col sm:flex-row',
+        'w-full overflow-hidden rounded-2xl border border-[rgb(230,230,230)] bg-white cursor-pointer flex flex-col sm:flex-row hover:shadow-lg transition-shadow',
         className
       )}
     >
       {/* Image Section - Left side */}
       <div className="relative group w-full sm:w-72 md:w-80 lg:w-96 flex-shrink-0 h-48 sm:h-auto sm:aspect-[4/3]">
-        <AnimatePresence initial={false} custom={direction}>
-          <motion.img
+        <img
             key={currentIndex}
             src={images[currentIndex]}
             alt={title}
-            custom={direction}
-            variants={carouselVariants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{
-              x: { type: 'spring', stiffness: 300, damping: 30 },
-              opacity: { duration: 0.2 },
-            }}
-            className="absolute h-full w-full object-cover"
+            className="absolute h-full w-full object-cover transition-opacity duration-200"
           />
-        </AnimatePresence>
         
         {/* Carousel Navigation */}
         <div className="absolute inset-0 flex items-center justify-between p-2 opacity-0 group-hover:opacity-100 transition-opacity">

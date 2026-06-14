@@ -1,19 +1,12 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useParams } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
 
 const languages = [
   { code: 'en', label: 'EN', name: 'English' },
   { code: 'fr', label: 'FR', name: 'Français' },
   { code: 'ar', label: 'AR', name: 'العربية' },
 ];
-
-const dropdownVariants = {
-  hidden: { opacity: 0, y: -8, scale: 0.96 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.2, ease: "easeOut" } },
-  exit: { opacity: 0, y: -8, scale: 0.96, transition: { duration: 0.15 } }
-};
 
 export const LanguageSwitcherV2: React.FC = () => {
   const { i18n } = useTranslation();
@@ -71,23 +64,15 @@ export const LanguageSwitcherV2: React.FC = () => {
         </svg>
       </button>
 
-      <AnimatePresence>
-        {isOpen && (
-          <>
-            <motion.div
-              className="fixed inset-0 z-[9999]"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsOpen(false)}
-            />
-            <motion.div 
-              className={`absolute top-full mt-2 py-2 bg-white border border-[rgb(230,230,230)] rounded-xl shadow-lg z-[10000] min-w-[120px] ${isRTL ? 'right-0' : 'left-0'}`}
-              variants={dropdownVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-            >
+      {isOpen && (
+        <>
+          <div
+            className="fixed inset-0 z-[9999]"
+            onClick={() => setIsOpen(false)}
+          />
+          <div 
+            className={`absolute top-full mt-2 py-2 bg-white border border-[rgb(230,230,230)] rounded-xl shadow-lg z-[10000] min-w-[120px] ${isRTL ? 'right-0' : 'left-0'}`}
+          >
               {languages.map((language) => (
                 <button
                   key={language.code}
@@ -103,10 +88,9 @@ export const LanguageSwitcherV2: React.FC = () => {
                   <span className="text-[rgb(136,136,136)]">{language.name}</span>
                 </button>
               ))}
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+          </div>
+        </>
+      )}
     </div>
   );
 };

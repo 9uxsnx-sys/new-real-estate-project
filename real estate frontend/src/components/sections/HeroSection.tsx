@@ -1,6 +1,5 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
 import heroImage from '@/assets/images/downtown-views.jpg';
 
 export const HeroSection: React.FC = () => {
@@ -14,11 +13,8 @@ export const HeroSection: React.FC = () => {
         
         {/* Floating Card - Full height to navbar, pinned to bottom */}
         <div className="w-full px-[clamp(16px,2.54vw,64px)] pb-[clamp(12px,1.5vw,24px)]">
-          <motion.div 
+          <div 
             className="h-[calc(100vh-clamp(56px,7vh,80px)-clamp(12px,1.5vw,24px))] rounded-[2rem] overflow-hidden relative"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
           >
             <img
               src={heroImage}
@@ -79,7 +75,7 @@ export const HeroSection: React.FC = () => {
                 </p>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </div>

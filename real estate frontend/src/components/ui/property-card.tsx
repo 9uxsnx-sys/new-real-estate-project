@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Bed, Bath, Maximize } from 'lucide-react';
+import { Bed, Bath, Maximize, MapPin } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface PropertyCardProps {
@@ -60,7 +60,8 @@ export const PropertyCard = ({
         </p>
 
         {/* Location */}
-        <div className="flex items-center gap-1 text-zinc-500 text-[14px] font-light">
+        <div className="flex items-center gap-1.5 text-[rgb(100,100,100)] text-[14px] font-light">
+          <MapPin className="w-4 h-4 text-[rgb(136,136,136)] stroke-[1.5]" />
           <span>{location}</span>
         </div>
 

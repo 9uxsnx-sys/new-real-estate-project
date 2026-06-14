@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { motion } from 'framer-motion';
 import { LargeImageComponent } from './LargeImageComponent';
 import { InfoCardComponent } from './InfoCardComponent';
 import type { Project } from '../../types';
@@ -34,13 +33,7 @@ export const ProjectAlternatingSection = ({
   return (
     <section className="py-20 md:py-28 lg:py-36 bg-white border-b border-[rgb(230,230,230)]">
       <div className="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-50px' }}
-          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-          className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-10"
-        >
+        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-10">
           {isReversed ? (
             <>
               <InfoCardComponent
@@ -70,7 +63,7 @@ export const ProjectAlternatingSection = ({
               />
             </>
           )}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

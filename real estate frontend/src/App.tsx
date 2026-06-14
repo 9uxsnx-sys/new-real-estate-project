@@ -39,54 +39,61 @@ const LocalizedApp: React.FC = () => {
         <Route
           path="/"
           element={
-            <PageTransition>
+            <>
+              <NavigationNew />
               <LocalizedHome />
-            </PageTransition>
+            </>
           }
         />
         <Route 
           path="property/:id" 
           element={
-            <PageTransition>
+            <>
               <NavigationNew />
               <LocalizedPropertyDetail />
-            </PageTransition>
+            </>
           } 
         />
         <Route 
           path="properties" 
           element={
-            <PageTransition>
+            <>
               <NavigationNew />
               <LocalizedPropertiesListing />
-            </PageTransition>
+            </>
           } 
         />
         <Route 
           path="projects" 
           element={
-            <PageTransition>
+            <>
               <NavigationNew />
-              <LocalizedProjects />
-            </PageTransition>
+              <PageTransition>
+                <LocalizedProjects />
+              </PageTransition>
+            </>
           } 
         />
         <Route 
           path="projects/:projectId" 
           element={
-            <PageTransition>
+            <>
               <NavigationNew />
-              <LocalizedProjectDetail />
-            </PageTransition>
+              <PageTransition>
+                <LocalizedProjectDetail />
+              </PageTransition>
+            </>
           } 
         />
         <Route 
           path="test-property-not-found" 
           element={
-            <PageTransition>
+            <>
               <NavigationNew />
-              <TestPropertyNotFound />
-            </PageTransition>
+              <PageTransition>
+                <TestPropertyNotFound />
+              </PageTransition>
+            </>
           } 
         />
       </Routes>

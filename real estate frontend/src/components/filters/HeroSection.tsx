@@ -1,7 +1,6 @@
-import React, { useState, useRef, useEffect, useMemo } from 'react';
+import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { motion, AnimatePresence } from 'framer-motion';
-import gsap from 'gsap';
+import { AnimatePresence } from 'framer-motion';
 import { useProjects } from '../../hooks';
 
 interface HeroSectionProps {
@@ -129,30 +128,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   resultsCount,
 }) => {
   const { t, i18n } = useTranslation();
-  const heroRef = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const searchBarRef = useRef<HTMLDivElement>(null);
 
   const { projects } = useProjects(i18n.language);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline();
-
-      tl.fromTo(titleRef.current,
-        { opacity: 0, y: 50, scale: 0.95 },
-        { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: 'power3.out' }
-      );
-
-      tl.fromTo(searchBarRef.current,
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' },
-        '-=0.4'
-      );
-    }, heroRef);
-
-    return () => ctx.revert();
-  }, []);
 
   const projectOptions = useMemo(() => {
     return [
@@ -179,11 +156,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   ];
 
   return (
-    <section ref={heroRef} className="bg-white border-b border-[rgb(230,230,230)] py-6 md:py-10 relative z-[100]">
+    <section className="bg-white border-b border-[rgb(230,230,230)] py-6 md:py-10 relative z-[100]">
       <div className="max-w-[1360px] mx-auto px-4 md:px-8 lg:px-20">
         <div className="mb-4 md:mb-6">
           <h1
-            ref={titleRef}
             className="text-[32px] md:text-[40px] lg:text-[48px] font-semibold text-[rgb(44,44,44)] leading-[1.2]"
             style={{ fontFamily: 'Geist, sans-serif' }}
           >
@@ -191,7 +167,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </h1>
         </div>
 
-        <div ref={searchBarRef} className="bg-[rgb(250,250,250)] rounded-2xl md:rounded-3xl p-3 md:p-5">
+        <div className="bg-[rgb(250,250,250)] rounded-2xl md:rounded-3xl p-3 md:p-5">
 
           <div className="flex flex-col gap-3 md:hidden">
             <div className="relative">

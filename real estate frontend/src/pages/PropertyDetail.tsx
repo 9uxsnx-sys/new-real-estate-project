@@ -1,7 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import gsap from 'gsap';
 import { MapPin } from 'lucide-react';
 import {
   PropertyGallery,
@@ -23,61 +22,7 @@ export const PropertyDetail: React.FC = () => {
   const { t, i18n } = useTranslation();
   const currentLang = lang || 'en';
 
-  const pageRef = useRef<HTMLDivElement>(null);
-  const backBtnRef = useRef<HTMLButtonElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const priceRef = useRef<HTMLHeadingElement>(null);
-
   const { property, loading, error } = useProperty(id, currentLang);
-
-  useEffect(() => {
-    if (!pageRef.current) return;
-
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline();
-
-      if (backBtnRef.current) {
-        tl.fromTo(backBtnRef.current,
-          { opacity: 0, x: -20 },
-          { opacity: 1, x: 0, duration: 0.5, ease: 'power3.out' }
-        );
-      }
-
-      if (titleRef.current) {
-        tl.fromTo(titleRef.current,
-          { opacity: 0, y: 30, scale: 0.95 },
-          { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: 'power3.out' },
-          '-=0.3'
-        );
-      }
-
-      if (priceRef.current) {
-        tl.fromTo(priceRef.current,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' },
-          '-=0.4'
-        );
-      }
-
-      const sections = pageRef.current.querySelectorAll('section, .border-b');
-      gsap.fromTo(sections,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.7,
-          stagger: 0.15,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: pageRef.current,
-            start: 'top 80%'
-          }
-        }
-      );
-    }, pageRef);
-
-    return () => ctx.revert();
-  }, [property]);
 
   if (loading) {
     return (
@@ -129,7 +74,7 @@ export const PropertyDetail: React.FC = () => {
       ];
 
   return (
-    <div ref={pageRef} className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       <SEO 
         title={propertyName}
         description={property.description || `${property.beds} bedroom property in ${property.area}, ${property.city}. ${property.space_sqm} m² of modern living space.`}
@@ -139,7 +84,6 @@ export const PropertyDetail: React.FC = () => {
       />
       <div className="max-w-[1360px] mx-auto px-4 md:px-8 lg:px-20 pt-20 pb-6">
         <button
-          ref={backBtnRef}
           onClick={() => navigate(`/${currentLang}`)}
           className="flex items-center gap-2 text-[14px] text-[rgb(136,136,136)] hover:text-[rgb(44,44,44)] transition-colors mb-6"
           style={{ fontFamily: 'Geist, sans-serif' }}
@@ -161,7 +105,6 @@ export const PropertyDetail: React.FC = () => {
 
         <div className="mt-6 mb-4">
           <h2
-            ref={priceRef}
             className="text-[28px] md:text-[36px] lg:text-[40px] font-semibold text-[rgb(44,44,44)]"
             style={{ fontFamily: 'Geist, sans-serif' }}
           >

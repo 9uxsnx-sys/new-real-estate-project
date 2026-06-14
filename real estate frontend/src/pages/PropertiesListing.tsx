@@ -1,8 +1,6 @@
-import React, { useEffect, useRef } from 'react';
-import { useSearchParams, useParams } from 'react-router-dom';
+import React from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { PropertyCard } from '@/components/ui/property-card';
 import { PropertyNotFound } from '../components/ui/PropertyNotFound';
 import { HeroSection } from '../components/filters';
@@ -10,8 +8,6 @@ import { Footer } from '../components/sections';
 import { SEO } from '../components/seo';
 import { useProperties } from '../hooks';
 import { formatPrice, getImageUrl } from '../utils';
-
-gsap.registerPlugin(ScrollTrigger);
 
 interface PropertiesListingProps {
   onPropertyClick?: (id: string) => void;
@@ -30,7 +26,6 @@ export const PropertiesListing: React.FC<PropertiesListingProps> = ({ onProperty
   const [maxSpace, setMaxSpace] = React.useState('');
 
   const [visibleCount, setVisibleCount] = React.useState(8);
-  const gridRef = useRef<HTMLDivElement>(null);
 
   const { properties, loading, error } = useProperties({
     search: searchQuery,
@@ -41,42 +36,8 @@ export const PropertiesListing: React.FC<PropertiesListingProps> = ({ onProperty
     sortBy: sortBy as any,
   });
 
-  // Debug: Log first property data
-  useEffect(() => {
-    if (properties.length > 0) {
-      console.log('[DEBUG] First property:', JSON.stringify(properties[0], null, 2));
-    }
-  }, [properties]);
-
   const visibleProperties = properties.slice(0, visibleCount);
   const hasMore = visibleCount < properties.length;
-
-  useEffect(() => {
-    if (!gridRef.current) return;
-
-    const cards = gridRef.current.querySelectorAll('.property-card');
-    if (!cards || cards.length === 0) return;
-
-    gsap.fromTo(cards,
-      {
-        opacity: 0,
-        y: 60,
-        scale: 0.95
-      },
-      {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 0.7,
-        stagger: 0.08,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: gridRef.current,
-          start: 'top 85%'
-        }
-      }
-    );
-  }, [visibleProperties.length]);
 
   const handleLoadMore = () => {
     setVisibleCount((prev) => Math.min(prev + 8, properties.length));
@@ -141,7 +102,7 @@ export const PropertiesListing: React.FC<PropertiesListingProps> = ({ onProperty
 
       <section className="py-12 md:py-16 relative" style={{ zIndex: 1 }}>
         <div className="max-w-[1360px] mx-auto px-6 sm:px-4 md:px-8 lg:px-20">
-          <div ref={gridRef} className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {visibleProperties.map((property) => (
               <div key={property.id} className="property-card">
                 <PropertyCard

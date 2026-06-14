@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Moon } from 'lucide-react';
 import { ActionPill, ActionPillRTL } from '@/components/ui';
 import { MobileMenuCard } from './MobileMenuCard';
@@ -116,22 +115,15 @@ export const NavigationNew: React.FC = () => {
                 <path d="M6 9l6 6 6-6"></path>
               </svg>
             </button>
-            <AnimatePresence>
-              {langOpen && (
-                <>
-                  <motion.div
-                    className="fixed inset-0 z-[9999]"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    onClick={() => setLangOpen(false)}
-                  />
-                  <motion.div 
-                    className="absolute top-full left-1/2 -translate-x-1/2 mt-3 py-3 px-3 bg-[#F5F5F5] border border-gray-200 rounded-2xl shadow-xl z-[10000] scale-95 origin-top"
-                    initial={{ opacity: 0, y: -8, scale: 0.96 }}
-                    animate={{ opacity: 1, y: 0, scale: 0.95, transition: { duration: 0.2, ease: "easeOut" } }}
-                    exit={{ opacity: 0, y: -8, scale: 0.96, transition: { duration: 0.15 } }}
-                  >
+            {langOpen && (
+              <>
+                <div
+                  className="fixed inset-0 z-[9999]"
+                  onClick={() => setLangOpen(false)}
+                />
+                <div 
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-3 py-3 px-3 bg-[#F5F5F5] border border-gray-200 rounded-2xl shadow-xl z-[10000] origin-top"
+                >
                     {languages.map((lang) => (
                       <button
                         key={lang.code}
@@ -147,10 +139,9 @@ export const NavigationNew: React.FC = () => {
                         <span className="text-gray-400">{lang.name}</span>
                       </button>
                     ))}
-                  </motion.div>
-                </>
-              )}
-            </AnimatePresence>
+                </div>
+              </>
+            )}
           </div>
 
           {/* Theme Dropdown */}
@@ -168,22 +159,15 @@ export const NavigationNew: React.FC = () => {
                 <path d="M6 9l6 6 6-6"></path>
               </svg>
             </button>
-            <AnimatePresence>
-              {themeOpen && (
-                <>
-                  <motion.div
-                    className="fixed inset-0 z-[9999]"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    onClick={() => setThemeOpen(false)}
-                  />
-                  <motion.div 
-                    className="absolute top-full left-1/2 -translate-x-1/2 mt-3 py-3 px-3 bg-[#F5F5F5] border border-gray-200 rounded-2xl shadow-xl z-[10000] scale-95 origin-top"
-                    initial={{ opacity: 0, y: -8, scale: 0.96 }}
-                    animate={{ opacity: 1, y: 0, scale: 0.95, transition: { duration: 0.2, ease: "easeOut" } }}
-                    exit={{ opacity: 0, y: -8, scale: 0.96, transition: { duration: 0.15 } }}
-                  >
+            {themeOpen && (
+              <>
+                <div
+                  className="fixed inset-0 z-[9999]"
+                  onClick={() => setThemeOpen(false)}
+                />
+                <div 
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-3 py-3 px-3 bg-[#F5F5F5] border border-gray-200 rounded-2xl shadow-xl z-[10000] origin-top"
+                >
                     {themes.map((theme) => {
                       const IconComponent = theme.icon;
                       return (
@@ -202,10 +186,9 @@ export const NavigationNew: React.FC = () => {
                         </button>
                       );
                     })}
-                  </motion.div>
-                </>
-              )}
-            </AnimatePresence>
+                </div>
+              </>
+            )}
           </div>
         </div>
 

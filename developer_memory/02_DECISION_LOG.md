@@ -6,6 +6,55 @@
 
 ---
 
+## 2026-06-14 - Removed Animations from Public Pages
+
+**Decision:** Remove all animations from public-facing pages except CompanyManifesto sections
+
+**Context:**
+- Client requested removal of animations for faster page loads and cleaner UX
+- Company manifesto text animation (word-by-word reveal) should be preserved as key visual element
+- Animation library imports (framer-motion, gsap) removed from affected components
+
+**What Was Changed:**
+
+1. **Projects Page**
+   - `real estate frontend/src/pages/Projects.tsx` - Removed GSAP imports and useEffect animation
+   - `real estate frontend/src/components/project/ProjectAlternatingSection.tsx` - Removed `motion.div`
+   - `real estate frontend/src/components/project/LargeImageComponent.tsx` - Removed `motion.div`
+   - `real estate frontend/src/components/project/InfoCardComponent.tsx` - Removed `motion.div` and `motion.button`
+
+2. **Project Detail Page**
+   - `real estate frontend/src/pages/ProjectDetail.tsx` - Removed GSAP imports, useEffect, and all animation code
+
+3. **Navigation Components**
+   - `real estate frontend/src/components/layout/Navigation.tsx` - Removed GSAP and framer-motion
+   - `real estate frontend/src/components/layout/NavigationNew.tsx` - Removed framer-motion AnimatePresence
+   - `real estate frontend/src/components/layout/LanguageSwitcher.tsx` - Removed framer-motion
+   - `real estate frontend/src/components/layout/LanguageSwitcherV2.tsx` - Removed framer-motion
+   - `real estate frontend/src/components/layout/MobileMenuCard.tsx` - Removed framer-motion
+
+4. **Home Page**
+   - `real estate frontend/src/App.tsx` - Removed PageTransition wrapper from home route
+   - `real estate frontend/src/components/sections/HeroSection.tsx` - Removed framer-motion fade-in animation
+   - `real estate frontend/src/components/ui/property-card-list.tsx` - Removed framer-motion scroll animations and carousel effects
+
+5. **Page Transition**
+   - `real estate frontend/src/components/animations/PageTransition.tsx` - Removed header from animation selector
+
+**What Was Preserved:**
+- `CompanyManifesto.tsx` - Word-by-word text animation with GSAP ScrollTrigger
+- `CompanyManifestoMobileVersion.tsx` - Word-by-word text animation with GSAP ScrollTrigger
+
+**Benefits:**
+- Faster page loads
+- Cleaner, more professional UX
+- No animation jank on slower devices
+- SEO-friendly (no CLS from animations)
+
+**Reversible:** Yes - can re-add framer-motion imports and animation wrappers if needed
+
+---
+
 ## 2026-05-31 - Currency Changed from USD to DA (Algerian Dinar)
 
 **Decision:** Change price display from USD to Algerian Dinar (DA)

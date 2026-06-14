@@ -25,10 +25,10 @@ export const PageTransition: React.FC<{ children: React.ReactNode }> = ({ childr
         }
       );
       
-      // Animate child elements with stagger
+      // Animate child elements with stagger (excluding header for navigation)
       if (pageRef.current) {
         const children = pageRef.current.querySelectorAll(
-          'section, header, footer, .animate-on-load'
+          'section, footer, .animate-on-load'
         );
         
         if (children.length > 0) {

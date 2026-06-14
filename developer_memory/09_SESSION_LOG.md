@@ -2,6 +2,69 @@
 
 ---
 
+## 2026-06-14 - Animation Removal from Public Pages
+
+### Work Done
+
+#### 1. Projects Page Animations Removed
+- **Files:** `Projects.tsx`, `ProjectAlternatingSection.tsx`, `LargeImageComponent.tsx`, `InfoCardComponent.tsx`
+- Removed GSAP and framer-motion imports
+- Replaced `motion.div` with regular `div`
+- Replaced `motion.button` with regular `button`
+
+#### 2. Navigation Animations Removed
+- **Files:** `Navigation.tsx`, `NavigationNew.tsx`, `LanguageSwitcher.tsx`, `LanguageSwitcherV2.tsx`, `MobileMenuCard.tsx`
+- Removed all framer-motion AnimatePresence wrappers
+- Removed GSAP context animations
+- Dropdowns now appear instantly without fade/scale transitions
+
+#### 3. Project Detail Page Animations Removed
+- **File:** `ProjectDetail.tsx`
+- Removed GSAP imports, useEffect hook, and all animation code
+- Removed refs: `pageRef`, `backBtnRef`, `titleRef`
+
+#### 4. Home Page Animations Removed
+- **File:** `App.tsx`
+  - Removed PageTransition wrapper from home route (`/`)
+  - Moved NavigationNew outside PageTransition for projects routes
+- **File:** `HeroSection.tsx`
+  - Removed framer-motion `motion.div` with fade-in/scale animation
+- **File:** `property-card-list.tsx`
+  - Removed framer-motion scroll animations (`whileInView`, `whileHover`)
+  - Removed carousel slide animations with AnimatePresence
+  - Replaced with simple CSS transitions
+
+#### 5. PageTransition Component Updated
+- **File:** `PageTransition.tsx`
+- Removed `header` from animation selector query
+- Added code to skip animation for header elements
+
+### Files Modified
+- `real estate frontend/src/pages/Projects.tsx`
+- `real estate frontend/src/pages/ProjectDetail.tsx`
+- `real estate frontend/src/components/project/ProjectAlternatingSection.tsx`
+- `real estate frontend/src/components/project/LargeImageComponent.tsx`
+- `real estate frontend/src/components/project/InfoCardComponent.tsx`
+- `real estate frontend/src/components/layout/Navigation.tsx`
+- `real estate frontend/src/components/layout/NavigationNew.tsx`
+- `real estate frontend/src/components/layout/LanguageSwitcher.tsx`
+- `real estate frontend/src/components/layout/LanguageSwitcherV2.tsx`
+- `real estate frontend/src/components/layout/MobileMenuCard.tsx`
+- `real estate frontend/src/components/sections/HeroSection.tsx`
+- `real estate frontend/src/components/ui/property-card-list.tsx`
+- `real estate frontend/src/components/animations/PageTransition.tsx`
+- `real estate frontend/src/App.tsx`
+
+### Preserved Animations
+- `CompanyManifesto.tsx` - Word-by-word text reveal animation
+- `CompanyManifestoMobileVersion.tsx` - Word-by-word text reveal animation
+
+### Git Status
+- All changes completed in current session
+- Ready for commit
+
+---
+
 ## 2026-06-13 - HeroSection Layout Redesign & SEO Optimization
 
 ### Work Done

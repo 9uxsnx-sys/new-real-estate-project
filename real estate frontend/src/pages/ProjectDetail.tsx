@@ -1,7 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import gsap from 'gsap';
 import { MapPin } from 'lucide-react';
 import {
   PropertyGallery,
@@ -24,75 +23,11 @@ export const ProjectDetail: React.FC = () => {
   const { t, i18n } = useTranslation();
   const currentLang = lang || 'en';
 
-  const pageRef = useRef<HTMLDivElement>(null);
-  const backBtnRef = useRef<HTMLButtonElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-
   const { project, loading: projectLoading, error: projectError } = useProject(projectId, currentLang);
   const { properties: projectProperties, loading: propertiesLoading } = useProperties(
     projectId ? { projectSlug: projectId } : {},
     currentLang
   );
-
-  useEffect(() => {
-    if (!pageRef.current) return;
-
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline();
-
-      if (backBtnRef.current) {
-        tl.fromTo(backBtnRef.current,
-          { opacity: 0, x: -20 },
-          { opacity: 1, x: 0, duration: 0.5, ease: 'power3.out' }
-        );
-      }
-
-      if (titleRef.current) {
-        tl.fromTo(titleRef.current,
-          { opacity: 0, y: 30, scale: 0.95 },
-          { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: 'power3.out' },
-          '-=0.3'
-        );
-      }
-
-      const sections = pageRef.current.querySelectorAll('.border-b, .project-section');
-      gsap.fromTo(sections,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.7,
-          stagger: 0.12,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: pageRef.current,
-            start: 'top 80%'
-          }
-        }
-      );
-
-      const cards = pageRef.current.querySelectorAll('.property-card');
-      if (cards.length > 0) {
-        gsap.fromTo(cards,
-          { opacity: 0, y: 40, scale: 0.95 },
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 0.6,
-            stagger: 0.1,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: cards[0],
-              start: 'top 85%'
-            }
-          }
-        );
-      }
-    }, pageRef);
-
-    return () => ctx.revert();
-  }, [project, projectProperties]);
 
   if (projectLoading) {
     return (
@@ -141,7 +76,7 @@ export const ProjectDetail: React.FC = () => {
   }));
 
   return (
-    <div ref={pageRef} className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       <SEO 
         title={project.name}
         description={project.description || project.short_description || `Discover ${project.name}, a premium real estate project featuring exceptional design and luxury living.`}
@@ -151,7 +86,6 @@ export const ProjectDetail: React.FC = () => {
       />
       <div className="max-w-[1360px] mx-auto px-4 md:px-8 lg:px-20 pt-20 pb-6">
         <button
-          ref={backBtnRef}
           onClick={() => navigate(`/${currentLang}/projects`)}
           className="flex items-center gap-2 text-[14px] text-[rgb(136,136,136)] hover:text-[rgb(44,44,44)] transition-colors mb-6"
           style={{ fontFamily: 'Geist, sans-serif' }}
@@ -170,7 +104,6 @@ export const ProjectDetail: React.FC = () => {
 
         <div className="mt-4 mb-2">
           <h2
-            ref={titleRef}
             className="text-[28px] md:text-[36px] lg:text-[40px] font-semibold text-[rgb(44,44,44)]"
             style={{ fontFamily: 'Geist, sans-serif' }}
           >

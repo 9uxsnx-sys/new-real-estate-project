@@ -1,7 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import gsap from 'gsap';
 import { ArrowRight } from 'lucide-react';
 import { ProjectAlternatingSection } from '../components/project';
 import { Footer } from '../components/sections';
@@ -21,35 +20,7 @@ export const Projects: React.FC = () => {
   const { t } = useTranslation();
   const currentLang = lang || 'en';
 
-  const headerRef = useRef<HTMLDivElement>(null);
-  const ctaRef = useRef<HTMLDivElement>(null);
-
   const { projects, loading, error } = useProjects(currentLang);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(headerRef.current,
-        { opacity: 0, y: 50, scale: 0.95 },
-        { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: 'power3.out' }
-      );
-
-      gsap.fromTo(ctaRef.current,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.7,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: ctaRef.current,
-            start: 'top 85%'
-          }
-        }
-      );
-    });
-
-    return () => ctx.revert();
-  }, []);
 
   const handleProjectClick = (projectSlug: string) => {
     navigate(`/${currentLang}/projects/${projectSlug}`);
@@ -92,7 +63,7 @@ export const Projects: React.FC = () => {
       />
       <section className="py-16 md:py-20 lg:py-24 border-b border-[rgb(230,230,230)]">
         <div className="max-w-[1360px] mx-auto px-6 sm:px-4 md:px-8 lg:px-20">
-          <div ref={headerRef}>
+          <div>
             <h1
               className="text-[32px] md:text-[40px] lg:text-[48px] font-semibold text-[rgb(44,44,44)] leading-[1.2]"
               style={{ fontFamily: 'Geist, sans-serif' }}
@@ -118,7 +89,7 @@ export const Projects: React.FC = () => {
 
       <section className="py-16 md:py-20 bg-[rgb(248,248,248)]">
         <div className="max-w-[1360px] mx-auto px-6 sm:px-4 md:px-8 lg:px-20">
-          <div ref={ctaRef} className="text-center max-w-xl mx-auto">
+          <div className="text-center max-w-xl mx-auto">
             <h3
               className="text-[24px] md:text-[28px] font-semibold text-[rgb(44,44,44)] mb-4"
               style={{ fontFamily: 'Geist, sans-serif' }}

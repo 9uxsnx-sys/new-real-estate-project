@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { motion } from 'framer-motion';
 
 interface LargeImageComponentProps {
   image: string;
@@ -11,12 +10,7 @@ export const LargeImageComponent = ({
   alt,
 }: LargeImageComponentProps) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, x: -20 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-      className="lg:col-span-8 relative w-full h-[300px] sm:h-[360px] md:h-[420px] lg:h-[500px] rounded-[32px] overflow-hidden group"
+    <div className="lg:col-span-8 relative w-full h-[300px] sm:h-[360px] md:h-[420px] lg:h-[500px] rounded-[32px] overflow-hidden group"
     >
       <img
         src={image}
@@ -29,7 +23,7 @@ export const LargeImageComponent = ({
       
       {/* Subtle gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-    </motion.div>
+    </div>
   );
 };
 
