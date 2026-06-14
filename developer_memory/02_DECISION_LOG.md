@@ -6,6 +6,26 @@
 
 ---
 
+## 2026-06-14 - Theme Toggle Removed
+
+**Decision:** Remove dark mode/light mode theme toggle from navigation
+
+**Context:**
+- Theme toggle was implemented but was incomplete (dark mode wasn't fully applied to all components)
+- Client requested to remove the theme toggle option
+- Website will remain as light mode only
+
+**What Was Changed:**
+- Removed theme dropdown from NavigationNew.tsx
+- Removed theme selector from MobileMenuCard.tsx
+- Removed Sun/Moon icons from imports
+- Removed theme state management (themeOpen, currentTheme, handleThemeChange)
+- Removed theme-related props from MobileMenuCard
+
+**Reversible:** Yes - can re-add theme toggle code if needed
+
+---
+
 ## 2026-06-14 - Removed Animations from Public Pages
 
 **Decision:** Remove all animations from public-facing pages except CompanyManifesto sections

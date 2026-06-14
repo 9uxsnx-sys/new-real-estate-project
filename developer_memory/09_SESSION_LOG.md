@@ -2,6 +2,25 @@
 
 ---
 
+## 2026-06-14 - Theme Toggle Removed
+
+### Work Done
+- Removed theme toggle dropdown from NavigationNew.tsx (desktop)
+- Removed theme selector from MobileMenuCard.tsx (mobile)
+- Removed Sun/Moon icons from lucide-react imports
+- Removed theme-related state (themeOpen, currentTheme, handleThemeChange)
+- Removed theme-related props from MobileMenuCard component
+
+### Files Modified
+- `real estate frontend/src/components/layout/NavigationNew.tsx`
+- `real estate frontend/src/components/layout/MobileMenuCard.tsx`
+
+### Git Status
+- Committed: `2fcb71f` - "refactor: remove theme toggle from navigation"
+- Pushed to master and gallery branches
+
+---
+
 ## 2026-06-14 - Animation Removal from Public Pages
 
 ### Work Done
