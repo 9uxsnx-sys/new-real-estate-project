@@ -245,9 +245,10 @@ export const ProjectSection: React.FC<ProjectSectionProps> = ({
     );
   }
 
-  // Scenario 5: 4+ images - 2x2 grid with +N overlay (always use 2x2 grid, not main+side)
-  const displayImages = images.slice(0, 4);
-  const remainingCount = images.length - 4;
+  // Scenario 5: 3+ images - same layout as primary gallery (1 main + 2 side) with +N overlay
+  const galleryImages = images.slice(0, 3);
+  const [mainImage, ...sideImages] = galleryImages;
+  const remainingCount = images.length - 3;
   const hasMoreImages = remainingCount > 0;
 
   return (
@@ -261,21 +262,34 @@ export const ProjectSection: React.FC<ProjectSectionProps> = ({
         </h2>
       )}
       
-      {/* Gallery Grid - 2x2 Layout - All images equal size */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-        {displayImages.map((image, index) => (
+      {/* Gallery Grid - Same as primary gallery: 1 main + 2 side */}
+      <div className="grid grid-cols-1 md:grid-cols-[1fr_0.5fr] md:grid-rows-2 gap-4 mb-6">
+        {/* Main Large Image - Spans 2 rows */}
+        <div 
+          className="md:col-span-1 md:row-span-2 aspect-[16/10] md:aspect-auto md:h-full overflow-hidden rounded-2xl cursor-pointer"
+          onClick={() => openModal(0)}
+        >
+          <img
+            src={mainImage}
+            alt={`${title} - Main`}
+            className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+
+        {/* Side Images - 2 images stacked vertically */}
+        {sideImages.map((image, index) => (
           <div 
             key={index} 
-            className="relative aspect-square overflow-hidden rounded-2xl cursor-pointer"
-            onClick={() => openModal(index)}
+            className="relative aspect-[16/9] md:aspect-auto md:h-full overflow-hidden rounded-2xl cursor-pointer"
+            onClick={() => openModal(index + 1)}
           >
             <img
               src={image}
-              alt={`${title} - ${index + 1}`}
+              alt={`${title} - ${index + 2}`}
               className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             />
-            {/* +X Overlay on the last visible image if there are more */}
-            {index === 3 && hasMoreImages && (
+            {/* +X Overlay on the 2nd side image (bottom-right) */}
+            {index === 1 && hasMoreImages && (
               <div 
                 className="absolute inset-0 flex items-center justify-center rounded-2xl"
                 style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}
