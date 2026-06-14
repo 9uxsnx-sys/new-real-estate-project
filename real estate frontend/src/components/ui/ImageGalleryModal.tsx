@@ -265,7 +265,7 @@ export const ImageGalleryModal: React.FC<ImageGalleryModalProps> = ({
   const ModalContent = () => (
     <div
       ref={overlayRef}
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95"
+      className="fixed inset-0 z-[99999] flex items-center justify-center bg-black/95"
       onClick={onClose}
       style={{ 
         position: 'fixed', 
