@@ -13,6 +13,7 @@ export const PropertyGallery: React.FC<PropertyGalleryProps> = ({ images, proper
   // DEBUG: Log images received
   console.log('[PropertyGallery] images:', images);
   console.log('[PropertyGallery] images.length:', images?.length);
+  console.log('[PropertyGallery] images type:', typeof images, Array.isArray(images));
 
   const openModal = (startIndex: number) => {
     setModalInitialIndex(startIndex);
@@ -21,8 +22,11 @@ export const PropertyGallery: React.FC<PropertyGalleryProps> = ({ images, proper
 
   // Scenario 1: No images - hide the entire section
   if (!images || images.length === 0) {
+    console.log('[PropertyGallery] Returning null - no images');
     return null;
   }
+
+  console.log('[PropertyGallery] Rendering gallery with', images.length, 'images');
 
   // Scenario 2: Only 1 image - full-width single image
   if (images.length === 1) {

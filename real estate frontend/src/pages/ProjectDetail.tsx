@@ -50,30 +50,42 @@ export const ProjectDetail: React.FC = () => {
   // DEBUG: Log project gallery data
   console.log('[ProjectDetail] project.gallery:', project.gallery);
   console.log('[ProjectDetail] project.first_image:', project.first_image);
+  console.log('[ProjectDetail] project.custom_sections:', project.custom_sections);
 
   // Build gallery images: use first_image as first, then add gallery images
-  const galleryImages = [
+  const galleryImages: string[] = [
     ...(project.first_image ? [getImageUrl(project.first_image, 'full')] : []),
     ...(project.gallery && project.gallery.length > 0
         ? project.gallery.map((img: any) => getImageUrl(img, 'full')).filter(Boolean)
         : [])
   ];
 
+  console.log('[ProjectDetail] galleryImages:', galleryImages);
+
   const features: PropertyFeatureType[] = project.features 
     ? project.features.map(f => ({ id: f.id, name: f.name || f }))
     : [];
 
-  const customSections: ProjectSectionData[] = (project.custom_sections || []).map((section: any) => ({
-    id: section.id,
-    title: typeof section.title === 'string' ? section.title : section.title?.en || section.title?.fr || section.title?.ar || '',
-    images: (section.gallery || []).map((g: any) => getImageUrl(g.image || g, 'full')).filter(Boolean),
-    description: typeof section.description === 'string' 
-      ? section.description 
-      : section.description?.en || section.description?.fr || section.description?.ar || '',
-    features: (section.features || []).map((f: any) => 
-      typeof f === 'string' ? f : (f.name || '')
-    ).filter(Boolean),
-  }));
+  const customSections: ProjectSectionData[] = (project.custom_sections || []).map((section: any) => {
+    console.log('[ProjectDetail] Processing section:', section.id, 'gallery:', section.gallery);
+    const sectionImages = (section.gallery || []).map((g: any) => {
+      console.log('[ProjectDetail] gallery item g:', g, 'g.image:', g?.image);
+      return getImageUrl(g?.image || g, 'full');
+    }).filter(Boolean);
+    console.log('[ProjectDetail] sectionImages:', sectionImages);
+    
+    return {
+      id: section.id,
+      title: typeof section.title === 'string' ? section.title : section.title?.en || section.title?.fr || section.title?.ar || '',
+      images: sectionImages,
+      description: typeof section.description === 'string' 
+        ? section.description 
+        : section.description?.en || section.description?.fr || section.description?.ar || '',
+      features: (section.features || []).map((f: any) => 
+        typeof f === 'string' ? f : (f.name || '')
+      ).filter(Boolean),
+    };
+  });
 
   return (
     <div className="min-h-screen bg-white">
