@@ -112,11 +112,17 @@ export const ProjectDetail: React.FC = () => {
     return <ProjectNotFound />;
   }
 
-  const galleryImages = project.gallery && project.gallery.length > 0
-    ? project.gallery.map((img: any) => getImageUrl(img, 'full')).filter(Boolean) as string[]
-    : project.first_image 
-      ? [getImageUrl(project.first_image, 'full')]
-      : [];
+  // DEBUG: Log project gallery data
+  console.log('[ProjectDetail] project.gallery:', project.gallery);
+  console.log('[ProjectDetail] project.first_image:', project.first_image);
+
+  // Build gallery images: use first_image as first, then add gallery images
+  const galleryImages = [
+    ...(project.first_image ? [getImageUrl(project.first_image, 'full')] : []),
+    ...(project.gallery && project.gallery.length > 0
+        ? project.gallery.map((img: any) => getImageUrl(img, 'full')).filter(Boolean)
+        : [])
+  ];
 
   const features: PropertyFeatureType[] = project.features 
     ? project.features.map(f => ({ id: f.id, name: f.name || f }))
@@ -143,11 +149,11 @@ export const ProjectDetail: React.FC = () => {
         url={`projects/${projectId}`}
         lang={currentLang}
       />
-      <div className="max-w-[1360px] mx-auto px-4 md:px-8 lg:px-20 py-4 md:py-6">
+      <div className="max-w-[1360px] mx-auto px-4 md:px-8 lg:px-20 pt-20 pb-6">
         <button
           ref={backBtnRef}
           onClick={() => navigate(`/${currentLang}/projects`)}
-          className="flex items-center gap-2 text-[rgb(44,44,44)] hover:text-black transition-colors mb-4"
+          className="flex items-center gap-2 text-[14px] text-[rgb(136,136,136)] hover:text-[rgb(44,44,44)] transition-colors mb-6"
           style={{ fontFamily: 'Geist, sans-serif' }}
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

@@ -100,11 +100,17 @@ export const PropertyDetail: React.FC = () => {
     );
   }
 
-  const galleryImages = property.image 
-    ? [getImageUrl(property.image, 'full')]
-    : (property.gallery && property.gallery.length > 0 
+  // DEBUG: Log property data
+  console.log('[PropertyDetail] property.image:', property.image);
+  console.log('[PropertyDetail] property.gallery:', property.gallery);
+
+  // Build gallery images: use image field as first, then add gallery images
+  const galleryImages = [
+    ...(property.image ? [getImageUrl(property.image, 'full')] : []),
+    ...(property.gallery && property.gallery.length > 0 
         ? property.gallery.map((img: any) => getImageUrl(img, 'full'))
-        : []);
+        : [])
+  ];
 
   const propertyName = property.name || property.property_code;
 
@@ -131,7 +137,7 @@ export const PropertyDetail: React.FC = () => {
         url={`property/${id}`}
         lang={currentLang}
       />
-      <div className="max-w-[1360px] mx-auto px-4 md:px-8 lg:px-20 py-6">
+      <div className="max-w-[1360px] mx-auto px-4 md:px-8 lg:px-20 pt-20 pb-6">
         <button
           ref={backBtnRef}
           onClick={() => navigate(`/${currentLang}`)}

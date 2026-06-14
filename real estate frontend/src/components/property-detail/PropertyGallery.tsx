@@ -10,19 +10,80 @@ export const PropertyGallery: React.FC<PropertyGalleryProps> = ({ images, proper
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalInitialIndex, setModalInitialIndex] = useState(0);
 
-  // Ensure we have at least 3 images (use duplicates if needed)
-  const galleryImages = images.length >= 3 
-    ? images.slice(0, 3) 
-    : [...images, ...Array(3 - images.length).fill(images[0] || '')];
-
-  const [mainImage, ...sideImages] = galleryImages;
-  const remainingCount = images.length - 3;
-  const hasMoreImages = remainingCount > 0;
+  // DEBUG: Log images received
+  console.log('[PropertyGallery] images:', images);
+  console.log('[PropertyGallery] images.length:', images?.length);
 
   const openModal = (startIndex: number) => {
     setModalInitialIndex(startIndex);
     setIsModalOpen(true);
   };
+
+  // Scenario 1: No images - hide the entire section
+  if (!images || images.length === 0) {
+    return null;
+  }
+
+  // Scenario 2: Only 1 image - full-width single image
+  if (images.length === 1) {
+    return (
+      <>
+        <div 
+          className="w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-3xl cursor-pointer"
+          onClick={() => openModal(0)}
+        >
+          <img
+            src={images[0]}
+            alt={`${propertyName}`}
+            className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+
+        <ImageGalleryModal
+          images={images}
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          initialIndex={modalInitialIndex}
+        />
+      </>
+    );
+  }
+
+  // Scenario 3: Only 2 images - 50/50 split in one row
+  if (images.length === 2) {
+    return (
+      <>
+        <div className="grid grid-cols-2 gap-4 w-full">
+          {images.map((image, index) => (
+            <div 
+              key={index} 
+              className="aspect-[16/9] overflow-hidden rounded-3xl cursor-pointer"
+              onClick={() => openModal(index)}
+            >
+              <img
+                src={image}
+                alt={`${propertyName} - ${index + 1}`}
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+          ))}
+        </div>
+
+        <ImageGalleryModal
+          images={images}
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          initialIndex={modalInitialIndex}
+        />
+      </>
+    );
+  }
+
+  // Scenario 4: 3+ images - original layout (1 main + 2 side) with +N overlay
+  const galleryImages = images.slice(0, 3);
+  const [mainImage, ...sideImages] = galleryImages;
+  const remainingCount = images.length - 3;
+  const hasMoreImages = remainingCount > 0;
 
   return (
     <>
