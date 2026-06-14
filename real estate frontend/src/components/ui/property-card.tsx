@@ -52,8 +52,11 @@ export const PropertyCard = ({
       {/* Content Section */}
       <div className="pt-3 flex flex-col gap-1 px-1">
         {/* Price */}
-        <p className="text-zinc-900 text-[20px] font-semibold tracking-[-0.01em] leading-[1.4]">
-          $ {Number(price.replace(/[^0-9]/g, '')).toLocaleString()}
+        <p 
+          className="text-[rgb(44,44,44)] text-[22px] md:text-[24px] font-bold tracking-tight leading-[1.2]"
+          style={{ fontFamily: 'Geist, sans-serif' }}
+        >
+          {Number(price.replace(/[^0-9]/g, '')).toLocaleString()} DA
         </p>
 
         {/* Location */}

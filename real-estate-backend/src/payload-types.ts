@@ -76,6 +76,19 @@ export interface Property {
   updatedAt: string;
 }
 
+export interface Contact {
+  id: string;
+  phone: string;
+  whatsappURL: string;
+  address?: string;
+  email?: string;
+  facebookURL?: string;
+  instagramURL?: string;
+  tiktokURL?: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
 // Local API types
 export interface PaginatedDocs<T> {
   docs: T[];
