@@ -29,21 +29,64 @@ export const ProjectSection: React.FC<ProjectSectionProps> = ({
     setIsModalOpen(true);
   };
 
-  // Scenario 1: No images - hide the entire section
-  if (!images || images.length === 0) {
+  // Check if section has any content to display
+  const hasContent = title || description || (features && features.length > 0);
+  const hasImages = images && images.length > 0;
+
+  // If no images AND no other content, hide the entire section
+  if (!hasImages && !hasContent) {
     return null;
+  }
+
+  // Scenario 1: No images but has other content - show section without gallery
+  if (!hasImages) {
+    return (
+      <div className="py-6 border-b border-[rgb(230,230,230)]">
+        {title && (
+          <h2
+            className="text-[24px] md:text-[28px] font-semibold text-[rgb(44,44,44)] mb-6"
+            style={{ fontFamily: 'Geist, sans-serif' }}
+          >
+            {title}
+          </h2>
+        )}
+
+        {description && (
+          <div className="mb-6">
+            <h3 className="text-[18px] md:text-[20px] font-semibold text-[rgb(44,44,44)] mb-3" style={{ fontFamily: 'Geist, sans-serif' }}>Overview</h3>
+            <p className="text-[14px] md:text-[16px] text-[rgb(44,44,44)] font-light leading-relaxed" style={{ fontFamily: 'Geist, sans-serif' }}>{description}</p>
+          </div>
+        )}
+
+        {features && features.length > 0 && (
+          <div>
+            <h3 className="text-[18px] md:text-[20px] font-semibold text-[rgb(44,44,44)] mb-3" style={{ fontFamily: 'Geist, sans-serif' }}>Features</h3>
+            <div className="flex flex-col gap-2">
+              {features.map((feature, index) => (
+                <div key={index} className="flex items-center gap-3">
+                  <Check size={16} strokeWidth={2} className="text-[rgb(100,100,100)] flex-shrink-0" />
+                  <span className="text-[14px] text-[rgb(44,44,44)] font-light" style={{ fontFamily: 'Geist, sans-serif' }}>{feature}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    );
   }
 
   // Scenario 2: Only 1 image - full-width single image
   if (images.length === 1) {
     return (
       <div className="py-6 border-b border-[rgb(230,230,230)]">
-        <h2
-          className="text-[24px] md:text-[28px] font-semibold text-[rgb(44,44,44)] mb-6"
-          style={{ fontFamily: 'Geist, sans-serif' }}
-        >
-          {title}
-        </h2>
+        {title && (
+          <h2
+            className="text-[24px] md:text-[28px] font-semibold text-[rgb(44,44,44)] mb-6"
+            style={{ fontFamily: 'Geist, sans-serif' }}
+          >
+            {title}
+          </h2>
+        )}
         <div 
           className="w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-2xl cursor-pointer mb-6"
           onClick={() => openModal(0)}
@@ -85,12 +128,14 @@ export const ProjectSection: React.FC<ProjectSectionProps> = ({
   if (images.length === 2) {
     return (
       <div className="py-6 border-b border-[rgb(230,230,230)]">
-        <h2
-          className="text-[24px] md:text-[28px] font-semibold text-[rgb(44,44,44)] mb-6"
-          style={{ fontFamily: 'Geist, sans-serif' }}
-        >
-          {title}
-        </h2>
+        {title && (
+          <h2
+            className="text-[24px] md:text-[28px] font-semibold text-[rgb(44,44,44)] mb-6"
+            style={{ fontFamily: 'Geist, sans-serif' }}
+          >
+            {title}
+          </h2>
+        )}
         <div className="grid grid-cols-2 gap-4 mb-6">
           {images.map((image, index) => (
             <div 
@@ -137,12 +182,14 @@ export const ProjectSection: React.FC<ProjectSectionProps> = ({
   if (images.length === 3) {
     return (
       <div className="py-6 border-b border-[rgb(230,230,230)]">
-        <h2
-          className="text-[24px] md:text-[28px] font-semibold text-[rgb(44,44,44)] mb-6"
-          style={{ fontFamily: 'Geist, sans-serif' }}
-        >
-          {title}
-        </h2>
+        {title && (
+          <h2
+            className="text-[24px] md:text-[28px] font-semibold text-[rgb(44,44,44)] mb-6"
+            style={{ fontFamily: 'Geist, sans-serif' }}
+          >
+            {title}
+          </h2>
+        )}
         <div className="grid grid-cols-1 md:grid-cols-[1fr_0.5fr] md:grid-rows-2 gap-4 mb-6">
           {/* Main Large Image - Spans 2 rows */}
           <div 
@@ -205,20 +252,23 @@ export const ProjectSection: React.FC<ProjectSectionProps> = ({
 
   return (
     <div className="py-6 border-b border-[rgb(230,230,230)]">
-      {/* Section Title */}
-      <h2
-        className="text-[24px] md:text-[28px] font-semibold text-[rgb(44,44,44)] mb-6"
-        style={{ fontFamily: 'Geist, sans-serif' }}
-      >
-        {title}
-      </h2>
-
+      {title && (
+        <h2
+          className="text-[24px] md:text-[28px] font-semibold text-[rgb(44,44,44)] mb-6"
+          style={{ fontFamily: 'Geist, sans-serif' }}
+        >
+          {title}
+        </h2>
+      )}
+      
       {/* Gallery Grid - 2x2 Layout */}
-      <div className="grid grid-cols-2 gap-4 mb-6">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
         {displayImages.map((image, index) => (
           <div 
             key={index} 
-            className="relative aspect-[16/9] overflow-hidden rounded-2xl cursor-pointer"
+            className={`relative overflow-hidden rounded-2xl cursor-pointer ${
+              index === 0 ? 'col-span-2 row-span-2 aspect-square' : 'aspect-square'
+            }`}
             onClick={() => openModal(index)}
           >
             <img
@@ -226,7 +276,7 @@ export const ProjectSection: React.FC<ProjectSectionProps> = ({
               alt={`${title} - ${index + 1}`}
               className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             />
-            {/* +X Overlay on the last image when more exist */}
+            {/* +X Overlay on the last visible image if there are more */}
             {index === 3 && hasMoreImages && (
               <div 
                 className="absolute inset-0 flex items-center justify-center rounded-2xl"
@@ -244,47 +294,21 @@ export const ProjectSection: React.FC<ProjectSectionProps> = ({
         ))}
       </div>
 
-      {/* Description Section */}
       {description && (
         <div className="mb-6">
-          <h3
-            className="text-[18px] md:text-[20px] font-semibold text-[rgb(44,44,44)] mb-3"
-            style={{ fontFamily: 'Geist, sans-serif' }}
-          >
-            Overview
-          </h3>
-          <p
-            className="text-[14px] md:text-[16px] text-[rgb(44,44,44)] font-light leading-relaxed"
-            style={{ fontFamily: 'Geist, sans-serif' }}
-          >
-            {description}
-          </p>
+          <h3 className="text-[18px] md:text-[20px] font-semibold text-[rgb(44,44,44)] mb-3" style={{ fontFamily: 'Geist, sans-serif' }}>Overview</h3>
+          <p className="text-[14px] md:text-[16px] text-[rgb(44,44,44)] font-light leading-relaxed" style={{ fontFamily: 'Geist, sans-serif' }}>{description}</p>
         </div>
       )}
 
-      {/* Features Section */}
       {features && features.length > 0 && (
         <div>
-          <h3
-            className="text-[18px] md:text-[20px] font-semibold text-[rgb(44,44,44)] mb-3"
-            style={{ fontFamily: 'Geist, sans-serif' }}
-          >
-            Features
-          </h3>
+          <h3 className="text-[18px] md:text-[20px] font-semibold text-[rgb(44,44,44)] mb-3" style={{ fontFamily: 'Geist, sans-serif' }}>Features</h3>
           <div className="flex flex-col gap-2">
             {features.map((feature, index) => (
               <div key={index} className="flex items-center gap-3">
-                <Check
-                  size={16}
-                  strokeWidth={2}
-                  className="text-[rgb(100,100,100)] flex-shrink-0"
-                />
-                <span
-                  className="text-[14px] text-[rgb(44,44,44)] font-light"
-                  style={{ fontFamily: 'Geist, sans-serif' }}
-                >
-                  {feature}
-                </span>
+                <Check size={16} strokeWidth={2} className="text-[rgb(100,100,100)] flex-shrink-0" />
+                <span className="text-[14px] text-[rgb(44,44,44)] font-light" style={{ fontFamily: 'Geist, sans-serif' }}>{feature}</span>
               </div>
             ))}
           </div>
@@ -301,5 +325,3 @@ export const ProjectSection: React.FC<ProjectSectionProps> = ({
     </div>
   );
 };
-
-export default ProjectSection;
