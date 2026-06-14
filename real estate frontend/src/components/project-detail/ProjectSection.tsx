@@ -245,7 +245,7 @@ export const ProjectSection: React.FC<ProjectSectionProps> = ({
     );
   }
 
-  // Scenario 5: 4+ images - 2x2 grid with +N overlay
+  // Scenario 5: 4+ images - 2x2 grid with +N overlay (always use 2x2 grid, not main+side)
   const displayImages = images.slice(0, 4);
   const remainingCount = images.length - 4;
   const hasMoreImages = remainingCount > 0;
@@ -261,14 +261,12 @@ export const ProjectSection: React.FC<ProjectSectionProps> = ({
         </h2>
       )}
       
-      {/* Gallery Grid - 2x2 Layout */}
+      {/* Gallery Grid - 2x2 Layout - All images equal size */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
         {displayImages.map((image, index) => (
           <div 
             key={index} 
-            className={`relative overflow-hidden rounded-2xl cursor-pointer ${
-              index === 0 ? 'col-span-2 row-span-2 aspect-square' : 'aspect-square'
-            }`}
+            className="relative aspect-square overflow-hidden rounded-2xl cursor-pointer"
             onClick={() => openModal(index)}
           >
             <img
