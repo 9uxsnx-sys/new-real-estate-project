@@ -227,6 +227,83 @@ Desktop (lg+):
 - Text on LEFT, white circle on RIGHT
 - Arrow points left (ArrowLeft)
 - Padding: 12px on both sides
+
+---
+
+## 2026-06-14 - Gallery Section Responsive Layouts
+
+### Work Done
+
+#### 1. Branch Management
+- Deleted `dev` branch
+- Merged `seo` branch into `master`
+- Created new `gallery` branch from `master` for development
+
+#### 2. PropertyGallery Component Improvements
+- **File:** `real estate frontend/src/components/property-detail/PropertyGallery.tsx`
+
+##### Problem Identified:
+- Old logic filled missing images with duplicates causing broken UI
+- Gallery images were not combining `image` + `gallery` fields correctly
+
+##### Solution - 5 Scenarios:
+| Images | Layout |
+|--------|--------|
+| **0** | Hide section (`return null`) |
+| **1** | Full-width single image (`aspect-[16/9] md:aspect-[21/9]`) |
+| **2** | 50/50 split (`grid-cols-2 gap-4`) |
+| **3+** | Original asymmetric layout (1 main + 2 side) with +N overlay |
+
+#### 3. ProjectSection Component Improvements
+- **File:** `real estate frontend/src/components/project-detail/ProjectSection.tsx`
+
+##### 5 Scenarios Implemented:
+| Images | Layout |
+|--------|--------|
+| **0** | Hide section |
+| **1** | Full-width single image |
+| **2** | 50/50 split |
+| **3** | Asymmetric layout (1 main + 2 side) - **NEW** |
+| **4+** | 2x2 grid with +N overlay |
+
+#### 4. Media URL Resolution Fix
+- **File:** `real estate frontend/src/utils/media.ts`
+- Added support for Payload v3 nested `sizes` format
+- Debug logging added for troubleshooting
+
+#### 5. Gallery Data Flow Fix
+- **PropertyDetail.tsx:** Now combines `image` + `gallery` fields
+- **ProjectDetail.tsx:** Now combines `first_image` + `gallery` fields
+
+#### 6. Navbar Spacing Fix
+- **Files:** `PropertyDetail.tsx`, `ProjectDetail.tsx`
+- Added `pt-20` padding-top to account for fixed navbar height
+- Fixed overlap issue where navbar was covering gallery section
+
+#### 7. Back Button Styling Unification
+- **File:** `ProjectDetail.tsx`
+- Fixed back button to match PropertyDetail styling:
+  - `text-[14px]` font size
+  - `text-[rgb(136,136,136)]` gray color
+  - `mb-6` margin bottom
+
+### Files Modified
+- `real estate frontend/src/components/property-detail/PropertyGallery.tsx`
+- `real estate frontend/src/components/project-detail/ProjectSection.tsx`
+- `real estate frontend/src/pages/PropertyDetail.tsx`
+- `real estate frontend/src/pages/ProjectDetail.tsx`
+- `real estate frontend/src/utils/media.ts`
+
+### Git Commit
+- **Hash:** c389cf1
+- **Message:** "feat: improve gallery layouts and fix navbar spacing"
+- **Branch:** gallery
+
+### Key Decisions
+1. PropertyGallery 3+ uses asymmetric layout (1 main + 2 side)
+2. ProjectSection 3 uses asymmetric layout, 4+ uses 2x2 grid
+3. Both sections hide when 0 images
+4. Single image uses wider aspect ratio (`21/9`) for better display
 - Margins: text marginRight 11px, circle marginRight 10px
 - Width: 120px (smaller than LTR)
 

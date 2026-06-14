@@ -114,6 +114,37 @@ VistaHaven is a **premium real estate platform** for property listings and proje
 
 ---
 
+## Gallery Section Behavior
+
+### Primary Gallery (PropertyGallery Component)
+**Used on:** ProjectDetail.tsx and PropertyDetail.tsx
+
+| Images | Layout |
+|--------|--------|
+| **0** | Hide section |
+| **1** | Full-width single image |
+| **2** | 50/50 split |
+| **3+** | Asymmetric (1 main + 2 side) with +N overlay |
+
+### Custom Section Gallery (ProjectSection Component)
+**Used on:** ProjectDetail.tsx (custom_sections)
+
+| Images | Layout |
+|--------|--------|
+| **0** | Hide section |
+| **1** | Full-width single image |
+| **2** | 50/50 split |
+| **3** | Asymmetric (1 main + 2 side) |
+| **4+** | 2x2 grid with +N overlay |
+
+### Key Features
+- Both galleries share the same `ImageGalleryModal` component
+- Swipe navigation and pinch-to-zoom support
+- GSAP animations on open/close
+- All images are clickable to open modal
+
+---
+
 ## Multi-Language Support
 
 ### Supported Languages
