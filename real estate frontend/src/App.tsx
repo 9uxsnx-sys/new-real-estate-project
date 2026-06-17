@@ -6,7 +6,7 @@ import gsap from 'gsap';
 import { NavigationNew } from './components/layout';
 import { ScrollToTop } from './components/ScrollToTop';
 import { Preloader, PageTransition } from './components/animations';
-import { PropertiesListing, PropertyDetail, Projects, ProjectDetail, Home, TestPropertyNotFound } from './pages';
+import { PropertiesListing, PropertyDetail, Projects, ProjectDetail, Home, TestPropertyNotFound, DevHome } from './pages';
 import './i18n';
 
 const supportedLangs = ['en', 'fr', 'ar'];
@@ -148,6 +148,10 @@ export default function App() {
     <HelmetProvider>
       {!isLoaded && <Preloader />}
       <Routes>
+        {/* DEV PAGE - Completely isolated, no language prefix */}
+        <Route path="/dev" element={<DevHome />} />
+        <Route path="/dev/*" element={<DevHome />} />
+
         {/* Language-prefixed routes */}
         <Route path="/:lang/*" element={<LocalizedApp />} />
 

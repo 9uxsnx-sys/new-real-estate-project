@@ -6,6 +6,9 @@ interface DiscoverMoreButtonProps {
   onClick?: () => void;
   isRTL?: boolean;
   customText?: string;
+  width?: string;
+  height?: string;
+  arrowSize?: 'sm' | 'md' | 'lg';
 }
 
 export const DiscoverMoreButton: React.FC<DiscoverMoreButtonProps> = ({
@@ -13,7 +16,18 @@ export const DiscoverMoreButton: React.FC<DiscoverMoreButtonProps> = ({
   onClick,
   isRTL = false,
   customText = 'Discover more',
+  width = '130px',
+  height = '40px',
+  arrowSize = 'sm',
 }) => {
+  const arrowSizes = {
+    sm: { container: 'w-5 h-5', icon: 'w-2.5 h-2.5' },
+    md: { container: 'w-6 h-6', icon: 'w-3 h-3' },
+    lg: { container: 'w-8 h-8', icon: 'w-4 h-4' },
+  };
+
+  const arrow = arrowSizes[arrowSize];
+
   const content = (
     <>
       {/* Text content */}
@@ -22,8 +36,8 @@ export const DiscoverMoreButton: React.FC<DiscoverMoreButtonProps> = ({
       </p>
       
       {/* Arrow button */}
-      <div className="w-5 h-5 bg-white rounded-full flex items-center justify-center flex-shrink-0">
-        <ArrowRight className={`w-2.5 h-2.5 text-black ${isRTL ? 'rotate-180' : ''}`} />
+      <div className={`${arrow.container} bg-white rounded-full flex items-center justify-center flex-shrink-0`}>
+        <ArrowRight className={`${arrow.icon} text-black ${isRTL ? 'rotate-180' : ''}`} />
       </div>
     </>
   );
@@ -32,8 +46,12 @@ export const DiscoverMoreButton: React.FC<DiscoverMoreButtonProps> = ({
     return (
       <a
         href={href}
-        className="w-[130px] h-[40px] bg-black rounded-[999px] flex items-center justify-between no-underline cursor-pointer"
-        style={{ padding: isRTL ? '6px 10px 6px 6px' : '6px 6px 6px 10px' }}
+        className="bg-black rounded-[999px] flex items-center justify-between no-underline cursor-pointer hover:bg-gray-800 transition-colors"
+        style={{ 
+          width, 
+          height, 
+          padding: isRTL ? '6px 10px 6px 10px' : '6px 10px 6px 10px' 
+        }}
       >
         {content}
       </a>
@@ -43,8 +61,12 @@ export const DiscoverMoreButton: React.FC<DiscoverMoreButtonProps> = ({
   return (
     <button
       onClick={onClick}
-      className="w-[130px] h-[40px] bg-black rounded-[999px] flex items-center justify-between cursor-pointer"
-      style={{ padding: isRTL ? '6px 10px 6px 6px' : '6px 6px 6px 10px' }}
+      className="bg-black rounded-[999px] flex items-center justify-between cursor-pointer hover:bg-gray-800 transition-colors"
+      style={{ 
+        width, 
+        height, 
+        padding: isRTL ? '6px 10px 6px 10px' : '6px 10px 6px 10px' 
+      }}
     >
       {content}
     </button>

@@ -1068,3 +1068,88 @@ Fixed merge conflict markers in these files:
 - Footer: ✅ Displaying on all pages
 - Hero section: ✅ Responsive layouts working
 - Company manifesto: ✅ Shows paragraph on tablet/mobile
+
+---
+
+## 2026-06-17 - New Homepage Dev Page Setup
+
+### Work Done
+- Created isolated `/dev` route for new homepage development
+- Route is completely outside the language prefix system (no /:lang/)
+- Changes on this page will NOT affect the main website
+
+### Files Created
+- `real estate frontend/src/pages/DevHome.tsx` - New development page
+
+### Files Modified
+- `real estate frontend/src/pages/index.ts` - Added DevHome export
+- `real estate frontend/src/App.tsx` - Added /dev and /dev/* routes
+
+### Dev Page Access
+- **URL:** http://localhost:5173/dev
+- **Isolation:** No Navigation, no language prefix, completely standalone
+
+### Git Status
+- Ready for new homepage development
+- No commit yet
+
+---
+
+## 2026-06-17 - AI Hero Section Component
+
+### Work Done
+- Created `AIHeroSection` component - desktop-only hero section
+- Full-screen with background image
+- Large headline with "Building the future with" + "AI and strategy"
+- Two CTA buttons: View demo (outline) + Get Started (lime green)
+- Rating section with 5 stars at bottom
+- Added Plus Jakarta Sans font to globals.css
+
+### Files Created
+- `real estate frontend/src/components/sections/AIHeroSection.tsx`
+
+### Files Modified
+- `real estate frontend/src/pages/DevHome.tsx` - Added AIHeroSection
+- `real estate frontend/src/components/sections/index.ts` - Added export
+- `real estate frontend/src/styles/globals.css` - Added Plus Jakarta Sans font
+
+### Component Features
+- **Desktop only:** `hidden lg:flex`
+- **Full height:** `h-screen`
+- **Background:** Full-width image with rounded corners
+- **Title:** 6xl with tight letter-spacing (-0.06em)
+- **Subtitle:** Centered, max-w-lg
+- **Buttons:** View demo (gray outline) + Get Started (lime green with arrow)
+- **Rating:** 5 lime-green stars + "Rated 4.9/5 by 4.900+ clients"
+- **Font:** Plus Jakarta Sans for headline, Geist Mono for buttons
+
+### Dev Page URL
+- http://localhost:5174/dev
+
+---
+
+## 2026-06-17 - LimeButton & PropertiesButton Components
+
+### Work Done
+- Created `LimeButton` component with lime green background
+- Created `PropertiesButton` component (saved version of LimeButton)
+- Both buttons feature:
+  - Gray-100 background (off-white)
+  - ArrowUpRight icon in black circle
+  - Geist Mono font, uppercase, extra bold
+  - Fixed padding and spacing
+
+### Files Created
+- `real estate frontend/src/components/ui/LimeButton.tsx`
+- `real estate frontend/src/components/ui/PropertiesButton.tsx`
+
+### Files Modified
+- `real estate frontend/src/components/ui/index.ts` - Added exports
+
+### Button Features
+- Background: `bg-gray-100 hover:bg-gray-200`
+- Arrow: Black circle with white ArrowUpRight icon
+- Text: Geist Mono, uppercase, font-extrabold
+- Padding: `pl-5 pr-[12px]` on text
+- Gap between text and arrow: 9px (gap-[9px])
+- Rounded: `rounded-[48px]`

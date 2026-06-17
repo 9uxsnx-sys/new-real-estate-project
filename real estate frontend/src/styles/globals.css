@@ -1,4 +1,45 @@
 
+/* Plus Jakarta Sans - Used in AI Hero Section */
+@font-face {
+font-display: swap;
+font-family: 'Plus Jakarta Sans';
+src: url('https://proxy.extractcss.dev/https://framerusercontent.com/third-party-assets/fontshare/wf/ZLH2B3SFZRQ3US4ZUYG2367OYUMTVTGK/RSOPFK2EORTGBCOBZRY42GDLXFFB4IQW/JZ35FM4UJSKC7X2PM65RH75Q5KLE552S.woff2') format('woff2');
+font-weight: 600;
+font-style: normal;
+}
+
+@font-face {
+font-display: swap;
+font-family: 'Plus Jakarta Sans';
+src: url('https://proxy.extractcss.dev/https://framerusercontent.com/third-party-assets/fontshare/wf/DG3FNZZAXTT6HZWYCQT3SK2X2XDKA6XH/KWXXWQ4T72VNT2BQDELHDOCDISYUBIWM/XMNYCZFXUH3EYMLHCQEDXUTZTCNGZHL5.woff2') format('woff2');
+font-weight: 600;
+font-style: italic;
+}
+
+@font-face {
+font-display: swap;
+font-family: 'Plus Jakarta Sans';
+src: url('https://proxy.extractcss.dev/https://framerusercontent.com/third-party-assets/fontshare/wf/ZLH2B3SFZRQ3US4ZUYG2367OYUMTVTGK/RSOPFK2EORTGBCOBZRY42GDLXFFB4IQW/JZ35FM4UJSKC7X2PM65RH75Q5KLE552S.woff2') format('woff2');
+font-weight: 400;
+font-style: normal;
+}
+
+@font-face {
+font-display: swap;
+font-family: 'Plus Jakarta Sans';
+src: url('https://proxy.extractcss.dev/https://framerusercontent.com/third-party-assets/fontshare/wf/ZLH2B3SFZRQ3US4ZUYG2367OYUMTVTGK/RSOPFK2EORTGBCOBZRY42GDLXFFB4IQW/JZ35FM4UJSKC7X2PM65RH75Q5KLE552S.woff2') format('woff2');
+font-weight: 500;
+font-style: normal;
+}
+
+@font-face {
+font-display: swap;
+font-family: 'Plus Jakarta Sans';
+src: url('https://proxy.extractcss.dev/https://framerusercontent.com/third-party-assets/fontshare/wf/ZLH2B3SFZRQ3US4ZUYG2367OYUMTVTGK/RSOPFK2EORTGBCOBZRY42GDLXFFB4IQW/JZ35FM4UJSKC7X2PM65RH75Q5KLE552S.woff2') format('woff2');
+font-weight: 700;
+font-style: normal;
+}
+
 @font-face {
 font-display: swap;
 font-family: 'Geist';
