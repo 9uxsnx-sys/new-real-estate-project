@@ -1153,3 +1153,54 @@ Fixed merge conflict markers in these files:
 - Padding: `pl-5 pr-[12px]` on text
 - Gap between text and arrow: 9px (gap-[9px])
 - Rounded: `rounded-[48px]`
+
+---
+
+## 2026-06-17 - RTL Support & Translations
+
+### Work Done
+- Added i18n translations for EN, FR, AR
+- Created `RTLPropertiesButton` component for Arabic
+- Updated `AIHeroSection` to support RTL
+- Updated `DevHome` to pass language and RTL props
+
+### Translations (newHome section)
+**EN:**
+- Headline 1: "We build your trust"
+- Headline 2: "before we build your project"
+- Paragraph: "Crafting premium residential..."
+- Projects: "Projects"
+- Properties: "Properties"
+
+**FR:**
+- Headline 1: "Nous construisons votre confiance"
+- Headline 2: "avant de construire votre projet"
+- Paragraph: "Nous créons des espaces..."
+- Projects: "Projets"
+- Properties: "Propriétés"
+
+**AR:**
+- Headline 1: "نبني ثقتك"
+- Headline 2: "قبل أن نبني مشروعك"
+- Paragraph: "نصنع مساحات سكنية..."
+- Projects: "مشاريع"
+- Properties: "عقارات"
+
+### Dev Page URLs
+- English: `http://localhost:5174/dev`
+- French: `http://localhost:5174/dev?lang=fr`
+- Arabic: `http://localhost:5174/dev?lang=ar`
+
+### Files Created
+- `real estate frontend/src/components/ui/RTLPropertiesButton.tsx`
+
+### Files Modified
+- `real estate frontend/src/i18n/locales/en.json` - Added newHome section
+- `real estate frontend/src/i18n/locales/fr.json` - Added newHome section
+- `real estate frontend/src/i18n/locales/ar.json` - Added newHome section
+- `real estate frontend/src/components/sections/AIHeroSection.tsx` - Added content prop
+- `real estate frontend/src/pages/DevHome.tsx` - Added i18n support
+
+### Git Status
+- Branch: `new-homepage`
+- Committed and pushed: `e98359d`
