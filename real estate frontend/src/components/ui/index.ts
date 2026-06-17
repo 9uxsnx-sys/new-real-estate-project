@@ -10,6 +10,7 @@ export { PropertiesButton } from './PropertiesButton';
 export { RTLPropertiesButton } from './RTLPropertiesButton';
 export { ProjectsButton } from './ProjectsButton';
 export { OutlineButton } from './OutlineButton';
+export { HeroNavbar } from './HeroNavbar';
 export { GatewayCard } from './DiscoverProjectsCard';
 export { DiscoverPropertiesCard } from './DiscoverPropertiesCard';
 export { DiscoverSection } from './DiscoverSection';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { PropertiesButton, OutlineButton } from '../ui';
+import { PropertiesButton, OutlineButton, HeroNavbar } from '../ui';
 
 /**
  * AI Hero Section - Desktop Only
@@ -40,7 +40,7 @@ export const AIHeroSection: React.FC<AIHeroSectionProps> = ({
   const PropertiesBtn = PropertiesButtonComponent || PropertiesButton;
   
   return (
-    <section className="hidden lg:flex w-full h-screen bg-white overflow-hidden p-3">
+    <section className="hidden md:flex w-full h-screen bg-white overflow-hidden p-3">
       {/* Background Image */}
       <div className="absolute inset-3 rounded-3xl overflow-hidden">
         <img
@@ -51,22 +51,27 @@ export const AIHeroSection: React.FC<AIHeroSectionProps> = ({
         />
       </div>
 
+      {/* Navbar */}
+      <div className="absolute top-3 left-3 right-3 z-20">
+        <HeroNavbar isRTL={isRTL} />
+      </div>
+
       {/* Content Container - Centered */}
       <div className={`relative z-10 flex flex-col items-center justify-center w-full h-full px-20 ${isRTL ? 'rtl' : ''}`}>
         {/* Title & Subtitle */}
-        <div className="flex flex-col items-center gap-y-6 mb-8">
+        <div className="flex flex-col items-center gap-y-3 lg:gap-y-6 mb-4 lg:mb-8 px-6 lg:px-0">
           <h1 
-            className="text-white text-center tracking-[-0.02em] text-6xl font-semibold leading-tight"
+            className="text-white text-center tracking-[-0.02em] text-5xl lg:text-6xl font-semibold leading-tight"
             style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
           >
             {content.headline1}<br />
-            <span className="text-white/75 font-light tracking-[-0.02em]">
+            <span className="text-white/75 font-light tracking-[-0.02em] text-5xl lg:text-5xl" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
               {content.headline2}
             </span>
           </h1>
 
           <p 
-            className="text-white/90 text-center tracking-[-0.01em] text-lg leading-relaxed max-w-xl"
+            className="text-white/90 text-center tracking-[-0.01em] text-base lg:text-lg leading-relaxed max-w-xl px-4 lg:px-0"
             style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
           >
             {content.paragraph}
@@ -74,7 +79,7 @@ export const AIHeroSection: React.FC<AIHeroSectionProps> = ({
         </div>
 
         {/* Buttons Row */}
-        <div className="flex items-center justify-center gap-x-4">
+        <div className="flex items-center justify-center gap-x-4 md:pt-[25px] lg:pt-0">
           <OutlineButton text={content.projects} />
           <div style={{ transform: 'scale(0.95)', transformOrigin: 'center' }}>
             <PropertiesBtn text={content.properties} />
