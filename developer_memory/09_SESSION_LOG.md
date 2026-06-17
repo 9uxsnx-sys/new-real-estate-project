@@ -1204,3 +1204,37 @@ Fixed merge conflict markers in these files:
 ### Git Status
 - Branch: `new-homepage`
 - Committed and pushed: `e98359d`
+
+---
+
+## 2026-06-17 - HeroNavbar & Responsive Tablet Support
+
+### Work Done
+- Created `HeroNavbar` component with logo, nav links, WhatsApp button
+- Added responsive support for tablet (768px+) and desktop (1024px+)
+- Updated hero section visibility to show on tablet and desktop
+
+### HeroNavbar Features
+- Logo (SVG building icon + text)
+- Nav links: Home, Properties, Projects, Language
+- WhatsApp button with MessageCircle icon
+- Responsive sizing:
+  - Tablet: smaller padding, logo, text, button
+  - Desktop: full size
+
+### AIHeroSection Responsive
+- **Visibility:** `hidden md:flex` (tablet+)
+- **Title:** `text-5xl` (tablet) / `text-6xl` (desktop)
+- **Paragraph:** `text-base` (tablet) / `text-lg` (desktop)
+- **Spacing:** Reduced on tablet, full on desktop
+
+### Files Created
+- `real estate frontend/src/components/ui/HeroNavbar.tsx`
+
+### Files Modified
+- `real estate frontend/src/components/sections/AIHeroSection.tsx` - Added navbar, responsive styles
+- `real estate frontend/src/i18n/locales/ar.json` - Added longer Arabic paragraph
+
+### Git Status
+- Branch: `new-homepage`
+- Committed and pushed: `64aad0f`
