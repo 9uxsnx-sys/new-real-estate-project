@@ -7,6 +7,7 @@ export { DiscoverMoreButton } from './DiscoverMoreButton';
 export { ArrowButton } from './ArrowButton';
 export { LimeButton } from './LimeButton';
 export { PropertiesButton } from './PropertiesButton';
+export { RTLPropertiesButton } from './RTLPropertiesButton';
 export { ProjectsButton } from './ProjectsButton';
 export { OutlineButton } from './OutlineButton';
 export { GatewayCard } from './DiscoverProjectsCard';
