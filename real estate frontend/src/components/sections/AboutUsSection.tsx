@@ -53,23 +53,42 @@ const ImageCard: React.FC = () => (
 );
 
 // Card 2: Testimonial Card
-const TestimonialCard: React.FC = () => (
-  <div className="bg-zinc-100 flex-col grow shrink-0 basis-0 content-start justify-start items-start gap-y-20 w-px h-min flex relative p-5 rounded-3xl overflow-hidden">
-    {/* Header */}
-    <div className="flex-col flex-none content-start justify-start items-start gap-y-3 gap-x-3 w-full h-min flex relative">
-      <p className="text-neutral-900 tracking-[-0.02em] text-base font-medium leading-5" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Established in</p>
-      <p className="text-neutral-900 text-center tracking-[-0.06em] text-7xl font-medium leading-[120%]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>2013</p>
-    </div>
+interface TestimonialCardProps {
+  isRTL?: boolean;
+}
 
-    {/* Quote Section */}
-    <div className="flex-col flex-none content-start justify-start items-start gap-y-3 gap-x-3 w-full h-min flex relative">
-      {/* Quote */}
-      <p className="text-neutral-900 tracking-[-0.02em] text-wrap:balance text-base font-medium leading-6" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-        Over a decade of engineering premium residential and commercial developments across Algiers and Boumerdès.
-      </p>
+const TestimonialCard: React.FC<TestimonialCardProps> = ({ isRTL = false }) => {
+  const content = {
+    en: {
+      label: 'Established in',
+      paragraph: 'Over a decade of engineering premium residential and commercial developments across Algiers and Boumerdès.'
+    },
+    fr: {
+      label: 'Établie en',
+      paragraph: "Plus d'une décennie d'excellence dans la promotion immobilière résidentielle et commerciale à Alger et Boumerdès."
+    }
+  };
+
+  const current = isRTL ? content.fr : content.en;
+
+  return (
+    <div className="bg-zinc-100 flex-col grow shrink-0 basis-0 content-start justify-start items-start gap-y-20 w-px h-min flex relative p-5 rounded-3xl overflow-hidden">
+      {/* Header */}
+      <div className="flex-col flex-none content-start justify-start items-start gap-y-3 gap-x-3 w-full h-min flex relative">
+        <p className="text-neutral-900 tracking-[-0.02em] text-base font-medium leading-5" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{current.label}</p>
+        <p className="text-neutral-900 text-center tracking-[-0.06em] text-7xl font-medium leading-[120%]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>2013</p>
+      </div>
+
+      {/* Quote Section */}
+      <div className="flex-col flex-none content-start justify-start items-start gap-y-3 gap-x-3 w-full h-min flex relative">
+        {/* Quote */}
+        <p className="text-neutral-900 tracking-[-0.02em] text-wrap:balance text-base font-medium leading-6" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+          {current.paragraph}
+        </p>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 // Card 3: Stats Card
 const StatsCard: React.FC = () => (
@@ -149,7 +168,7 @@ export const AboutUsSection: React.FC<AboutUsSectionProps> = ({ className = '', 
         {/* Cards Grid */}
         <div className="max-md:flex-col flex-none content-center justify-start items-center gap-y-6 gap-x-6 w-full h-min flex relative">
           <ImageCard />
-          <TestimonialCard />
+          <TestimonialCard isRTL={isRTL} />
           <StatsCard />
         </div>
       </div>
