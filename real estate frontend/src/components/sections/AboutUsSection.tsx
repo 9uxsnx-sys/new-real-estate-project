@@ -40,7 +40,7 @@ const StarIcon: React.FC = () => (
 
 // Card 1: Pure Image Card
 const ImageCard: React.FC = () => (
-  <div className="grow shrink-0 basis-0 self-stretch rounded-3xl overflow-hidden">
+  <div className="flex grow shrink-0 basis-0 self-stretch rounded-3xl overflow-hidden">
     <img 
       src="https://proxy.extractcss.dev/https://framerusercontent.com/images/JGdNRl6jQUnlEAMYGOue2qDYts.png?width=2464&height=1856"
       alt="Building"
