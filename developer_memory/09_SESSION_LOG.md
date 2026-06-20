@@ -2,6 +2,67 @@
 
 ---
 
+## 2026-06-20 - About Us Section Updates
+
+### Work Done
+
+#### 1. Financing Card (Lime Card)
+- Changed label from "Data Points" to "FINANCING"
+- Changed value from "520k+" to "100%"
+- Changed paragraph to "Flexible interest-free payment plans tailored to your timeline."
+- Added multi-language support:
+  - EN: FINANCING / 100%
+  - FR: FINANCEMENT / 100%
+  - AR: تسهيلات الدفع / 100%
+
+#### 2. Projects Card (Black Card)
+- Changed label from "Continents" to "TOTAL PROJECTS"
+- Changed value from "20+" to "06"
+- Added multi-language support:
+  - EN: TOTAL PROJECTS / 06
+  - FR: TOTAL PROJETS / 06
+  - AR: إجمالي المشاريع / 06
+
+#### 3. Card Background Changes
+- Financing card: Changed from lime-300 to sky-400 (`#85e7ff`)
+- Added backdrop-blur-[20px] to financing card
+- Continents/Projects card: Changed background to black (neutral-900)
+
+#### 4. Icon Replacements
+- GridIcon (blue circle): Changed from grid icon to home icon
+- StarIcon (gray circle): Changed from star icon to shield checkmark
+- Both icons updated with inline SVG (not background-image)
+- Icon backgrounds:
+  - GridIcon: #85e7ff (light blue)
+  - StarIcon: #D9D9D9 (light gray)
+
+#### 5. Headline Text Updates
+**English:**
+- Line 1: "A premier Algerian developer"
+- Line 2: "dedicated to building" + [home icon] + "modern spaces"
+- Line 3: "and" + [shield icon] + "lasting trust"
+
+**French:**
+- Line 1: "Un promoteur de premier plan"
+- Line 2: "dédié à bâtir des" + [home icon] + "espaces modernes"
+- Line 3: "et une" + [shield icon] + "confiance durable"
+
+**Arabic (RTL):**
+- Line 1: "شركة ترقية عقارية رائدة"
+- Line 2: "تلتزم دائماً بإنجاز" + [home icon] + "مشاريع متميزة"
+- Line 3: "و أيضًا" + [shield icon] + "بناء ثقتكم"
+
+#### 6. Icon Styling
+- Icons converted to filled style (not outline)
+- GridIcon: Home icon with clipPath for rounded corners
+- StarIcon: Shield checkmark icon with clipPath for rounded corners
+- Added padding-right to Arabic text for spacing
+
+### Files Modified
+- `real estate frontend/src/components/sections/AboutUsSection.tsx`
+
+---
+
 ## 2026-06-17 - About Us Section & Dev Homepage Development
 
 ### Work Done

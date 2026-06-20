@@ -6,6 +6,44 @@
 
 ---
 
+## 2026-06-20 - About Us Section Card Redesign
+
+**Decision:** Redesign About Us section cards with real estate-focused content
+
+**Context:**
+- Original cards had generic "Data Points" and "Continents" content
+- Client wanted content relevant to real estate development business
+- Need multi-language support (EN/FR/AR)
+
+**What Was Changed:**
+
+1. **Financing Card (was Data Points → now FINANCING)**
+   - Label: "Data Points" → "FINANCING" / "FINANCEMENT" / "تسهيلات الدفع"
+   - Value: "520k+" → "100%"
+   - Paragraph: Customized per language
+   - Background: lime-300 → sky-400 (#85e7ff)
+   - Added backdrop-blur-[20px]
+
+2. **Projects Card (was Continents → now TOTAL PROJECTS)**
+   - Label: "Continents" → "TOTAL PROJECTS" / "TOTAL PROJETS" / "إجمالي المشاريع"
+   - Value: "20+" → "06"
+   - Background: unchanged (neutral-900)
+
+3. **Icon Changes**
+   - GridIcon: Grid icon → Home icon (inline SVG)
+   - StarIcon: Star icon → Shield checkmark (inline SVG)
+   - Both icons: filled style with rounded clipPath
+
+4. **Headline Text**
+   - New multilingual headline with icons between text segments
+   - English: "A premier Algerian developer" / "dedicated to building [home] modern spaces" / "and [shield] lasting trust"
+   - French: "Un promoteur de premier plan" / "dédié à bâtir des [home] espaces modernes" / "et une [shield] confiance durable"
+   - Arabic: "شركة ترقية عقارية رائدة" / "[home] مشاريع متميزة / تلتزم دائماً بإنجاز" / "و أيضًا [shield] بناء ثقتكم"
+
+**Reversible:** Yes - can revert to original content
+
+---
+
 ## 2026-06-17 - Dev Homepage Route for Isolated Development
 
 **Decision:** Create `/dev` route separate from main site for new homepage development
