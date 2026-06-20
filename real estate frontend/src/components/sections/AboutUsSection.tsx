@@ -58,7 +58,7 @@ const TestimonialCard: React.FC = () => (
     {/* Header */}
     <div className="flex-col flex-none content-start justify-start items-start gap-y-3 gap-x-3 w-full h-min flex relative">
       <p className="text-neutral-900 tracking-[-0.02em] text-sm font-medium leading-5" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Commitment to measurable</p>
-      <p className="text-neutral-900 text-center tracking-[-0.06em] text-4xl font-medium leading-[120%]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>100%</p>
+      <p className="text-neutral-900 text-center tracking-[-0.06em] text-6xl font-bold leading-[100%]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>2013</p>
     </div>
 
     {/* Quote Section */}
