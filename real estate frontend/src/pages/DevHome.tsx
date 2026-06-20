@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { AIHeroSection, AboutUsSection, AboutUsSectionMobile } from '../components/sections';
+import { AIHeroSection } from '../components/sections';
+import { AboutUsSection, AboutUsSectionMobile } from '../components/home/about-us';
+import { ServicesDesktopSection } from '../components/home/services';
 import { RTLPropertiesButton } from '../components/ui';
 import '../i18n';
 
@@ -81,6 +83,9 @@ export const DevHome: React.FC = () => {
       ) : (
         <AboutUsSection lang={lang} />
       )}
+      
+      {/* Services Section (Desktop only for now) */}
+      <ServicesDesktopSection lang={lang} />
     </div>
   );
 };

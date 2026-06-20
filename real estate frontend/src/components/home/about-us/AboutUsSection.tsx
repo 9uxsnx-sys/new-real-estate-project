@@ -11,6 +11,16 @@ interface AboutUsSectionProps {
   lang?: string;
 }
 
+// Helper to get font family based on language
+const getFontFamily = (lang: string) => {
+  return lang === 'ar' ? "'Noto Sans Arabic', sans-serif" : "'Plus Jakarta Sans', sans-serif";
+};
+
+// Helper to get font style object
+const getFontStyle = (lang: string) => {
+  return { fontFamily: getFontFamily(lang) };
+};
+
 // Icon components for the headline
 const GridIcon: React.FC = () => (
   <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: '#85e7ff' }}>
@@ -78,6 +88,8 @@ interface TestimonialCardProps {
 }
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({ lang = 'en' }) => {
+  const fontStyle = getFontStyle(lang);
+  
   const content = {
     en: {
       label: 'Established in',
@@ -99,14 +111,14 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ lang = 'en' }) => {
     <div className="bg-zinc-100 flex-col grow shrink-0 basis-0 content-start justify-start items-start gap-y-20 gap-x-3 w-full h-min flex relative p-5 rounded-3xl overflow-hidden">
       {/* Header */}
       <div className="flex-col flex-none content-start justify-start items-start gap-y-3 gap-x-3 w-full h-min flex relative">
-        <p className={`text-neutral-900 tracking-[-0.02em] ${lang === 'ar' ? 'text-xl' : 'text-base'} font-medium leading-5`} style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{current.label}</p>
-        <p className="text-neutral-900 text-center tracking-[-0.06em] text-7xl font-medium leading-[120%]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>2013</p>
+        <p className={`text-neutral-900 tracking-[-0.02em] ${lang === 'ar' ? 'text-xl' : 'text-base'} font-medium leading-5`} style={fontStyle}>{current.label}</p>
+        <p className="text-neutral-900 text-center tracking-[-0.06em] text-7xl font-medium leading-[120%]" style={fontStyle}>2013</p>
       </div>
 
       {/* Quote Section */}
       <div className="flex-col flex-none content-start justify-start items-start gap-y-3 gap-x-3 w-full h-min flex relative">
         {/* Quote */}
-        <p className={`text-neutral-900 tracking-[-0.02em] text-wrap:balance text-base ${lang === 'ar' ? 'font-bold' : 'font-medium'} leading-6`} style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+        <p className={`text-neutral-900 tracking-[-0.02em] text-wrap:balance text-base ${lang === 'ar' ? 'font-bold' : 'font-medium'} leading-6`} style={fontStyle}>
           {current.paragraph}
         </p>
       </div>
@@ -121,6 +133,7 @@ interface StatsCardProps {
 
 const StatsCard: React.FC<StatsCardProps> = ({ lang = 'en' }) => {
   const isRTL = lang === 'ar';
+  const fontStyle = getFontStyle(lang);
   
   const financingContent = {
     en: {
@@ -163,10 +176,10 @@ const StatsCard: React.FC<StatsCardProps> = ({ lang = 'en' }) => {
       {/* Financing Card */}
       <div className="bg-sky-400 backdrop-blur-[20px] flex-col grow shrink-0 basis-0 content-start justify-between items-start w-full h-px flex relative p-5 rounded-3xl overflow-hidden" style={{ backgroundColor: '#85e7ff' }} dir={isRTL ? 'rtl' : 'ltr'}>
         <div className={`flex-col flex-none content-start items-start gap-y-3 gap-x-3 w-full h-min flex relative rounded-lg ${isRTL ? 'text-right' : ''}`} style={isRTL ? { marginLeft: 'auto', marginRight: 0 } : {}}>
-          <p className="text-neutral-900 tracking-[-0.02em] text-sm font-medium leading-5" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", paddingLeft: isRTL ? '0px' : '5px', paddingRight: isRTL ? '5px' : '0px' }}>{financing.label}</p>
-          <p className="text-neutral-900 text-center tracking-[-0.06em] text-4xl font-medium leading-[120%]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '46px' }}>{financing.value}</p>
+          <p className="text-neutral-900 tracking-[-0.02em] text-sm font-medium leading-5" style={{ ...fontStyle, paddingLeft: isRTL ? '0px' : '5px', paddingRight: isRTL ? '5px' : '0px' }}>{financing.label}</p>
+          <p className="text-neutral-900 text-center tracking-[-0.06em] text-4xl font-medium leading-[120%]" style={{ ...fontStyle, fontSize: '46px' }}>{financing.value}</p>
         </div>
-        <p className={`text-neutral-900 tracking-[-0.02em] text-wrap:balance text-base font-medium leading-6 ${isRTL ? 'text-right font-bold' : ''}`} style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+        <p className={`text-neutral-900 tracking-[-0.02em] text-wrap:balance text-base font-medium leading-6 ${isRTL ? 'text-right font-bold' : ''}`} style={fontStyle}>
           {financing.paragraph}
         </p>
       </div>
@@ -174,8 +187,8 @@ const StatsCard: React.FC<StatsCardProps> = ({ lang = 'en' }) => {
       {/* Projects Card */}
       <div className="bg-neutral-900 flex-col flex-none content-start justify-start items-center gap-y-32 gap-x-32 w-full h-min flex relative p-5 rounded-3xl overflow-hidden" dir={isRTL ? 'rtl' : 'ltr'}>
         <div className="backdrop-blur-[20px] flex-none content-center justify-between items-center w-full h-min flex relative rounded-xl">
-          <p className="text-white tracking-[-0.02em] text-sm font-medium leading-5" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{projects.label}</p>
-          <p className="text-white text-center tracking-[-0.06em] text-4xl font-medium leading-[120%]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{projects.value}</p>
+          <p className="text-white tracking-[-0.02em] text-sm font-medium leading-5" style={fontStyle}>{projects.label}</p>
+          <p className="text-white text-center tracking-[-0.06em] text-4xl font-medium leading-[120%]" style={fontStyle}>{projects.value}</p>
         </div>
       </div>
     </div>
@@ -184,6 +197,7 @@ const StatsCard: React.FC<StatsCardProps> = ({ lang = 'en' }) => {
 
 export const AboutUsSection: React.FC<AboutUsSectionProps> = ({ className = '', lang = 'en' }) => {
   const isRTL = lang === 'ar';
+  const fontStyle = getFontStyle(lang);
   
   return (
     <section 
@@ -197,38 +211,38 @@ export const AboutUsSection: React.FC<AboutUsSectionProps> = ({ className = '', 
           {/* About Us Label */}
           <div className="flex items-center gap-x-3">
             <div className="w-1 h-1 bg-neutral-900 rounded-full" />
-            <p className="text-neutral-900 tracking-[1.6px] uppercase text-sm font-medium leading-5" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>About Us</p>
+            <p className="text-neutral-900 tracking-[1.6px] uppercase text-sm font-medium leading-5" style={lang !== 'ar' ? { fontFamily: "'Plus Jakarta Sans', sans-serif" } : fontStyle}>About Us</p>
           </div>
 
           {/* Multi-line Headline */}
           <div className="flex-col flex-none content-center justify-center items-center gap-y-0 gap-x-0 w-full h-min flex relative">
             {/* Line 1 */}
-            <h2 className="max-md:flex-col max-md:flex-wrap max-md:content-center max-md:items-center text-neutral-900 tracking-[-0.06em] text-center text-wrap:balance text-5xl font-medium leading-[117%] max-md:text-4xl" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+            <h2 className="max-md:flex-col max-md:flex-wrap max-md: content-center max-md:items-center text-neutral-900 tracking-[-0.06em] text-center text-wrap:balance text-5xl font-medium leading-[117%] max-md:text-4xl" style={fontStyle}>
               {lang === 'fr' ? 'Un promoteur de premier plan' : lang === 'ar' ? 'شركة ترقية عقارية رائدة' : 'A premier Algerian developer'}
             </h2>
 
             {/* Line 2: dedicated to building + Grid Icon + "modern spaces" */}
             <div className="max-md:flex-col max-md:flex-wrap max-md:content-center max-md:items-center max-md:gap-y-0 flex items-center justify-center gap-y-2 gap-x-2 w-full h-min flex relative">
-              <h2 className="text-neutral-900 tracking-[-0.06em] text-center text-wrap:balance text-5xl font-medium leading-[117%] max-md:text-4xl" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                {lang === 'fr' ? 'dédié à bâtir des' : lang === 'ar' ? 'تلتزم دائماً بإنجاز' : 'dedicated to building'}
+              <h2 className="text-neutral-900 tracking-[-0.06em] text-center text-wrap:balance text-5xl font-medium leading-[117%] max-md:text-4xl" style={fontStyle}>
+                {lang === 'fr' ? "dédié à bât ir des" : lang === 'ar' ? 'تلتزم دائماً بإنجاز' : 'dedicated to building'}
               </h2>
               <div className="max-md:w-8 max-md:h-8 w-12 h-12 flex-shrink-0">
                 <GridIcon />
               </div>
-              <h2 className="text-neutral-900 tracking-[-0.06em] text-center text-wrap:balance text-5xl font-medium leading-[117%] max-md:text-4xl" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", paddingRight: '5px' }}>
+              <h2 className="text-neutral-900 tracking-[-0.06em] text-center text-wrap:balance text-5xl font-medium leading-[117%] max-md:text-4xl" style={fontStyle}>
                 {lang === 'fr' ? 'espaces modernes' : lang === 'ar' ? 'مشاريع متميزة' : 'modern spaces'}
               </h2>
             </div>
 
             {/* Line 3: and + Star Icon + "lasting trust" */}
             <div className="flex items-center justify-center gap-y-2 gap-x-2 w-full h-min flex relative">
-              <h2 className="text-neutral-900/50 tracking-[-0.06em] text-center text-wrap:balance text-5xl font-medium leading-[117%] max-md:text-4xl" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+              <h2 className="text-neutral-900/50 tracking-[-0.06em] text-center text-wrap:balance text-5xl font-medium leading-[117%] max-md:text-4xl" style={fontStyle}>
                 {lang === 'fr' ? 'et une' : lang === 'ar' ? 'و أيضًا' : 'and'}
               </h2>
               <div className="max-md:w-8 max-md:h-8 w-12 h-12 flex-shrink-0">
                 <StarIcon />
               </div>
-              <h2 className="text-neutral-900/50 tracking-[-0.06em] text-center text-wrap:balance text-5xl font-medium leading-[117%] max-md:text-4xl" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", paddingRight: '3px' }}>
+              <h2 className="text-neutral-900/50 tracking-[-0.06em] text-center text-wrap:balance text-5xl font-medium leading-[117%] max-md:text-4xl" style={fontStyle}>
                 {lang === 'fr' ? 'confiance durable' : lang === 'ar' ? 'بناء ثقتكم' : 'lasting trust'}
               </h2>
             </div>

@@ -1,7 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { NavigationNew } from '@/components/layout';
-import { HeroSection, AboutUsSection, CompanyManifesto, CompanyManifestoMobileVersion, ProjectAndPropertySection, FAQSection, Footer } from '@/components/sections';
+import { HeroSection, CompanyManifesto, CompanyManifestoMobileVersion, ProjectAndPropertySection, FAQSection, Footer } from '@/components/sections';
+import { AboutUsSection } from '@/components/home/about-us';
 import { SEO } from '@/components/seo';
 
 export const Home: React.FC = () => {

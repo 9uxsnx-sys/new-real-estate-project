@@ -1,6 +1,4 @@
 export { ProjectAndPropertySection } from './ProjectAndPropertySection';
-export { AboutUsSection } from './AboutUsSection';
-export { AboutUsSectionMobile } from './AboutUsSectionMobile';
 export { CompanyManifesto } from './CompanyManifesto';
 export { CompanyManifestoMobileVersion } from './CompanyManifestoMobileVersion';
 export { FAQSection } from './FAQSection';

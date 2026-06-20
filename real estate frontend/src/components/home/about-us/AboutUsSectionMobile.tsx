@@ -12,6 +12,16 @@ interface AboutUsSectionMobileProps {
  * Features headline with icons and 3 info cards.
  */
 
+// Helper to get font family based on language
+const getFontFamily = (lang: string) => {
+  return lang === 'ar' ? "'Noto Sans Arabic', sans-serif" : "'Plus Jakarta Sans', sans-serif";
+};
+
+// Helper to get font style object
+const getFontStyle = (lang: string) => {
+  return { fontFamily: getFontFamily(lang) };
+};
+
 // Icon components for the headline
 const HomeIcon: React.FC = () => (
   <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#85e7ff' }}>
@@ -41,7 +51,7 @@ export const AboutUsSectionMobile: React.FC<AboutUsSectionMobileProps> = ({ clas
     },
     fr: {
       line1: 'Un promoteur de premier plan',
-      line2a: 'dédié à bâtir des',
+      line2a: 'dédié à bâti r des',
       line2b: 'espaces modernes',
       line3a: 'et une',
       line3b: 'confiance durable',
@@ -79,7 +89,7 @@ export const AboutUsSectionMobile: React.FC<AboutUsSectionMobileProps> = ({ clas
   const financing = financingContent[lang as keyof typeof financingContent] || financingContent.en;
   const projects = projectsContent[lang as keyof typeof projectsContent] || projectsContent.en;
 
-  const fontStyle = { fontFamily: "'Plus Jakarta Sans', sans-serif" };
+  const fontStyle = getFontStyle(lang);
 
   return (
     <section 
@@ -90,7 +100,7 @@ export const AboutUsSectionMobile: React.FC<AboutUsSectionMobileProps> = ({ clas
       {/* About Us Label */}
       <div className="flex items-center justify-center gap-3 mb-8">
         <div className="w-1 h-1 bg-neutral-900 rounded-full" />
-        <p className="text-neutral-900 tracking-[1.6px] uppercase text-sm font-medium" style={fontStyle}>
+        <p className="text-neutral-900 tracking-[1.6px] uppercase text-sm font-medium" style={lang !== 'ar' ? { fontFamily: "'Plus Jakarta Sans', sans-serif" } : fontStyle}>
           About Us
         </p>
       </div>

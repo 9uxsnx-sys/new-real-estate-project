@@ -2,6 +2,98 @@
 
 ---
 
+## 2026-06-20 (Evening) - Arabic Font Implementation & Component Reorganization
+
+### Overview
+Implemented Arabic font support for About Us sections and reorganized components into dedicated `home/about-us` folder for future homepage development.
+
+### Work Done
+
+#### 1. Project Cleanup
+**Deleted unused files:**
+- `real estate frontend/public/assets/images/` (21 duplicate images)
+- `gpp_good_37dp_E3E3E3.svg` (root folder)
+- `home.svg` (root folder)
+
+**Moved:**
+- `Noto_Sans_Arabic/` → `real estate frontend/public/Noto_Sans_Arabic/`
+
+#### 2. Arabic Font Implementation
+**File:** `real estate frontend/src/styles/globals.css`
+
+Added Noto Sans Arabic font-face declarations:
+```css
+@font-face {
+  font-family: 'Noto Sans Arabic';
+  src: url('/Noto_Sans_Arabic/static/NotoSansArabic-Regular.ttf') format('truetype');
+  font-weight: 400;
+}
+/* Also: Medium (500), Bold (700) */
+```
+
+**Dynamic Font Helper (added to both components):**
+```typescript
+const getFontFamily = (lang: string) => {
+  return lang === 'ar' ? "'Noto Sans Arabic', sans-serif" : "'Plus Jakarta Sans', sans-serif";
+};
+```
+
+**Result:**
+- English/French → Plus Jakarta Sans
+- Arabic → Noto Sans Arabic
+
+#### 3. Component Reorganization
+**New Structure:**
+```
+components/
+├── sections/              (existing components)
+│   └── ... (AIHeroSection, CompanyManifesto, etc.)
+│
+├── home/                  (NEW)
+│   └── about-us/          (NEW)
+│       ├── index.ts       (exports both)
+│       ├── AboutUsSection.tsx       (desktop version)
+│       └── AboutUsSectionMobile.tsx (mobile version)
+```
+
+**Files Created:**
+- `components/home/about-us/AboutUsSection.tsx`
+- `components/home/about-us/AboutUsSectionMobile.tsx`
+- `components/home/about-us/index.ts`
+
+**Files Deleted:**
+- `components/sections/AboutUsSection.tsx`
+- `components/sections/AboutUsSectionMobile.tsx`
+
+**Files Updated:**
+- `DevHome.tsx` - Updated import path
+- `sections/index.ts` - Removed old exports
+
+#### 4. Import Pattern
+```typescript
+// Old import (no longer works)
+import { AboutUsSection, AboutUsSectionMobile } from '@/components/sections';
+
+// New import
+import { AboutUsSection, AboutUsSectionMobile } from '@/components/home/about-us';
+```
+
+### Future Homepage Structure
+When all sections are complete, the `home/` folder will contain:
+```
+components/home/
+├── about-us/
+├── hero/
+├── manifesto/
+└── index.ts (exports all)
+```
+
+### Git Commit
+- **Message:** "refactor: implement Arabic font and reorganize About Us components"
+- **Pushed to:** new-homepage branch
+
+---
+
 ## 2026-06-20 (Afternoon) - Mobile About Us Component & Auto-Switch
 
 ### Overview
