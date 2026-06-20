@@ -79,7 +79,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ lang = 'en' }) => {
     <div className="bg-zinc-100 flex-col grow shrink-0 basis-0 content-start justify-start items-start gap-y-20 w-px h-min flex relative p-5 rounded-3xl overflow-hidden">
       {/* Header */}
       <div className="flex-col flex-none content-start justify-start items-start gap-y-3 gap-x-3 w-full h-min flex relative">
-        <p className={`text-neutral-900 tracking-[-0.02em] text-base ${lang === 'ar' ? 'font-bold' : 'font-medium'} leading-5`} style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{current.label}</p>
+        <p className={`text-neutral-900 tracking-[-0.02em] ${lang === 'ar' ? 'text-lg' : 'text-base'} ${lang === 'ar' ? 'font-bold' : 'font-medium'} leading-5`} style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{current.label}</p>
         <p className="text-neutral-900 text-center tracking-[-0.06em] text-7xl font-medium leading-[120%]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>2013</p>
       </div>
 
