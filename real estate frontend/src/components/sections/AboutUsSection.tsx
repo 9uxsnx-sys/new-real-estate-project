@@ -86,7 +86,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ lang = 'en' }) => {
       {/* Quote Section */}
       <div className="flex-col flex-none content-start justify-start items-start gap-y-3 gap-x-3 w-full h-min flex relative">
         {/* Quote */}
-        <p className="text-neutral-900 tracking-[-0.02em] text-wrap:balance text-base font-medium leading-6" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+        <p className={`text-neutral-900 tracking-[-0.02em] text-wrap:balance text-base ${lang === 'ar' ? 'font-bold' : 'font-medium'} leading-6`} style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
           {current.paragraph}
         </p>
       </div>
