@@ -70,12 +70,6 @@ const ImageCard: React.FC = () => (
         <rect x="0" y="5" width="4" height="11" />
       </svg>
     </div>
-
-    {/* Stat Card */}
-    <div className="relative z-10 bg-white flex-col flex-none content-start justify-start items-start gap-y-3 w-full p-4 rounded-xl">
-      <p className="text-neutral-900 text-center tracking-[-0.06em] text-6xl font-medium leading-[120%]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>120+</p>
-      <p className="text-neutral-900 tracking-[-0.02em] text-sm font-medium leading-5">Collaborating with leading AI and cloud technology providers.</p>
-    </div>
   </div>
 );
 
