@@ -52,56 +52,62 @@ const ImageCard: React.FC = () => (
   </div>
 );
 
-// Card 2: Testimonial Card
-const TestimonialCard: React.FC = () => (
-  <div className="bg-zinc-100 flex-col grow shrink-0 basis-0 content-start justify-start items-start gap-y-20 w-px h-min flex relative p-5 rounded-3xl overflow-hidden">
-    {/* Header */}
-    <div className="flex-col flex-none content-start justify-start items-start gap-y-3 gap-x-3 w-full h-min flex relative">
-      <p className="text-neutral-900 tracking-[-0.02em] text-sm font-medium leading-5" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Commitment to measurable</p>
-      <p className="text-neutral-900 text-center tracking-[-0.06em] text-4xl font-medium leading-[120%]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>100%</p>
-    </div>
+// Card 2: Since Card
+interface SinceCardProps {
+  isRTL?: boolean;
+}
 
-    {/* Quote Section */}
-    <div className="flex-col flex-none content-start justify-start items-start gap-y-3 gap-x-3 w-full h-min flex relative">
-      {/* Team Avatars */}
-      <div className="flex gap-x-0 w-32 h-10 relative">
-        <div className="absolute left-0 w-10 h-10 rounded-full overflow-hidden border-2 border-white">
-          <img 
-            src="https://proxy.extractcss.dev/https://framerusercontent.com/images/LHF5pnTEGiDqPokWO5u1DEp2l0.png?width=752&height=960"
-            alt="Team member 1"
-            className="w-full h-full object-cover"
-          />
+const SinceCard: React.FC<SinceCardProps> = ({ isRTL = false }) => {
+  // Content for each language
+  const content = {
+    en: {
+      label: 'SINCE',
+      year: '2013',
+      paragraph: 'Over a decade of engineering premium residential and commercial developments across Algiers and Boumerdès.'
+    },
+    fr: {
+      label: 'DEPUIS',
+      year: '2013',
+      paragraph: "Plus d'une décennie d'excellence dans la promotion immobilière résidentielle et commerciale à Alger et Boumerdès."
+    },
+    ar: {
+      label: 'تأسست سنة',
+      year: '2013',
+      paragraph: 'أكثر من عشر سنوات في إنجاز مشاريع عقارية وتجارية متميزة في ولايتي الجزائر وبومرداس.'
+    }
+  };
+
+  // Determine language from isRTL
+  const currentContent = isRTL ? content.ar : content.fr;
+
+  return (
+    <div className="bg-zinc-100 flex-col grow shrink-0 basis-0 content-start justify-start items-start gap-y-6 w-px h-min flex relative p-5 rounded-3xl overflow-hidden">
+      {/* Content Wrapper - Direction changes based on RTL */}
+      <div 
+        className={`flex items-start gap-8 w-full ${isRTL ? 'flex-row-reverse' : 'flex-row'}`}
+        dir={isRTL ? 'rtl' : 'ltr'}
+      >
+        {/* Left/Right Side: Year Block */}
+        <div className="flex flex-col gap-1">
+          <p className="text-neutral-400 tracking-[0.1em] text-xs font-medium uppercase" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+            {currentContent.label}
+          </p>
+          <p className="text-neutral-900 tracking-[-0.04em] text-6xl font-bold leading-[100%]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+            {currentContent.year}
+          </p>
         </div>
-        <div className="absolute left-7 w-10 h-10 rounded-full overflow-hidden border-2 border-white z-10">
-          <img 
-            src="https://proxy.extractcss.dev/https://framerusercontent.com/images/IGOxPIDHI4tPrADWVh1HrKM99RQ.png?width=752&height=960"
-            alt="Team member 2"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="absolute left-14 w-10 h-10 rounded-full overflow-hidden border-2 border-white z-20">
-          <img 
-            src="https://proxy.extractcss.dev/https://framerusercontent.com/images/owRvmfck3MmE9RTAPlzhICFlFg.png?width=752&height=960"
-            alt="Team member 3"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="absolute left-20 w-10 h-10 rounded-full overflow-hidden border-2 border-white z-30">
-          <img 
-            src="https://proxy.extractcss.dev/https://framerusercontent.com/images/Mjb5QC7cBmKTRevvIPeGBCVzHHM.png?width=752&height=960"
-            alt="Team member 4"
-            className="w-full h-full object-cover"
-          />
-        </div>
+
+        {/* Right/Left Side: Paragraph */}
+        <p 
+          className="text-neutral-600 tracking-[-0.01em] text-sm font-medium leading-relaxed flex-1"
+          style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+        >
+          {currentContent.paragraph}
+        </p>
       </div>
-
-      {/* Quote */}
-      <p className="text-neutral-900 tracking-[-0.02em] text-wrap:balance text-base font-medium leading-6" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-        "Their automation strategy completely reshaped how we work. It's efficient, intelligent, and seamless."
-      </p>
     </div>
-  </div>
-);
+  );
+};
 
 // Card 3: Stats Card
 const StatsCard: React.FC = () => (
@@ -181,7 +187,7 @@ export const AboutUsSection: React.FC<AboutUsSectionProps> = ({ className = '', 
         {/* Cards Grid */}
         <div className="max-md:flex-col flex-none content-center justify-start items-center gap-y-6 gap-x-6 w-full h-min flex relative">
           <ImageCard />
-          <TestimonialCard />
+          <SinceCard isRTL={isRTL} />
           <StatsCard />
         </div>
       </div>
