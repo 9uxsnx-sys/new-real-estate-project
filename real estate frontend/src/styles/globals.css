@@ -1,4 +1,29 @@
 
+/* @layer from About Us Section - https://aeline.framer.website/ */
+@layer base, component;
+@font-face {
+  font-family: 'Plus Jakarta Sans Placeholder';
+  src: local(Arial);
+  ascent-override: 98.16%;
+  descent-override: 20.99%;
+  line-gap-override: 0%;
+  size-adjust: 105.75%;
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans Placeholder';
+  src: local(Arial);
+  ascent-override: 122.93%;
+  descent-override: 34.04%;
+  line-gap-override: 11.35%;
+  size-adjust: 105.75%;
+}
+@layer component {
+  * {
+    box-sizing: border-box;
+    -webkit-font-smoothing: inherit;
+  }
+}
+
 /* Plus Jakarta Sans - Used in AI Hero Section */
 @font-face {
 font-display: swap;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { AIHeroSection } from '../components/sections';
+import { AIHeroSection, AboutUsSection } from '../components/sections';
 import { RTLPropertiesButton } from '../components/ui';
 import '../i18n';
 
@@ -52,6 +52,7 @@ export const DevHome: React.FC = () => {
         isRTL={isRTL}
         PropertiesButtonComponent={PropertiesButtonComponent}
       />
+      <AboutUsSection isRTL={isRTL} />
     </div>
   );
 };
