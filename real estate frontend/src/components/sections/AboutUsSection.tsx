@@ -8,7 +8,7 @@ import React from 'react';
  */
 interface AboutUsSectionProps {
   className?: string;
-  isRTL?: boolean;
+  lang?: string;
 }
 
 // Icon components for the headline
@@ -54,10 +54,10 @@ const ImageCard: React.FC = () => (
 
 // Card 2: Testimonial Card
 interface TestimonialCardProps {
-  isRTL?: boolean;
+  lang?: string;
 }
 
-const TestimonialCard: React.FC<TestimonialCardProps> = ({ isRTL = false }) => {
+const TestimonialCard: React.FC<TestimonialCardProps> = ({ lang = 'en' }) => {
   const content = {
     en: {
       label: 'Established in',
@@ -66,10 +66,14 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ isRTL = false }) => {
     fr: {
       label: 'Établie en',
       paragraph: "Plus d'une décennie d'excellence dans la promotion immobilière résidentielle et commerciale à Alger et Boumerdès."
+    },
+    ar: {
+      label: 'تأسست سنة',
+      paragraph: 'أكثر من عشر سنوات في إنجاز مشاريع عقارية وتجارية متميزة في ولايتي الجزائر وبومرداس.'
     }
   };
 
-  const current = isRTL ? content.fr : content.en;
+  const current = content[lang as keyof typeof content] || content.en;
 
   return (
     <div className="bg-zinc-100 flex-col grow shrink-0 basis-0 content-start justify-start items-start gap-y-20 w-px h-min flex relative p-5 rounded-3xl overflow-hidden">
@@ -114,7 +118,9 @@ const StatsCard: React.FC = () => (
   </div>
 );
 
-export const AboutUsSection: React.FC<AboutUsSectionProps> = ({ className = '', isRTL = false }) => {
+export const AboutUsSection: React.FC<AboutUsSectionProps> = ({ className = '', lang = 'en' }) => {
+  const isRTL = lang === 'ar';
+  
   return (
     <section 
       id="about-us"
@@ -168,7 +174,7 @@ export const AboutUsSection: React.FC<AboutUsSectionProps> = ({ className = '', 
         {/* Cards Grid */}
         <div className="max-md:flex-col flex-none content-center justify-start items-center gap-y-6 gap-x-6 w-full h-min flex relative">
           <ImageCard />
-          <TestimonialCard isRTL={isRTL} />
+          <TestimonialCard lang={lang} />
           <StatsCard />
         </div>
       </div>

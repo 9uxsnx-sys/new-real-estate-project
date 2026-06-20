@@ -52,7 +52,7 @@ export const DevHome: React.FC = () => {
         isRTL={isRTL}
         PropertiesButtonComponent={PropertiesButtonComponent}
       />
-      <AboutUsSection isRTL={isRTL} />
+      <AboutUsSection lang={lang} />
     </div>
   );
 };
