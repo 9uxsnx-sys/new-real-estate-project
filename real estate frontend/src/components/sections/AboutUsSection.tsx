@@ -63,38 +63,6 @@ const TestimonialCard: React.FC = () => (
 
     {/* Quote Section */}
     <div className="flex-col flex-none content-start justify-start items-start gap-y-3 gap-x-3 w-full h-min flex relative">
-      {/* Team Avatars */}
-      <div className="flex gap-x-0 w-32 h-10 relative">
-        <div className="absolute left-0 w-10 h-10 rounded-full overflow-hidden border-2 border-white">
-          <img 
-            src="https://proxy.extractcss.dev/https://framerusercontent.com/images/LHF5pnTEGiDqPokWO5u1DEp2l0.png?width=752&height=960"
-            alt="Team member 1"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="absolute left-7 w-10 h-10 rounded-full overflow-hidden border-2 border-white z-10">
-          <img 
-            src="https://proxy.extractcss.dev/https://framerusercontent.com/images/IGOxPIDHI4tPrADWVh1HrKM99RQ.png?width=752&height=960"
-            alt="Team member 2"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="absolute left-14 w-10 h-10 rounded-full overflow-hidden border-2 border-white z-20">
-          <img 
-            src="https://proxy.extractcss.dev/https://framerusercontent.com/images/owRvmfck3MmE9RTAPlzhICFlFg.png?width=752&height=960"
-            alt="Team member 3"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="absolute left-20 w-10 h-10 rounded-full overflow-hidden border-2 border-white z-30">
-          <img 
-            src="https://proxy.extractcss.dev/https://framerusercontent.com/images/Mjb5QC7cBmKTRevvIPeGBCVzHHM.png?width=752&height=960"
-            alt="Team member 4"
-            className="w-full h-full object-cover"
-          />
-        </div>
-      </div>
-
       {/* Quote */}
       <p className="text-neutral-900 tracking-[-0.02em] text-wrap:balance text-base font-medium leading-6" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
         "Their automation strategy completely reshaped how we work. It's efficient, intelligent, and seamless."
