@@ -61,15 +61,6 @@ const ImageCard: React.FC = () => (
         <path d="M74.0526 23.9986L76.92 12.0094L79.0518 19.2221C80.3226 23.524 86.4252 23.524 87.6966 19.2221L89.8278 12.0094L92.6952 23.9986H98.8728L94.3644 5.14626C93.2922 0.663027 86.9652 0.497032 85.6584 4.91791L83.3742 12.6485L81.0894 4.91792C79.7832 0.497058 73.4556 0.663004 72.3834 5.14625L67.875 23.9986H74.0526Z" />
       </svg>
     </div>
-
-    {/* Icon */}
-    <div className="relative z-10 w-10 h-10 bg-white rounded-xl flex items-center justify-center">
-      <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="#111" strokeWidth="2">
-        <rect x="12" y="9" width="4" height="7" />
-        <rect x="6" y="0" width="4" height="16" />
-        <rect x="0" y="5" width="4" height="11" />
-      </svg>
-    </div>
   </div>
 );
 
