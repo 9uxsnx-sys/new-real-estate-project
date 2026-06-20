@@ -38,14 +38,44 @@ const StarIcon: React.FC = () => (
   </div>
 );
 
-// Card 1: Pure Image Card
+// Card 1: Image Card
 const ImageCard: React.FC = () => (
-  <div className="flex grow shrink-0 basis-0 self-stretch rounded-3xl overflow-hidden">
-    <img 
-      src="https://proxy.extractcss.dev/https://framerusercontent.com/images/JGdNRl6jQUnlEAMYGOue2qDYts.png?width=2464&height=1856"
-      alt="Building"
-      className="w-full h-full object-cover"
-    />
+  <div className="flex-col grow shrink-0 basis-0 content-start justify-between self-stretch items-start flex relative p-5 rounded-3xl overflow-hidden">
+    {/* Background Image */}
+    <div className="absolute inset-0 rounded-[inherit]">
+      <img 
+        src="https://proxy.extractcss.dev/https://framerusercontent.com/images/JGdNRl6jQUnlEAMYGOue2qDYts.png?width=2464&height=1856"
+        alt="Team collaboration"
+        className="w-full h-full object-cover"
+      />
+    </div>
+
+    {/* Logo */}
+    <div className="relative z-10">
+      <svg viewBox="0 0 102 24" className="w-24 h-auto" fill="white">
+        <path d="M6.00888 1.5V24H0V1.5H6.00888Z" />
+        <path d="M9.01367 1.5H21.7826C25.9309 1.5 29.2937 4.85786 29.2937 9C29.2937 13.1422 25.9309 16.5 21.7826 16.5H15.0226V24H9.01367V1.5ZM15.0226 10.5H21.7826C22.6123 10.5 23.2848 9.82842 23.2848 9C23.2848 8.17158 22.6123 7.5 21.7826 7.5H15.0226V10.5Z" />
+        <path d="M51.8272 1.5V13.125C51.8272 15.8174 54.013 18 56.7094 18C59.4058 18 61.5918 15.8174 61.5918 13.125V1.5H67.6008V13.125C67.6008 19.1311 62.7246 24 56.7094 24C50.6944 24 45.8184 19.1311 45.8184 13.125V1.5H51.8272Z" />
+        <path d="M31.546 12C31.546 6.201 36.2539 1.5 42.0615 1.5H43.5637V7.5H42.0615C39.5725 7.5 37.5549 9.51474 37.5549 12V12.75C37.5549 18.9632 32.5106 24 26.2882 24H25.5371V18H26.2882C29.192 18 31.546 15.6495 31.546 12.75V12Z" />
+        <path d="M101.399 2.25C101.399 3.49264 100.391 4.5 99.1456 4.5C97.9012 4.5 96.8926 3.49264 96.8926 2.25C96.8926 1.00736 97.9012 0 99.1456 0C100.391 0 101.399 1.00736 101.399 2.25Z" />
+        <path d="M74.0526 23.9986L76.92 12.0094L79.0518 19.2221C80.3226 23.524 86.4252 23.524 87.6966 19.2221L89.8278 12.0094L92.6952 23.9986H98.8728L94.3644 5.14626C93.2922 0.663027 86.9652 0.497032 85.6584 4.91791L83.3742 12.6485L81.0894 4.91792C79.7832 0.497058 73.4556 0.663004 72.3834 5.14625L67.875 23.9986H74.0526Z" />
+      </svg>
+    </div>
+
+    {/* Icon */}
+    <div className="relative z-10 w-10 h-10 bg-white rounded-xl flex items-center justify-center">
+      <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="#111" strokeWidth="2">
+        <rect x="12" y="9" width="4" height="7" />
+        <rect x="6" y="0" width="4" height="16" />
+        <rect x="0" y="5" width="4" height="11" />
+      </svg>
+    </div>
+
+    {/* Stat Card */}
+    <div className="relative z-10 bg-white flex-col flex-none content-start justify-start items-start gap-y-3 w-full p-4 rounded-xl">
+      <p className="text-neutral-900 text-center tracking-[-0.06em] text-6xl font-medium leading-[120%]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>120+</p>
+      <p className="text-neutral-900 tracking-[-0.02em] text-sm font-medium leading-5">Collaborating with leading AI and cloud technology providers.</p>
+    </div>
   </div>
 );
 
