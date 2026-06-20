@@ -64,15 +64,11 @@ const ImageCard: React.FC = () => (
 
     {/* Icon */}
     <div className="relative z-10 w-10 h-10 bg-white rounded-xl flex items-center justify-center">
-      <div 
-        className="w-6 h-6"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 16L12 9L16 9L16 16Z' fill='white'/%3E%3Cpath d='M6 16L6 0L10 0L10 16Z' fill='white'/%3E%3Cpath d='M0 16L0 5L4 5L4 16Z' fill='white'/%3E%3C/svg%3E")`,
-          backgroundColor: '#111',
-          mask: 'none',
-          WebkitMask: 'url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 16L12 9L16 9L16 16Z' fill='white'/%3E%3Cpath d='M6 16L6 0L10 0L10 16Z' fill='white'/%3E%3Cpath d='M0 16L0 5L4 5L4 16Z' fill='white'/%3E%3C/svg%3E") center/contain no-repeat',
-        }}
-      />
+      <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="#111" strokeWidth="2">
+        <rect x="12" y="9" width="4" height="7" />
+        <rect x="6" y="0" width="4" height="16" />
+        <rect x="0" y="5" width="4" height="11" />
+      </svg>
     </div>
 
     {/* Stat Card */}
