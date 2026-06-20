@@ -61,15 +61,15 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ lang = 'en' }) => {
   const content = {
     en: {
       label: 'Established in',
-      paragraph: 'Over a decade of engineering premium residential and commercial developments across Algiers and Boumerdès.'
+      paragraph: '"Over a decade of engineering premium residential and commercial developments across Algiers and Boumerdès."'
     },
     fr: {
       label: 'Établie en',
-      paragraph: "Plus d'une décennie d'excellence dans la promotion immobilière résidentielle et commerciale à Alger et Boumerdès."
+      paragraph: '"Plus d\'une décennie d\'excellence dans la promotion immobilière résidentielle et commerciale à Alger et Boumerdès."'
     },
     ar: {
       label: 'تأسست سنة',
-      paragraph: 'أكثر من عشر سنوات في إنجاز مشاريع عقارية وتجارية متميزة في ولايتي الجزائر وبومرداس.'
+      paragraph: '"أكثر من عشر سنوات في إنجاز مشاريع عقارية وتجارية متميزة في ولايتي الجزائر وبومرداس."'
     }
   };
 
