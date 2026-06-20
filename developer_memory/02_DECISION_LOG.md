@@ -6,6 +6,88 @@
 
 ---
 
+## 2026-06-17 - Dev Homepage Route for Isolated Development
+
+**Decision:** Create `/dev` route separate from main site for new homepage development
+
+**Context:**
+- Need to develop new homepage without affecting existing site
+- Isolated page with own components and styling
+- Supports EN/FR/AR via query param (`?lang=en|fr|ar`)
+
+**What Was Created:**
+- DevHome.tsx page component
+- Route in App.tsx: `/dev` and `/dev/*`
+- Independent from main Home.tsx
+
+**Reversible:** Yes - can merge components back to main site when ready
+
+---
+
+## 2026-06-17 - About Us Section from Framer Template
+
+**Decision:** Build new AboutUsSection using Framer template HTML/CSS as design reference
+
+**Context:**
+- Client provided aeline.framer.website as design inspiration
+- Extract HTML/CSS and convert to React/Tailwind
+- Preserve Framer-specific classes that work with Tailwind
+
+**What Was Implemented:**
+- AboutUsSection with multi-line headline + 3 cards bento grid
+- Plus Jakarta Sans font with custom @font-face declarations
+- @layer component CSS for Framer-specific styles
+- Fixed WebkitMask syntax errors with inline SVG components
+
+**CSS Layer Handling:**
+- `@layer base, component;` added at top of globals.css (above Tailwind imports)
+- Component-specific styles preserved
+
+**Reversible:** Yes - can remove and replace with alternative design
+
+---
+
+## 2026-06-17 - Card Container Integrity Rule
+
+**Decision:** Never modify card container classes when editing card content
+
+**Context:**
+- Editing card content was breaking responsive layout
+- Card containers have complex flex/stretch classes for bento grid alignment
+- Modifying container classes affected card heights and positioning
+
+**Rule Established:**
+- Keep card container classes intact (bg-zinc-100, flex-col, rounded-3xl, p-5, etc.)
+- Only modify inner content elements
+- This preserves responsive behavior and layout integrity
+
+**Reversible:** This is a development guideline, not code
+
+---
+
+## 2026-06-17 - Language Detection via `lang` Prop
+
+**Decision:** Use `lang` prop instead of `isRTL` for multi-language components
+
+**Context:**
+- Components needed to show different content per language (EN/FR/AR)
+- Using `isRTL` only distinguished RTL (Arabic) from LTR
+- Need to detect all three languages for proper content
+
+**What Was Changed:**
+- Changed AboutUsSectionProps from `isRTL?: boolean` to `lang?: string`
+- Components receive `lang` prop and determine `isRTL` internally
+- Content objects with keys: `en`, `fr`, `ar`
+
+**Example:**
+```typescript
+const current = content[lang as keyof typeof content] || content.en;
+```
+
+**Reversible:** Yes - can revert to `isRTL` if only 2 languages needed
+
+---
+
 ## 2026-06-14 - Theme Toggle Removed
 
 **Decision:** Remove dark mode/light mode theme toggle from navigation

@@ -2,6 +2,63 @@
 
 ---
 
+## 2026-06-17 - About Us Section & Dev Homepage Development
+
+### Work Done
+
+#### 1. DevHome Page Setup
+- Created `/dev` route in App.tsx for isolated homepage development
+- DevHome page supports EN/FR/AR via query param: `/dev?lang=en|fr|ar`
+
+#### 2. AIHeroSection Mobile Version
+- Added MobileHeroSection component for responsive mobile design
+- Mobile version with full-screen background, gradient overlay, bottom-aligned content
+- Desktop version with rounded corners and inset padding
+
+#### 3. AboutUsSection from aeline.framer.website
+- Created new AboutUsSection component based on Framer template HTML/CSS
+- Added @layer component CSS to globals.css with font placeholders
+- Fixed WebkitMask syntax error by replacing with inline SVG icons
+
+#### 4. ImageCard Modifications (Removed elements progressively)
+- Removed: Logo SVG
+- Removed: Icon (bar chart)
+- Removed: Stat card (120+ text)
+- Kept: Card container structure intact (flex-col, rounded-3xl, etc.)
+
+#### 5. TestimonialCard → SinceCard Transformation
+- Removed: Team avatars
+- Changed: "100%" → "2013" (larger font)
+- Changed: "Commitment to measurable" → "Established in"
+- Added: EN/FR/AR translations
+  - EN: "Established in" + paragraph
+  - FR: "Établie en" + French paragraph
+  - AR: "تأسست سنة" + Arabic paragraph
+- Added: Quotation marks around paragraph text
+- Added: font-bold for Arabic paragraph text (for better legibility)
+- Increased: Arabic label font size (text-base → text-xl for 20px)
+
+#### 6. Language Detection Fix
+- Changed from `isRTL` prop to `lang` prop for proper EN/FR/AR detection
+- Updated DevHome.tsx to pass `lang` instead of `isRTL`
+- AboutUsSection now accepts `lang` prop, derives `isRTL` internally
+
+### Files Modified
+- `real estate frontend/src/components/sections/AIHeroSection.tsx` - Added mobile version
+- `real estate frontend/src/components/sections/AboutUsSection.tsx` - Complete rewrite
+- `real estate frontend/src/pages/DevHome.tsx` - Added AboutUsSection, updated props
+- `real estate frontend/src/styles/globals.css` - Added @layer component CSS
+
+### Card Structure Preserved
+- Never modified card container classes (bg-zinc-100, flex-col, rounded-3xl, p-5, etc.)
+- Only modified inner content
+- Layout integrity maintained for responsive behavior
+
+### Git Status
+- Pushed multiple commits to new-homepage branch
+
+---
+
 ## 2026-06-14 - Test6 Hero Component (Removed)
 
 ### Work Done
