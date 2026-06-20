@@ -60,7 +60,7 @@ const StarIcon: React.FC = () => (
 
 // Card 1: Image Card
 const ImageCard: React.FC = () => (
-  <div className="flex-col grow shrink-0 basis-0 content-start justify-between self-stretch items-start flex relative p-5 rounded-3xl overflow-hidden">
+  <div className="flex-col w-full grow shrink-0 basis-0 content-start justify-between self-stretch items-start flex relative p-5 rounded-3xl overflow-hidden">
     {/* Background Image */}
     <div className="absolute inset-0 rounded-[inherit]">
       <img 
@@ -96,7 +96,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ lang = 'en' }) => {
   const current = content[lang as keyof typeof content] || content.en;
 
   return (
-    <div className="bg-zinc-100 flex-col grow shrink-0 basis-0 content-start justify-start items-start gap-y-20 w-px h-min flex relative p-5 rounded-3xl overflow-hidden">
+    <div className="bg-zinc-100 flex-col grow shrink-0 basis-0 content-start justify-start items-start gap-y-20 gap-x-3 w-full h-min flex relative p-5 rounded-3xl overflow-hidden">
       {/* Header */}
       <div className="flex-col flex-none content-start justify-start items-start gap-y-3 gap-x-3 w-full h-min flex relative">
         <p className={`text-neutral-900 tracking-[-0.02em] ${lang === 'ar' ? 'text-xl' : 'text-base'} font-medium leading-5`} style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{current.label}</p>
@@ -162,7 +162,7 @@ const StatsCard: React.FC<StatsCardProps> = ({ lang = 'en' }) => {
     <div className="flex-col grow shrink-0 basis-0 content-start justify-center self-stretch items-start gap-y-6 gap-x-6 w-px flex relative">
       {/* Financing Card */}
       <div className="bg-sky-400 backdrop-blur-[20px] flex-col grow shrink-0 basis-0 content-start justify-between items-start w-full h-px flex relative p-5 rounded-3xl overflow-hidden" style={{ backgroundColor: '#85e7ff' }} dir={isRTL ? 'rtl' : 'ltr'}>
-        <div className={`flex-col flex-none content-start items-start gap-y-3 gap-x-3 w-72 h-min flex relative rounded-lg ${isRTL ? 'text-right' : ''}`} style={isRTL ? { marginLeft: 'auto', marginRight: 0 } : {}}>
+        <div className={`flex-col flex-none content-start items-start gap-y-3 gap-x-3 w-full h-min flex relative rounded-lg ${isRTL ? 'text-right' : ''}`} style={isRTL ? { marginLeft: 'auto', marginRight: 0 } : {}}>
           <p className="text-neutral-900 tracking-[-0.02em] text-sm font-medium leading-5" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", paddingLeft: isRTL ? '0px' : '5px', paddingRight: isRTL ? '5px' : '0px' }}>{financing.label}</p>
           <p className="text-neutral-900 text-center tracking-[-0.06em] text-4xl font-medium leading-[120%]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '46px' }}>{financing.value}</p>
         </div>
@@ -203,7 +203,7 @@ export const AboutUsSection: React.FC<AboutUsSectionProps> = ({ className = '', 
           {/* Multi-line Headline */}
           <div className="flex-col flex-none content-center justify-center items-center gap-y-0 gap-x-0 w-full h-min flex relative">
             {/* Line 1 */}
-            <h2 className="text-neutral-900 tracking-[-0.06em] text-center text-wrap:balance text-5xl font-medium leading-[117%] max-md:text-4xl" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+            <h2 className="max-md:flex-col max-md:flex-wrap max-md:content-center max-md:items-center text-neutral-900 tracking-[-0.06em] text-center text-wrap:balance text-5xl font-medium leading-[117%] max-md:text-4xl" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
               {lang === 'fr' ? 'Un promoteur de premier plan' : lang === 'ar' ? 'شركة ترقية عقارية رائدة' : 'A premier Algerian developer'}
             </h2>
 
@@ -236,7 +236,7 @@ export const AboutUsSection: React.FC<AboutUsSectionProps> = ({ className = '', 
         </div>
 
         {/* Cards Grid */}
-        <div className="max-md:flex-col flex-none content-center justify-start items-center gap-y-6 gap-x-6 w-full h-min flex relative">
+        <div className="max-md:flex-col flex-none content-center justify-start items-stretch gap-y-6 gap-x-6 w-full h-min flex relative">
           <ImageCard />
           <TestimonialCard lang={lang} />
           <StatsCard lang={lang} />

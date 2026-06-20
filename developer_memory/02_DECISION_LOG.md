@@ -6,6 +6,49 @@
 
 ---
 
+## 2026-06-20 (Afternoon) - Separate Mobile About Us Component
+
+**Decision:** Create separate mobile-only `AboutUsSectionMobile.tsx` component instead of trying to make responsive CSS work for both
+
+**Context:**
+- About Us section was broken on mobile screens
+- Complex flex classes and Tailwind breakpoints were causing layout issues
+- h2 tags don't work well with flex classes for responsive behavior
+
+**What Was Created:**
+
+1. **AboutUsSectionMobile.tsx** - Mobile-only component
+   - Clean, simple mobile-first design
+   - All cards stacked vertically
+   - Headline with icons inline (text + icon + text on one row)
+   - Explicit font styling on every text element
+
+2. **Auto-Switch in DevHome.tsx**
+   - `useIsMobile()` hook detects screen width < 768px
+   - Renders appropriate component based on screen size
+   - No risk of breaking desktop/tablet
+
+**Architecture:**
+```
+DevHome
+├── < 768px → AboutUsSectionMobile (mobile)
+└── ≥ 768px → AboutUsSection (desktop/tablet)
+```
+
+**Benefits:**
+- Clean separation of concerns
+- No CSS conflicts between mobile and desktop
+- Easy to iterate on mobile without touching desktop
+- Each component can have its own responsive logic
+
+**Next Step:**
+- Add Arabic font (Cairo) support to both components
+- Use conditional font-family based on language
+
+**Reversible:** Yes - can merge back into single component if needed
+
+---
+
 ## 2026-06-20 - About Us Section Card Redesign
 
 **Decision:** Redesign About Us section cards with real estate-focused content

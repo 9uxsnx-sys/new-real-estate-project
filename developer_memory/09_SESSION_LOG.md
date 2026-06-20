@@ -2,6 +2,89 @@
 
 ---
 
+## 2026-06-20 (Afternoon) - Mobile About Us Component & Auto-Switch
+
+### Overview
+Created a **separate mobile-only AboutUsSectionMobile component** to fix mobile layout issues. Desktop version (AboutUsSection.tsx) kept as-is.
+
+### Architecture
+```
+AboutUsSection/
+├── AboutUsSection.tsx          (Desktop/Tablet - original, working)
+├── AboutUsSectionMobile.tsx     (Mobile only - NEW)
+└── DevHome.tsx                (Uses useIsMobile hook to auto-switch)
+```
+
+### DevHome Auto-Switch Logic
+```tsx
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  return isMobile;
+};
+
+// Usage
+{isMobile ? <AboutUsSectionMobile lang={lang} /> : <AboutUsSection lang={lang} />}
+```
+
+### Mobile Component Features (AboutUsSectionMobile.tsx)
+1. **Headline Section**
+   - Line 1: "A premier Algerian developer" (centered)
+   - Line 2: [text] + [HomeIcon] + [text] (all on ONE row)
+   - Line 3: [text] + [ShieldIcon] + [text] (all on ONE row)
+   - Font: Plus Jakarta Sans with tracking-[-0.06em] and leading-[117%]
+
+2. **Cards (stacked vertically)**
+   - Image Card: h-[208px], aspect-ratio maintained
+   - Established Card: 2013, bg-zinc-100
+   - Financing Card: 100%, bg-sky-400 (#85e7ff)
+   - Projects Card: 06, bg-neutral-900
+
+3. **Styling Consistency with Desktop**
+   - Same font-family: 'Plus Jakarta Sans'
+   - Same text classes: tracking-[-0.06em], leading-[117%], text-wrap:balance
+   - Icon colors: HomeIcon #85e7ff (matches financing card)
+
+4. **Arabic Support (RTL)**
+   - RTL text direction via document.documentElement.dir
+   - Text alignment: "2013" and "100%" → text-right for Arabic
+   - Arabic label: text-xl instead of text-base
+   - Arabic paragraph: font-bold
+   - Financing card: dir="rtl"
+
+### Files Created
+- `real estate frontend/src/components/sections/AboutUsSectionMobile.tsx` (NEW)
+
+### Files Modified
+- `real estate frontend/src/components/sections/index.ts` - Added export
+- `real estate frontend/src/pages/DevHome.tsx` - Added useIsMobile hook, auto-switch logic
+
+### Fixes Applied (Mobile)
+1. ✅ Headline: Line 2 & 3 now horizontal with icons in middle
+2. ✅ Font: All text uses Plus Jakarta Sans explicitly
+3. ✅ Text styling: tracking-[-0.06em], leading-[117%], text-wrap:balance
+4. ✅ HomeIcon: Background changed to #85e7ff (same as financing card)
+5. ✅ Image card: h-[208px] to match Established card height
+6. ✅ "2013" & "100%": text-left for EN, text-right for AR
+
+### NEXT STEPS (TODO)
+- [ ] Add Arabic font support to both About Us components
+  - Use Cairo font for Arabic text
+  - Keep Plus Jakarta Sans for English/French
+  - Test without breaking English layout
+- [ ] Continue polishing mobile component
+- [ ] Test French version on mobile
+
+### Git Status
+- Modified files ready to commit on new-homepage branch
+
+---
+
 ## 2026-06-20 - About Us Section Updates
 
 ### Work Done

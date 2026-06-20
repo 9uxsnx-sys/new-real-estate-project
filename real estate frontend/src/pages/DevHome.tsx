@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { AIHeroSection, AboutUsSection } from '../components/sections';
+import { AIHeroSection, AboutUsSection, AboutUsSectionMobile } from '../components/sections';
 import { RTLPropertiesButton } from '../components/ui';
 import '../i18n';
 
@@ -13,8 +13,31 @@ import '../i18n';
  * Supports EN, FR, AR languages via query param: /dev?lang=en
  */
 
+// Hook to detect mobile screen size (below md = 768px)
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Check on mount
+    checkMobile();
+    
+    // Add resize listener
+    window.addEventListener('resize', checkMobile);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  
+  return isMobile;
+};
+
 export const DevHome: React.FC = () => {
   const { i18n, t } = useTranslation();
+  const isMobile = useIsMobile();
   
   // Get language from query param or default to English
   const searchParams = new URLSearchParams(window.location.search);
@@ -52,7 +75,12 @@ export const DevHome: React.FC = () => {
         isRTL={isRTL}
         PropertiesButtonComponent={PropertiesButtonComponent}
       />
-      <AboutUsSection lang={lang} />
+      {/* Auto-switch: Mobile version on phones, Desktop version on tablet+ */}
+      {isMobile ? (
+        <AboutUsSectionMobile lang={lang} />
+      ) : (
+        <AboutUsSection lang={lang} />
+      )}
     </div>
   );
 };
