@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AIHeroSection } from '../components/sections';
 import { AboutUsSection, AboutUsSectionMobile } from '../components/home/about-us';
-import { ServicesDesktopSection } from '../components/home/services';
+import { ServicesDesktopSection, ServicesTabletSection, ServicesMobileSection } from '../components/home/services';
 import { RTLPropertiesButton } from '../components/ui';
 import '../i18n';
 
@@ -37,9 +37,33 @@ const useIsMobile = () => {
   return isMobile;
 };
 
+// Hook to detect tablet screen size (768px to 1024px)
+const useIsTablet = () => {
+  const [isTablet, setIsTablet] = useState(false);
+  
+  useEffect(() => {
+    const checkTablet = () => {
+      const width = window.innerWidth;
+      setIsTablet(width >= 768 && width < 1024);
+    };
+    
+    // Check on mount
+    checkTablet();
+    
+    // Add resize listener
+    window.addEventListener('resize', checkTablet);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', checkTablet);
+  }, []);
+  
+  return isTablet;
+};
+
 export const DevHome: React.FC = () => {
   const { i18n, t } = useTranslation();
   const isMobile = useIsMobile();
+  const isTablet = useIsTablet();
   
   // Get language from query param or default to English
   const searchParams = new URLSearchParams(window.location.search);
@@ -84,8 +108,14 @@ export const DevHome: React.FC = () => {
         <AboutUsSection lang={lang} />
       )}
       
-      {/* Services Section (Desktop only for now) */}
-      <ServicesDesktopSection lang={lang} />
+      {/* Services Section - Auto-switch: Mobile <768px, Tablet 768-1024px, Desktop 1024px+ */}
+      {isMobile ? (
+        <ServicesMobileSection lang={lang} />
+      ) : isTablet ? (
+        <ServicesTabletSection lang={lang} />
+      ) : (
+        <ServicesDesktopSection lang={lang} />
+      )}
     </div>
   );
 };

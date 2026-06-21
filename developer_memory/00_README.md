@@ -15,8 +15,29 @@ developer_memory/
 ├── 06_WORKFLOW_GUIDES.md    # Development workflows
 ├── 07_TEST_STATUS.md        # Testing status
 ├── 08_KNOWLEDGE_BASE.md     # General knowledge base
-└── 09_SESSION_LOG.md        # Daily session summaries
+├── 09_SESSION_LOG.md        # Daily session summaries
+├── 10_FUTURE_360_TOUR.md    # 360° tour integration plan
+├── 11_HOMEPAGE_SECTIONS_STRUCTURE.md  # Homepage sections architecture
 ```
+
+## Homepage Development Structure
+
+New homepage sections are built in `components/home/` with modular, responsive design:
+
+```
+real estate frontend/src/components/home/
+├── index.ts                    # Exports all section components
+├── about-us/                   # About Us Section
+│   ├── AboutUsSection.tsx      # Desktop/Tablet
+│   └── AboutUsSectionMobile.tsx # Mobile
+├── services/                   # Services Section
+│   ├── ServicesDesktopSection.tsx    # Desktop (1024px+)
+│   ├── ServicesTabletSection.tsx     # Tablet (768-1024px)
+│   └── ServicesMobileSection.tsx     # Mobile (<768px)
+└── hero/                       # (Future)
+```
+
+**See:** `11_HOMEPAGE_SECTIONS_STRUCTURE.md` for full documentation
 
 ## Project Architecture
 

@@ -6,6 +6,65 @@
 
 ---
 
+## 2026-06-21 - Modular Homepage Sections Architecture
+
+**Decision:** Build homepage sections in dedicated folders with separate components for each screen size (desktop, tablet, mobile)
+
+**Context:**
+- Need consistent, maintainable structure for new homepage development
+- Each section needs different layouts for different screen sizes
+- Want clean code organization with self-contained sections
+
+**Folder Structure:**
+```
+components/home/
+├── about-us/
+│   ├── AboutUsSection.tsx       # Desktop/Tablet
+│   └── AboutUsSectionMobile.tsx # Mobile
+├── services/
+│   ├── ServicesDesktopSection.tsx   # Desktop (1024px+)
+│   ├── ServicesTabletSection.tsx    # Tablet (768-1024px)
+│   └── ServicesMobileSection.tsx    # Mobile (<768px)
+└── index.ts
+```
+
+**Breakpoints:**
+| Screen | Width | Component |
+|--------|-------|-----------|
+| Mobile | <768px | `{Name}MobileSection.tsx` |
+| Tablet | 768-1024px | `{Name}TabletSection.tsx` |
+| Desktop | 1024px+ | `{Name}Section.tsx` |
+
+**Auto-Switching Pattern:**
+```tsx
+const isMobile = useIsMobile();   // <768px
+const isTablet = useIsTablet();   // 768-1024px
+
+{isMobile ? (
+  <SectionMobileSection lang={lang} />
+) : isTablet ? (
+  <SectionTabletSection lang={lang} />
+) : (
+  <SectionSection lang={lang} />
+)}
+```
+
+**Benefits:**
+- Clean, modular code organization
+- Each section is self-contained
+- Easy to modify one screen size without affecting others
+- Consistent patterns across all sections
+- RTL support in each component
+- Multi-language support (EN/FR/AR)
+
+**What Was Created:**
+- `developer_memory/11_HOMEPAGE_SECTIONS_STRUCTURE.md` - Full documentation
+- Updated `00_README.md` with new structure reference
+
+**Reversible:** Yes - can merge components if needed, but structure is working well
+
+---
+
 ## 2026-06-20 (Afternoon) - Separate Mobile About Us Component
 
 **Decision:** Create separate mobile-only `AboutUsSectionMobile.tsx` component instead of trying to make responsive CSS work for both
