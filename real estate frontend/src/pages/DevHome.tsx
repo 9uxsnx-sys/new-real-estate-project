@@ -5,6 +5,7 @@ import { AboutUsSection, AboutUsSectionMobile } from '../components/home/about-u
 import { ServicesDesktopSection, ServicesTabletSection, ServicesMobileSection } from '../components/home/services';
 import { GatewayDesktopSection, GatewayTabletSection, GatewayMobileSection } from '../components/home/gateway';
 import { FaqDesktopSection, FaqTabletSection, FaqMobileSection } from '../components/home/faq';
+import { FooterDesktopSection } from '../components/home/footer';
 import { RTLPropertiesButton } from '../components/ui';
 import '../i18n';
 
@@ -136,6 +137,9 @@ export const DevHome: React.FC = () => {
       ) : (
         <FaqDesktopSection lang={lang} />
       )}
+
+      {/* Footer Section */}
+      <FooterDesktopSection lang={lang} />
     </div>
   );
 };
