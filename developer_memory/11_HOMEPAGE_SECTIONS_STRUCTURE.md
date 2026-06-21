@@ -41,6 +41,12 @@ components/home/
 │   ├── GatewayTabletSection.tsx    # Tablet version (768-1024px)
 │   └── GatewayMobileSection.tsx    # Mobile version (<768px)
 │
+├── faq/                        # FAQ Section (Client Concierge)
+│   ├── index.ts               # Exports
+│   ├── FaqDesktopSection.tsx       # Desktop version (1024px+)
+│   ├── FaqTabletSection.tsx        # Tablet version (768-1024px)
+│   └── FaqMobileSection.tsx        # Mobile version (<768px)
+│
 └── hero/                       # Future: Hero section
     ├── index.ts
     └── HeroSection.tsx
@@ -287,6 +293,44 @@ const useIsTablet = () => {
 - `Buildings` from `@phosphor-icons/react` (Flagship Projects)
 - `MapPin` from `@phosphor-icons/react` (Available Units)
 - `Check` from `lucide-react` (features checkmarks)
+
+---
+
+### 4. FAQ (`faq/`)
+
+| Version | File | Features |
+|---------|------|----------|
+| Desktop | `FaqDesktopSection.tsx` | Gray cards with accordion, 7 Q&A items |
+| Tablet | `FaqTabletSection.tsx` | Same structure, smaller typography |
+| Mobile | `FaqMobileSection.tsx` | Full width cards, mobile-optimized |
+
+**Header:**
+- Tag: "CLIENT CONCIERGE" (EN) / "CONCIERGERIE CLIENT" (FR) / "خدمة العملاء المتميزة" (AR)
+- Title: "Clear answers for your property journey"
+- Description: "Everything you need to know about our architectural standards..."
+
+**Questions (7 total):**
+1. Who are we?
+2. What services do you offer?
+3. What are your achievements?
+4. What are your values?
+5. Where do you operate?
+6. How can I contact you?
+7. Do you offer payment plans?
+
+**Card Styling:**
+- Background: `bg-zinc-100`
+- Border radius: `rounded-[20px]` (Desktop/Tablet), `rounded-2xl` (Mobile)
+- Card width: `max-w-[700px]` (Desktop), `max-w-[600px]` (Tablet), full width (Mobile)
+- Padding: `p-5 md:p-6` (Desktop), `p-5` (Tablet), `p-4` (Mobile)
+
+**FAQ Features:**
+- Accordion with ChevronDown icon
+- First item expanded by default
+- RTL support for Arabic (text right-aligned, icon on left)
+
+**Dependencies:**
+- `ChevronDown` from `lucide-react`
 
 ---
 

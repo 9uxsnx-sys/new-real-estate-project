@@ -4,6 +4,7 @@ import { AIHeroSection } from '../components/sections';
 import { AboutUsSection, AboutUsSectionMobile } from '../components/home/about-us';
 import { ServicesDesktopSection, ServicesTabletSection, ServicesMobileSection } from '../components/home/services';
 import { GatewayDesktopSection, GatewayTabletSection, GatewayMobileSection } from '../components/home/gateway';
+import { FaqDesktopSection, FaqTabletSection, FaqMobileSection } from '../components/home/faq';
 import { RTLPropertiesButton } from '../components/ui';
 import '../i18n';
 
@@ -125,6 +126,15 @@ export const DevHome: React.FC = () => {
         <GatewayTabletSection lang={lang} />
       ) : (
         <GatewayDesktopSection lang={lang} />
+      )}
+
+      {/* FAQ Section */}
+      {isMobile ? (
+        <FaqMobileSection lang={lang} />
+      ) : isTablet ? (
+        <FaqTabletSection lang={lang} />
+      ) : (
+        <FaqDesktopSection lang={lang} />
       )}
     </div>
   );
