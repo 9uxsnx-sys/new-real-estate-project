@@ -35,6 +35,11 @@ components/home/
 │   ├── ServicesTabletSection.tsx    # Tablet version (768-1024px)
 │   └── ServicesMobileSection.tsx    # Mobile version (<768px)
 │
+├── gateway/                    # Gateway Section (Projects & Properties)
+│   ├── index.ts               # Exports
+│   ├── GatewayDesktopSection.tsx   # Desktop version (1024px+)
+│   └── (Tablet/Mobile versions - future)
+│
 └── hero/                       # Future: Hero section
     ├── index.ts
     └── HeroSection.tsx
@@ -222,6 +227,54 @@ const useIsTablet = () => {
 - Premium Apartment Rentals (MapPin icon)
 
 **Icon style:** Sky blue background (`#85e7ff`) with white icon
+
+---
+
+### 3. Gateway (`gateway/`)
+
+| Version | File | Features |
+|---------|------|----------|
+| Desktop | `GatewayDesktopSection.tsx` | 2 cards with icon, title, description, features, CTA |
+
+**Cards:**
+- **Card 1 - Our Flagship Projects:** Buildings icon (sky blue `#85e7ff`), features list, "Explore Projects" CTA
+- **Card 2 - Our Available Units:** MapPin icon (sky blue `#85e7ff`), features list, "View Availability" CTA
+
+**Card Structure:**
+```
+┌─────────────────────────────────────┐
+│ [Icon]  FLAGSHIP PROJECTS           │  ← Tag (uppercase, mono font)
+│                                     │
+│ Our Flagship Projects                │  ← Title (h3, tracking-[-0.06em])
+│                                     │
+│ Discover our exceptional...          │  ← Description
+│                                     │
+│ ┌───────────────────────────────┐   │
+│ │ ✓ Luxury villas and...       │   │  ← Features list (bg-zinc-50)
+│ │ ✓ Prime locations...         │   │
+│ │ ✓ Premium finishes...        │   │
+│ │ ✓ Flexible payment...        │   │
+│ └───────────────────────────────┘   │
+│                                     │
+│ ┌─────────────────────────────┐     │
+│ │    EXPLORE PROJECTS        │     │  ← CTA Button (lime text, black bg)
+│ └─────────────────────────────┘     │
+└─────────────────────────────────────┘
+```
+
+**Card Styling:**
+- Card width: `w-[520px]`
+- Border radius: `rounded-xl`
+- Shadow: `shadow-md`
+- Padding: `p-5`
+- Icon: `#85e7ff` color only (no background container)
+- Features list: `bg-zinc-50` background, checkmark icons
+- CTA: Black pill button with lime text (`text-lime-300`)
+
+**Dependencies:**
+- `Buildings` from `@phosphor-icons/react` (Flagship Projects)
+- `MapPin` from `@phosphor-icons/react` (Available Units)
+- `Check` from `lucide-react` (features checkmarks)
 
 ---
 
