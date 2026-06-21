@@ -3,11 +3,12 @@ import { Check } from 'lucide-react';
 import { Buildings, MapPin } from '@phosphor-icons/react';
 
 /**
- * Gateway Section (Desktop)
+ * Gateway Section (Tablet)
  * 
  * Two cards with icon, title, description, features list, and CTA
+ * Cards are vertically stacked for tablet screens
  */
-interface GatewayDesktopSectionProps {
+interface GatewayTabletSectionProps {
   className?: string;
   lang?: string;
 }
@@ -133,7 +134,7 @@ const GatewayCard: React.FC<GatewayCardProps> = ({
   fontStyle,
   isRTL
 }) => (
-  <div className="bg-white shadow-md rounded-xl p-5 flex flex-col gap-y-5 w-[480px]">
+  <div className="bg-white shadow-md rounded-xl p-5 flex flex-col gap-y-5 w-full">
     {/* Header with Icon and Tag */}
     <div className="flex items-center gap-3">
       <div style={{ color: '#85e7ff' }}>
@@ -150,7 +151,7 @@ const GatewayCard: React.FC<GatewayCardProps> = ({
     {/* Title */}
     <div>
       <h3 
-        className="text-neutral-900 tracking-[-0.06em] text-3xl font-medium leading-[117%]"
+        className="text-neutral-900 tracking-[-0.06em] text-2xl font-medium leading-[117%]"
         style={fontStyle}
       >
         {title}
@@ -168,11 +169,11 @@ const GatewayCard: React.FC<GatewayCardProps> = ({
     </div>
 
     {/* Features List */}
-    <div className="flex flex-col gap-4 p-2 rounded-xl bg-zinc-50">
+    <div className="flex flex-col gap-3 p-2 rounded-xl bg-zinc-50">
       {features.map((feature, index) => (
         <div key={index} className="flex items-center gap-3">
-          <div className="w-6 h-6 bg-neutral-900 rounded-full flex items-center justify-center flex-shrink-0">
-            <Check size={14} color="white" strokeWidth={3} />
+          <div className="w-5 h-5 bg-neutral-900 rounded-full flex items-center justify-center flex-shrink-0">
+            <Check size={12} color="white" strokeWidth={3} />
           </div>
           <p 
             className="text-zinc-800 tracking-[-0.02em] text-sm leading-5"
@@ -202,7 +203,7 @@ const GatewayCard: React.FC<GatewayCardProps> = ({
 );
 
 // Main component
-export const GatewayDesktopSection: React.FC<GatewayDesktopSectionProps> = ({ 
+export const GatewayTabletSection: React.FC<GatewayTabletSectionProps> = ({ 
   className = '', 
   lang = 'en' 
 }) => {
@@ -213,7 +214,7 @@ export const GatewayDesktopSection: React.FC<GatewayDesktopSectionProps> = ({
   return (
     <section 
       id="gateway"
-      className={`w-full bg-white overflow-x-hidden px-14 py-20 max-md:px-4 max-md:py-12 ${className}`}
+      className={`w-full bg-white overflow-x-hidden px-14 py-20 ${className}`}
       dir={isRTL ? 'rtl' : 'ltr'}
     >
       {/* Inner Container */}
@@ -233,9 +234,9 @@ export const GatewayDesktopSection: React.FC<GatewayDesktopSectionProps> = ({
             </p>
           </div>
 
-          {/* Title */}
+          {/* Title - Smaller for tablet */}
           <h2 
-            className="text-neutral-900 tracking-[-0.06em] text-center text-wrap:balance text-5xl font-medium leading-[117%] max-md:text-4xl"
+            className="text-neutral-900 tracking-[-0.06em] text-center text-wrap:balance text-3xl font-medium leading-[117%]"
             style={fontStyle}
           >
             {content.title}
@@ -250,14 +251,14 @@ export const GatewayDesktopSection: React.FC<GatewayDesktopSectionProps> = ({
           </p>
         </div>
 
-        {/* Cards Section - Gray container with 2 Cards */}
+        {/* Cards Section - Gray container with 2 Cards vertically stacked */}
         <div className="w-full z-[1] flex justify-center">
-          <div className="bg-zinc-100 rounded-3xl p-3">
-            <div className="flex gap-3 max-w-[1100px]">
+          <div className="bg-zinc-100 rounded-3xl p-3 w-full max-w-[600px]">
+            <div className="flex flex-col gap-3">
               
               {/* Card 1 - Flagship Projects */}
               <GatewayCard
-                icon={<Buildings size={24} weight="fill" />}
+                icon={<Buildings size={22} weight="fill" />}
                 tag={content.card1.tag}
                 title={content.card1.title}
                 description={content.card1.description}
@@ -269,7 +270,7 @@ export const GatewayDesktopSection: React.FC<GatewayDesktopSectionProps> = ({
 
               {/* Card 2 - Available Units */}
               <GatewayCard
-                icon={<MapPin size={24} weight="fill" />}
+                icon={<MapPin size={22} weight="fill" />}
                 tag={content.card2.tag}
                 title={content.card2.title}
                 description={content.card2.description}

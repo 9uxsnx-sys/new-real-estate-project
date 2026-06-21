@@ -3,11 +3,11 @@ import { Check } from 'lucide-react';
 import { Buildings, MapPin } from '@phosphor-icons/react';
 
 /**
- * Gateway Section (Desktop)
+ * Gateway Section (Mobile)
  * 
- * Two cards with icon, title, description, features list, and CTA
+ * Mobile-optimized version - vertically stacked cards
  */
-interface GatewayDesktopSectionProps {
+interface GatewayMobileSectionProps {
   className?: string;
   lang?: string;
 }
@@ -111,7 +111,7 @@ const getGatewayContent = (lang: string) => {
   return content[lang as keyof typeof content] || content.en;
 };
 
-// Gateway Card Component
+// Gateway Card Component (Mobile)
 interface GatewayCardProps {
   icon: React.ReactNode;
   tag: string;
@@ -133,49 +133,49 @@ const GatewayCard: React.FC<GatewayCardProps> = ({
   fontStyle,
   isRTL
 }) => (
-  <div className="bg-white shadow-md rounded-xl p-5 flex flex-col gap-y-5 w-[480px]">
+  <div className="bg-white shadow-md rounded-xl p-4 flex flex-col gap-y-4 w-full">
     {/* Header with Icon and Tag */}
     <div className="flex items-center gap-3">
       <div style={{ color: '#85e7ff' }}>
         {icon}
       </div>
       <p 
-        className="text-neutral-900 tracking-[1.6px] uppercase text-sm font-medium"
+        className="text-neutral-900 tracking-[1.6px] uppercase text-xs font-medium"
         style={{ fontFamily: "'Geist_Mono', monospace" }}
       >
         {tag}
       </p>
     </div>
 
-    {/* Title */}
+    {/* Title - Mobile scaled */}
     <div>
       <h3 
-        className="text-neutral-900 tracking-[-0.06em] text-3xl font-medium leading-[117%]"
+        className="text-neutral-900 tracking-[-0.06em] text-xl font-medium leading-[117%]"
         style={fontStyle}
       >
         {title}
       </h3>
     </div>
 
-    {/* Description */}
+    {/* Description - Mobile scaled */}
     <div>
       <p 
-        className="text-zinc-800 tracking-[-0.02em] text-base leading-6"
+        className="text-zinc-800 tracking-[-0.02em] text-sm leading-5"
         style={fontStyle}
       >
         {description}
       </p>
     </div>
 
-    {/* Features List */}
-    <div className="flex flex-col gap-4 p-2 rounded-xl bg-zinc-50">
+    {/* Features List - Mobile scaled */}
+    <div className="flex flex-col gap-2 p-2 rounded-xl bg-zinc-50">
       {features.map((feature, index) => (
-        <div key={index} className="flex items-center gap-3">
-          <div className="w-6 h-6 bg-neutral-900 rounded-full flex items-center justify-center flex-shrink-0">
-            <Check size={14} color="white" strokeWidth={3} />
+        <div key={index} className="flex items-center gap-2">
+          <div className="w-4 h-4 bg-neutral-900 rounded-full flex items-center justify-center flex-shrink-0">
+            <Check size={10} color="white" strokeWidth={3} />
           </div>
           <p 
-            className="text-zinc-800 tracking-[-0.02em] text-sm leading-5"
+            className="text-zinc-800 tracking-[-0.02em] text-xs leading-4"
             style={fontStyle}
           >
             {feature}
@@ -191,7 +191,7 @@ const GatewayCard: React.FC<GatewayCardProps> = ({
         className={`flex items-center justify-center w-full h-10 bg-neutral-900 rounded-[48px] no-underline ${isRTL ? 'flex-row-reverse' : ''}`}
       >
         <span 
-          className="text-white tracking-[1.6px] uppercase text-sm font-medium"
+          className="text-white tracking-[1.6px] uppercase text-xs font-medium"
           style={{ fontFamily: "'Geist_Mono', monospace" }}
         >
           {buttonText}
@@ -202,7 +202,7 @@ const GatewayCard: React.FC<GatewayCardProps> = ({
 );
 
 // Main component
-export const GatewayDesktopSection: React.FC<GatewayDesktopSectionProps> = ({ 
+export const GatewayMobileSection: React.FC<GatewayMobileSectionProps> = ({ 
   className = '', 
   lang = 'en' 
 }) => {
@@ -213,51 +213,51 @@ export const GatewayDesktopSection: React.FC<GatewayDesktopSectionProps> = ({
   return (
     <section 
       id="gateway"
-      className={`w-full bg-white overflow-x-hidden px-14 py-20 max-md:px-4 max-md:py-12 ${className}`}
+      className={`w-full bg-white overflow-x-hidden px-6 py-10 ${className}`}
       dir={isRTL ? 'rtl' : 'ltr'}
     >
       {/* Inner Container */}
-      <div className="w-full max-w-screen-2xl mx-auto h-min flex flex-col items-center gap-y-16">
+      <div className="w-full max-w-screen-2xl mx-auto h-min flex flex-col items-center gap-y-10">
         
-        {/* Header Section */}
-        <div className="flex flex-col items-center gap-y-5 w-full max-w-screen-md">
+        {/* Header Section - Mobile scaled */}
+        <div className="flex flex-col items-center gap-y-4 w-full max-w-screen-md">
           
           {/* Tag */}
           <div className="flex items-center gap-x-3">
             <div className="w-1 h-1 bg-neutral-900 rounded-full" />
             <p 
-              className="text-neutral-900 tracking-[1.6px] uppercase text-sm font-medium leading-5"
+              className="text-neutral-900 tracking-[1.6px] uppercase text-xs font-medium leading-5"
               style={{ fontFamily: "'Geist_Mono', monospace" }}
             >
               {content.tag}
             </p>
           </div>
 
-          {/* Title */}
+          {/* Title - Mobile scaled */}
           <h2 
-            className="text-neutral-900 tracking-[-0.06em] text-center text-wrap:balance text-5xl font-medium leading-[117%] max-md:text-4xl"
+            className="text-neutral-900 tracking-[-0.06em] text-center text-wrap:balance text-3xl font-medium leading-[117%]"
             style={fontStyle}
           >
             {content.title}
           </h2>
 
-          {/* Description */}
+          {/* Description - Mobile scaled */}
           <p 
-            className="text-zinc-800 tracking-[-0.02em] text-center text-wrap:balance text-base leading-6 max-w-lg"
+            className="text-zinc-800 tracking-[-0.02em] text-center text-wrap:balance text-sm leading-5 max-w-lg"
             style={fontStyle}
           >
             {content.description}
           </p>
         </div>
 
-        {/* Cards Section - Gray container with 2 Cards */}
+        {/* Cards Section - Gray container with 2 Cards vertically stacked */}
         <div className="w-full z-[1] flex justify-center">
           <div className="bg-zinc-100 rounded-3xl p-3">
-            <div className="flex gap-3 max-w-[1100px]">
+            <div className="flex flex-col gap-3">
               
               {/* Card 1 - Flagship Projects */}
               <GatewayCard
-                icon={<Buildings size={24} weight="fill" />}
+                icon={<Buildings size={20} weight="fill" />}
                 tag={content.card1.tag}
                 title={content.card1.title}
                 description={content.card1.description}
@@ -269,7 +269,7 @@ export const GatewayDesktopSection: React.FC<GatewayDesktopSectionProps> = ({
 
               {/* Card 2 - Available Units */}
               <GatewayCard
-                icon={<MapPin size={24} weight="fill" />}
+                icon={<MapPin size={20} weight="fill" />}
                 tag={content.card2.tag}
                 title={content.card2.title}
                 description={content.card2.description}

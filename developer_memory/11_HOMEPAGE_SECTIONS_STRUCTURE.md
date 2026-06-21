@@ -38,7 +38,8 @@ components/home/
 ├── gateway/                    # Gateway Section (Projects & Properties)
 │   ├── index.ts               # Exports
 │   ├── GatewayDesktopSection.tsx   # Desktop version (1024px+)
-│   └── (Tablet/Mobile versions - future)
+│   ├── GatewayTabletSection.tsx    # Tablet version (768-1024px)
+│   └── GatewayMobileSection.tsx    # Mobile version (<768px)
 │
 └── hero/                       # Future: Hero section
     ├── index.ts
@@ -234,42 +235,53 @@ const useIsTablet = () => {
 
 | Version | File | Features |
 |---------|------|----------|
-| Desktop | `GatewayDesktopSection.tsx` | 2 cards with icon, title, description, features, CTA |
+| Desktop | `GatewayDesktopSection.tsx` | 2 horizontal cards with icon, title, description, features, CTA |
+| Tablet | `GatewayTabletSection.tsx` | 2 vertical stacked cards (same content) |
+| Mobile | `GatewayMobileSection.tsx` | 2 vertical stacked cards with smaller typography |
 
 **Cards:**
-- **Card 1 - Our Flagship Projects:** Buildings icon (sky blue `#85e7ff`), features list, "Explore Projects" CTA
-- **Card 2 - Our Available Units:** MapPin icon (sky blue `#85e7ff`), features list, "View Availability" CTA
+- **Card 1 - Explore Our Projects:** Buildings icon (sky blue `#85e7ff`), features list, "Explore Projects" CTA
+- **Card 2 - View Available Properties:** MapPin icon (sky blue `#85e7ff`), features list, "View Properties" CTA
+
+**Card Content (Updated):**
+- Card 1 features: 4 successful projects completed, 2 projects under development, Prime locations in Algiers & Boumerdès, Premium quality construction
+- Card 2 features: Ready-to-move-in apartments, Commercial spaces & offices, Apartment rentals available, Flexible payment options
 
 **Card Structure:**
 ```
 ┌─────────────────────────────────────┐
 │ [Icon]  FLAGSHIP PROJECTS           │  ← Tag (uppercase, mono font)
 │                                     │
-│ Our Flagship Projects                │  ← Title (h3, tracking-[-0.06em])
+│ Explore Our Projects                 │  ← Title (h3, tracking-[-0.06em])
 │                                     │
-│ Discover our exceptional...          │  ← Description
+│ Discover our portfolio of...         │  ← Description
 │                                     │
 │ ┌───────────────────────────────┐   │
-│ │ ✓ Luxury villas and...       │   │  ← Features list (bg-zinc-50)
+│ │ ✓ 4 successful projects...   │   │  ← Features list (bg-zinc-50)
+│ │ ✓ 2 projects under...        │   │
 │ │ ✓ Prime locations...         │   │
-│ │ ✓ Premium finishes...        │   │
-│ │ ✓ Flexible payment...        │   │
+│ │ ✓ Premium quality...         │   │
 │ └───────────────────────────────┘   │
 │                                     │
 │ ┌─────────────────────────────┐     │
-│ │    EXPLORE PROJECTS        │     │  ← CTA Button (lime text, black bg)
+│ │    EXPLORE PROJECTS        │     │  ← CTA Button (white text, black bg)
 │ └─────────────────────────────┘     │
 └─────────────────────────────────────┘
 ```
 
 **Card Styling:**
-- Card width: `w-[520px]`
+- Card width: `w-[480px]` (Desktop), `w-full` (Tablet/Mobile)
 - Border radius: `rounded-xl`
 - Shadow: `shadow-md`
-- Padding: `p-5`
+- Padding: `p-5` (Desktop), `p-4` (Mobile)
 - Icon: `#85e7ff` color only (no background container)
 - Features list: `bg-zinc-50` background, checkmark icons
-- CTA: Black pill button with lime text (`text-lime-300`)
+- CTA: Black pill button with white text (`text-white`)
+
+**Responsive Layout:**
+- Desktop: Cards side by side (horizontal), `gap-3`
+- Tablet: Cards stacked (vertical), `gap-3`
+- Mobile: Cards stacked (vertical), `gap-3`, `px-6` section padding
 
 **Dependencies:**
 - `Buildings` from `@phosphor-icons/react` (Flagship Projects)
@@ -284,19 +296,21 @@ const useIsTablet = () => {
 
 | Element | Desktop | Tablet | Mobile |
 |---------|---------|--------|--------|
-| Tag | `text-sm` + `tracking-[1.6px]` | Same | Same |
+| Tag | `text-sm` + `tracking-[1.6px]` | Same | `text-xs` |
 | Title | `text-5xl` + `tracking-[-0.06em]` | `text-3xl` | `text-3xl` |
-| Description | `text-base` | `text-base` | `text-base` |
-| Card Title | `text-2xl` | `text-2xl` | `text-xl` |
+| Description | `text-base` | `text-base` | `text-sm` |
+| Card Title | `text-3xl` | `text-2xl` | `text-xl` |
 | Card Description | `text-base` | `text-base` | `text-sm` |
+| Features text | `text-sm` | `text-sm` | `text-xs` |
 
 ### Spacing
 
 | Element | Desktop | Tablet | Mobile |
 |---------|---------|--------|--------|
-| Section padding | `px-14 py-20` | `px-14 py-20` | `px-4 py-10` |
+| Section padding | `px-14 py-20` | `px-14 py-20` | `px-6 py-10` |
 | Container gap | `gap-y-16` | `gap-y-16` | `gap-y-10` |
 | Cards container gap | `gap-3` | `gap-3` | `gap-3` |
+| Card padding | `p-5` | `p-5` | `p-4` |
 
 ### Cards
 
@@ -305,9 +319,11 @@ const useIsTablet = () => {
 | Background | white | white | white |
 | Shadow | `shadow-md` | `shadow-md` | `shadow-md` |
 | Border radius | `rounded-xl` | `rounded-xl` | `rounded-xl` |
-| Padding | `p-5` | `p-5` | `p-5` |
-| Icon size | `w-10 h-10` | `w-10 h-10` | `w-10 h-10` |
+| Padding | `p-5` | `p-5` | `p-4` |
+| Width | `w-[480px]` | `w-full` | `w-full` |
+| Icon size | `24` | `22` | `20` |
 | Icon color | `#85e7ff` | `#85e7ff` | `#85e7ff` |
+| Button text color | `text-white` | `text-white` | `text-white` |
 
 ---
 

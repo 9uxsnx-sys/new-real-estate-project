@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { AIHeroSection } from '../components/sections';
 import { AboutUsSection, AboutUsSectionMobile } from '../components/home/about-us';
 import { ServicesDesktopSection, ServicesTabletSection, ServicesMobileSection } from '../components/home/services';
-import { GatewayDesktopSection } from '../components/home/gateway';
+import { GatewayDesktopSection, GatewayTabletSection, GatewayMobileSection } from '../components/home/gateway';
 import { RTLPropertiesButton } from '../components/ui';
 import '../i18n';
 
@@ -118,8 +118,14 @@ export const DevHome: React.FC = () => {
         <ServicesDesktopSection lang={lang} />
       )}
 
-      {/* Gateway Section - Desktop only for now */}
-      <GatewayDesktopSection lang={lang} />
+      {/* Gateway Section */}
+      {isMobile ? (
+        <GatewayMobileSection lang={lang} />
+      ) : isTablet ? (
+        <GatewayTabletSection lang={lang} />
+      ) : (
+        <GatewayDesktopSection lang={lang} />
+      )}
     </div>
   );
 };
