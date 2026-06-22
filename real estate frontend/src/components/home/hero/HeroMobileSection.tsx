@@ -40,57 +40,58 @@ export const HeroMobileSection: React.FC<HeroMobileSectionProps> = ({
 }) => {
   const isRTL = lang === 'ar';
   const PropertiesBtn = PropertiesButtonComponent || PropertiesButton;
+  const fontStyle = { fontFamily: lang === 'ar' ? "'Noto Sans Arabic', sans-serif" : "'Plus Jakarta Sans', sans-serif" };
 
   return (
     <section className={`sm:hidden flex flex-col w-full h-screen bg-white overflow-hidden p-3 ${className}`}>
       {/* Navbar - at top */}
       <HeroNavbar isRTL={isRTL} />
 
-      {/* Background Image - with rounded corners */}
-      <div className="flex-1 relative rounded-3xl overflow-hidden">
-        <img
-          src={backgroundImage}
-          alt=""
-          className="w-full h-full object-cover"
-          crossOrigin="anonymous"
-        />
-      </div>
+      {/* Main Content - 50/50 split */}
+      <div className="flex-1 flex flex-col">
+        {/* Top Side - Text and Buttons */}
+        <div className={`flex-1 flex flex-col justify-center ${isRTL ? 'items-end pr-6' : 'items-start pl-6'}`}>
+          {/* Title & Subtitle */}
+          <div className="flex flex-col gap-y-2 mb-4">
+            <h1 
+              className="text-neutral-900 tracking-[-0.06em] text-3xl font-medium leading-[117%]"
+              style={fontStyle}
+            >
+              {content.headline1}
+            </h1>
+            <h2 
+              className="text-neutral-900/60 font-medium tracking-[-0.06em] text-3xl leading-[117%]"
+              style={fontStyle}
+            >
+              {content.headline2}
+            </h2>
 
-      {/* Gradient Overlay */}
-      <div className="absolute inset-3 bg-gradient-to-b from-black/30 via-transparent to-black/50 rounded-3xl" style={{ top: '48px' }} />
+            <p 
+              className="text-neutral-900/80 tracking-[-0.02em] text-sm leading-relaxed max-w-xs mt-2"
+              style={fontStyle}
+            >
+              {content.paragraph}
+            </p>
+          </div>
 
-      {/* Content Container - Bottom aligned */}
-      <div className={`absolute inset-0 flex flex-col items-center justify-end px-6 pb-16 ${isRTL ? 'rtl' : ''}`} style={{ paddingTop: '48px' }}>
-        {/* Title & Subtitle */}
-        <div className="flex flex-col items-center gap-y-3 mb-6 text-center">
-          <h1 
-            className="text-white tracking-[-0.02em] text-[2.25rem] font-semibold leading-tight"
-            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
-          >
-            {content.headline1}
-          </h1>
-          <h2 
-            className="text-white/75 font-light tracking-[-0.02em] text-[1.75rem] leading-tight"
-            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
-          >
-            {content.headline2}
-          </h2>
-
-          <p 
-            className="text-white/90 tracking-[-0.01em] text-sm leading-relaxed max-w-[85%] mt-2"
-            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
-          >
-            {content.paragraph}
-          </p>
+          {/* Buttons Row */}
+          <div className="flex items-center gap-x-3">
+            <OutlineButton text={content.projects} />
+            <div style={{ transform: 'scale(0.95)', transformOrigin: 'center' }}>
+              <PropertiesBtn text={content.properties} />
+            </div>
+          </div>
         </div>
 
-        {/* Buttons Row - Full width */}
-        <div className="flex items-center justify-center w-full gap-x-3 gap-y-3">
-          <div className="flex-1">
-            <OutlineButton text={content.projects} />
-          </div>
-          <div className="flex-1" style={{ transform: 'scale(0.95)', transformOrigin: 'center' }}>
-            <PropertiesBtn text={content.properties} />
+        {/* Bottom Side - Background Image */}
+        <div className="h-1/2 flex items-end justify-center pb-3">
+          <div className="w-full h-full rounded-3xl overflow-hidden">
+            <img
+              src={backgroundImage}
+              alt=""
+              className="w-full h-full object-cover"
+              crossOrigin="anonymous"
+            />
           </div>
         </div>
       </div>

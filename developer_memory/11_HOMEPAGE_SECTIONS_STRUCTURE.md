@@ -54,9 +54,11 @@ components/home/
 │   ├── FooterTabletSection.tsx      # Tablet version (768-1024px)
 │   └── FooterMobileSection.tsx      # Mobile version (<768px)
 │
-└── hero/                       # Future: Hero section
+└── hero/                       # Hero Section
     ├── index.ts
-    └── HeroSection.tsx
+    ├── HeroDesktopSection.tsx   # Desktop version (1024px+)
+    ├── HeroTabletSection.tsx    # Tablet version (768-1024px)
+    └── HeroMobileSection.tsx    # Mobile version (<768px)
 ```
 
 ---
@@ -389,6 +391,40 @@ const useIsTablet = () => {
 **Dependencies:**
 - `EnvelopeSimple`, `MapPin`, `Phone` from `@phosphor-icons/react` (contact icons)
 - `WhatsappLogo`, `InstagramLogo`, `TiktokLogo`, `FacebookLogo` from `@phosphor-icons/react` (social icons)
+
+---
+
+### 6. Hero (`hero/`)
+
+| Version | File | Features |
+|---------|------|----------|
+| Desktop | `HeroDesktopSection.tsx` | 50/50 split: text+buttons left, image right |
+| Tablet | `HeroTabletSection.tsx` | 50/50 split: text+buttons left, image right |
+| Mobile | `HeroMobileSection.tsx` | Stacked: text+buttons top, image bottom |
+
+**Structure (Desktop/Tablet):**
+```
+┌──────────────────┬──────────────────┐
+│                  │                  │
+│   Title         │                  │
+│   Paragraph     │     Image        │
+│   Buttons       │                  │
+│                  │                  │
+└──────────────────┴──────────────────┘
+```
+
+**Hero Features:**
+- Navbar at top (white background, black text)
+- 50/50 split layout (text left, image right)
+- Titles: `text-5xl md:text-6xl lg:text-7xl`, `tracking-[-0.06em]`, `font-medium`
+- Paragraph: `text-slate-500`, `text-base md:text-lg`, centered
+- Titles wrapped in div with `text-wrap:balance` for smart line breaks
+- Image: rounded corners with padding on right/bottom
+- Navbar uses `HeroNavbar` component from `ui/`
+
+**Dependencies:**
+- `HeroNavbar` from `../ui`
+- `OutlineButton`, `PropertiesButton` from `../ui`
 
 ---
 

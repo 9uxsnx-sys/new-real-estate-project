@@ -41,49 +41,55 @@ export const HeroTabletSection: React.FC<HeroTabletSectionProps> = ({
 }) => {
   const isRTL = lang === 'ar';
   const PropertiesBtn = PropertiesButtonComponent || PropertiesButton;
+  const fontStyle = { fontFamily: lang === 'ar' ? "'Noto Sans Arabic', sans-serif" : "'Plus Jakarta Sans', sans-serif" };
 
   return (
     <section className={`hidden sm:flex md:hidden flex-col w-full h-screen bg-white overflow-hidden p-3 ${className}`}>
       {/* Navbar - at top */}
       <HeroNavbar isRTL={isRTL} />
 
-      {/* Background Image - with rounded corners */}
-      <div className="flex-1 relative rounded-3xl overflow-hidden">
-        <img
-          src={backgroundImage}
-          alt=""
-          className="w-full h-full object-cover"
-          crossOrigin="anonymous"
-        />
-      </div>
+      {/* Main Content - 50/50 split */}
+      <div className="flex-1 flex">
+        {/* Left Side - Text and Buttons */}
+        <div className={`w-1/2 flex flex-col justify-center ${isRTL ? 'items-end pr-8' : 'items-start pl-8'}`}>
+          {/* Title & Subtitle */}
+          <div className="flex flex-col gap-y-4 mb-6">
+            <h1 
+              className="text-neutral-900 tracking-[-0.06em] text-4xl font-medium leading-[117%]"
+              style={fontStyle}
+            >
+              {content.headline1}<br />
+              <span className="text-neutral-900/60 font-medium tracking-[-0.06em] text-4xl leading-[117%]" style={fontStyle}>
+                {content.headline2}
+              </span>
+            </h1>
 
-      {/* Content Container - Centered over image */}
-      <div className={`absolute inset-0 flex flex-col items-center justify-center px-14 ${isRTL ? 'rtl' : ''}`} style={{ paddingTop: '56px' }}>
-        {/* Title & Subtitle */}
-        <div className="flex flex-col items-center gap-y-4 mb-6 px-4">
-          <h1 
-            className="text-white text-center tracking-[-0.02em] text-4xl font-semibold leading-tight"
-            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
-          >
-            {content.headline1}<br />
-            <span className="text-white/75 font-light tracking-[-0.02em] text-4xl" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-              {content.headline2}
-            </span>
-          </h1>
+            <p 
+              className="text-neutral-900/80 tracking-[-0.02em] text-base leading-relaxed max-w-md"
+              style={fontStyle}
+            >
+              {content.paragraph}
+            </p>
+          </div>
 
-          <p 
-            className="text-white/90 text-center tracking-[-0.01em] text-base leading-relaxed max-w-lg"
-            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
-          >
-            {content.paragraph}
-          </p>
+          {/* Buttons Row */}
+          <div className="flex items-center gap-x-4">
+            <OutlineButton text={content.projects} />
+            <div style={{ transform: 'scale(0.95)', transformOrigin: 'center' }}>
+              <PropertiesBtn text={content.properties} />
+            </div>
+          </div>
         </div>
 
-        {/* Buttons Row */}
-        <div className="flex items-center justify-center gap-x-4">
-          <OutlineButton text={content.projects} />
-          <div style={{ transform: 'scale(0.95)', transformOrigin: 'center' }}>
-            <PropertiesBtn text={content.properties} />
+        {/* Right Side - Background Image */}
+        <div className="w-1/2 flex items-end justify-end pb-3">
+          <div className="w-full h-full rounded-3xl overflow-hidden">
+            <img
+              src={backgroundImage}
+              alt=""
+              className="w-full h-full object-cover"
+              crossOrigin="anonymous"
+            />
           </div>
         </div>
       </div>
