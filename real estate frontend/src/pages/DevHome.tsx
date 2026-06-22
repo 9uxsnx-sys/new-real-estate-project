@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { AIHeroSection } from '../components/sections';
+import { HeroDesktopSection, HeroTabletSection, HeroMobileSection } from '../components/home/hero';
 import { AboutUsSection, AboutUsTabletSection, AboutUsSectionMobile } from '../components/home/about-us';
 import { ServicesDesktopSection, ServicesTabletSection, ServicesMobileSection } from '../components/home/services';
 import { GatewayDesktopSection, GatewayTabletSection, GatewayMobileSection } from '../components/home/gateway';
@@ -99,11 +99,27 @@ export const DevHome: React.FC = () => {
   
   return (
     <div className="w-full">
-      <AIHeroSection 
-        content={content} 
-        isRTL={isRTL}
-        PropertiesButtonComponent={PropertiesButtonComponent}
-      />
+      {/* Hero Section - Auto-switch: Mobile <768px, Tablet 768-1024px, Desktop 1024px+ */}
+      {isMobile ? (
+        <HeroMobileSection 
+          content={content} 
+          lang={lang}
+          PropertiesButtonComponent={PropertiesButtonComponent}
+        />
+      ) : isTablet ? (
+        <HeroTabletSection 
+          content={content} 
+          lang={lang}
+          PropertiesButtonComponent={PropertiesButtonComponent}
+        />
+      ) : (
+        <HeroDesktopSection 
+          content={content} 
+          lang={lang}
+          isRTL={isRTL}
+          PropertiesButtonComponent={PropertiesButtonComponent}
+        />
+      )}
       {/* About Us Section - Auto-switch: Mobile <768px, Tablet 768-1024px, Desktop 1024px+ */}
       {isMobile ? (
         <AboutUsSectionMobile lang={lang} />

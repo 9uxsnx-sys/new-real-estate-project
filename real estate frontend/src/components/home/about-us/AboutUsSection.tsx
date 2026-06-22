@@ -13,7 +13,7 @@ interface AboutUsSectionProps {
 
 // Helper to get font family based on language
 const getFontFamily = (lang: string) => {
-  return lang === 'ar' ? "'Noto Sans Arabic', sans-serif" : "'Plus Jakarta Sans', sans-serif";
+  return lang === 'ar' ? "'Noto Sans Arabic', sans-serif" : "'Inter', sans-serif";
 };
 
 // Helper to get font style object

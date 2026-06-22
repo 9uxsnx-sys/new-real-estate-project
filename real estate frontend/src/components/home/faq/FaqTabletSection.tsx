@@ -165,9 +165,9 @@ export const FaqTabletSection: React.FC<FaqTabletSectionProps> = ({
             </p>
           </div>
 
-          {/* Title - Smaller for tablet */}
+          {/* Title */}
           <h2 
-            className="text-neutral-900 tracking-[-0.06em] text-center text-wrap:balance text-3xl font-medium leading-[117%]"
+            className="text-neutral-900 tracking-[-0.06em] text-center text-wrap:balance text-5xl font-medium leading-[117%]"
             style={fontStyle}
           >
             {content.title}

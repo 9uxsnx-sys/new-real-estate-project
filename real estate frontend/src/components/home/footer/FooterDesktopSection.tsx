@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { ArrowRight } from 'lucide-react';
+import React from 'react';
+import { EnvelopeSimple, MapPin, Phone, WhatsappLogo, InstagramLogo, TiktokLogo, FacebookLogo } from '@phosphor-icons/react';
 
 /**
  * Footer Section (Desktop)
@@ -33,10 +33,12 @@ const getFooterContent = (lang: string) => {
         ],
         col2: []
       },
-      newsletterTitle: 'Subscribe our newsletter',
-      newsletterPlaceholder: 'Enter your email',
-      submitButton: 'Submit',
-      copyright: '© 2025 Ailine Inc. All rights reserved.'
+      contact: {
+        email: 'contact@tasdiria.dz',
+        address: 'Algiers & Boumerdès, Algeria',
+        phone: '0770862831'
+      },
+      copyright: '© 2025 Tasdiria. All rights reserved.'
     },
     fr: {
       logoText: 'Aeline',
@@ -52,10 +54,12 @@ const getFooterContent = (lang: string) => {
         ],
         col2: []
       },
-      newsletterTitle: 'Abonnez-vous à notre newsletter',
-      newsletterPlaceholder: 'Entrez votre email',
-      submitButton: 'Envoyer',
-      copyright: '© 2025 Ailine Inc. Tous droits réservés.'
+      contact: {
+        email: 'contact@tasdiria.dz',
+        address: 'Alger & Boumerdès, Algérie',
+        phone: '0770862831'
+      },
+      copyright: '© 2025 Tasdiria. Tous droits réservés.'
     },
     ar: {
       logoText: 'Aeline',
@@ -71,10 +75,12 @@ const getFooterContent = (lang: string) => {
         ],
         col2: []
       },
-      newsletterTitle: 'اشترك في نشرتنا الإخبارية',
-      newsletterPlaceholder: 'أدخل بريدك الإلكتروني',
-      submitButton: 'إرسال',
-      copyright: '© 2025 Ailine Inc. جميع الحقوق محفوظة.'
+      contact: {
+        email: 'contact@tasdiria.dz',
+        address: 'الجزائر وبومرداس',
+        phone: '0770862831'
+      },
+      copyright: '© 2025 تسديريا. جميع الحقوق محفوظة.'
     }
   };
   return content[lang as keyof typeof content] || content.en;
@@ -88,12 +94,6 @@ export const FooterDesktopSection: React.FC<FooterDesktopSectionProps> = ({
   const isRTL = lang === 'ar';
   const content = getFooterContent(lang);
   const fontStyle = { fontFamily: getFontFamily(lang) };
-  const [email, setEmail] = useState('');
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Newsletter submission:', email);
-  };
 
   return (
     <footer 
@@ -107,8 +107,8 @@ export const FooterDesktopSection: React.FC<FooterDesktopSectionProps> = ({
         {/* Top Section */}
         <div className="flex items-start justify-between gap-10">
           
-          {/* Left - Logo & Description */}
-          <div className="flex flex-col gap-4 max-w-md">
+          {/* Left - Logo & Description & Contact */}
+          <div className="flex flex-col gap-4 w-[600px] justify-between">
             <a href="/" className="flex items-center gap-3 no-underline w-min">
               <div className="w-10 h-8 relative">
                 <svg viewBox="0 0 40 30" className="w-full h-full">
@@ -130,11 +130,38 @@ export const FooterDesktopSection: React.FC<FooterDesktopSectionProps> = ({
               </p>
             </a>
             <p 
-              className="text-white tracking-[-0.02em] text-wrap:balance text-sm leading-5"
-              style={fontStyle}
+              className="text-white tracking-[-0.02em] text-wrap:balance text-base leading-6"
+              style={{ fontFamily: 'Inter, sans-serif' }}
             >
               {content.description}
             </p>
+            
+            {/* Contact Info */}
+            <div className="flex flex-col gap-2 mt-auto py-[15px]">
+              <a 
+                href={`mailto:${content.contact.email}`}
+                className="flex items-center gap-2 hover:text-white transition-colors"
+                style={fontStyle}
+              >
+                <span className="text-white"><EnvelopeSimple size={16} weight="fill" /></span>
+                <span className="text-sm" style={{ color: '#e2dada' }}>{content.contact.email}</span>
+              </a>
+              <div 
+                className="flex items-center gap-2"
+                style={fontStyle}
+              >
+                <span className="text-white"><MapPin size={16} weight="fill" /></span>
+                <span className="text-sm" style={{ color: '#e2dada' }}>{content.contact.address}</span>
+              </div>
+              <a 
+                href={`tel:${content.contact.phone}`}
+                className="flex items-center gap-2 hover:text-white transition-colors"
+                style={fontStyle}
+              >
+                <span className="text-white"><Phone size={16} weight="fill" /></span>
+                <span className="text-sm" style={{ color: '#e2dada' }}>{content.contact.phone}</span>
+              </a>
+            </div>
           </div>
 
           {/* Center - Navigation Links (2 per row, 3 rows) */}
@@ -152,13 +179,31 @@ export const FooterDesktopSection: React.FC<FooterDesktopSectionProps> = ({
           </div>
         </div>
 
-        {/* Bottom - Copyright on left */}
-        <p 
-          className="text-neutral-500 tracking-[-0.02em] text-sm leading-5"
-          style={fontStyle}
-        >
-          {content.copyright}
-        </p>
+        {/* Bottom - Copyright and Social Media */}
+        <div className="flex items-center justify-between">
+          <p 
+            className="text-neutral-500 tracking-[-0.02em] text-sm leading-5"
+            style={fontStyle}
+          >
+            {content.copyright}
+          </p>
+          
+          {/* Social Media Icons */}
+          <div className="flex items-center gap-3">
+            <a href="https://wa.me/33770862831" target="_blank" rel="noopener noreferrer" className="text-white hover:text-zinc-300 transition-colors">
+              <WhatsappLogo size={24} weight="fill" />
+            </a>
+            <a href="https://instagram.com/tasdiria" target="_blank" rel="noopener noreferrer" className="text-white hover:text-zinc-300 transition-colors">
+              <InstagramLogo size={24} weight="fill" />
+            </a>
+            <a href="https://tiktok.com/@tasdiria" target="_blank" rel="noopener noreferrer" className="text-white hover:text-zinc-300 transition-colors">
+              <TiktokLogo size={24} weight="fill" />
+            </a>
+            <a href="https://facebook.com/tasdiria" target="_blank" rel="noopener noreferrer" className="text-white hover:text-zinc-300 transition-colors">
+              <FacebookLogo size={24} weight="fill" />
+            </a>
+          </div>
+        </div>
       </div>
     </footer>
   );
