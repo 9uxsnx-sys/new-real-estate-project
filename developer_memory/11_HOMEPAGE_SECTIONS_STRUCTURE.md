@@ -1,7 +1,7 @@
 # Homepage Sections Structure & Development Approach
 
 **Status:** Active Development
-**Last Updated:** 2026-06-21
+**Last Updated:** 2026-06-22
 **Location:** `real estate frontend/src/components/home/`
 
 ---
@@ -26,7 +26,8 @@ components/home/
 │
 ├── about-us/                   # About Us Section
 │   ├── index.ts               # Exports
-│   ├── AboutUsSection.tsx     # Desktop/Tablet version
+│   ├── AboutUsSection.tsx     # Desktop version
+│   ├── AboutUsTabletSection.tsx # Tablet version
 │   └── AboutUsSectionMobile.tsx # Mobile version
 │
 ├── services/                   # Services Section
@@ -46,6 +47,12 @@ components/home/
 │   ├── FaqDesktopSection.tsx       # Desktop version (1024px+)
 │   ├── FaqTabletSection.tsx        # Tablet version (768-1024px)
 │   └── FaqMobileSection.tsx        # Mobile version (<768px)
+│
+├── footer/                       # Footer Section
+│   ├── index.ts               # Exports
+│   ├── FooterDesktopSection.tsx     # Desktop version (1024px+)
+│   ├── FooterTabletSection.tsx      # Tablet version (768-1024px)
+│   └── FooterMobileSection.tsx      # Mobile version (<768px)
 │
 └── hero/                       # Future: Hero section
     ├── index.ts
@@ -93,7 +100,7 @@ interface SectionProps {
 
 // Font family helper
 const getFontFamily = (lang: string) => {
-  return lang === 'ar' ? "'Noto Sans Arabic', sans-serif" : "'Plus Jakarta Sans', sans-serif";
+  return lang === 'ar' ? "'Noto Sans Arabic', sans-serif" : "'Inter', sans-serif";
 };
 
 // Service content (multi-language)
@@ -210,13 +217,22 @@ const useIsTablet = () => {
 
 | Version | File | Features |
 |---------|------|----------|
-| Desktop/Tablet | `AboutUsSection.tsx` | Bento grid with 3 cards |
+| Desktop | `AboutUsSection.tsx` | Bento grid with 3 cards |
+| Tablet | `AboutUsTabletSection.tsx` | Stacked vertical cards, larger headline text |
 | Mobile | `AboutUsSectionMobile.tsx` | Stacked vertical cards |
 
-**Cards:**
-- Image card (established year)
+**Features:**
+- Headline with icons (Home, Shield)
+- Image card (team collaboration photo)
+- Established card (2013)
 - Financing card (100%)
 - Projects card (06 total)
+
+**Tablet Styling:**
+- Section padding: `px-14 py-20`
+- Headline: `text-5xl`
+- Cards: `p-6` padding, centered with `max-w-screen-md`
+- Card values: `text-7xl` for year, `text-6xl` for percentages
 
 ---
 
@@ -334,6 +350,48 @@ const useIsTablet = () => {
 
 ---
 
+### 5. Footer (`footer/`)
+
+| Version | File | Features |
+|---------|------|----------|
+| Desktop | `FooterDesktopSection.tsx` | Horizontal layout with logo/contact left, shortcuts right |
+| Tablet | `FooterTabletSection.tsx` | Stacked layout with logo, description (70% width), shortcuts grid, contact, social, copyright |
+| Mobile | `FooterMobileSection.tsx` | Same stacked layout, description takes full width |
+
+**Structure (Tablet/Mobile):**
+```
+┌─────────────────────────────────────────────────────────┐
+│ [Logo]  Aeline                                       │
+│ Description... (70% on tablet, full on mobile)       │
+│ ┌──────────────────┐  ┌──────────────────┐            │
+│ │ Home │ About us  │  │ Services │ FAQ  │            │
+│ │ Properties │ Projects │                                  │
+│ └──────────────────┘                                  │
+│ Contact info block                                    │
+│ Social media icons                                    │
+│ © 2025 Tasdiria. All rights reserved.               │
+└─────────────────────────────────────────────────────────┘
+```
+
+**Footer Features:**
+- Logo with SVG icon + text (Inter font)
+- Company description (Inter font)
+- Contact info: Email, Address, Phone (filled icons, off-white text)
+- Navigation shortcuts: 6 links in 2-column grid
+- Social media icons: WhatsApp, Instagram, TikTok, Facebook (filled, white)
+- Copyright text
+
+**Desktop Styling:**
+- Outer: White bg, `p-3`
+- Inner: `bg-neutral-900 rounded-3xl`, `h-[350px]`, `p-10`
+- Container: `flex flex-col justify-between`
+
+**Dependencies:**
+- `EnvelopeSimple`, `MapPin`, `Phone` from `@phosphor-icons/react` (contact icons)
+- `WhatsappLogo`, `InstagramLogo`, `TiktokLogo`, `FacebookLogo` from `@phosphor-icons/react` (social icons)
+
+---
+
 ## Design Specifications
 
 ### Typography
@@ -341,7 +399,7 @@ const useIsTablet = () => {
 | Element | Desktop | Tablet | Mobile |
 |---------|---------|--------|--------|
 | Tag | `text-sm` + `tracking-[1.6px]` | Same | `text-xs` |
-| Title | `text-5xl` + `tracking-[-0.06em]` | `text-3xl` | `text-3xl` |
+| Title | `text-5xl` + `tracking-[-0.06em]` | `text-5xl` | `text-3xl` |
 | Description | `text-base` | `text-base` | `text-sm` |
 | Card Title | `text-3xl` | `text-2xl` | `text-xl` |
 | Card Description | `text-base` | `text-base` | `text-sm` |
@@ -391,8 +449,7 @@ components/home/
 ├── projects/           # Projects showcase
 ├── properties/         # Properties listing
 ├── testimonials/       # Client testimonials
-├── contact/            # Contact section
-└── footer/             # Footer (already exists)
+└── contact/            # Contact section
 ```
 
 ---

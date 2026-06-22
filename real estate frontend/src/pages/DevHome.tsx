@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AIHeroSection } from '../components/sections';
-import { AboutUsSection, AboutUsSectionMobile } from '../components/home/about-us';
+import { AboutUsSection, AboutUsTabletSection, AboutUsSectionMobile } from '../components/home/about-us';
 import { ServicesDesktopSection, ServicesTabletSection, ServicesMobileSection } from '../components/home/services';
 import { GatewayDesktopSection, GatewayTabletSection, GatewayMobileSection } from '../components/home/gateway';
 import { FaqDesktopSection, FaqTabletSection, FaqMobileSection } from '../components/home/faq';
-import { FooterDesktopSection } from '../components/home/footer';
+import { FooterDesktopSection, FooterTabletSection, FooterMobileSection } from '../components/home/footer';
 import { RTLPropertiesButton } from '../components/ui';
 import '../i18n';
 
@@ -104,9 +104,11 @@ export const DevHome: React.FC = () => {
         isRTL={isRTL}
         PropertiesButtonComponent={PropertiesButtonComponent}
       />
-      {/* Auto-switch: Mobile version on phones, Desktop version on tablet+ */}
+      {/* About Us Section - Auto-switch: Mobile <768px, Tablet 768-1024px, Desktop 1024px+ */}
       {isMobile ? (
         <AboutUsSectionMobile lang={lang} />
+      ) : isTablet ? (
+        <AboutUsTabletSection lang={lang} />
       ) : (
         <AboutUsSection lang={lang} />
       )}
@@ -139,7 +141,13 @@ export const DevHome: React.FC = () => {
       )}
 
       {/* Footer Section */}
-      <FooterDesktopSection lang={lang} />
+      {isMobile ? (
+        <FooterMobileSection lang={lang} />
+      ) : isTablet ? (
+        <FooterTabletSection lang={lang} />
+      ) : (
+        <FooterDesktopSection lang={lang} />
+      )}
     </div>
   );
 };
