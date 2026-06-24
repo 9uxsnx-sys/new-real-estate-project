@@ -18,14 +18,14 @@ export const PropertiesButton: React.FC<PropertiesButtonProps> = ({
     <>
       {/* Text */}
       <span 
-        className="text-neutral-900 tracking-[1.6px] uppercase text-base font-extrabold pl-5 pr-[12px]"
+        className="text-white tracking-[1.6px] uppercase text-base font-extrabold pl-5 pr-[12px]"
         style={{ fontFamily: "'Geist Mono', monospace" }}
       >
         {text}
       </span>
 
       {/* Arrow Circle */}
-      <div className="w-10 h-10 bg-neutral-900 rounded-[40px] flex items-center justify-center flex-shrink-0 mr-1">
+      <div className="w-10 h-10 bg-neutral-900 rounded-[40px] flex items-center justify-center flex-shrink-0 mr-1.5">
         <ArrowUpRight className="w-5 h-5 text-white" />
       </div>
     </>
@@ -34,7 +34,6 @@ export const PropertiesButton: React.FC<PropertiesButtonProps> = ({
   const baseClasses = `
     inline-flex items-center justify-between
     py-1.5
-    bg-gray-100 hover:bg-gray-200
     rounded-[48px]
     cursor-pointer
     transition-colors
@@ -43,14 +42,26 @@ export const PropertiesButton: React.FC<PropertiesButtonProps> = ({
 
   if (href) {
     return (
-      <a href={href} className={baseClasses}>
+      <a 
+        href={href} 
+        className={baseClasses}
+        style={{ backgroundColor: 'rgb(23, 23, 23)' }}
+        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgb(64, 64, 64)'}
+        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgb(23, 23, 23)'}
+      >
         {buttonContent}
       </a>
     );
   }
 
   return (
-    <button onClick={onClick} className={baseClasses}>
+    <button 
+      onClick={onClick} 
+      className={baseClasses}
+      style={{ backgroundColor: 'rgb(23, 23, 23)' }}
+      onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgb(64, 64, 64)'}
+      onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgb(23, 23, 23)'}
+    >
       {buttonContent}
     </button>
   );

@@ -1,3 +1,21 @@
+/* Author - Display font */
+/* @import '/Author_Complete/Fonts/WEB/css/author.css'; */
+
+/* Author-Semibold direct declaration */
+@font-face {
+  font-family: 'Author-Semibold';
+  src: url('/Author_Complete/Fonts/WEB/fonts/Author-Semibold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* Satoshi - Main font for headings */
+@font-face {
+  font-display: swap;
+  font-family: 'Satoshi';
+  src: url('/Satoshi_Complete/Fonts/WEB/fonts/Satoshi-Variable.woff2') format('woff2');
+  font-weight: 300 900;
+}
 
 /* @layer from About Us Section - https://aeline.framer.website/ */
 @layer base, component;

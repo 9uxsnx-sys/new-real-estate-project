@@ -1,105 +1,100 @@
 import React from 'react';
-import { PropertiesButton, OutlineButton, HeroNavbar } from '../../ui';
+import { HeroNavbar } from '../../ui';
 
 /**
- * Hero Section (Desktop)
+ * Hero Desktop Section
  * 
- * Full-screen hero with background image, large headline,
- * subtitle, and CTA buttons.
+ * Full-screen hero with grey background container,
+ * split layout: text on left, image on right
+ * Supports EN, FR, AR languages
  */
-interface HeroContent {
-  headline1: string;
-  headline2: string;
-  paragraph: string;
-  projects: string;
-  properties: string;
-}
 
 interface HeroDesktopSectionProps {
-  className?: string;
-  lang?: string;
+  lang?: 'en' | 'fr' | 'ar';
   backgroundImage?: string;
-  content?: HeroContent;
-  isRTL?: boolean;
-  PropertiesButtonComponent?: React.ComponentType<{ text: string }> | null;
+  className?: string;
 }
 
-const defaultContent: HeroContent = {
-  headline1: 'We build your trust',
-  headline2: 'before we build your project',
-  paragraph: 'Crafting premium residential, commercial, and professional spaces across Algiers and Boumerdes since 2013. Rooted in structural quality, refined locations, and enduring client partnerships.',
-  projects: 'Projects',
-  properties: 'Properties',
+const getContent = (lang: string) => {
+  const content = {
+    en: {
+      headline1: 'Building trust',
+      headline2: 'Before building',
+      headline3: 'your project',
+      projects: 'Projects',
+      properties: 'Properties',
+    },
+    fr: {
+      headline1: 'Bâtir la confiance',
+      headline2: 'Avant de bâtir',
+      headline3: 'votre projet',
+      projects: 'Projets',
+      properties: 'Propriétés',
+    },
+    ar: {
+      headline1: 'نبني ثقتك',
+      headline2: 'قبل أن نبني',
+      headline3: 'مشروعك',
+      projects: 'المشاريع',
+      properties: 'العقارات',
+    },
+  };
+  return content[lang as keyof typeof content] || content.en;
 };
 
 export const HeroDesktopSection: React.FC<HeroDesktopSectionProps> = ({
-  className = '',
   lang = 'en',
-  backgroundImage = 'https://framerusercontent.com/images/Yz08gMSk8HCg9OI0jQXkoDm7t7Y.png?width=1920&height=1080',
-  content = defaultContent,
-  isRTL: isRTLProp = false,
-  PropertiesButtonComponent,
+  backgroundImage = '/home-page-images/desktop-hero-card.png',
+  className = '',
 }) => {
-  const isRTL = isRTLProp || lang === 'ar';
-  const PropertiesBtn = PropertiesButtonComponent || PropertiesButton;
-  const fontStyle = { fontFamily: lang === 'ar' ? "'Noto Sans Arabic', sans-serif" : "'Plus Jakarta Sans', sans-serif" };
+  const isRTL = lang === 'ar';
+  const content = getContent(lang);
 
   return (
-    <section className={`hidden md:flex flex-col w-full h-screen bg-white overflow-hidden p-3 ${className}`}>
-      {/* Navbar - at top */}
+    <div className={`w-full min-h-screen bg-white ${className}`}>
+      {/* Navbar */}
       <HeroNavbar isRTL={isRTL} />
 
-      {/* Main Content - 50/50 split */}
-      <div className="flex-1 flex">
-        {/* Left Side - Text and Buttons */}
-        <div className="w-1/2 flex flex-col items-center justify-center">
-          {/* Title & Subtitle */}
-          <div className="flex flex-col gap-y-2 lg:gap-y-4 mb-6 lg:mb-8 px-8">
-            <div className="flex flex-col gap-y-2 lg:gap-y-4">
-              <h1 
-                className="text-neutral-900 tracking-[-0.06em] text-5xl md:text-6xl lg:text-7xl font-medium leading-[117%] text-center text-wrap:balance"
-                style={fontStyle}
-              >
-                {content.headline1}
-              </h1>
-              <h2 
-                className="text-neutral-900/60 font-medium tracking-[-0.06em] text-5xl md:text-6xl lg:text-7xl leading-[117%] text-center text-wrap:balance"
-                style={fontStyle}
-              >
-                {content.headline2}
-              </h2>
-            </div>
-
-            <p 
-              className="text-slate-500 tracking-[-0.02em] text-base md:text-lg leading-relaxed max-w-lg text-center mx-auto"
-              style={fontStyle}
-            >
-              {content.paragraph}
-            </p>
-          </div>
-
-          {/* Buttons Row */}
-          <div className="flex items-center gap-x-4">
-            <OutlineButton text={content.projects} />
-            <div style={{ transform: 'scale(0.95)', transformOrigin: 'center' }}>
-              <PropertiesBtn text={content.properties} />
-            </div>
+      {/* Full-height section under navbar */}
+      <div 
+        className="w-full bg-neutral-200 flex"
+        style={{ 
+          height: 'calc(100vh - 64px)', 
+          borderBottomLeftRadius: '60px', 
+          borderBottomRightRadius: '60px' 
+        }}
+      >
+        {/* Left Side - 50% - Text */}
+        <div className="w-1/2 flex items-center justify-center">
+          <div className={`flex flex-col text-wrap:balance ${isRTL ? 'text-right' : 'text-left'}`}>
+            <h2 className="text-neutral-900 tracking-[-0.06em] text-8xl font-bold leading-[117%] xl:text-7xl">
+              {content.headline1}
+            </h2>
+            <h2 className="text-neutral-900 tracking-[-0.06em] text-8xl font-bold leading-[117%] xl:text-7xl">
+              {content.headline2}
+            </h2>
+            <h2 className="text-neutral-900 opacity-50 tracking-[-0.06em] text-8xl font-bold leading-[117%] xl:text-7xl">
+              {content.headline3}
+            </h2>
           </div>
         </div>
 
-        {/* Right Side - Background Image */}
-        <div className="w-1/2 flex items-end justify-end pb-6 pr-6 pt-[15px] pl-5">
-          <div className="w-full h-full rounded-2xl overflow-hidden">
+        {/* Right Side - 50% - Image */}
+        <div className="w-1/2 flex items-center justify-center">
+          <div 
+            className="w-[700px] h-[600px] rounded-3xl overflow-hidden xl:w-[600px] xl:h-[500px]"
+            style={{ 
+              direction: isRTL ? 'rtl' : 'ltr'
+            }}
+          >
             <img
               src={backgroundImage}
               alt=""
               className="w-full h-full object-cover"
-              crossOrigin="anonymous"
-              style={{ borderRadius: '37px' }}
             />
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };

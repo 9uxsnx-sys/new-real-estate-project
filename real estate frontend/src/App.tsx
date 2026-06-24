@@ -6,7 +6,7 @@ import gsap from 'gsap';
 import { NavigationNew } from './components/layout';
 import { ScrollToTop } from './components/ScrollToTop';
 import { Preloader, PageTransition } from './components/animations';
-import { PropertiesListing, PropertyDetail, Projects, ProjectDetail, Home, TestPropertyNotFound, DevHome } from './pages';
+import { PropertiesListing, PropertyDetail, Projects, ProjectDetail, Home, TestPropertyNotFound, DevHome, Dev2, Dev3, Dev4, Dev5 } from './pages';
 import './i18n';
 
 const supportedLangs = ['en', 'fr', 'ar'];
@@ -151,6 +151,10 @@ export default function App() {
         {/* DEV PAGE - Completely isolated, no language prefix */}
         <Route path="/dev" element={<DevHome />} />
         <Route path="/dev/*" element={<DevHome />} />
+        <Route path="/dev2" element={<Dev2 />} />
+        <Route path="/dev3" element={<Dev3 />} />
+        <Route path="/dev4" element={<Dev4 />} />
+        <Route path="/dev5" element={<Dev5 />} />
 
         {/* Language-prefixed routes */}
         <Route path="/:lang/*" element={<LocalizedApp />} />

@@ -5,3 +5,7 @@ export { ProjectDetail } from './ProjectDetail';
 export { Home } from './Home';
 export { TestPropertyNotFound } from './TestPropertyNotFound';
 export { DevHome } from './DevHome';
+export { Dev2 } from './Dev2';
+export { Dev3 } from './Dev3';
+export { Dev4 } from './Dev4';
+export { Dev5 } from './Dev5';
