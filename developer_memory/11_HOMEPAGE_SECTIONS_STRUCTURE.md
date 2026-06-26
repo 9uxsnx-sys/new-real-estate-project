@@ -1,6 +1,6 @@
 # Homepage Sections Structure & Development Approach
 
-**Status:** Hero Section Complete
+**Status:** Hero + Navbar Complete
 **Last Updated:** 2026-06-26
 **Location:** `real estate frontend/src/components/home/`
 
@@ -59,6 +59,10 @@ components/home/
     ├── HeroDesktopSection.tsx   # Desktop version (1024px+)
     ├── HeroTabletSection.tsx    # Tablet version (768-1024px)
     └── HeroMobileSection.tsx    # Mobile version (<768px)
+
+└── navbar/                     # Navbar Section
+    ├── index.ts
+    └── NavbarDesktopSection.tsx  # Desktop navbar with language selector
 ```
 
 ---
@@ -471,8 +475,65 @@ Text Size = clamp(60px, 5.5vw, 120px)
 ```
 
 **Dependencies:**
-- `HeroNavbar` from `../ui`
 - `OutlineButton`, `PropertiesButton` from `../ui`
+
+---
+
+## 7. Navbar (`navbar/`)
+
+| Version | File | Features |
+|---------|------|----------|
+| Desktop | `NavbarDesktopSection.tsx` | Full navbar with logo, nav links, language selector, WhatsApp CTA |
+
+**Structure:**
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  [Logo] THE ONE  |  Home  Properties  Projects  Language ▼  |  [WhatsApp]  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**Navbar Features:**
+- Logo with SVG building icon + text (Inter font)
+- Navigation links: Home, Properties, Projects
+- Language selector with dropdown (EN/FR/AR)
+- WhatsApp CTA button
+- Max width container (`max-w-screen-2xl`)
+- RTL support for Arabic
+
+**Language Selector:**
+- Dropdown panel with 3 options: English, Français, العربية
+- Each option shows: language code (EN/FR/AR) + full language name
+- Selected language has checkmark
+- Panel: off-white background (`bg-neutral-100`), rounded corners (`rounded-2xl`)
+- Font: Geist Mono for EN/FR, Noto Sans Arabic for AR
+- Font weight: 600 for EN/FR, 500 for AR
+- Centered dropdown below language button
+
+**Navigation Content by Language:**
+
+| Language | Home | Properties | Projects | WhatsApp |
+|----------|------|------------|---------|----------|
+| EN | Home | Properties | Projects | WhatsApp |
+| FR | Accueil | Propriétés | Projets | WhatsApp |
+| AR | الرئيسية | العقارات | المشاريع | واتساب |
+
+**Language Dropdown Styling:**
+- Background: `bg-neutral-100` (off-white)
+- Border radius: `rounded-2xl`
+- Shadow: `shadow-lg`
+- Options: `px-6 py-3`
+- Code labels: `text-xs text-gray-500 uppercase`
+- Selected: checkmark icon on right
+
+**Responsive Behavior:**
+- Nav links hidden on mobile (below 768px)
+- Language selector visible on all sizes
+- Mobile: shows language code only (EN/FR/AR)
+- Desktop: shows full language name
+
+**Dependencies:**
+- `Link` from `react-router-dom`
+- `MessageCircle`, `Globe`, `ChevronDown`, `Check` from `lucide-react`
 
 ---
 
