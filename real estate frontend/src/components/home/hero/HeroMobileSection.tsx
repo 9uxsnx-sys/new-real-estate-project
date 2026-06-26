@@ -55,7 +55,8 @@ export const HeroMobileSection: React.FC<HeroMobileSectionProps> = ({
   // Responsive text sizing
   const isVerySmallScreen = windowWidth <= 460;
   const isSmallScreen = windowWidth <= 635;
-  const textSize = isVerySmallScreen ? 'text-5xl' : isSmallScreen ? 'text-6xl' : 'text-7xl';
+  const textSize = isVerySmallScreen ? 'text-5xl' : isSmallScreen ? 'text-6xl' : '';
+  const textStyle = windowWidth > 635 ? { fontSize: '65px' } : {};
   const imageHeight = isSmallScreen ? 'calc(100vh - 380px - 72px)' : 'calc(100vh - 420px - 72px)';
 
   return (
@@ -71,13 +72,13 @@ export const HeroMobileSection: React.FC<HeroMobileSectionProps> = ({
         {/* Title Section - Top */}
         <div className="flex-1 flex items-end px-6 pl-10 pb-10">
           <div className="flex flex-col text-left">
-            <h2 className={`${textSize} text-neutral-900 tracking-[-0.06em] font-bold leading-[117%]`}>
+            <h2 className={`${textSize} text-neutral-900 tracking-[-0.06em] font-bold leading-[117%]`} style={textStyle}>
               {content.headline1}
             </h2>
-            <h2 className={`${textSize} text-neutral-900 tracking-[-0.06em] font-bold leading-[117%]`}>
+            <h2 className={`${textSize} text-neutral-900 tracking-[-0.06em] font-bold leading-[117%]`} style={textStyle}>
               {content.headline2}
             </h2>
-            <h2 className={`${textSize} text-neutral-900/50 tracking-[-0.06em] font-bold leading-[117%]`}>
+            <h2 className={`${textSize} text-neutral-900/50 tracking-[-0.06em] font-bold leading-[117%]`} style={textStyle}>
               {content.headline3}
             </h2>
           </div>
