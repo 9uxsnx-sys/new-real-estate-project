@@ -69,8 +69,8 @@ export const HeroMobileSection: React.FC<HeroMobileSectionProps> = ({
         style={{ height: 'calc(100vh - 64px)' }}
       >
         {/* Title Section - Top */}
-        <div className="flex-1 flex items-end px-6" style={{ paddingBottom: '32px' }}>
-          <div className="flex flex-col text-left" style={{ paddingLeft: '24px' }}>
+        <div className="flex-1 flex items-end px-6 pb-10">
+          <div className="flex flex-col text-left">
             <h2 className={`${textSize} text-neutral-900 tracking-[-0.06em] font-bold leading-[117%]`}>
               {content.headline1}
             </h2>
@@ -84,14 +84,10 @@ export const HeroMobileSection: React.FC<HeroMobileSectionProps> = ({
         </div>
 
         {/* Image Section - Bottom */}
-        <div className="flex-1 px-6 flex items-start justify-center">
+        <div className="flex-1 px-6 pb-6 flex items-start justify-center">
           <div 
-            className="rounded-[40px] overflow-hidden"
-            style={{ 
-              width: 'calc(100vw - 48px)', 
-              height: imageHeight, 
-              marginBottom: '24px' 
-            }}
+            className="rounded-[40px] overflow-hidden w-full"
+            style={{ height: imageHeight }}
           >
             <img
               src={backgroundImage}
