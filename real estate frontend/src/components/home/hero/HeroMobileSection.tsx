@@ -69,7 +69,7 @@ export const HeroMobileSection: React.FC<HeroMobileSectionProps> = ({
         style={{ height: 'calc(100vh - 64px)' }}
       >
         {/* Title Section - Top */}
-        <div className="flex-1 flex items-end px-6 pb-10">
+        <div className="flex-1 flex items-end px-6 pl-10 pb-10">
           <div className="flex flex-col text-left">
             <h2 className={`${textSize} text-neutral-900 tracking-[-0.06em] font-bold leading-[117%]`}>
               {content.headline1}
