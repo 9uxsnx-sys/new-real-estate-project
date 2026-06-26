@@ -1,7 +1,7 @@
 # Homepage Sections Structure & Development Approach
 
-**Status:** Active Development
-**Last Updated:** 2026-06-22
+**Status:** Hero Section Complete
+**Last Updated:** 2026-06-26
 **Location:** `real estate frontend/src/components/home/`
 
 ---
@@ -398,29 +398,77 @@ const useIsTablet = () => {
 
 | Version | File | Features |
 |---------|------|----------|
-| Desktop | `HeroDesktopSection.tsx` | 50/50 split: text+buttons left, image right |
-| Tablet | `HeroTabletSection.tsx` | 50/50 split: text+buttons left, image right |
-| Mobile | `HeroMobileSection.tsx` | Stacked: text+buttons top, image bottom |
+| Desktop | `HeroDesktopSection.tsx` | 50/50 split: text left, image right, fluid typography |
+| Tablet | `HeroTabletSection.tsx` | Stacked: text top, image bottom, fixed 75px text |
+| Mobile | `HeroMobileSection.tsx` | Stacked: text top, image bottom, responsive text sizes |
 
-**Structure (Desktop/Tablet):**
+**Structure (Desktop):**
 ```
 ┌──────────────────┬──────────────────┐
 │                  │                  │
 │   Title         │                  │
-│   Paragraph     │     Image        │
-│   Buttons       │                  │
+│   Title         │     Image        │
+│   Title         │                  │
 │                  │                  │
 └──────────────────┴──────────────────┘
 ```
 
+**Structure (Tablet/Mobile):**
+```
+┌─────────────────────────────┐
+│                             │
+│   Title                     │
+│   Title                     │
+│   Title                     │
+│                             │
+├─────────────────────────────┤
+│                             │
+│         Image               │
+│                             │
+└─────────────────────────────┘
+```
+
+**Typography Specifications:**
+
+| Version | Text Size | Responsive Behavior |
+|---------|-----------|---------------------|
+| Desktop | `clamp(60px, 5.5vw, 120px)` | Fluid scaling based on viewport |
+| Tablet | 75px fixed | No breakpoints |
+| Mobile | `≤460px`: 48px, `≤635px`: 60px, `>635px`: 65px | 2 breakpoints |
+
+**Image Specifications:**
+
+| Version | Size | Styling |
+|---------|------|---------|
+| Desktop | `maxWidth: 800px`, `aspectRatio: 8/7` | `rounded-3xl`, responsive up to max |
+| Tablet | `calc(100vh - 492px)` | `rounded-[40px]`, `w-full` |
+| Mobile | `calc(100vh - Xpx)` (dynamic) | `rounded-[40px]`, `w-full` |
+
 **Hero Features:**
 - Navbar at top (white background, black text)
-- 50/50 split layout (text left, image right)
-- Titles: `text-5xl md:text-6xl lg:text-7xl`, `tracking-[-0.06em]`, `font-medium`
-- Paragraph: `text-slate-500`, `text-base md:text-lg`, centered
+- **Desktop:** 50/50 split layout (text left, image right), white bg, fluid typography with `clamp()`
+- **Tablet:** Stacked layout (text top, image bottom), white bg, fixed 75px text, no breakpoints
+- **Mobile:** Stacked layout (text top, image bottom), white bg, responsive text (48px/60px/65px)
+- All titles: `tracking-[-0.06em]`, `font-bold`, `leading-[117%]`
+- Third headline: `opacity-50` (lighter color)
 - Titles wrapped in div with `text-wrap:balance` for smart line breaks
-- Image: rounded corners with padding on right/bottom
+- Image: rounded corners, `object-cover`
 - Navbar uses `HeroNavbar` component from `ui/`
+
+**Mobile Breakpoints:**
+```
+Window Width ≤ 460px  → text-5xl (48px)
+Window Width ≤ 635px  → text-6xl (60px)
+Window Width > 635px  → 65px (inline style)
+```
+
+**Desktop Fluid Typography:**
+```
+Text Size = clamp(60px, 5.5vw, 120px)
+- Min: 60px (smallest desktop ~1090px)
+- Fluid: 5.5% of viewport width
+- Max: 120px (largest screens)
+```
 
 **Dependencies:**
 - `HeroNavbar` from `../ui`
