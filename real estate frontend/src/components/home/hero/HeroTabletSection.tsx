@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { HeroNavbar } from '../../ui';
 
 /**
  * Hero Tablet Section
  * 
- * Full-screen hero with grey background container,
+ * Full-screen hero with white background container,
  * stacked layout: text on top, image below
  * Supports EN, FR, AR languages
  */
@@ -21,22 +21,16 @@ const getContent = (lang: string) => {
       headline1: 'Building trust',
       headline2: 'Before building',
       headline3: 'your project',
-      projects: 'Projects',
-      properties: 'Properties',
     },
     fr: {
       headline1: 'Bâtir la confiance',
-      headline2: 'Avant de bâtir',
+      headline2: 'Avant de bâtix',
       headline3: 'votre projet',
-      projects: 'Projets',
-      properties: 'Propriétés',
     },
     ar: {
       headline1: 'نبني ثقتك',
       headline2: 'قبل أن نبني',
       headline3: 'مشروعك',
-      projects: 'المشاريع',
-      properties: 'العقارات',
     },
   };
   return content[lang as keyof typeof content] || content.en;
@@ -47,21 +41,11 @@ export const HeroTabletSection: React.FC<HeroTabletSectionProps> = ({
   backgroundImage = '/home-page-images/desktop-hero-card.png',
   className = '',
 }) => {
-  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 768);
-  
-  useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
   const isRTL = lang === 'ar';
   const content = getContent(lang);
   
   // Fixed sizes for tablet
-  const textSize = 'text-5xl';
-  const imageWidth = 400;
-  const imageHeight = 300;
+  const imageHeight = 'calc(100vh - 492px)';
 
   return (
     <div className={`w-full min-h-screen bg-white ${className}`}>
@@ -70,33 +54,29 @@ export const HeroTabletSection: React.FC<HeroTabletSectionProps> = ({
 
       {/* Full-height section under navbar */}
       <div 
-        className="w-full bg-neutral-200 flex flex-col"
-        style={{ 
-          height: 'calc(100vh - 64px)', 
-          borderBottomLeftRadius: '60px', 
-          borderBottomRightRadius: '60px' 
-        }}
+        className="w-full bg-white flex flex-col"
+        style={{ height: 'calc(100vh - 64px)' }}
       >
-        {/* Top Side - Title */}
-        <div className="flex-1 flex items-center justify-center px-8 py-4">
-          <div className={`flex flex-col text-wrap:balance ${isRTL ? 'text-right' : 'text-left'}`}>
-            <h2 className={`text-neutral-900 tracking-[-0.06em] ${textSize} font-bold leading-[117%]`}>
+        {/* Title Section - Top */}
+        <div className="flex-1 flex items-end px-6 pl-10 pb-10">
+          <div className="flex flex-col text-left">
+            <h2 className="text-neutral-900 tracking-[-0.06em] font-bold leading-[117%]" style={{ fontSize: '75px' }}>
               {content.headline1}
             </h2>
-            <h2 className={`text-neutral-900 tracking-[-0.06em] ${textSize} font-bold leading-[117%]`}>
+            <h2 className="text-neutral-900 tracking-[-0.06em] font-bold leading-[117%]" style={{ fontSize: '75px' }}>
               {content.headline2}
             </h2>
-            <h2 className={`text-neutral-900 opacity-50 tracking-[-0.06em] ${textSize} font-bold leading-[117%]`}>
+            <h2 className="text-neutral-900/50 tracking-[-0.06em] font-bold leading-[117%]" style={{ fontSize: '75px' }}>
               {content.headline3}
             </h2>
           </div>
         </div>
 
-        {/* Bottom Side - Image */}
-        <div className="flex-1 flex items-center justify-center px-8 pb-6">
+        {/* Image Section - Bottom */}
+        <div className="flex-1 px-6 pb-6 flex items-start justify-center">
           <div 
-            className="rounded-3xl overflow-hidden"
-            style={{ width: `${imageWidth}px`, height: `${imageHeight}px` }}
+            className="rounded-[40px] overflow-hidden w-full"
+            style={{ height: imageHeight }}
           >
             <img
               src={backgroundImage}
