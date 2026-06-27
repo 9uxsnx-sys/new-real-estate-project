@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Globe } from 'lucide-react';
-import { ActionPill, ActionPillRTL } from '@/components/ui';
+import { Globe, MessageCircle } from 'lucide-react';
 import { MenuButton } from '@/components/ui/MenuButton';
 import { useContact } from '@/hooks';
 
@@ -10,6 +9,15 @@ const languages = [
   { code: 'fr', label: 'FR', name: 'Français' },
   { code: 'ar', label: 'AR', name: 'العربية' },
 ];
+
+const getContent = (lang: string) => {
+  const content = {
+    en: { whatsApp: 'WhatsApp', fontFamily: "'Geist Mono', monospace", fontWeight: '600' },
+    fr: { whatsApp: 'WhatsApp', fontFamily: "'Geist Mono', monospace", fontWeight: '600' },
+    ar: { whatsApp: 'واتساب', fontFamily: "'Noto Sans Arabic', sans-serif", fontWeight: '500' },
+  };
+  return content[lang as keyof typeof content] || content.en;
+};
 
 interface MobileMenuCardProps {
   isOpen: boolean;
@@ -37,6 +45,7 @@ export const MobileMenuCard: React.FC<MobileMenuCardProps> = ({
   const navigate = useNavigate();
   const { contact } = useContact();
   const whatsappURL = contact?.whatsappURL || 'https://wa.me/213551234567';
+  const content = getContent(currentLang);
 
   return (
     <>
@@ -50,7 +59,7 @@ export const MobileMenuCard: React.FC<MobileMenuCardProps> = ({
         {/* Morphing Menu Card */}
         {isOpen && (
           <div
-            className="absolute right-0 top-full mt-2 w-[320px] bg-white border border-gray-200 rounded-2xl shadow-xl overflow-hidden"
+            className="absolute right-0 top-full mt-2 w-[280px] bg-white border border-gray-200 rounded-2xl shadow-xl overflow-hidden"
           >
             {/* Menu Items */}
             <div className="pt-4 px-4 flex flex-col gap-1">
@@ -110,20 +119,19 @@ export const MobileMenuCard: React.FC<MobileMenuCardProps> = ({
 
             {/* WhatsApp Button */}
             <div className="px-4 pb-4">
-              {currentLang === 'ar' ? (
-                <ActionPillRTL
-                  text="واتساب"
-                  href={whatsappURL}
-                  onClick={onClose}
-                />
-              ) : (
-                <ActionPill
-                  text="WhatsApp"
-                  href={whatsappURL}
-                  onClick={onClose}
-                  isRTL={false}
-                />
-              )}
+              <a
+                href={whatsappURL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={onClose}
+                className="inline-flex items-center justify-center gap-2 bg-black text-white rounded-full py-3 px-4 hover:bg-[rgb(44,44,44)] transition-colors no-underline"
+                style={{ fontFamily: content.fontFamily, fontWeight: content.fontWeight }}
+              >
+                <MessageCircle size={18} strokeWidth={2.5} />
+                <span className="text-sm">
+                  {content.whatsApp}
+                </span>
+              </a>
             </div>
           </div>
         )}
