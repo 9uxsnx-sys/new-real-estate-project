@@ -1,13 +1,82 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { NavigationNew } from '@/components/layout';
-import { HeroSection, CompanyManifesto, CompanyManifestoMobileVersion, ProjectAndPropertySection, FAQSection, Footer } from '@/components/sections';
-import { AboutUsSection } from '@/components/home/about-us';
 import { SEO } from '@/components/seo';
+
+// Hero sections
+import { HeroDesktopSection, HeroTabletSection, HeroMobileSection } from '@/components/home/hero';
+
+// About Us sections
+import { AboutUsSection, AboutUsTabletSection, AboutUsSectionMobile } from '@/components/home/about-us';
+
+// Services sections
+import { ServicesDesktopSection, ServicesTabletSection, ServicesMobileSection } from '@/components/home/services';
+
+// Gateway sections
+import { GatewayDesktopSection, GatewayTabletSection, GatewayMobileSection } from '@/components/home/gateway';
+
+// FAQ sections
+import { FaqDesktopSection, FaqTabletSection, FaqMobileSection } from '@/components/home/faq';
+
+// Footer sections
+import { FooterDesktopSection, FooterTabletSection, FooterMobileSection } from '@/components/home/footer';
+
+// Breakpoints
+const MOBILE_BREAKPOINT = 768;
+const TABLET_BREAKPOINT = 1024;
+
+// Hook to detect mobile screen size (below md = 768px)
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  return isMobile;
+};
+
+// Hook to detect tablet screen size (768px to 1024px)
+const useIsTablet = () => {
+  const [isTablet, setIsTablet] = useState(false);
+
+  useEffect(() => {
+    const checkTablet = () => {
+      const width = window.innerWidth;
+      setIsTablet(width >= MOBILE_BREAKPOINT && width < TABLET_BREAKPOINT);
+    };
+
+    checkTablet();
+    window.addEventListener('resize', checkTablet);
+
+    return () => window.removeEventListener('resize', checkTablet);
+  }, []);
+
+  return isTablet;
+};
 
 export const Home: React.FC = () => {
   const { lang } = useParams<{ lang: string }>();
-  const currentLang = lang || 'en';
+  const currentLang = (lang || 'en') as 'en' | 'fr' | 'ar';
+  
+  // Screen size detection
+  const isMobile = useIsMobile();
+  const isTablet = useIsTablet();
+
+  // Set RTL for Arabic
+  useEffect(() => {
+    if (currentLang === 'ar') {
+      document.documentElement.dir = 'rtl';
+    } else {
+      document.documentElement.dir = 'ltr';
+    }
+  }, [currentLang]);
 
   return (
     <main className="min-h-screen bg-white">
@@ -17,20 +86,60 @@ export const Home: React.FC = () => {
         lang={currentLang}
         url=""
       />
-      <NavigationNew />
-      <HeroSection />
-      <AboutUsSection />
-      {/* Desktop: 4-line version */}
-      <div className="hidden xl:block">
-        <CompanyManifesto />
-      </div>
-      {/* Tablet/Mobile: Paragraph version */}
-      <div className="xl:hidden">
-        <CompanyManifestoMobileVersion />
-      </div>
-      <ProjectAndPropertySection />
-      <FAQSection />
-      <Footer />
+
+      {/* Hero Section */}
+      {isMobile ? (
+        <HeroMobileSection lang={currentLang} />
+      ) : isTablet ? (
+        <HeroTabletSection lang={currentLang} />
+      ) : (
+        <HeroDesktopSection lang={currentLang} />
+      )}
+
+      {/* About Us Section */}
+      {isMobile ? (
+        <AboutUsSectionMobile lang={currentLang} />
+      ) : isTablet ? (
+        <AboutUsTabletSection lang={currentLang} />
+      ) : (
+        <AboutUsSection lang={currentLang} />
+      )}
+
+      {/* Services Section */}
+      {isMobile ? (
+        <ServicesMobileSection lang={currentLang} />
+      ) : isTablet ? (
+        <ServicesTabletSection lang={currentLang} />
+      ) : (
+        <ServicesDesktopSection lang={currentLang} />
+      )}
+
+      {/* Gateway Section */}
+      {isMobile ? (
+        <GatewayMobileSection lang={currentLang} />
+      ) : isTablet ? (
+        <GatewayTabletSection lang={currentLang} />
+      ) : (
+        <GatewayDesktopSection lang={currentLang} />
+      )}
+
+      {/* FAQ Section */}
+      {isMobile ? (
+        <FaqMobileSection lang={currentLang} />
+      ) : isTablet ? (
+        <FaqTabletSection lang={currentLang} />
+      ) : (
+        <FaqDesktopSection lang={currentLang} />
+      )}
+
+      {/* Footer Section */}
+      {isMobile ? (
+        <FooterMobileSection lang={currentLang} />
+      ) : isTablet ? (
+        <FooterTabletSection lang={currentLang} />
+      ) : (
+        <FooterDesktopSection lang={currentLang} />
+      )}
     </main>
   );
 };

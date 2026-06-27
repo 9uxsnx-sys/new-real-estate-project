@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { MobileMenuCard } from '@/components/layout/MobileMenuCard';
 
 /**
@@ -18,18 +18,8 @@ export const NavbarTabletSection: React.FC<NavbarTabletSectionProps> = ({
   className = '',
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
-  // Get initial language from URL or default to 'en'
-  const getInitialLang = () => {
-    const params = new URLSearchParams(window.location.search);
-    const lang = params.get('lang');
-    if (lang === 'fr' || lang === 'ar' || lang === 'en') {
-      return lang;
-    }
-    return 'en';
-  };
-  
-  const [currentLang, setCurrentLang] = useState(getInitialLang);
+  const { lang: urlLang } = useParams<{ lang: string }>();
+  const [currentLang, setCurrentLang] = useState(urlLang || 'en');
 
   // Nav content for each language
   const getNavContent = (lang: string) => {
@@ -81,7 +71,7 @@ export const NavbarTabletSection: React.FC<NavbarTabletSectionProps> = ({
       <div className={`w-full max-w-screen-2xl mx-auto flex items-center justify-between ${currentLang === 'ar' ? 'flex-row-reverse' : ''}`}>
       
       {/* Logo - Always on left */}
-      <Link to="/" className="flex items-center gap-x-3 no-underline">
+      <Link to={`/${currentLang}/`} className="flex items-center gap-x-3 no-underline">
         {/* Logo SVG - Building icon */}
         <div className="w-10 h-8 flex-shrink-0">
           <svg viewBox="0 0 40 30" className="w-full h-full">

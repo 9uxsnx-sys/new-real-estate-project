@@ -10,7 +10,7 @@ import {
   PropertyContactSidebar
 } from '../components/property-detail';
 import { PropertyNotFound } from '../components/ui/PropertyNotFound';
-import { Footer } from '../components/sections';
+import { ResponsiveFooter } from '@/components/layout';
 import { SEO } from '../components/seo';
 import { useProperty } from '../hooks';
 import { formatPrice, getImageUrl } from '../utils';
@@ -157,7 +157,7 @@ export const PropertyDetail: React.FC = () => {
           </div>
         </div>
       </div>
-      <Footer />
+      <ResponsiveFooter lang={currentLang} />
     </div>
   );
 };

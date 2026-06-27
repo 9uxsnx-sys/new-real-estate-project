@@ -64,7 +64,7 @@ export const MobileMenuCard: React.FC<MobileMenuCardProps> = ({
             {/* Menu Items */}
             <div className="pt-4 px-4 flex flex-col gap-1">
               {[
-                { label: navHome, href: `/${currentLang}` },
+                { label: navHome, href: `/${currentLang}/` },
                 { label: navProperties, href: `/${currentLang}/properties` },
                 { label: navProjects, href: `/${currentLang}/projects` },
               ].map((item) => (

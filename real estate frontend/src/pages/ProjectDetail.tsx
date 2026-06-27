@@ -11,7 +11,7 @@ import {
 import { ProjectSection, ProjectSectionData, ProjectContactSidebar } from '../components/project-detail';
 import { PropertyCard } from '@/components/ui/property-card';
 import { ProjectNotFound } from '../components/ui/ProjectNotFound';
-import { Footer } from '../components/sections';
+import { ResponsiveFooter } from '@/components/layout';
 import { SEO } from '../components/seo';
 import { useProject, useProperties } from '../hooks';
 import { formatPrice, getImageUrl } from '../utils';
@@ -216,7 +216,7 @@ export const ProjectDetail: React.FC = () => {
           </div>
         </div>
       </div>
-      <Footer />
+      <ResponsiveFooter lang={currentLang} />
     </div>
   );
 };

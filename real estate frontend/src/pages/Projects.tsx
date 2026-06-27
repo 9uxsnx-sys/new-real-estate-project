@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight } from 'lucide-react';
 import { ProjectAlternatingSection } from '../components/project';
-import { Footer } from '../components/sections';
+import { ResponsiveFooter } from '@/components/layout';
 import { SEO } from '../components/seo';
 import { ProjectNotFound } from '../components/ui/ProjectNotFound';
 import { useProjects } from '../hooks';
@@ -61,7 +61,7 @@ export const Projects: React.FC = () => {
         url="projects"
         lang={currentLang}
       />
-      <section className="py-16 md:py-20 lg:py-24 border-b border-[rgb(230,230,230)]">
+      <section className="py-6 md:py-8 border-b border-[rgb(230,230,230)]">
         <div className="max-w-[1360px] mx-auto px-6 sm:px-4 md:px-8 lg:px-20">
           <div>
             <h1
@@ -84,35 +84,9 @@ export const Projects: React.FC = () => {
             index={index}
             onExplore={() => handleProjectClick(project.slug)}
           />
-        ))
-      )}
+        )))}
 
-      <section className="py-16 md:py-20 bg-[rgb(248,248,248)]">
-        <div className="max-w-[1360px] mx-auto px-6 sm:px-4 md:px-8 lg:px-20">
-          <div className="text-center max-w-xl mx-auto">
-            <h3
-              className="text-[24px] md:text-[28px] font-semibold text-[rgb(44,44,44)] mb-4"
-              style={{ fontFamily: 'Geist, sans-serif' }}
-            >
-              {t('project.readyToFind')}
-            </h3>
-            <p
-              className="text-[14px] md:text-[16px] text-[rgb(136,136,136)] font-light mb-8"
-              style={{ fontFamily: 'Geist, sans-serif' }}
-            >
-              {t('project.browseDescription')}
-            </p>
-            <button
-              onClick={() => navigate(`/${currentLang}`)}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-black text-white rounded-full font-light text-[14px] transition-all duration-300 hover:bg-[rgb(44,44,44)] hover:scale-105 group"
-              style={{ fontFamily: 'Geist, sans-serif' }}
-            >
-              {t('project.exploreProperties')} <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-            </button>
-          </div>
-        </div>
-      </section>
-      <Footer />
+      <ResponsiveFooter lang={currentLang} />
     </div>
   );
 };

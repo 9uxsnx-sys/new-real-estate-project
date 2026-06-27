@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { MessageCircle, Globe, ChevronDown, Check } from 'lucide-react';
 
 /**
@@ -25,9 +25,9 @@ const getNavContent = (lang: string) => {
   const content = {
     en: {
       navItems: [
-        { label: 'Home', href: '/' },
-        { label: 'Properties', href: '/properties' },
-        { label: 'Projects', href: '/projects' },
+        { label: 'Home', href: `/${lang}/` },
+        { label: 'Properties', href: `/${lang}/properties` },
+        { label: 'Projects', href: `/${lang}/projects` },
       ],
       whatsApp: 'WhatsApp',
       fontFamily: "'Geist Mono', monospace",
@@ -35,9 +35,9 @@ const getNavContent = (lang: string) => {
     },
     fr: {
       navItems: [
-        { label: 'Accueil', href: '/' },
-        { label: 'Propriétés', href: '/properties' },
-        { label: 'Projets', href: '/projects' },
+        { label: 'Accueil', href: `/${lang}/` },
+        { label: 'Propriétés', href: `/${lang}/properties` },
+        { label: 'Projets', href: `/${lang}/projects` },
       ],
       whatsApp: 'WhatsApp',
       fontFamily: "'Geist Mono', monospace",
@@ -45,9 +45,9 @@ const getNavContent = (lang: string) => {
     },
     ar: {
       navItems: [
-        { label: 'الرئيسية', href: '/' },
-        { label: 'العقارات', href: '/properties' },
-        { label: 'المشاريع', href: '/projects' },
+        { label: 'الرئيسية', href: `/${lang}/` },
+        { label: 'العقارات', href: `/${lang}/properties` },
+        { label: 'المشاريع', href: `/${lang}/projects` },
       ],
       whatsApp: 'واتساب',
       fontFamily: "'Noto Sans Arabic', sans-serif",
@@ -63,18 +63,8 @@ export const NavbarDesktopSection: React.FC<NavbarDesktopSectionProps> = ({
   className = '',
 }) => {
   const [isLangOpen, setIsLangOpen] = useState(false);
-  
-  // Get initial language from URL or default to 'en'
-  const getInitialLang = () => {
-    const params = new URLSearchParams(window.location.search);
-    const lang = params.get('lang');
-    if (lang === 'fr' || lang === 'ar' || lang === 'en') {
-      return lang;
-    }
-    return 'en';
-  };
-  
-  const [currentLang, setCurrentLang] = useState(getInitialLang);
+  const { lang: urlLang } = useParams<{ lang: string }>();
+  const [currentLang, setCurrentLang] = useState(urlLang || 'en');
   const dropdownRef = useRef<HTMLDivElement>(null);
   
   // Determine isRTL based on current language
@@ -113,7 +103,7 @@ export const NavbarDesktopSection: React.FC<NavbarDesktopSectionProps> = ({
       <div className="w-full max-w-screen-2xl mx-auto flex items-center justify-between">
       
       {/* Logo */}
-      <Link to="/" className="flex items-center gap-x-2 lg:gap-x-3 no-underline">
+      <Link to={`/${currentLang}/`} className="flex items-center gap-x-2 lg:gap-x-3 no-underline">
         {/* Logo SVG - Building icon */}
         <div className="w-8 lg:w-10 h-6 lg:h-8 flex-shrink-0">
           <svg viewBox="0 0 40 30" className="w-full h-full">

@@ -3,11 +3,32 @@ import { Routes, Route, useNavigate, useParams, Navigate, useLocation } from 're
 import { useTranslation } from 'react-i18next';
 import { HelmetProvider } from 'react-helmet-async';
 import gsap from 'gsap';
-import { NavigationNew } from './components/layout';
 import { ScrollToTop } from './components/ScrollToTop';
 import { Preloader, PageTransition } from './components/animations';
 import { PropertiesListing, PropertyDetail, Projects, ProjectDetail, Home, TestPropertyNotFound, DevHome, Dev2, Dev3, Dev4, Dev5 } from './pages';
+import { NavbarDesktopSection, NavbarTabletSection, NavbarMobileSection } from './components/home/navbar';
 import './i18n';
+
+// Navbar component with responsive switching
+const ResponsiveNavbar: React.FC = () => {
+  const [isMobile, setIsMobile] = React.useState(false);
+  const [isTablet, setIsTablet] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkSize = () => {
+      const width = window.innerWidth;
+      setIsMobile(width < 768);
+      setIsTablet(width >= 768 && width < 1024);
+    };
+    checkSize();
+    window.addEventListener('resize', checkSize);
+    return () => window.removeEventListener('resize', checkSize);
+  }, []);
+
+  if (isMobile) return <NavbarMobileSection />;
+  if (isTablet) return <NavbarTabletSection />;
+  return <NavbarDesktopSection />;
+};
 
 const supportedLangs = ['en', 'fr', 'ar'];
 
@@ -38,18 +59,13 @@ const LocalizedApp: React.FC = () => {
       <Routes>
         <Route
           path="/"
-          element={
-            <>
-              <NavigationNew />
-              <LocalizedHome />
-            </>
-          }
+          element={<LocalizedHome />}
         />
         <Route 
           path="property/:id" 
           element={
             <>
-              <NavigationNew />
+              <ResponsiveNavbar />
               <LocalizedPropertyDetail />
             </>
           } 
@@ -58,7 +74,7 @@ const LocalizedApp: React.FC = () => {
           path="properties" 
           element={
             <>
-              <NavigationNew />
+              <ResponsiveNavbar />
               <LocalizedPropertiesListing />
             </>
           } 
@@ -67,7 +83,7 @@ const LocalizedApp: React.FC = () => {
           path="projects" 
           element={
             <>
-              <NavigationNew />
+              <ResponsiveNavbar />
               <PageTransition>
                 <LocalizedProjects />
               </PageTransition>
@@ -78,7 +94,7 @@ const LocalizedApp: React.FC = () => {
           path="projects/:projectId" 
           element={
             <>
-              <NavigationNew />
+              <ResponsiveNavbar />
               <PageTransition>
                 <LocalizedProjectDetail />
               </PageTransition>
@@ -89,7 +105,7 @@ const LocalizedApp: React.FC = () => {
           path="test-property-not-found" 
           element={
             <>
-              <NavigationNew />
+              <ResponsiveNavbar />
               <PageTransition>
                 <TestPropertyNotFound />
               </PageTransition>
@@ -110,7 +126,7 @@ const LocalizedPropertiesListing: React.FC = () => {
     navigate(`/${lang}/property/${id}`);
   };
 
-  return <PropertiesListing onPropertyClick={handlePropertyClick} />;
+  return <PropertiesListing onPropertyClick={handlePropertyClick} lang={lang || 'en'} />;
 };
 
 const LocalizedPropertyDetail: React.FC = () => {

@@ -4,16 +4,17 @@ import { useTranslation } from 'react-i18next';
 import { PropertyCard } from '@/components/ui/property-card';
 import { PropertyNotFound } from '../components/ui/PropertyNotFound';
 import { HeroSection } from '../components/filters';
-import { Footer } from '../components/sections';
+import { ResponsiveFooter } from '@/components/layout';
 import { SEO } from '../components/seo';
 import { useProperties } from '../hooks';
 import { formatPrice, getImageUrl } from '../utils';
 
 interface PropertiesListingProps {
   onPropertyClick?: (id: string) => void;
+  lang?: string;
 }
 
-export const PropertiesListing: React.FC<PropertiesListingProps> = ({ onPropertyClick }) => {
+export const PropertiesListing: React.FC<PropertiesListingProps> = ({ onPropertyClick, lang = 'en' }) => {
   const { t } = useTranslation();
   const [searchParams] = useSearchParams();
   const projectParam = searchParams.get('project');
@@ -137,7 +138,7 @@ export const PropertiesListing: React.FC<PropertiesListingProps> = ({ onProperty
           )}
         </div>
       </section>
-      <Footer />
+      <ResponsiveFooter lang={lang} />
     </div>
   );
 };
