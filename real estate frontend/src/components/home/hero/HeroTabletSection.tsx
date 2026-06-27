@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavbarDesktopSection } from '../navbar';
+import { NavbarTabletSection } from '../navbar';
 
 /**
  * Hero Tablet Section
@@ -50,7 +50,7 @@ export const HeroTabletSection: React.FC<HeroTabletSectionProps> = ({
   return (
     <div className={`w-full min-h-screen bg-white ${className}`}>
       {/* Navbar */}
-      <NavbarDesktopSection isRTL={isRTL} />
+      <NavbarTabletSection />
 
       {/* Full-height section under navbar */}
       <div 
