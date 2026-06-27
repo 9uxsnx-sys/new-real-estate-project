@@ -59,14 +59,14 @@ export const HeroTabletSection: React.FC<HeroTabletSectionProps> = ({
       >
         {/* Title Section - Top */}
         <div className="flex-1 flex items-end px-6 pl-10 pb-10">
-          <div className="flex flex-col text-left">
+          <div className={`flex flex-col ${isRTL ? 'text-right' : 'text-left'}`}>
             <h2 className="text-neutral-900 tracking-[-0.06em] font-bold leading-[117%]" style={{ fontSize: '75px' }}>
               {content.headline1}
             </h2>
             <h2 className="text-neutral-900 tracking-[-0.06em] font-bold leading-[117%]" style={{ fontSize: '75px' }}>
               {content.headline2}
             </h2>
-            <h2 className="text-neutral-900/50 tracking-[-0.06em] font-bold leading-[117%]" style={{ fontSize: '75px' }}>
+            <h2 className="text-neutral-900 opacity-50 tracking-[-0.06em] font-bold leading-[117%]" style={{ fontSize: '75px' }}>
               {content.headline3}
             </h2>
           </div>
