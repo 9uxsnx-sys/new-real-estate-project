@@ -56,7 +56,9 @@ export const HeroMobileSection: React.FC<HeroMobileSectionProps> = ({
   const isVerySmallScreen = windowWidth <= 460;
   const isSmallScreen = windowWidth <= 635;
   const textSize = isVerySmallScreen ? 'text-5xl' : isSmallScreen ? 'text-6xl' : '';
-  const textStyle = windowWidth > 635 ? { fontSize: '65px' } : {};
+  const textStyle = isRTL 
+    ? (windowWidth > 635 ? { fontSize: '85px' } : { fontSize: '70px' }) 
+    : (windowWidth > 635 ? { fontSize: '65px' } : {});
   const imageHeight = isSmallScreen ? 'calc(100vh - 380px - 72px)' : 'calc(100vh - 420px - 72px)';
 
   return (
