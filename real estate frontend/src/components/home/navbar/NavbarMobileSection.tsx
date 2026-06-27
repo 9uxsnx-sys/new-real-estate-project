@@ -56,10 +56,14 @@ export const NavbarMobileSection: React.FC<NavbarMobileSectionProps> = ({
 
   const handleLanguageChange = (code: string) => {
     setCurrentLang(code);
-    // Update URL with new language and reload
-    const url = new URL(window.location.href);
-    url.searchParams.set('lang', code);
-    window.location.href = url.toString();
+    // Update URL path with new language
+    const pathParts = window.location.pathname.split('/').filter(Boolean);
+    if (pathParts.length > 0 && ['en', 'fr', 'ar'].includes(pathParts[0])) {
+      pathParts[0] = code;
+    } else {
+      pathParts.unshift(code);
+    }
+    window.location.pathname = '/' + pathParts.join('/');
   };
 
   return (

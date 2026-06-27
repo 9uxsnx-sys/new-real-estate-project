@@ -6,9 +6,12 @@ import { EnvelopeSimple, MapPin, Phone, WhatsappLogo, InstagramLogo, TiktokLogo,
  * 
  * Exact implementation from Framer template
  */
+import type { Contact } from '@/services/contact';
+
 interface FooterDesktopSectionProps {
   className?: string;
   lang?: string;
+  contact?: Contact | null;
 }
 
 // Font family helper
@@ -16,7 +19,7 @@ const getFontFamily = (lang: string) => {
   return lang === 'ar' ? "'Noto Sans Arabic', sans-serif" : "'Plus Jakarta Sans', sans-serif";
 };
 
-// Footer content
+// Footer content - merged with backend contact data
 const getFooterContent = (lang: string) => {
   const content = {
     en: {
@@ -32,11 +35,6 @@ const getFooterContent = (lang: string) => {
           { label: 'Projects', href: '/projects' }
         ],
         col2: []
-      },
-      contact: {
-        email: 'contact@tasdiria.dz',
-        address: 'Algiers & Boumerdès, Algeria',
-        phone: '0770862831'
       },
       copyright: '© 2025 Tasdiria. All rights reserved.'
     },
@@ -54,11 +52,6 @@ const getFooterContent = (lang: string) => {
         ],
         col2: []
       },
-      contact: {
-        email: 'contact@tasdiria.dz',
-        address: 'Alger & Boumerdès, Algérie',
-        phone: '0770862831'
-      },
       copyright: '© 2025 Tasdiria. Tous droits réservés.'
     },
     ar: {
@@ -75,11 +68,6 @@ const getFooterContent = (lang: string) => {
         ],
         col2: []
       },
-      contact: {
-        email: 'contact@tasdiria.dz',
-        address: 'الجزائر وبومرداس',
-        phone: '0770862831'
-      },
       copyright: '© 2025 تسديريا. جميع الحقوق محفوظة.'
     }
   };
@@ -89,7 +77,8 @@ const getFooterContent = (lang: string) => {
 // Main component
 export const FooterDesktopSection: React.FC<FooterDesktopSectionProps> = ({ 
   className = '', 
-  lang = 'en' 
+  lang = 'en',
+  contact
 }) => {
   const isRTL = lang === 'ar';
   const content = getFooterContent(lang);
@@ -138,29 +127,35 @@ export const FooterDesktopSection: React.FC<FooterDesktopSectionProps> = ({
             
             {/* Contact Info */}
             <div className="flex flex-col gap-2 mt-auto py-[15px]">
-              <a 
-                href={`mailto:${content.contact.email}`}
-                className="flex items-center gap-2 hover:text-white transition-colors"
-                style={fontStyle}
-              >
-                <span className="text-white"><EnvelopeSimple size={16} weight="fill" /></span>
-                <span className="text-sm" style={{ color: '#e2dada' }}>{content.contact.email}</span>
-              </a>
-              <div 
-                className="flex items-center gap-2"
-                style={fontStyle}
-              >
-                <span className="text-white"><MapPin size={16} weight="fill" /></span>
-                <span className="text-sm" style={{ color: '#e2dada' }}>{content.contact.address}</span>
-              </div>
-              <a 
-                href={`tel:${content.contact.phone}`}
-                className="flex items-center gap-2 hover:text-white transition-colors"
-                style={fontStyle}
-              >
-                <span className="text-white"><Phone size={16} weight="fill" /></span>
-                <span className="text-sm" style={{ color: '#e2dada' }}>{content.contact.phone}</span>
-              </a>
+              {contact?.email && (
+                <a 
+                  href={`mailto:${contact.email}`}
+                  className="flex items-center gap-2 hover:text-white transition-colors"
+                  style={fontStyle}
+                >
+                  <span className="text-white"><EnvelopeSimple size={16} weight="fill" /></span>
+                  <span className="text-sm" style={{ color: '#e2dada' }}>{contact.email}</span>
+                </a>
+              )}
+              {contact?.address && (
+                <div 
+                  className="flex items-center gap-2"
+                  style={fontStyle}
+                >
+                  <span className="text-white"><MapPin size={16} weight="fill" /></span>
+                  <span className="text-sm" style={{ color: '#e2dada' }}>{contact.address}</span>
+                </div>
+              )}
+              {contact?.phone && (
+                <a 
+                  href={`tel:${contact.phone}`}
+                  className="flex items-center gap-2 hover:text-white transition-colors"
+                  style={fontStyle}
+                >
+                  <span className="text-white"><Phone size={16} weight="fill" /></span>
+                  <span className="text-sm" style={{ color: '#e2dada' }}>{contact.phone}</span>
+                </a>
+              )}
             </div>
           </div>
 
@@ -190,16 +185,40 @@ export const FooterDesktopSection: React.FC<FooterDesktopSectionProps> = ({
           
           {/* Social Media Icons */}
           <div className="flex items-center gap-3">
-            <a href="https://wa.me/33770862831" target="_blank" rel="noopener noreferrer" className="text-white hover:text-zinc-300 transition-colors">
+            <a 
+              href={contact?.whatsappURL || '#'} 
+              target={contact?.whatsappURL ? '_blank' : undefined} 
+              rel="noopener noreferrer"
+              onClick={(e) => !contact?.whatsappURL && e.preventDefault()}
+              className="text-white hover:text-zinc-300 transition-colors"
+            >
               <WhatsappLogo size={24} weight="fill" />
             </a>
-            <a href="https://instagram.com/tasdiria" target="_blank" rel="noopener noreferrer" className="text-white hover:text-zinc-300 transition-colors">
+            <a 
+              href={contact?.instagramURL || '#'} 
+              target={contact?.instagramURL ? '_blank' : undefined} 
+              rel="noopener noreferrer"
+              onClick={(e) => !contact?.instagramURL && e.preventDefault()}
+              className="text-white hover:text-zinc-300 transition-colors"
+            >
               <InstagramLogo size={24} weight="fill" />
             </a>
-            <a href="https://tiktok.com/@tasdiria" target="_blank" rel="noopener noreferrer" className="text-white hover:text-zinc-300 transition-colors">
+            <a 
+              href={contact?.tiktokURL || '#'} 
+              target={contact?.tiktokURL ? '_blank' : undefined} 
+              rel="noopener noreferrer"
+              onClick={(e) => !contact?.tiktokURL && e.preventDefault()}
+              className="text-white hover:text-zinc-300 transition-colors"
+            >
               <TiktokLogo size={24} weight="fill" />
             </a>
-            <a href="https://facebook.com/tasdiria" target="_blank" rel="noopener noreferrer" className="text-white hover:text-zinc-300 transition-colors">
+            <a 
+              href={contact?.facebookURL || '#'} 
+              target={contact?.facebookURL ? '_blank' : undefined} 
+              rel="noopener noreferrer"
+              onClick={(e) => !contact?.facebookURL && e.preventDefault()}
+              className="text-white hover:text-zinc-300 transition-colors"
+            >
               <FacebookLogo size={24} weight="fill" />
             </a>
           </div>

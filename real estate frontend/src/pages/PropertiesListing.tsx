@@ -6,7 +6,7 @@ import { PropertyNotFound } from '../components/ui/PropertyNotFound';
 import { HeroSection } from '../components/filters';
 import { ResponsiveFooter } from '@/components/layout';
 import { SEO } from '../components/seo';
-import { useProperties } from '../hooks';
+import { useProperties, useContact } from '../hooks';
 import { formatPrice, getImageUrl } from '../utils';
 
 interface PropertiesListingProps {
@@ -36,6 +36,7 @@ export const PropertiesListing: React.FC<PropertiesListingProps> = ({ onProperty
     maxSpace: maxSpace ? parseInt(maxSpace) : undefined,
     sortBy: sortBy as any,
   });
+  const { contact } = useContact();
 
   const visibleProperties = properties.slice(0, visibleCount);
   const hasMore = visibleCount < properties.length;
@@ -138,7 +139,7 @@ export const PropertiesListing: React.FC<PropertiesListingProps> = ({ onProperty
           )}
         </div>
       </section>
-      <ResponsiveFooter lang={lang} />
+      <ResponsiveFooter lang={lang} contact={contact} />
     </div>
   );
 };

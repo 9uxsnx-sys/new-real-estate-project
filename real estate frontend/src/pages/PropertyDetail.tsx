@@ -12,7 +12,7 @@ import {
 import { PropertyNotFound } from '../components/ui/PropertyNotFound';
 import { ResponsiveFooter } from '@/components/layout';
 import { SEO } from '../components/seo';
-import { useProperty } from '../hooks';
+import { useProperty, useContact } from '../hooks';
 import { formatPrice, getImageUrl } from '../utils';
 import type { PropertyFeature as PropertyFeatureType } from '../types';
 
@@ -23,6 +23,7 @@ export const PropertyDetail: React.FC = () => {
   const currentLang = lang || 'en';
 
   const { property, loading, error } = useProperty(id, currentLang);
+  const { contact } = useContact();
 
   if (loading) {
     return (
@@ -157,7 +158,7 @@ export const PropertyDetail: React.FC = () => {
           </div>
         </div>
       </div>
-      <ResponsiveFooter lang={currentLang} />
+      <ResponsiveFooter lang={currentLang} contact={contact} />
     </div>
   );
 };

@@ -20,6 +20,9 @@ import { FaqDesktopSection, FaqTabletSection, FaqMobileSection } from '@/compone
 // Footer sections
 import { FooterDesktopSection, FooterTabletSection, FooterMobileSection } from '@/components/home/footer';
 
+// Hooks
+import { useContact } from '@/hooks';
+
 // Breakpoints
 const MOBILE_BREAKPOINT = 768;
 const TABLET_BREAKPOINT = 1024;
@@ -68,6 +71,9 @@ export const Home: React.FC = () => {
   // Screen size detection
   const isMobile = useIsMobile();
   const isTablet = useIsTablet();
+
+  // Fetch contact data for footer
+  const { contact } = useContact();
 
   // Set RTL for Arabic
   useEffect(() => {
@@ -134,11 +140,11 @@ export const Home: React.FC = () => {
 
       {/* Footer Section */}
       {isMobile ? (
-        <FooterMobileSection lang={currentLang} />
+        <FooterMobileSection lang={currentLang} contact={contact} />
       ) : isTablet ? (
-        <FooterTabletSection lang={currentLang} />
+        <FooterTabletSection lang={currentLang} contact={contact} />
       ) : (
-        <FooterDesktopSection lang={currentLang} />
+        <FooterDesktopSection lang={currentLang} contact={contact} />
       )}
     </main>
   );

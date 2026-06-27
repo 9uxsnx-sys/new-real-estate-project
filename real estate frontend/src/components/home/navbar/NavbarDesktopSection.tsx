@@ -1,6 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { MessageCircle, Globe, ChevronDown, Check } from 'lucide-react';
+import { useContact } from '@/hooks';
+
+const supportedLangs = ['en', 'fr', 'ar'];
 
 /**
  * Navbar Desktop Section
@@ -67,6 +70,9 @@ export const NavbarDesktopSection: React.FC<NavbarDesktopSectionProps> = ({
   const [currentLang, setCurrentLang] = useState(urlLang || 'en');
   const dropdownRef = useRef<HTMLDivElement>(null);
   
+  // Fetch contact data for WhatsApp URL
+  const { contact } = useContact();
+  
   // Determine isRTL based on current language
   const isRTLLanguage = currentLang === 'ar';
   const navContent = getNavContent(currentLang);
@@ -86,10 +92,14 @@ export const NavbarDesktopSection: React.FC<NavbarDesktopSectionProps> = ({
     setCurrentLang(code);
     setIsLangOpen(false);
     
-    // Update URL with new language and reload
-    const url = new URL(window.location.href);
-    url.searchParams.set('lang', code);
-    window.location.href = url.toString();
+    // Update URL path with new language
+    const pathParts = window.location.pathname.split('/').filter(Boolean);
+    if (pathParts.length > 0 && supportedLangs.includes(pathParts[0])) {
+      pathParts[0] = code;
+    } else {
+      pathParts.unshift(code);
+    }
+    window.location.pathname = '/' + pathParts.join('/');
   };
 
   const currentLangData = languages.find(l => l.code === currentLang) || languages[0];
@@ -191,8 +201,11 @@ export const NavbarDesktopSection: React.FC<NavbarDesktopSectionProps> = ({
       </div>
 
       {/* WhatsApp Button - Right */}
-      <Link
-        to="/contact"
+      <a
+        href={contact?.whatsappURL || '#'}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={(e) => !contact?.whatsappURL && e.preventDefault()}
         className="flex items-center justify-center gap-1 lg:gap-2 bg-black text-white rounded-full py-2 lg:py-3 px-3 lg:px-4 hover:bg-[rgb(44,44,44)] transition-colors no-underline"
         style={{ fontFamily: navContent.fontFamily, fontWeight: navContent.fontWeight }}
       >
@@ -200,7 +213,7 @@ export const NavbarDesktopSection: React.FC<NavbarDesktopSectionProps> = ({
         <span className="text-xs lg:text-sm">
           {navContent.whatsApp}
         </span>
-      </Link>
+      </a>
       
       </div>
     </nav>

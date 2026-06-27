@@ -1,59 +1,34 @@
 import { useState, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import { fetchApi } from '../services/api';
+import { fetchContact, Contact } from '@/services/contact';
 
-interface Contact {
-  id: string | number;
-  phone: string;
-  whatsappURL: string;
-  address?: string;
-  email?: string;
-  facebookURL?: string;
-  instagramURL?: string;
-  tiktokURL?: string;
-}
-
-interface UseContactReturn {
+interface UseContactResult {
   contact: Contact | null;
   loading: boolean;
-  error: string | null;
+  error: boolean;
 }
 
-export const useContact = (locale = 'en'): UseContactReturn => {
+export const useContact = (): UseContactResult => {
   const [contact, setContact] = useState<Contact | null>(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const { i18n } = useTranslation();
+  const [error, setError] = useState(false);
 
   useEffect(() => {
-    const fetchContact = async () => {
+    const loadContact = async () => {
       try {
         setLoading(true);
-        setError(null);
-        
-        const lang = locale || i18n.language || 'en';
-        console.log('[useContact] Fetching contact for locale:', lang);
-        const response = await fetchApi<{ docs: Contact[] }>(`/api/contact?locale=${lang}&limit=1`);
-        console.log('[useContact] API response:', response);
-        
-        if (response.docs && response.docs.length > 0) {
-          console.log('[useContact] Contact data:', response.docs[0]);
-          setContact(response.docs[0]);
-        } else {
-          console.log('[useContact] No contact found');
-          setContact(null);
-        }
+        const data = await fetchContact();
+        setContact(data);
+        setError(false);
       } catch (err) {
         console.error('Error fetching contact:', err);
-        setError('Failed to load contact information');
-        setContact(null);
+        setError(true);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchContact();
-  }, [locale, i18n.language]);
+    loadContact();
+  }, []);
 
   return { contact, loading, error };
 };

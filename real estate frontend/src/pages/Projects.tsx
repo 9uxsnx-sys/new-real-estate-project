@@ -6,7 +6,7 @@ import { ProjectAlternatingSection } from '../components/project';
 import { ResponsiveFooter } from '@/components/layout';
 import { SEO } from '../components/seo';
 import { ProjectNotFound } from '../components/ui/ProjectNotFound';
-import { useProjects } from '../hooks';
+import { useProjects, useContact } from '../hooks';
 import type { Project } from '../types';
 
 interface ProjectWithMeta extends Project {
@@ -21,6 +21,7 @@ export const Projects: React.FC = () => {
   const currentLang = lang || 'en';
 
   const { projects, loading, error } = useProjects(currentLang);
+  const { contact } = useContact();
 
   const handleProjectClick = (projectSlug: string) => {
     navigate(`/${currentLang}/projects/${projectSlug}`);
@@ -86,7 +87,7 @@ export const Projects: React.FC = () => {
           />
         )))}
 
-      <ResponsiveFooter lang={currentLang} />
+      <ResponsiveFooter lang={currentLang} contact={contact} />
     </div>
   );
 };

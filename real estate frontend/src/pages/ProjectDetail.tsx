@@ -13,7 +13,7 @@ import { PropertyCard } from '@/components/ui/property-card';
 import { ProjectNotFound } from '../components/ui/ProjectNotFound';
 import { ResponsiveFooter } from '@/components/layout';
 import { SEO } from '../components/seo';
-import { useProject, useProperties } from '../hooks';
+import { useProject, useProperties, useContact } from '../hooks';
 import { formatPrice, getImageUrl } from '../utils';
 import type { PropertyFeature as PropertyFeatureType } from '../types';
 
@@ -28,6 +28,7 @@ export const ProjectDetail: React.FC = () => {
     projectId ? { projectSlug: projectId } : {},
     currentLang
   );
+  const { contact } = useContact();
 
   if (projectLoading) {
     return (
@@ -165,7 +166,7 @@ export const ProjectDetail: React.FC = () => {
             />
 
             {Array.isArray(projectProperties) && projectProperties.length > 0 && (
-              <div className="py-6 border-t border-b border-[rgb(230,230,230)]">
+              <div className="py-6">
                 <div className="flex items-center justify-between mb-6">
                   <h3
                     className="text-[20px] md:text-[24px] font-semibold text-[rgb(44,44,44)]"
@@ -216,7 +217,7 @@ export const ProjectDetail: React.FC = () => {
           </div>
         </div>
       </div>
-      <ResponsiveFooter lang={currentLang} />
+      <ResponsiveFooter lang={currentLang} contact={contact} />
     </div>
   );
 };
