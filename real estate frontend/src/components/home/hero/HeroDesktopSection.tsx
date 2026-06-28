@@ -44,7 +44,7 @@ const getContent = (lang: string) => {
 
 export const HeroDesktopSection: React.FC<HeroDesktopSectionProps> = ({
   lang = 'en',
-  backgroundImage = '/home-page-images/desktop-hero-card.png',
+  backgroundImage = '/home-page-images/hero-desktop-section.jpeg',
   className = '',
 }) => {
   const isRTL = lang === 'ar';

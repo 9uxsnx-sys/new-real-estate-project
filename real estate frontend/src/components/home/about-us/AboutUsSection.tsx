@@ -74,7 +74,7 @@ const ImageCard: React.FC = () => (
     {/* Background Image */}
     <div className="absolute inset-0 rounded-[inherit]">
       <img 
-        src="https://proxy.extractcss.dev/https://framerusercontent.com/images/JGdNRl6jQUnlEAMYGOue2qDYts.png?width=2464&height=1856"
+        src="/home-page-images/about-us-section.jpeg"
         alt="Team collaboration"
         className="w-full h-full object-cover"
       />
