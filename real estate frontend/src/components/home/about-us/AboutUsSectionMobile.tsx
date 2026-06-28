@@ -140,7 +140,7 @@ export const AboutUsSectionMobile: React.FC<AboutUsSectionMobileProps> = ({ clas
         {/* Image Card - matches Established card height */}
         <div className="rounded-3xl overflow-hidden relative h-[208px]">
           <img 
-            src="https://proxy.extractcss.dev/https://framerusercontent.com/images/JGdNRl6jQUnlEAMYGOue2qDYts.png?width=2464&height=1856"
+            src="/home-page-images/about-us-section.jpeg"
             alt="Team collaboration"
             className="w-full h-full object-cover"
           />

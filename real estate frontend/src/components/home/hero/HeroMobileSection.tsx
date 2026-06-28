@@ -38,7 +38,7 @@ const getContent = (lang: string) => {
 
 export const HeroMobileSection: React.FC<HeroMobileSectionProps> = ({
   lang = 'en',
-  backgroundImage = '/home-page-images/desktop-hero-card.png',
+  backgroundImage = '/home-page-images/hero-desktop-section.jpeg',
   className = '',
 }) => {
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 375);
