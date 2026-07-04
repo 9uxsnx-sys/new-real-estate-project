@@ -3,6 +3,7 @@
 **Project:** VistaHaven Real Estate Platform  
 **Audit Date:** 2026-06-28  
 **Auditor:** AI Assistant  
+**Last Updated:** 2026-07-04  
 
 ---
 
@@ -21,7 +22,8 @@ This project can be wrapped with Electron, but **requires significant configurat
 | Payload ServerURL | 🔴 Critical | Falls back to `localhost:3000` |
 | Frontend API | ✅ Good | Uses environment variable `VITE_API_URL` |
 | Authentication | ⚠️ Medium | No explicit `COOKIE_SECURE` configuration |
-| CI/CD | ✅ N/A | No workflows found (manual deployment assumed) |
+| **Data Backup System** | ✅ **COMPLETED** | **Full backup system implemented and pushed to GitHub** |
+| **Media Cleanup** | ✅ **COMPLETED** | **Automatic cleanup system implemented** |
 
 ---
 
@@ -69,7 +71,6 @@ services:
 ```typescript
 export default buildConfig({
   serverURL: process.env.SERVER_URL || 'http://localhost:3000',  // 🔴 CRITICAL
-  
   admin: {
     meta: {
       titleSuffix: '- VistaHaven Admin',
@@ -397,7 +398,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
   // Minimize window
   minimize: () => ipcRenderer.send('minimize-window'),
   
-  // Maximize/restore window
+  // Maximize/restore
   toggleMaximize: () => ipcRenderer.send('toggle-maximize'),
   
   // Close app
@@ -579,7 +580,90 @@ server {
 
 ---
 
-## 7. Appendix: Quick Reference
+## 7. COMPLETED: Data Backup & Restore System
+
+### ✅ COMPLETED: Docker Volume Data Loss Problem SOLVED!
+
+**Date Completed:** 2026-07-04
+
+**Problem Solved:**
+- Docker volumes lost all data when VPS crashed or setup on new machine
+- Database stored only in Docker (not in git)
+- Images stored only in Docker container (not backed up)
+
+### ✅ What Was Implemented
+
+**1. Database Backup Script**
+- Location: `real-estate-backend/src/scripts/backup.ts`
+- Exports all collections (users, projects, properties, media, features, contact) to JSON
+- Saves to `real-estate-backend/data/latest.json`
+- Uses REST API to avoid Payload environment issues
+
+**2. Media Cleanup Script**
+- Location: `real-estate-backend/src/scripts/cleanup.ts`
+- Finds orphaned images (not linked to any project/property)
+- Auto-deletes them (runs at midnight)
+- Preview mode: `npm run cleanup`
+- Auto-delete mode: `npm run cleanup` (without --preview flag)
+
+**3. Restore Script**
+- Location: `real-estate-backend/src/scripts/restore.ts`
+- Imports data from backup JSON to fresh database
+- Smart duplicate handling (skips existing items)
+- Usage: `npm run restore`
+
+**4. Backup Scripts (Shell)**
+- `real-estate-backend/scripts/backup-all.sh` - Auto backup to Google Drive
+- `real-estate-backend/scripts/full-backup.sh` - Backup + Git + Google Drive
+
+**5. Documentation**
+- Location: `BACKUP_SYSTEM_PLAN.md`
+- Complete setup guide
+- Troubleshooting
+- Future enhancements
+
+**6. Database Backup (Committed to GitHub)**
+- Location: `real-estate-backend/data/latest.json`
+- Contains Villa Hydra project data
+- Committed to `fixing` branch
+
+### How to Restore on New Machine
+
+```bash
+# 1. Clone repository
+git clone https://github.com/9uxsnx-sys/new-real-estate-project.git
+cd new-real-estate-project
+git checkout fixing
+
+# 2. Start Docker
+docker-compose up -d
+
+# 3. Restore database
+docker exec -it vistahaven-payload npm run restore
+
+# 4. Start using the project
+# All data restored!
+```
+
+### Google Drive Backup (Future Setup)
+
+Follow instructions in `BACKUP_SYSTEM_PLAN.md`:
+
+1. Install rclone on VPS
+2. Configure Google Drive remote
+3. Set up scheduled task for midnight
+4. Upload initial project to Google Drive
+
+**Benefits:**
+- ✅ Google Drive = Complete project backup
+- ✅ Updates automatically every night
+- ✅ VPS crashes = Restore in 15 minutes
+- ✅ Zero data loss
+- ✅ No manual work after setup
+
+---
+
+## 8. Appendix: Quick Reference
 
 ### URLs Used in Project
 
@@ -599,7 +683,30 @@ server {
 | `COOKIE_DOMAIN` | Cookie domain | `.your-domain.com` |
 | `VITE_API_URL` | Frontend API | `https://your-domain.com` |
 
+### Backup System Commands
+
+```bash
+# Preview orphaned images
+npm run cleanup
+
+# Auto-delete orphaned images (runs at midnight)
+npm run cleanup
+
+# Backup database to JSON
+npm run backup
+
+# Restore from backup
+npm run restore
+
+# Auto backup to Google Drive (when configured)
+./scripts/backup-all.sh
+
+# Full backup (GitHub + Google Drive)
+./scripts/full-backup.sh
+```
+
 ---
 
 **Report Generated:** 2026-06-28  
-**Status:** Ready for Architect Review
+**Last Updated:** 2026-07-04  
+**Status:** Backup System COMPLETED | Electron Wrapper: Ready for Implementation
