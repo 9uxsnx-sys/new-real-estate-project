@@ -1,0 +1,1376 @@
+{
+  "timestamp": "2026-07-04T11:21:28.839Z",
+  "version": "1.0",
+  "payloadVersion": "3.84.1",
+  "collections": {
+    "users": [
+      {
+        "id": 1,
+        "firstName": "snow",
+        "lastName": "man",
+        "updatedAt": "2026-06-13T11:12:49.628Z",
+        "createdAt": "2026-06-13T11:12:49.627Z",
+        "email": "9ux.snx@gmail.com",
+        "collection": "users"
+      }
+    ],
+    "media": [
+      {
+        "id": 26,
+        "updatedAt": "2026-06-14T12:29:37.081Z",
+        "createdAt": "2026-06-14T12:29:37.081Z",
+        "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606141412_3-2.jpeg",
+        "thumbnailURL": null,
+        "filename": "Penthouse_terrace_view_Mediterra…_202606141412_3-2.jpeg",
+        "mimeType": "image/jpeg",
+        "filesize": 801301,
+        "width": 1376,
+        "height": 768,
+        "focalX": 50,
+        "focalY": 50,
+        "sizes": {
+          "thumbnail": {
+            "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606141412_3-2-400x300.jpg",
+            "width": 400,
+            "height": 300,
+            "mimeType": "image/jpeg",
+            "filesize": 23551,
+            "filename": "Penthouse_terrace_view_Mediterra…_202606141412_3-2-400x300.jpg"
+          },
+          "card": {
+            "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606141412_3-2-768x576.jpg",
+            "width": 768,
+            "height": 576,
+            "mimeType": "image/jpeg",
+            "filesize": 72559,
+            "filename": "Penthouse_terrace_view_Mediterra…_202606141412_3-2-768x576.jpg"
+          },
+          "full": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          }
+        }
+      },
+      {
+        "id": 25,
+        "updatedAt": "2026-06-14T12:29:37.011Z",
+        "createdAt": "2026-06-14T12:29:37.011Z",
+        "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606141412_2-3.jpeg",
+        "thumbnailURL": null,
+        "filename": "Penthouse_terrace_view_Mediterra…_202606141412_2-3.jpeg",
+        "mimeType": "image/jpeg",
+        "filesize": 760280,
+        "width": 1376,
+        "height": 768,
+        "focalX": 50,
+        "focalY": 50,
+        "sizes": {
+          "thumbnail": {
+            "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606141412_2-3-400x300.jpg",
+            "width": 400,
+            "height": 300,
+            "mimeType": "image/jpeg",
+            "filesize": 19554,
+            "filename": "Penthouse_terrace_view_Mediterra…_202606141412_2-3-400x300.jpg"
+          },
+          "card": {
+            "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606141412_2-3-768x576.jpg",
+            "width": 768,
+            "height": 576,
+            "mimeType": "image/jpeg",
+            "filesize": 62572,
+            "filename": "Penthouse_terrace_view_Mediterra…_202606141412_2-3-768x576.jpg"
+          },
+          "full": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          }
+        }
+      },
+      {
+        "id": 24,
+        "updatedAt": "2026-06-14T12:29:36.892Z",
+        "createdAt": "2026-06-14T12:29:36.892Z",
+        "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606141412-3.jpeg",
+        "thumbnailURL": null,
+        "filename": "Penthouse_terrace_view_Mediterra…_202606141412-3.jpeg",
+        "mimeType": "image/jpeg",
+        "filesize": 740329,
+        "width": 1376,
+        "height": 768,
+        "focalX": 50,
+        "focalY": 50,
+        "sizes": {
+          "thumbnail": {
+            "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606141412-3-400x300.jpg",
+            "width": 400,
+            "height": 300,
+            "mimeType": "image/jpeg",
+            "filesize": 16518,
+            "filename": "Penthouse_terrace_view_Mediterra…_202606141412-3-400x300.jpg"
+          },
+          "card": {
+            "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606141412-3-768x576.jpg",
+            "width": 768,
+            "height": 576,
+            "mimeType": "image/jpeg",
+            "filesize": 53307,
+            "filename": "Penthouse_terrace_view_Mediterra…_202606141412-3-768x576.jpg"
+          },
+          "full": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          }
+        }
+      },
+      {
+        "id": 23,
+        "updatedAt": "2026-06-14T12:29:36.808Z",
+        "createdAt": "2026-06-14T12:29:36.808Z",
+        "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606141412-2.jpeg",
+        "thumbnailURL": null,
+        "filename": "Building_corner_detail_Algeria_202606141412-2.jpeg",
+        "mimeType": "image/jpeg",
+        "filesize": 710022,
+        "width": 1376,
+        "height": 768,
+        "focalX": 50,
+        "focalY": 50,
+        "sizes": {
+          "thumbnail": {
+            "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606141412-2-400x300.jpg",
+            "width": 400,
+            "height": 300,
+            "mimeType": "image/jpeg",
+            "filesize": 19895,
+            "filename": "Building_corner_detail_Algeria_202606141412-2-400x300.jpg"
+          },
+          "card": {
+            "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606141412-2-768x576.jpg",
+            "width": 768,
+            "height": 576,
+            "mimeType": "image/jpeg",
+            "filesize": 60896,
+            "filename": "Building_corner_detail_Algeria_202606141412-2-768x576.jpg"
+          },
+          "full": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          }
+        }
+      },
+      {
+        "id": 22,
+        "updatedAt": "2026-06-14T12:19:04.858Z",
+        "createdAt": "2026-06-14T12:19:04.858Z",
+        "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606141412_3-1.jpeg",
+        "thumbnailURL": null,
+        "filename": "Penthouse_terrace_view_Mediterra…_202606141412_3-1.jpeg",
+        "mimeType": "image/jpeg",
+        "filesize": 801301,
+        "width": 1376,
+        "height": 768,
+        "focalX": 50,
+        "focalY": 50,
+        "sizes": {
+          "thumbnail": {
+            "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606141412_3-1-400x300.jpg",
+            "width": 400,
+            "height": 300,
+            "mimeType": "image/jpeg",
+            "filesize": 23551,
+            "filename": "Penthouse_terrace_view_Mediterra…_202606141412_3-1-400x300.jpg"
+          },
+          "card": {
+            "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606141412_3-1-768x576.jpg",
+            "width": 768,
+            "height": 576,
+            "mimeType": "image/jpeg",
+            "filesize": 72559,
+            "filename": "Penthouse_terrace_view_Mediterra…_202606141412_3-1-768x576.jpg"
+          },
+          "full": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          }
+        }
+      },
+      {
+        "id": 21,
+        "updatedAt": "2026-06-14T12:18:55.661Z",
+        "createdAt": "2026-06-14T12:18:55.661Z",
+        "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606141412_2-2.jpeg",
+        "thumbnailURL": null,
+        "filename": "Penthouse_terrace_view_Mediterra…_202606141412_2-2.jpeg",
+        "mimeType": "image/jpeg",
+        "filesize": 760280,
+        "width": 1376,
+        "height": 768,
+        "focalX": 50,
+        "focalY": 50,
+        "sizes": {
+          "thumbnail": {
+            "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606141412_2-2-400x300.jpg",
+            "width": 400,
+            "height": 300,
+            "mimeType": "image/jpeg",
+            "filesize": 19554,
+            "filename": "Penthouse_terrace_view_Mediterra…_202606141412_2-2-400x300.jpg"
+          },
+          "card": {
+            "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606141412_2-2-768x576.jpg",
+            "width": 768,
+            "height": 576,
+            "mimeType": "image/jpeg",
+            "filesize": 62572,
+            "filename": "Penthouse_terrace_view_Mediterra…_202606141412_2-2-768x576.jpg"
+          },
+          "full": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          }
+        }
+      },
+      {
+        "id": 20,
+        "updatedAt": "2026-06-14T12:18:46.798Z",
+        "createdAt": "2026-06-14T12:18:46.798Z",
+        "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606141412-2.jpeg",
+        "thumbnailURL": null,
+        "filename": "Penthouse_terrace_view_Mediterra…_202606141412-2.jpeg",
+        "mimeType": "image/jpeg",
+        "filesize": 740329,
+        "width": 1376,
+        "height": 768,
+        "focalX": 50,
+        "focalY": 50,
+        "sizes": {
+          "thumbnail": {
+            "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606141412-2-400x300.jpg",
+            "width": 400,
+            "height": 300,
+            "mimeType": "image/jpeg",
+            "filesize": 16518,
+            "filename": "Penthouse_terrace_view_Mediterra…_202606141412-2-400x300.jpg"
+          },
+          "card": {
+            "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606141412-2-768x576.jpg",
+            "width": 768,
+            "height": 576,
+            "mimeType": "image/jpeg",
+            "filesize": 53307,
+            "filename": "Penthouse_terrace_view_Mediterra…_202606141412-2-768x576.jpg"
+          },
+          "full": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          }
+        }
+      },
+      {
+        "id": 19,
+        "updatedAt": "2026-06-14T12:18:38.507Z",
+        "createdAt": "2026-06-14T12:18:38.507Z",
+        "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606141412-1.jpeg",
+        "thumbnailURL": null,
+        "filename": "Building_corner_detail_Algeria_202606141412-1.jpeg",
+        "mimeType": "image/jpeg",
+        "filesize": 710022,
+        "width": 1376,
+        "height": 768,
+        "focalX": 50,
+        "focalY": 50,
+        "sizes": {
+          "thumbnail": {
+            "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606141412-1-400x300.jpg",
+            "width": 400,
+            "height": 300,
+            "mimeType": "image/jpeg",
+            "filesize": 19895,
+            "filename": "Building_corner_detail_Algeria_202606141412-1-400x300.jpg"
+          },
+          "card": {
+            "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606141412-1-768x576.jpg",
+            "width": 768,
+            "height": 576,
+            "mimeType": "image/jpeg",
+            "filesize": 60896,
+            "filename": "Building_corner_detail_Algeria_202606141412-1-768x576.jpg"
+          },
+          "full": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          }
+        }
+      },
+      {
+        "id": 18,
+        "updatedAt": "2026-06-14T12:14:51.459Z",
+        "createdAt": "2026-06-14T12:14:51.459Z",
+        "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606141412-1.jpeg",
+        "thumbnailURL": null,
+        "filename": "Penthouse_terrace_view_Mediterra…_202606141412-1.jpeg",
+        "mimeType": "image/jpeg",
+        "filesize": 740329,
+        "width": 1376,
+        "height": 768,
+        "focalX": 50,
+        "focalY": 50,
+        "sizes": {
+          "thumbnail": {
+            "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606141412-1-400x300.jpg",
+            "width": 400,
+            "height": 300,
+            "mimeType": "image/jpeg",
+            "filesize": 16518,
+            "filename": "Penthouse_terrace_view_Mediterra…_202606141412-1-400x300.jpg"
+          },
+          "card": {
+            "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606141412-1-768x576.jpg",
+            "width": 768,
+            "height": 576,
+            "mimeType": "image/jpeg",
+            "filesize": 53307,
+            "filename": "Penthouse_terrace_view_Mediterra…_202606141412-1-768x576.jpg"
+          },
+          "full": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          }
+        }
+      },
+      {
+        "id": 17,
+        "updatedAt": "2026-06-14T12:13:14.043Z",
+        "createdAt": "2026-06-14T12:13:14.042Z",
+        "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606141412_2-1.jpeg",
+        "thumbnailURL": null,
+        "filename": "Penthouse_terrace_view_Mediterra…_202606141412_2-1.jpeg",
+        "mimeType": "image/jpeg",
+        "filesize": 760280,
+        "width": 1376,
+        "height": 768,
+        "focalX": 50,
+        "focalY": 50,
+        "sizes": {
+          "thumbnail": {
+            "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606141412_2-1-400x300.jpg",
+            "width": 400,
+            "height": 300,
+            "mimeType": "image/jpeg",
+            "filesize": 19554,
+            "filename": "Penthouse_terrace_view_Mediterra…_202606141412_2-1-400x300.jpg"
+          },
+          "card": {
+            "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606141412_2-1-768x576.jpg",
+            "width": 768,
+            "height": 576,
+            "mimeType": "image/jpeg",
+            "filesize": 62572,
+            "filename": "Penthouse_terrace_view_Mediterra…_202606141412_2-1-768x576.jpg"
+          },
+          "full": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          }
+        }
+      },
+      {
+        "id": 16,
+        "updatedAt": "2026-06-14T12:13:00.884Z",
+        "createdAt": "2026-06-14T12:13:00.884Z",
+        "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606141412_3.jpeg",
+        "thumbnailURL": null,
+        "filename": "Penthouse_terrace_view_Mediterra…_202606141412_3.jpeg",
+        "mimeType": "image/jpeg",
+        "filesize": 801301,
+        "width": 1376,
+        "height": 768,
+        "focalX": 50,
+        "focalY": 50,
+        "sizes": {
+          "thumbnail": {
+            "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606141412_3-400x300.jpg",
+            "width": 400,
+            "height": 300,
+            "mimeType": "image/jpeg",
+            "filesize": 23551,
+            "filename": "Penthouse_terrace_view_Mediterra…_202606141412_3-400x300.jpg"
+          },
+          "card": {
+            "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606141412_3-768x576.jpg",
+            "width": 768,
+            "height": 576,
+            "mimeType": "image/jpeg",
+            "filesize": 72559,
+            "filename": "Penthouse_terrace_view_Mediterra…_202606141412_3-768x576.jpg"
+          },
+          "full": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          }
+        }
+      },
+      {
+        "id": 15,
+        "updatedAt": "2026-06-14T12:13:00.772Z",
+        "createdAt": "2026-06-14T12:13:00.772Z",
+        "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606141412_2.jpeg",
+        "thumbnailURL": null,
+        "filename": "Penthouse_terrace_view_Mediterra…_202606141412_2.jpeg",
+        "mimeType": "image/jpeg",
+        "filesize": 760280,
+        "width": 1376,
+        "height": 768,
+        "focalX": 50,
+        "focalY": 50,
+        "sizes": {
+          "thumbnail": {
+            "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606141412_2-400x300.jpg",
+            "width": 400,
+            "height": 300,
+            "mimeType": "image/jpeg",
+            "filesize": 19554,
+            "filename": "Penthouse_terrace_view_Mediterra…_202606141412_2-400x300.jpg"
+          },
+          "card": {
+            "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606141412_2-768x576.jpg",
+            "width": 768,
+            "height": 576,
+            "mimeType": "image/jpeg",
+            "filesize": 62572,
+            "filename": "Penthouse_terrace_view_Mediterra…_202606141412_2-768x576.jpg"
+          },
+          "full": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          }
+        }
+      },
+      {
+        "id": 14,
+        "updatedAt": "2026-06-14T12:13:00.649Z",
+        "createdAt": "2026-06-14T12:13:00.649Z",
+        "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606141412.jpeg",
+        "thumbnailURL": null,
+        "filename": "Penthouse_terrace_view_Mediterra…_202606141412.jpeg",
+        "mimeType": "image/jpeg",
+        "filesize": 740329,
+        "width": 1376,
+        "height": 768,
+        "focalX": 50,
+        "focalY": 50,
+        "sizes": {
+          "thumbnail": {
+            "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606141412-400x300.jpg",
+            "width": 400,
+            "height": 300,
+            "mimeType": "image/jpeg",
+            "filesize": 16518,
+            "filename": "Penthouse_terrace_view_Mediterra…_202606141412-400x300.jpg"
+          },
+          "card": {
+            "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606141412-768x576.jpg",
+            "width": 768,
+            "height": 576,
+            "mimeType": "image/jpeg",
+            "filesize": 53307,
+            "filename": "Penthouse_terrace_view_Mediterra…_202606141412-768x576.jpg"
+          },
+          "full": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          }
+        }
+      },
+      {
+        "id": 13,
+        "updatedAt": "2026-06-14T12:13:00.550Z",
+        "createdAt": "2026-06-14T12:13:00.550Z",
+        "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606141412.jpeg",
+        "thumbnailURL": null,
+        "filename": "Building_corner_detail_Algeria_202606141412.jpeg",
+        "mimeType": "image/jpeg",
+        "filesize": 710022,
+        "width": 1376,
+        "height": 768,
+        "focalX": 50,
+        "focalY": 50,
+        "sizes": {
+          "thumbnail": {
+            "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606141412-400x300.jpg",
+            "width": 400,
+            "height": 300,
+            "mimeType": "image/jpeg",
+            "filesize": 19895,
+            "filename": "Building_corner_detail_Algeria_202606141412-400x300.jpg"
+          },
+          "card": {
+            "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606141412-768x576.jpg",
+            "width": 768,
+            "height": 576,
+            "mimeType": "image/jpeg",
+            "filesize": 60896,
+            "filename": "Building_corner_detail_Algeria_202606141412-768x576.jpg"
+          },
+          "full": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          }
+        }
+      },
+      {
+        "id": 12,
+        "updatedAt": "2026-06-14T08:17:32.682Z",
+        "createdAt": "2026-06-14T08:17:32.682Z",
+        "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606140944_2-2.jpeg",
+        "thumbnailURL": null,
+        "filename": "Building_corner_detail_Algeria_202606140944_2-2.jpeg",
+        "mimeType": "image/jpeg",
+        "filesize": 667433,
+        "width": 1376,
+        "height": 768,
+        "focalX": 50,
+        "focalY": 50,
+        "sizes": {
+          "thumbnail": {
+            "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606140944_2-2-400x300.jpg",
+            "width": 400,
+            "height": 300,
+            "mimeType": "image/jpeg",
+            "filesize": 15635,
+            "filename": "Building_corner_detail_Algeria_202606140944_2-2-400x300.jpg"
+          },
+          "card": {
+            "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606140944_2-2-768x576.jpg",
+            "width": 768,
+            "height": 576,
+            "mimeType": "image/jpeg",
+            "filesize": 48711,
+            "filename": "Building_corner_detail_Algeria_202606140944_2-2-768x576.jpg"
+          },
+          "full": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          }
+        }
+      },
+      {
+        "id": 11,
+        "updatedAt": "2026-06-14T08:17:17.880Z",
+        "createdAt": "2026-06-14T08:17:17.880Z",
+        "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606140944_3-2.jpeg",
+        "thumbnailURL": null,
+        "filename": "Building_corner_detail_Algeria_202606140944_3-2.jpeg",
+        "mimeType": "image/jpeg",
+        "filesize": 710022,
+        "width": 1376,
+        "height": 768,
+        "focalX": 50,
+        "focalY": 50,
+        "sizes": {
+          "thumbnail": {
+            "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606140944_3-2-400x300.jpg",
+            "width": 400,
+            "height": 300,
+            "mimeType": "image/jpeg",
+            "filesize": 19895,
+            "filename": "Building_corner_detail_Algeria_202606140944_3-2-400x300.jpg"
+          },
+          "card": {
+            "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606140944_3-2-768x576.jpg",
+            "width": 768,
+            "height": 576,
+            "mimeType": "image/jpeg",
+            "filesize": 60896,
+            "filename": "Building_corner_detail_Algeria_202606140944_3-2-768x576.jpg"
+          },
+          "full": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          }
+        }
+      },
+      {
+        "id": 10,
+        "updatedAt": "2026-06-14T08:17:07.097Z",
+        "createdAt": "2026-06-14T08:17:07.097Z",
+        "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606140944-2.jpeg",
+        "thumbnailURL": null,
+        "filename": "Penthouse_terrace_view_Mediterra…_202606140944-2.jpeg",
+        "mimeType": "image/jpeg",
+        "filesize": 801301,
+        "width": 1376,
+        "height": 768,
+        "focalX": 50,
+        "focalY": 50,
+        "sizes": {
+          "thumbnail": {
+            "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606140944-2-400x300.jpg",
+            "width": 400,
+            "height": 300,
+            "mimeType": "image/jpeg",
+            "filesize": 23551,
+            "filename": "Penthouse_terrace_view_Mediterra…_202606140944-2-400x300.jpg"
+          },
+          "card": {
+            "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606140944-2-768x576.jpg",
+            "width": 768,
+            "height": 576,
+            "mimeType": "image/jpeg",
+            "filesize": 72559,
+            "filename": "Penthouse_terrace_view_Mediterra…_202606140944-2-768x576.jpg"
+          },
+          "full": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          }
+        }
+      },
+      {
+        "id": 9,
+        "updatedAt": "2026-06-14T08:16:55.826Z",
+        "createdAt": "2026-06-14T08:16:55.826Z",
+        "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606140944-2.jpeg",
+        "thumbnailURL": null,
+        "filename": "Building_corner_detail_Algeria_202606140944-2.jpeg",
+        "mimeType": "image/jpeg",
+        "filesize": 725226,
+        "width": 1376,
+        "height": 768,
+        "focalX": 50,
+        "focalY": 50,
+        "sizes": {
+          "thumbnail": {
+            "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606140944-2-400x300.jpg",
+            "width": 400,
+            "height": 300,
+            "mimeType": "image/jpeg",
+            "filesize": 16847,
+            "filename": "Building_corner_detail_Algeria_202606140944-2-400x300.jpg"
+          },
+          "card": {
+            "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606140944-2-768x576.jpg",
+            "width": 768,
+            "height": 576,
+            "mimeType": "image/jpeg",
+            "filesize": 55007,
+            "filename": "Building_corner_detail_Algeria_202606140944-2-768x576.jpg"
+          },
+          "full": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          }
+        }
+      },
+      {
+        "id": 8,
+        "updatedAt": "2026-06-14T07:46:34.595Z",
+        "createdAt": "2026-06-14T07:46:34.595Z",
+        "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606140944-1.jpeg",
+        "thumbnailURL": null,
+        "filename": "Penthouse_terrace_view_Mediterra…_202606140944-1.jpeg",
+        "mimeType": "image/jpeg",
+        "filesize": 801301,
+        "width": 1376,
+        "height": 768,
+        "focalX": 50,
+        "focalY": 50,
+        "sizes": {
+          "thumbnail": {
+            "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606140944-1-400x300.jpg",
+            "width": 400,
+            "height": 300,
+            "mimeType": "image/jpeg",
+            "filesize": 23551,
+            "filename": "Penthouse_terrace_view_Mediterra…_202606140944-1-400x300.jpg"
+          },
+          "card": {
+            "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606140944-1-768x576.jpg",
+            "width": 768,
+            "height": 576,
+            "mimeType": "image/jpeg",
+            "filesize": 72559,
+            "filename": "Penthouse_terrace_view_Mediterra…_202606140944-1-768x576.jpg"
+          },
+          "full": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          }
+        }
+      },
+      {
+        "id": 7,
+        "updatedAt": "2026-06-14T07:46:34.525Z",
+        "createdAt": "2026-06-14T07:46:34.525Z",
+        "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606140944_3-1.jpeg",
+        "thumbnailURL": null,
+        "filename": "Building_corner_detail_Algeria_202606140944_3-1.jpeg",
+        "mimeType": "image/jpeg",
+        "filesize": 710022,
+        "width": 1376,
+        "height": 768,
+        "focalX": 50,
+        "focalY": 50,
+        "sizes": {
+          "thumbnail": {
+            "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606140944_3-1-400x300.jpg",
+            "width": 400,
+            "height": 300,
+            "mimeType": "image/jpeg",
+            "filesize": 19895,
+            "filename": "Building_corner_detail_Algeria_202606140944_3-1-400x300.jpg"
+          },
+          "card": {
+            "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606140944_3-1-768x576.jpg",
+            "width": 768,
+            "height": 576,
+            "mimeType": "image/jpeg",
+            "filesize": 60896,
+            "filename": "Building_corner_detail_Algeria_202606140944_3-1-768x576.jpg"
+          },
+          "full": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          }
+        }
+      },
+      {
+        "id": 6,
+        "updatedAt": "2026-06-14T07:46:34.420Z",
+        "createdAt": "2026-06-14T07:46:34.420Z",
+        "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606140944_2-1.jpeg",
+        "thumbnailURL": null,
+        "filename": "Building_corner_detail_Algeria_202606140944_2-1.jpeg",
+        "mimeType": "image/jpeg",
+        "filesize": 667433,
+        "width": 1376,
+        "height": 768,
+        "focalX": 50,
+        "focalY": 50,
+        "sizes": {
+          "thumbnail": {
+            "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606140944_2-1-400x300.jpg",
+            "width": 400,
+            "height": 300,
+            "mimeType": "image/jpeg",
+            "filesize": 15635,
+            "filename": "Building_corner_detail_Algeria_202606140944_2-1-400x300.jpg"
+          },
+          "card": {
+            "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606140944_2-1-768x576.jpg",
+            "width": 768,
+            "height": 576,
+            "mimeType": "image/jpeg",
+            "filesize": 48711,
+            "filename": "Building_corner_detail_Algeria_202606140944_2-1-768x576.jpg"
+          },
+          "full": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          }
+        }
+      },
+      {
+        "id": 5,
+        "updatedAt": "2026-06-14T07:46:34.313Z",
+        "createdAt": "2026-06-14T07:46:34.313Z",
+        "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606140944-1.jpeg",
+        "thumbnailURL": null,
+        "filename": "Building_corner_detail_Algeria_202606140944-1.jpeg",
+        "mimeType": "image/jpeg",
+        "filesize": 725226,
+        "width": 1376,
+        "height": 768,
+        "focalX": 50,
+        "focalY": 50,
+        "sizes": {
+          "thumbnail": {
+            "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606140944-1-400x300.jpg",
+            "width": 400,
+            "height": 300,
+            "mimeType": "image/jpeg",
+            "filesize": 16847,
+            "filename": "Building_corner_detail_Algeria_202606140944-1-400x300.jpg"
+          },
+          "card": {
+            "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606140944-1-768x576.jpg",
+            "width": 768,
+            "height": 576,
+            "mimeType": "image/jpeg",
+            "filesize": 55007,
+            "filename": "Building_corner_detail_Algeria_202606140944-1-768x576.jpg"
+          },
+          "full": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          }
+        }
+      },
+      {
+        "id": 4,
+        "updatedAt": "2026-06-14T07:45:24.279Z",
+        "createdAt": "2026-06-14T07:45:24.279Z",
+        "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606140944.jpeg",
+        "thumbnailURL": null,
+        "filename": "Penthouse_terrace_view_Mediterra…_202606140944.jpeg",
+        "mimeType": "image/jpeg",
+        "filesize": 801301,
+        "width": 1376,
+        "height": 768,
+        "focalX": 50,
+        "focalY": 50,
+        "sizes": {
+          "thumbnail": {
+            "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606140944-400x300.jpg",
+            "width": 400,
+            "height": 300,
+            "mimeType": "image/jpeg",
+            "filesize": 23551,
+            "filename": "Penthouse_terrace_view_Mediterra…_202606140944-400x300.jpg"
+          },
+          "card": {
+            "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606140944-768x576.jpg",
+            "width": 768,
+            "height": 576,
+            "mimeType": "image/jpeg",
+            "filesize": 72559,
+            "filename": "Penthouse_terrace_view_Mediterra…_202606140944-768x576.jpg"
+          },
+          "full": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          }
+        }
+      },
+      {
+        "id": 3,
+        "updatedAt": "2026-06-14T07:45:24.181Z",
+        "createdAt": "2026-06-14T07:45:24.181Z",
+        "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606140944_3.jpeg",
+        "thumbnailURL": null,
+        "filename": "Building_corner_detail_Algeria_202606140944_3.jpeg",
+        "mimeType": "image/jpeg",
+        "filesize": 710022,
+        "width": 1376,
+        "height": 768,
+        "focalX": 50,
+        "focalY": 50,
+        "sizes": {
+          "thumbnail": {
+            "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606140944_3-400x300.jpg",
+            "width": 400,
+            "height": 300,
+            "mimeType": "image/jpeg",
+            "filesize": 19895,
+            "filename": "Building_corner_detail_Algeria_202606140944_3-400x300.jpg"
+          },
+          "card": {
+            "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606140944_3-768x576.jpg",
+            "width": 768,
+            "height": 576,
+            "mimeType": "image/jpeg",
+            "filesize": 60896,
+            "filename": "Building_corner_detail_Algeria_202606140944_3-768x576.jpg"
+          },
+          "full": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          }
+        }
+      },
+      {
+        "id": 2,
+        "updatedAt": "2026-06-14T07:45:24.113Z",
+        "createdAt": "2026-06-14T07:45:24.113Z",
+        "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606140944_2.jpeg",
+        "thumbnailURL": null,
+        "filename": "Building_corner_detail_Algeria_202606140944_2.jpeg",
+        "mimeType": "image/jpeg",
+        "filesize": 667433,
+        "width": 1376,
+        "height": 768,
+        "focalX": 50,
+        "focalY": 50,
+        "sizes": {
+          "thumbnail": {
+            "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606140944_2-400x300.jpg",
+            "width": 400,
+            "height": 300,
+            "mimeType": "image/jpeg",
+            "filesize": 15635,
+            "filename": "Building_corner_detail_Algeria_202606140944_2-400x300.jpg"
+          },
+          "card": {
+            "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606140944_2-768x576.jpg",
+            "width": 768,
+            "height": 576,
+            "mimeType": "image/jpeg",
+            "filesize": 48711,
+            "filename": "Building_corner_detail_Algeria_202606140944_2-768x576.jpg"
+          },
+          "full": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          }
+        }
+      },
+      {
+        "id": 1,
+        "updatedAt": "2026-06-14T07:45:23.978Z",
+        "createdAt": "2026-06-14T07:45:23.977Z",
+        "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606140944.jpeg",
+        "thumbnailURL": null,
+        "filename": "Building_corner_detail_Algeria_202606140944.jpeg",
+        "mimeType": "image/jpeg",
+        "filesize": 725226,
+        "width": 1376,
+        "height": 768,
+        "focalX": 50,
+        "focalY": 50,
+        "sizes": {
+          "thumbnail": {
+            "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606140944-400x300.jpg",
+            "width": 400,
+            "height": 300,
+            "mimeType": "image/jpeg",
+            "filesize": 16847,
+            "filename": "Building_corner_detail_Algeria_202606140944-400x300.jpg"
+          },
+          "card": {
+            "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606140944-768x576.jpg",
+            "width": 768,
+            "height": 576,
+            "mimeType": "image/jpeg",
+            "filesize": 55007,
+            "filename": "Building_corner_detail_Algeria_202606140944-768x576.jpg"
+          },
+          "full": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          }
+        }
+      }
+    ],
+    "features": [],
+    "projects": [
+      {
+        "id": 1,
+        "name": "Villa Hydra Luxury Residences",
+        "slug": "villa-hydra-residences",
+        "short_description": "Premium residential complex of 150 apartments in Hydra, Algiers' most prestigious neighborhood",
+        "description": "Villa Hydra Luxury Residences represents the pinnacle of modern Algerian living. This exceptional development offers 150 premium apartments ranging from 85m² to 220m², thoughtfully designed to meet the needs of discerning families seeking the ultimate in comfort and sophistication.\n\nThe development features three interconnected buildings surrounding a landscaped courtyard, each offering breathtaking views of the Bay of Algiers. Every residence combines contemporary architecture with subtle Mediterranean influences, creating spaces that are both elegant and functional.\n\nResidents enjoy access to premium amenities including a state-of-the-art fitness center, children's play area, underground parking for 300 vehicles, and 24/7 concierge services. The location in Hydra places you within minutes of international schools, healthcare facilities, and the city center.",
+        "city": "Algiers",
+        "place": "Hydra",
+        "google_map": null,
+        "status": "active",
+        "first_image": null,
+        "second_image": null,
+        "gallery": [],
+        "features": [
+          {
+            "id": "6a2d3ba13de8e19575ae0f25",
+            "name": "Communal pool"
+          },
+          {
+            "id": "6a44ea80123f2818016bbab9",
+            "name": "Fitness center"
+          },
+          {
+            "id": "6a44ea8c123f2818016bbabb",
+            "name": "Underground parking"
+          },
+          {
+            "id": "6a44ea8f123f2818016bbabd",
+            "name": "24/7 security"
+          },
+          {
+            "id": "6a44ea8f123f2818016bbabf",
+            "name": "Concierge services"
+          },
+          {
+            "id": "6a44ea90123f2818016bbac1",
+            "name": "Children's play area"
+          },
+          {
+            "id": "6a44ea91123f2818016bbac3",
+            "name": "Landscaped garden"
+          },
+          {
+            "id": "6a44eab7123f2818016bbac5",
+            "name": "Bay views"
+          }
+        ],
+        "custom_sections": [],
+        "updatedAt": "2026-07-01T10:31:00.750Z",
+        "createdAt": "2026-06-13T11:15:06.065Z"
+      }
+    ],
+    "properties": [
+      {
+        "id": 1,
+        "property_code": "aprt-001",
+        "project": {
+          "id": 1,
+          "name": "Villa Hydra Luxury Residences",
+          "slug": "villa-hydra-residences",
+          "short_description": "Premium residential complex of 150 apartments in Hydra, Algiers' most prestigious neighborhood",
+          "description": "Villa Hydra Luxury Residences represents the pinnacle of modern Algerian living. This exceptional development offers 150 premium apartments ranging from 85m² to 220m², thoughtfully designed to meet the needs of discerning families seeking the ultimate in comfort and sophistication.\n\nThe development features three interconnected buildings surrounding a landscaped courtyard, each offering breathtaking views of the Bay of Algiers. Every residence combines contemporary architecture with subtle Mediterranean influences, creating spaces that are both elegant and functional.\n\nResidents enjoy access to premium amenities including a state-of-the-art fitness center, children's play area, underground parking for 300 vehicles, and 24/7 concierge services. The location in Hydra places you within minutes of international schools, healthcare facilities, and the city center.",
+          "city": "Algiers",
+          "place": "Hydra",
+          "google_map": null,
+          "status": "active",
+          "first_image": null,
+          "second_image": null,
+          "gallery": [],
+          "features": [
+            {
+              "id": "6a2d3ba13de8e19575ae0f25",
+              "name": "Communal pool"
+            },
+            {
+              "id": "6a44ea80123f2818016bbab9",
+              "name": "Fitness center"
+            },
+            {
+              "id": "6a44ea8c123f2818016bbabb",
+              "name": "Underground parking"
+            },
+            {
+              "id": "6a44ea8f123f2818016bbabd",
+              "name": "24/7 security"
+            },
+            {
+              "id": "6a44ea8f123f2818016bbabf",
+              "name": "Concierge services"
+            },
+            {
+              "id": "6a44ea90123f2818016bbac1",
+              "name": "Children's play area"
+            },
+            {
+              "id": "6a44ea91123f2818016bbac3",
+              "name": "Landscaped garden"
+            },
+            {
+              "id": "6a44eab7123f2818016bbac5",
+              "name": "Bay views"
+            }
+          ],
+          "custom_sections": [],
+          "updatedAt": "2026-07-01T10:31:00.750Z",
+          "createdAt": "2026-06-13T11:15:06.065Z"
+        },
+        "area": "hydra",
+        "city": "algeria",
+        "price": 1000000,
+        "property_type": "f2",
+        "space_sqm": 200,
+        "beds": 2,
+        "baths": 5,
+        "description": "dla3a banana tchina",
+        "status": "published",
+        "image": null,
+        "gallery": [
+          {
+            "id": 1,
+            "updatedAt": "2026-06-14T07:45:23.978Z",
+            "createdAt": "2026-06-14T07:45:23.977Z",
+            "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606140944.jpeg",
+            "thumbnailURL": null,
+            "filename": "Building_corner_detail_Algeria_202606140944.jpeg",
+            "mimeType": "image/jpeg",
+            "filesize": 725226,
+            "width": 1376,
+            "height": 768,
+            "focalX": 50,
+            "focalY": 50,
+            "sizes": {
+              "thumbnail": {
+                "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606140944-400x300.jpg",
+                "width": 400,
+                "height": 300,
+                "mimeType": "image/jpeg",
+                "filesize": 16847,
+                "filename": "Building_corner_detail_Algeria_202606140944-400x300.jpg"
+              },
+              "card": {
+                "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606140944-768x576.jpg",
+                "width": 768,
+                "height": 576,
+                "mimeType": "image/jpeg",
+                "filesize": 55007,
+                "filename": "Building_corner_detail_Algeria_202606140944-768x576.jpg"
+              },
+              "full": {
+                "url": null,
+                "width": null,
+                "height": null,
+                "mimeType": null,
+                "filesize": null,
+                "filename": null
+              }
+            }
+          },
+          {
+            "id": 2,
+            "updatedAt": "2026-06-14T07:45:24.113Z",
+            "createdAt": "2026-06-14T07:45:24.113Z",
+            "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606140944_2.jpeg",
+            "thumbnailURL": null,
+            "filename": "Building_corner_detail_Algeria_202606140944_2.jpeg",
+            "mimeType": "image/jpeg",
+            "filesize": 667433,
+            "width": 1376,
+            "height": 768,
+            "focalX": 50,
+            "focalY": 50,
+            "sizes": {
+              "thumbnail": {
+                "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606140944_2-400x300.jpg",
+                "width": 400,
+                "height": 300,
+                "mimeType": "image/jpeg",
+                "filesize": 15635,
+                "filename": "Building_corner_detail_Algeria_202606140944_2-400x300.jpg"
+              },
+              "card": {
+                "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606140944_2-768x576.jpg",
+                "width": 768,
+                "height": 576,
+                "mimeType": "image/jpeg",
+                "filesize": 48711,
+                "filename": "Building_corner_detail_Algeria_202606140944_2-768x576.jpg"
+              },
+              "full": {
+                "url": null,
+                "width": null,
+                "height": null,
+                "mimeType": null,
+                "filesize": null,
+                "filename": null
+              }
+            }
+          },
+          {
+            "id": 3,
+            "updatedAt": "2026-06-14T07:45:24.181Z",
+            "createdAt": "2026-06-14T07:45:24.181Z",
+            "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606140944_3.jpeg",
+            "thumbnailURL": null,
+            "filename": "Building_corner_detail_Algeria_202606140944_3.jpeg",
+            "mimeType": "image/jpeg",
+            "filesize": 710022,
+            "width": 1376,
+            "height": 768,
+            "focalX": 50,
+            "focalY": 50,
+            "sizes": {
+              "thumbnail": {
+                "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606140944_3-400x300.jpg",
+                "width": 400,
+                "height": 300,
+                "mimeType": "image/jpeg",
+                "filesize": 19895,
+                "filename": "Building_corner_detail_Algeria_202606140944_3-400x300.jpg"
+              },
+              "card": {
+                "url": "http://localhost:3010/api/media/file/Building_corner_detail_Algeria_202606140944_3-768x576.jpg",
+                "width": 768,
+                "height": 576,
+                "mimeType": "image/jpeg",
+                "filesize": 60896,
+                "filename": "Building_corner_detail_Algeria_202606140944_3-768x576.jpg"
+              },
+              "full": {
+                "url": null,
+                "width": null,
+                "height": null,
+                "mimeType": null,
+                "filesize": null,
+                "filename": null
+              }
+            }
+          },
+          {
+            "id": 4,
+            "updatedAt": "2026-06-14T07:45:24.279Z",
+            "createdAt": "2026-06-14T07:45:24.279Z",
+            "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606140944.jpeg",
+            "thumbnailURL": null,
+            "filename": "Penthouse_terrace_view_Mediterra…_202606140944.jpeg",
+            "mimeType": "image/jpeg",
+            "filesize": 801301,
+            "width": 1376,
+            "height": 768,
+            "focalX": 50,
+            "focalY": 50,
+            "sizes": {
+              "thumbnail": {
+                "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606140944-400x300.jpg",
+                "width": 400,
+                "height": 300,
+                "mimeType": "image/jpeg",
+                "filesize": 23551,
+                "filename": "Penthouse_terrace_view_Mediterra…_202606140944-400x300.jpg"
+              },
+              "card": {
+                "url": "http://localhost:3010/api/media/file/Penthouse_terrace_view_Mediterra%E2%80%A6_202606140944-768x576.jpg",
+                "width": 768,
+                "height": 576,
+                "mimeType": "image/jpeg",
+                "filesize": 72559,
+                "filename": "Penthouse_terrace_view_Mediterra…_202606140944-768x576.jpg"
+              },
+              "full": {
+                "url": null,
+                "width": null,
+                "height": null,
+                "mimeType": null,
+                "filesize": null,
+                "filename": null
+              }
+            }
+          }
+        ],
+        "features": [
+          {
+            "id": "6a2d5190db0eaf28ff9ec9a7",
+            "name": "hydraaaaaaaaaaaaaaa testttt "
+          }
+        ],
+        "updatedAt": "2026-06-14T07:46:11.612Z",
+        "createdAt": "2026-06-13T12:48:20.923Z"
+      }
+    ],
+    "contact": [
+      {
+        "id": 1,
+        "phone": "0253621542",
+        "whatsappURL": "https://www.youtube.com",
+        "address": null,
+        "email": null,
+        "facebookURL": "",
+        "instagramURL": "",
+        "tiktokURL": "",
+        "updatedAt": "2026-06-14T08:44:11.475Z",
+        "createdAt": "2026-06-13T12:11:22.465Z"
+      }
+    ]
+  },
+  "stats": {
+    "totalItems": 30,
+    "byCollection": {
+      "users": 1,
+      "media": 26,
+      "features": 0,
+      "projects": 1,
+      "properties": 1,
+      "contact": 1
+    }
+  }
+}

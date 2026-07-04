@@ -1,0 +1,11 @@
+# Data Backup Folder
+# This folder contains JSON backups of your database
+# Commit this to git to preserve your data across machines/VPS
+
+# Keep this folder in git (do not remove the !)
+!.gitkeep
+
+# Ignore large backup files (keep only latest.json and dated backups)
+# Uncomment the following if you want to save space
+# *.tar.gz
+# backup-*.json
