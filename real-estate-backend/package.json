@@ -7,7 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "seed": "npx tsx src/seed/villa-hydra.ts"
+    "seed": "npx tsx src/seed/villa-hydra.ts",
+    "backup": "npx tsx src/scripts/backup.ts",
+    "restore": "npx tsx src/scripts/restore.ts",
+    "cleanup": "npx tsx src/scripts/cleanup.ts --preview"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "^3.84.1",
